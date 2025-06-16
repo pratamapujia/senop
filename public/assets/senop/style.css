@@ -1044,6 +1044,11 @@ h6 {
     .agenda .agenda-image {
         display: none;
     }
+
+    .agenda .agenda-title {
+        padding-bottom: 0;
+        margin-bottom: 10px;
+    }
 }
 
 .agenda .agenda-content {
@@ -1204,11 +1209,11 @@ h6 {
 # Galeri Section
 --------------------------------------------------------------*/
 .galeri .galeri-item .card {
-    border-radius: 20px;
+    border-radius: 10px;
     background: none;
+    height: 250px;
     border: none;
     overflow: hidden;
-    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -1218,8 +1223,10 @@ h6 {
 }
 
 .galeri .galeri-item .card .card-img-top {
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    height: 180px;
+    object-fit: cover;
 }
 
 .galeri .galeri-item .card .card-body p {
@@ -1392,7 +1399,7 @@ h6 {
 
 .partners .partners-track {
     display: flex;
-    width: fit-content;
+    width: 200%;
     animation-duration: 30s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
