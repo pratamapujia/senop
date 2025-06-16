@@ -169,7 +169,7 @@
 
     {{-- Agenda --}}
     <section id="agenda" class="agenda light-background">
-      <div class="container py-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="container py-2" data-aos="fade-up" data-aos-delay="100">
         <div class="row">
           <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
             <div class="agenda-title">
@@ -243,15 +243,15 @@
       <div class="container pb-5" data-aos="zoom-in" data-aos-delay="200">
         <div class="galeri-item">
           <div class="row align-items-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/9.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
-                  <p class="card-text text-center">Pentas Seni dalam rangka HUT Senopati</p>
+                  <p class="card-text text-center">Pentas Seni HUT Senopati</p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/8.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -259,7 +259,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/7.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -267,7 +267,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/1.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -275,7 +275,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/2.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -283,7 +283,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/3.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -291,7 +291,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/4.jpg') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -299,7 +299,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
                 <img src="{{ asset('assets/senop/img/galeri/5.JPG') }}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -400,130 +400,6 @@
             </div>
           </div>
           <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </section>
-
-    {{-- Partners --}}
-    <section id="partners" class="partners section-partners">
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-        <div class="partners-slider">
-          <div class="partners-track track-1" data-aos="fade-right" data-aos-delay="200">
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/1.png') }}" class="img-fluid" alt="Partners 1">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/2.png') }}" class="img-fluid" alt="Partners 2">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/3.png') }}" class="img-fluid" alt="Partners 3">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/4.png') }}" class="img-fluid" alt="Partners 4">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/5.png') }}" class="img-fluid" alt="Partners 5">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/6.png') }}" class="img-fluid" alt="Partners 6">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/7.png') }}" class="img-fluid" alt="Partners 7">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/8.png') }}" class="img-fluid" alt="Partners 8">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/9.png') }}" class="img-fluid" alt="Partners 9">
-            </div>
-
-            {{-- Duplikat untuk looping --}}
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/1.png') }}" class="img-fluid" alt="Partners 1">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/2.png') }}" class="img-fluid" alt="Partners 2">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/3.png') }}" class="img-fluid" alt="Partners 3">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/4.png') }}" class="img-fluid" alt="Partners 4">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/5.png') }}" class="img-fluid" alt="Partners 5">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/6.png') }}" class="img-fluid" alt="Partners 6">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/7.png') }}" class="img-fluid" alt="Partners 7">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/8.png') }}" class="img-fluid" alt="Partners 8">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/9.png') }}" class="img-fluid" alt="Partners 9">
-            </div>
-          </div>
-          <div class="partners-track track-2" data-aos="fade-left" data-aos-delay="300">
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/10.png') }}" class="img-fluid" alt="Partners 10">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/11.png') }}" class="img-fluid" alt="Partners 11">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/12.png') }}" class="img-fluid" alt="Partners 12">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/13.png') }}" class="img-fluid" alt="Partners 13">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/14.png') }}" class="img-fluid" alt="Partners 14">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/15.png') }}" class="img-fluid" alt="Partners 15">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/16.png') }}" class="img-fluid" alt="Partners 16">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/17.png') }}" class="img-fluid" alt="Partners 17">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/18.png') }}" class="img-fluid" alt="Partners 18">
-            </div>
-
-            {{-- Duplikat untuk looping --}}
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/10.png') }}" class="img-fluid" alt="Partners 10">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/11.png') }}" class="img-fluid" alt="Partners 11">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/12.png') }}" class="img-fluid" alt="Partners 12">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/13.png') }}" class="img-fluid" alt="Partners 13">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/14.png') }}" class="img-fluid" alt="Partners 14">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/15.png') }}" class="img-fluid" alt="Partners 15">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/16.png') }}" class="img-fluid" alt="Partners 16">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/17.png') }}" class="img-fluid" alt="Partners 17">
-            </div>
-            <div class="partners-slide">
-              <img src="{{ asset('assets/senop/img/partners/18.png') }}" class="img-fluid" alt="Partners 18">
-            </div>
-          </div>
         </div>
       </div>
     </section>
