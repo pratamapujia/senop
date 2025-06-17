@@ -30,20 +30,20 @@
   {{-- About Section --}}
   <section id="about" class="about section-about light-background">
     <div class="container section-about-title" data-aos="fade-up">
-      <h2>Kenapa harus senop ?</h2>
+      <h2>Kenapa harus senopati ?</h2>
       <div class="about-title-shape">
         <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="3"></path>
         </svg>
       </div>
-      <p>Alasan Kenapa kalian semua harus bergabung dengan SMK Senopati</p>
+      <p>Alasan kenapa kalian semua harus bergabung dengan SMK Senopati</p>
     </div>
     <div class="container pb-5">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="100">
           <div class="about-item">
             <div class="about-item-icon blue">
-              <i class="bi bi-card-checklist"></i>
+              <i class="bi bi-door-open"></i>
             </div>
             <h4>Fasilitas Lengkap</h4>
             <p>SMK Senopati memiliki fasilitas yang lengkap untuk menunjang pembelajaran</p>
@@ -52,7 +52,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="200">
           <div class="about-item">
             <div class="about-item-icon yellow">
-              <i class="bi bi-card-checklist"></i>
+              <i class="bi bi-house-heart-fill"></i>
             </div>
             <h4>Lingkungan Nyaman</h4>
             <p>SMK Senopati memiliki lingkungan yang nyaman bagi peserta didik</p>
@@ -61,7 +61,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="300">
           <div class="about-item">
             <div class="about-item-icon red">
-              <i class="bi bi-card-checklist"></i>
+              <i class="bi bi-person-workspace"></i>
             </div>
             <h4>Pengajar Kompeten</h4>
             <p>SMK Senopati memiliki pengajar yang kompeten dan bersertifikasi</p>
@@ -70,7 +70,7 @@
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="400">
           <div class="about-item">
             <div class="about-item-icon green">
-              <i class="bi bi-card-checklist"></i>
+              <i class="bi bi-diagram-3"></i>
             </div>
             <h4>Kerjasama Luas</h4>
             <p>SMK Senopati memiliki kerjasama yang luas dengan industri</p>
@@ -178,7 +178,7 @@
             <div class="agenda-card-container">
               <div class="agenda-card">
                 <div class="icon-box">
-                  <i class="bi bi-alarm"></i>
+                  <i class="bi bi-calendar-week"></i>
                 </div>
                 <div class="agenda-text">
                   <h4>Ujian Nasional</h4>
@@ -187,7 +187,7 @@
               </div>
               <div class="agenda-card">
                 <div class="icon-box">
-                  <i class="bi bi-alarm"></i>
+                  <i class="bi bi-calendar-week"></i>
                 </div>
                 <div class="agenda-text">
                   <h4>Libur Akhir Semester</h4>
@@ -196,7 +196,7 @@
               </div>
               <div class="agenda-card">
                 <div class="icon-box">
-                  <i class="bi bi-alarm"></i>
+                  <i class="bi bi-calendar-week"></i>
                 </div>
                 <div class="agenda-text">
                   <h4>Awal Masuk Sekolah</h4>
@@ -205,7 +205,7 @@
               </div>
               <div class="agenda-card">
                 <div class="icon-box">
-                  <i class="bi bi-alarm"></i>
+                  <i class="bi bi-calendar-week"></i>
                 </div>
                 <div class="agenda-text">
                   <h4>Class Meet 2025</h4>
@@ -214,13 +214,13 @@
               </div>
             </div>
             <div class="agenda-btn">
-              <a href="#" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
+              <a href="{{ route('agenda') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 position-relative my-5" data-aos="zoom-out" data-aos-delay="400">
           <div class="agenda-image">
-            <img src="assets/senop/img/agenda.png" alt="Profile Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/agenda.png') }}" alt="Profile Image" class="img-fluid">
           </div>
         </div>
       </div>
@@ -306,6 +306,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="galeri-btn">
+        <a href="{{ route('galeri') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
       </div>
     </div>
   </section>

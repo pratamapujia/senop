@@ -7,32 +7,32 @@
     </a>
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#">Beranda</a></li>
+        <li><a href="/">Beranda</a></li>
         <li class="dropdown"><a href="#">Tentang Kami <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="{{ route('about') }}">Profil Sekolah</a></li>
-            <li><a href="">Visi dan Misi</a></li>
-            <li><a href="">Struktur Organisasi</a></li>
-            <li><a href="">Fasilitas</a></li>
-            <li><a href="">Prestasi</a></li>
+            <li><a href="{{ route('visimisi') }}">Visi dan Misi</a></li>
+            <li><a href="{{ route('struktur') }}">Struktur Organisasi</a></li>
+            <li><a href="{{ route('fasilitas') }}">Fasilitas</a></li>
+            <li><a href="{{ route('prestasi') }}">Prestasi</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#">Program <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="">Profil Jurusan</a></li>
-            <li><a href="">Ekstrakurikuler</a></li>
-            <li><a href="">Berita Terbaru</a></li>
+            <li><a href="{{ route('profjur') }}">Profil Jurusan</a></li>
+            <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
+            <li><a href="{{ route('berita') }}">Berita Terbaru</a></li>
           </ul>
         </li>
-        <li><a href="#">Agenda</a></li>
-        <li><a href="#">Galeri</a></li>
-        <li><a href="#">PPDB</a></li>
+        <li><a href="{{ route('agenda') }}">Agenda</a></li>
+        <li><a href="{{ route('galeri') }}">Galeri</a></li>
+        <li><a href="{{ route('ppdb') }}">PPDB</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
     <div class="header-social-links">
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://instagram.com/smk_senopati/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://tiktok.com/@smk_senopati/" target="_blank" class="tiktok"><i class="bi bi-tiktok"></i></a>
     </div>
   </div>
 </header>
