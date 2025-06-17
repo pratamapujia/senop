@@ -19,11 +19,6 @@
     {{-- AOS Animation --}}
     <link rel="stylesheet" href="{{ asset('assets/static/aos/aos.css') }}">
 
-    {{-- Font Google --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
     {{-- Swiper JS --}}
     <link rel="stylesheet" href="{{ asset('assets/static/swiper/swiper-bundle.min.css') }}">
 
@@ -35,7 +30,9 @@
 
     @include('layouts.header')
 
-    @yield('main')
+    <main class="main">
+      @yield('main')
+    </main>
 
     @include('layouts.footer')
 

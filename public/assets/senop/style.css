@@ -6,7 +6,7 @@
         "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
-    --heading-font: "Questrial", sans-serif;
+    --heading-font: "Poppins", sans-serif;
     --nav-font: "Noto Sans", sans-serif;
 }
 
@@ -414,6 +414,43 @@ h6 {
     [data-aos-delay] {
         transition-delay: 0 !important;
     }
+}
+
+/*--------------------------------------------------------------
+# Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+    color: var(--heading);
+    background-color: color-mix(in srgb, var(--primary-1), transparent 90%);
+    padding: 25px 0;
+    position: relative;
+}
+
+.page-title h1 {
+    font-size: 28px;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--default), transparent 50%);
+}
+
+.page-title .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li + li {
+    padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li + li::before {
+    content: "/";
+    display: inline-block;
+    padding-right: 10px;
+    color: color-mix(in srgb, var(--default), transparent 70%);
 }
 
 /*--------------------------------------------------------------

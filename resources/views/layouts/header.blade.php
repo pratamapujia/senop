@@ -10,7 +10,7 @@
         <li><a href="#">Beranda</a></li>
         <li class="dropdown"><a href="#">Tentang Kami <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
-            <li><a href="">Profil Sekolah</a></li>
+            <li><a href="{{ route('about') }}">Profil Sekolah</a></li>
             <li><a href="">Visi dan Misi</a></li>
             <li><a href="">Struktur Organisasi</a></li>
             <li><a href="">Fasilitas</a></li>
