@@ -38,3 +38,7 @@ Route::get('/galeri', function () {
 Route::get('/ppdb', function () {
     return view('program.ppdb');
 })->name('ppdb');
+
+Route::get('/dashboard', function () {
+    return view('admin.index');
+})->name('dashboard');
