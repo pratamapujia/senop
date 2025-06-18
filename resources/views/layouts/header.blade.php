@@ -20,12 +20,13 @@
         <li class="dropdown"><a href="#">Program <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="{{ route('profjur') }}">Profil Jurusan</a></li>
+            <li><a href="{{ route('agenda') }}">Agenda</a></li>
+            <li><a href="{{ route('galeri') }}">Galeri</a></li>
             <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
             <li><a href="{{ route('berita') }}">Berita Terbaru</a></li>
           </ul>
         </li>
-        <li><a href="{{ route('agenda') }}">Agenda</a></li>
-        <li><a href="{{ route('galeri') }}">Galeri</a></li>
+        <li><a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank">Virtual Tour</a></li>
         <li><a href="{{ route('ppdb') }}">PPDB</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

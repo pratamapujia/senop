@@ -1139,26 +1139,27 @@ h6 {
     margin-bottom: 0;
 }
 
-.agenda .agenda-btn {
-    margin-top: 30px;
+.agenda-btn {
+    margin-top: 40px;
     text-align: center;
 }
 
-.agenda .agenda-btn .btn {
-    padding: 10px 30px;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 50px;
+.agenda-btn .btn {
+    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
 
-.agenda .agenda-btn .btn.btn-primary {
+.agenda-btn .btn.btn-primary {
     background-color: var(--primary-1);
     border-color: var(--primary-1);
     color: var(--bg);
 }
 
-.agenda .agenda-btn .btn.btn-primary:hover {
+.agenda-btn .btn.btn-primary:hover {
     background: none;
     border-color: var(--primary-1);
     color: var(--primary-1);
@@ -1232,58 +1233,67 @@ h6 {
 /*--------------------------------------------------------------
 # Galeri Section
 --------------------------------------------------------------*/
-.galeri .galeri-item .card {
-    border-radius: 10px;
+.galeri-item .card {
+    border-radius: 12px;
     background: none;
-    height: 250px;
+    height: 100%;
     border: none;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.galeri .galeri-item .card:hover {
+.galeri-item .card:hover {
     transform: scale(1.05);
-    transition: all 0.3s ease;
 }
 
-.galeri .galeri-item .card .card-img-top {
-    border-radius: 10px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    height: 180px;
+.galeri-item .card-img-top {
+    aspect-ratio: 4 / 3;
+    border-radius: 0 0 12px 12px;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.galeri .galeri-item .card .card-body p {
-    font-size: 18px;
+.galeri-item .card-body {
+    padding: 16px;
+}
+
+.galeri-item .card-text {
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--primary-1);
+    color: var(--heading);
+    margin-bottom: 0;
 }
 
-.galeri .galeri-btn {
-    margin-top: 30px;
+.galeri-btn {
+    margin-top: 40px;
     text-align: center;
 }
 
-.galeri .galeri-btn .btn {
-    padding: 10px 30px;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 50px;
+.galeri-btn .btn {
+    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
 
-.galeri .galeri-btn .btn.btn-primary {
+.galeri-btn .btn.btn-primary {
     background-color: var(--primary-1);
     border-color: var(--primary-1);
     color: var(--bg);
 }
 
-.galeri .galeri-btn .btn.btn-primary:hover {
+.galeri-btn .btn.btn-primary:hover {
     background: none;
     border-color: var(--primary-1);
     color: var(--primary-1);
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.galeri-item .row > [class*="col-"] {
+    padding: 12px;
 }
 
 /*--------------------------------------------------------------
@@ -1431,46 +1441,57 @@ h6 {
 /*--------------------------------------------------------------
 # Partners Section
 --------------------------------------------------------------*/
-.partners {
-    overflow-x: hidden;
+.section-partners {
     padding: 40px 0;
-    background-color: color-mix(in srgb, var(--primary-1), transparent 95%);
+    background-color: #e9ecef;
 }
 
-.partners .partners-slider {
-    position: relative;
+.partners-slider {
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* PENTING: Menyembunyikan logo yang berada di luar viewport */
+    position: relative;
     padding: 20px 0;
 }
 
-.partners .partners-slider:not(:last-child) {
+/* Tambahkan efek gradien di sisi kiri dan kanan untuk tampilan lebih halus */
+.partners-slider::before,
+.partners-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px; /* Lebar gradien */
+    height: 100%;
+    z-index: 2;
+}
+
+.partners-slider::before {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        rgba(233, 236, 239, 1) 0%,
+        rgba(249, 249, 249, 0) 100%
+    ); /* Sesuaikan warna dengan background */
+}
+
+.partners-slider::after {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        rgba(233, 236, 239, 1) 0%,
+        rgba(249, 249, 249, 0) 100%
+    ); /* Sesuaikan warna dengan background */
+}
+
+.partners-track {
+    display: flex;
+    align-items: center; /* Membuat logo center secara vertikal */
+    /* Hitungan lebar: (lebar_slide) x (jumlah_slide_total) */
+    /* Contoh: 250px x 18 slide = 4500px */
+    width: calc(250px * 18);
     margin-bottom: 20px;
 }
 
-.partners .partners-track {
-    display: flex;
-    width: 200%;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-.partners .partners-track.track-1 {
-    animation-name: scroll-left;
-    padding-bottom: 20px;
-}
-
-.partners .partners-track.track-2 {
-    animation-name: scroll-right;
-    padding-top: 20px;
-}
-
-.partners .partners-track:hover {
-    animation-play-state: paused;
-}
-
-.partners .partners-slide {
+.partners-slide {
     flex: 0 0 auto;
     width: 200px;
     height: 100px;
@@ -1486,117 +1507,86 @@ h6 {
     overflow: hidden;
 }
 
-.partners .partners-slide::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        color-mix(in srgb, var(--primary-1), transparent 96%),
-        transparent
-    );
-    transition: 0.5s;
+.partners-slide img {
+    max-width: 85%;
+    height: auto;
+    max-height: 70px; /* Atur tinggi maksimal logo */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
 }
 
-.partners .partners-slide:hover {
+/* Efek saat kursor di atas logo */
+.partners-slide:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
-
-.partners .partners-slide:hover::before {
-    left: 100%;
-}
-
-.partners .partners-slide:hover img {
-    filter: none;
+.partners-slide:hover img {
+    filter: grayscale(0%);
     opacity: 1;
+    transform: scale(1.1);
 }
 
-.partners .partners-slide img {
-    max-width: 80%;
-    max-height: 60%;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
+/* === ANIMASI INTI === */
 
+/* Keyframes untuk slider yang bergerak dari kanan ke kiri */
 @keyframes scroll-left {
     0% {
         transform: translateX(0);
     }
-
     100% {
-        transform: translateX(-2080px);
+        /* Bergerak sejauh 50% dari total lebar track.
+       Karena track berisi 2 set logo (asli + duplikat),
+       menggeser 50% akan membawa set duplikat ke posisi awal,
+       menciptakan ilusi tak terbatas. */
+        transform: translateX(-50%);
     }
 }
 
+/* Keyframes untuk slider yang bergerak dari kiri ke kanan */
 @keyframes scroll-right {
     0% {
-        transform: translateX(-2080px);
+        transform: translateX(-50%);
     }
-
     100% {
         transform: translateX(0);
     }
 }
 
-@media (max-width: 991px) {
-    .partners .partners-slide {
-        width: 180px;
-        height: 90px;
-        margin: 0 20px;
-    }
-
-    @keyframes scroll-left {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-1760px);
-        }
-    }
-
-    @keyframes scroll-right {
-        0% {
-            transform: translateX(-1760px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
-    }
+/* Terapkan animasi ke masing-masing track */
+.partners-track.track-1 {
+    /* format: nama-animasi durasi timing-function iterasi */
+    animation: scroll-left 30s linear infinite;
 }
 
-@media (max-width: 767px) {
-    .partners .partners-slide {
-        width: 150px;
-        height: 75px;
-        margin: 0 15px;
+.partners-track.track-2 {
+    animation: scroll-right 30s linear infinite;
+}
+
+/* Opsi: Jeda animasi saat kursor berada di atas slider */
+.partners-track:hover {
+    animation-play-state: paused;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .partners-track {
+        /* Kurangi lebar slide di perangkat kecil */
+        width: calc(200px * 18);
     }
 
-    @keyframes scroll-left {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-1440px);
-        }
+    .partners-slide {
+        width: 200px;
+        padding: 0 20px;
     }
 
-    @keyframes scroll-right {
-        0% {
-            transform: translateX(-1440px);
-        }
+    .partners-slide img {
+        max-height: 50px;
+    }
 
-        100% {
-            transform: translateX(0);
-        }
+    .partners-slider::before,
+    .partners-slider::after {
+        width: 50px; /* Perkecil gradien di mobile */
     }
 }
 

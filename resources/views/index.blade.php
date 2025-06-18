@@ -13,7 +13,7 @@
           <h2>Selamat Datang</h2>
           <p class="lead">Ini adalah website SMK Senopati, mari bergabung bersama kami</p>
           <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-            <a href="#" class="btn btn-primary">Daftar Disini</a>
+            <a href="{{ route('ppdb') }}" class="btn btn-primary">Daftar Disini</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-12 col-sm-12">
