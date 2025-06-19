@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 // Route pengunjung website
@@ -52,5 +53,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
+    Route::resource('agenda', AgendaController::class);
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
