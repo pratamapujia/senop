@@ -10,11 +10,16 @@
     <link rel="shortcut icon" href="{{ asset('assets/senop/img/logo/icon.ico') }}" type="image/x-icon">
 
     <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/app.css') }}">
-    {{-- <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/app-dark.css') }}"> --}}
+
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="{{ asset('assets/extensions/@fortawesome/fontawesome-free/css/all.min.css') }}">
+
+    {{-- SweetAlert --}}
+    <link rel="stylesheet" href="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.css') }}" />
   </head>
 
   <body>
-    <script src="assets/static/js/initTheme.js"></script>
+    {{-- <script src="assets/static/js/initTheme.js"></script> --}}
     <div id="app">
       <div id="sidebar">
         <div class="sidebar-wrapper active">
@@ -93,11 +98,17 @@
         </footer>
       </div>
     </div>
-    {{-- <script src="{{ asset('assets/static/js/components/dark.js') }}"></script> --}}
     <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 
     <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
 
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
+    <script src="{{ asset('assets/static/js/my.js') }}"></script>
+
+    @yield('script')
 
   </body>
 

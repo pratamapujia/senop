@@ -1,7 +1,7 @@
 {{-- Header --}}
 <header id="header" class="header d-flex align-items-center sticky-top">
   <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-    <a href="" class="logo d-flex align-items-center me-auto me-xl-0">
+    <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto me-xl-0">
       <img src="{{ asset('assets/senop/img/logo/smksenopati.png') }}" class="img-fluid" alt="">
       {{-- <h1 class="sitename">Senopati</h1> --}}
     </a>
@@ -20,7 +20,7 @@
         <li class="dropdown"><a href="#">Program <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="{{ route('profjur') }}">Profil Jurusan</a></li>
-            <li><a href="{{ route('agenda') }}">Agenda</a></li>
+            <li><a href="{{ route('agenda.landing') }}">Agenda</a></li>
             <li><a href="{{ route('galeri') }}">Galeri</a></li>
             <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
             <li><a href="{{ route('berita') }}">Berita Terbaru</a></li>

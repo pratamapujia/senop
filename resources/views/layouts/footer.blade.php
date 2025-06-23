@@ -157,7 +157,7 @@
                 <a href="{{ route('profjur') }}" class="nav-link ps-0 pb-0">Profil Jurusan</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('agenda') }}" class="nav-link ps-0 pb-0">Agenda</a>
+                <a href="{{ route('agenda.landing') }}" class="nav-link ps-0 pb-0">Agenda</a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('galeri') }}" class="nav-link ps-0 pb-0">Galeri</a>

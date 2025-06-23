@@ -6,7 +6,7 @@
         <span>Dashboard</span>
       </a>
     </li>
-    <li class="sidebar-item  {{ request()->is('agenda*') ? 'active' : '' }}">
+    <li class="sidebar-item  {{ request()->is('admin/agenda*') ? 'active' : '' }}">
       <a href="{{ route('agenda.index') }}" class='sidebar-link'>
         <i class="bi bi-calendar-week"></i>
         <span>Agenda</span>

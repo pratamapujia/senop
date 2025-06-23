@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Route pengunjung website
 Route::middleware('guest:admin')->group(function () {
-    Route::get('/', function () {
-        return view('index');
-    })->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', function () {
         return view('about.index');
     })->name('about');
@@ -33,9 +32,7 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/profjur', function () {
         return view('program.profjur');
     })->name('profjur');
-    Route::get('/agenda', function () {
-        return view('program.agenda');
-    })->name('agenda');
+    Route::get('/agenda', [AgendaController::class, 'landing'])->name('agenda.landing');
     Route::get('/galeri', function () {
         return view('program.galeri');
     })->name('galeri');
@@ -53,7 +50,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
-    Route::resource('agenda', AgendaController::class);
+    Route::resource('admin/agenda', AgendaController::class);
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

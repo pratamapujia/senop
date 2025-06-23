@@ -176,45 +176,20 @@
           </div>
           <div class="agenda-content">
             <div class="agenda-card-container">
-              <div class="agenda-card">
-                <div class="icon-box">
-                  <i class="bi bi-calendar-week"></i>
+              @foreach ($agenda as $data)
+                <div class="agenda-card">
+                  <div class="icon-box">
+                    <i class="bi bi-calendar-week"></i>
+                  </div>
+                  <div class="agenda-text">
+                    <h4 class="Upper">{{ $data->nama_agenda }}</h4>
+                    <p><i class="bi bi-play-fill"></i> {{ $data->keterangan }}</p>
+                  </div>
                 </div>
-                <div class="agenda-text">
-                  <h4>Ujian Nasional</h4>
-                  <p><i class="bi bi-play-fill"></i> 2-5 Juli 2025</p>
-                </div>
-              </div>
-              <div class="agenda-card">
-                <div class="icon-box">
-                  <i class="bi bi-calendar-week"></i>
-                </div>
-                <div class="agenda-text">
-                  <h4>Libur Akhir Semester</h4>
-                  <p><i class="bi bi-play-fill"></i> 6-20 Juli 2025</p>
-                </div>
-              </div>
-              <div class="agenda-card">
-                <div class="icon-box">
-                  <i class="bi bi-calendar-week"></i>
-                </div>
-                <div class="agenda-text">
-                  <h4>Awal Masuk Sekolah</h4>
-                  <p><i class="bi bi-play-fill"></i> 21 Juli 2025</p>
-                </div>
-              </div>
-              <div class="agenda-card">
-                <div class="icon-box">
-                  <i class="bi bi-calendar-week"></i>
-                </div>
-                <div class="agenda-text">
-                  <h4>Class Meet 2025</h4>
-                  <p><i class="bi bi-play-fill"></i> 25 Juli 2025</p>
-                </div>
-              </div>
+              @endforeach
             </div>
             <div class="agenda-btn">
-              <a href="{{ route('agenda') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
+              <a href="{{ route('agenda.landing') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
             </div>
           </div>
         </div>
