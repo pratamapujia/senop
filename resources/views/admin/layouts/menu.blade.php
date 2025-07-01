@@ -18,8 +18,8 @@
         <span>Berita</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/galeri*') ? 'active' : '' }}">
+      <a href="{{ route('galeri.index') }}" class='sidebar-link'>
         <i class="bi bi-images"></i>
         <span>Galeri</span>
       </a>
@@ -30,8 +30,8 @@
         <span>Guru</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/jsiswa*') ? 'active' : '' }}">
+      <a href="{{ route('jsiswa.index') }}" class='sidebar-link'>
         <i class="bi bi-person-arms-up"></i>
         <span>Jumlah Siswa</span>
       </a>

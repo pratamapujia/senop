@@ -21,7 +21,7 @@
           <ul>
             <li><a href="{{ route('profjur') }}">Profil Jurusan</a></li>
             <li><a href="{{ route('agenda.landing') }}">Agenda</a></li>
-            <li><a href="{{ route('galeri') }}">Galeri</a></li>
+            <li><a href="{{ route('galeri.landing') }}">Galeri</a></li>
             <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
             <li><a href="{{ route('berita') }}">Berita Terbaru</a></li>
           </ul>

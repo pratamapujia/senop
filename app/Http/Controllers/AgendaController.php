@@ -116,7 +116,7 @@ class AgendaController extends Controller
     // Controller untuk halaman agenda di landing page
     public function landing()
     {
-        $agenda = Agenda::paginate(6);
+        $agenda = Agenda::latest()->paginate(6);
         return view('program.agenda', compact('agenda'));
     }
 }

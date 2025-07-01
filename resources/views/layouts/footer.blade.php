@@ -160,7 +160,7 @@
                 <a href="{{ route('agenda.landing') }}" class="nav-link ps-0 pb-0">Agenda</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('galeri') }}" class="nav-link ps-0 pb-0">Galeri</a>
+                <a href="{{ route('galeri.landing') }}" class="nav-link ps-0 pb-0">Galeri</a>
               </li>
               <li class="nav-item">
                 <a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank" class="nav-link ps-0 pb-0">Virtual Tour</a>

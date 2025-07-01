@@ -121,45 +121,15 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="siswa-block">
         <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="100">
-            <div class="siswa-item py-5 my-3">
-              <div class="siswa-shape1"></div>
-              <span class="text-warning">300</span>
-              <small class="fw-bold">RPL</small>
+          @foreach ($jsiswa as $data)
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="200">
+              <div class="siswa-item py-5 my-3">
+                <div class="siswa-shape1"></div>
+                <span class="text-{{ $loop->iteration }}">{{ $data->total_siswa }}</span>
+                <small class="fw-bold">{{ $data->jurusan }}</small>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="300">
-            <div class="siswa-item py-5 my-3">
-              <div class="siswa-shape2"></div>
-              <span class="text-primary">300</span>
-              <small class="fw-bold">TKJ</small>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="500">
-            <div class="siswa-item py-5 my-3">
-              <div class="siswa-shape3"></div>
-              <span class="text-danger">300</span>
-              <small class="fw-bold">OTKP</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="siswa-block">
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="200">
-            <div class="siswa-item py-5 my-3">
-              <div class="siswa-shape4"></div>
-              <span class="text-info">300</span>
-              <small class="fw-bold">TKR</small>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-aos="fade-up" data-aos-delay="400">
-            <div class="siswa-item py-5 my-3">
-              <div class="siswa-shape5"></div>
-              <span class="text-success">300</span>
-              <small class="fw-bold">TSM</small>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -215,75 +185,24 @@
     </div>
     <div class="container pb-5" data-aos="zoom-in" data-aos-delay="200">
       <div class="galeri-item">
-        <div class="row align-items-center">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/9.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Pentas Seni HUT Senopati</p>
+        <div class="row align-items-center" data-aos="fade-up" data-aos-delay="300">
+          @foreach ($galeri as $data)
+            @php
+              $path = Storage::url('galeri/' . $data->foto);
+            @endphp
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
+              <div class="card">
+                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}">
+                <div class="card-body">
+                  <p class="card-text text-center">{{ $data->judul_foto }}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/8.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Tasyakuran HUT Senopati</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/7.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Pawai Hari Pahlawan</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/1.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Maulid Nabi 1446H</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/2.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Senam Bersama</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/3.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Rutinan Sholat Dhuha</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/4.jpg') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Kegiatan Sosial Masyarakat</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
-            <div class="card">
-              <img src="{{ asset('assets/senop/img/galeri/5.JPG') }}" class="card-img-top" alt="">
-              <div class="card-body">
-                <p class="card-text text-center">Lomba Class Meet</p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
       <div class="galeri-btn">
-        <a href="{{ route('galeri') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
+        <a href="{{ route('galeri.landing') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
       </div>
     </div>
   </section>

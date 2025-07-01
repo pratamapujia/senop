@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JSiswaController;
 use Illuminate\Support\Facades\Route;
 
 // Route pengunjung website
@@ -33,9 +35,7 @@ Route::middleware('guest:admin')->group(function () {
         return view('program.profjur');
     })->name('profjur');
     Route::get('/agenda', [AgendaController::class, 'landing'])->name('agenda.landing');
-    Route::get('/galeri', function () {
-        return view('program.galeri');
-    })->name('galeri');
+    Route::get('/galeri', [GaleriController::class, 'landing'])->name('galeri.landing');
     Route::get('/ppdb', function () {
         return view('program.ppdb');
     })->name('ppdb');
@@ -50,7 +50,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
+
     Route::resource('admin/agenda', AgendaController::class);
+    Route::resource('admin/jsiswa', JSiswaController::class);
+    Route::resource('admin/galeri', GaleriController::class);
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
