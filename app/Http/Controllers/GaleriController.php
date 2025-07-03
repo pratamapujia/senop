@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use Intervention\Image\Laravel\Facades\Image;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -33,13 +35,12 @@ class GaleriController extends Controller
     {
         $validasi = Validator::make($request->all(), [
             'judul_foto' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'foto' => 'required|image|mimes:jpeg,png,jpg',
         ], [
             'judul_foto.required' => 'Judul foto harus diisi',
             'foto.required' => 'Foto harus diisi',
             'foto.image' => 'Foto harus berupa gambar',
             'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
-            'foto.max' => 'Ukuran foto maksimal 2MB',
         ]);
 
         if ($validasi->fails()) {
@@ -51,8 +52,11 @@ class GaleriController extends Controller
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $nama_file = $galeri->judul_foto . "." . $file->getClientOriginalExtension();
-            $file->move(storage_path('app/public/galeri'), $nama_file);
+            $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
+            $path = storage_path('app/public/galeri/' . $nama_file);
+            $image = Image::read($file->getRealPath());
+            $image->scaleDown(width: 1200);
+            $image->toWebp(80)->save($path);
             $galeri->foto = $nama_file;
         }
 
@@ -109,8 +113,11 @@ class GaleriController extends Controller
             }
 
             $file = $request->file('foto');
-            $nama_file = $galeri->judul_foto . "." . $file->getClientOriginalExtension();
-            $file->move(storage_path('app/public/galeri'), $nama_file);
+            $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
+            $path = storage_path('app/public/galeri/' . $nama_file);
+            $image = Image::read($file->getRealPath());
+            $image->scaleDown(width: 1200);
+            $image->toWebp(80)->save($path);
             $galeri->foto = $nama_file;
         }
 
@@ -127,6 +134,9 @@ class GaleriController extends Controller
     public function destroy(string $id)
     {
         $galeri = Galeri::find($id);
+        if ($galeri->foto) {
+            Storage::delete('public/galeri/' . $galeri->foto);
+        }
         if ($galeri->delete()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil dihapus 👍');
         } else {

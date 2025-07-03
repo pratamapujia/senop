@@ -17,6 +17,7 @@
     /* Warna Utama */
     --primary-1: #3674b5;
     --primary-2: #2d6aa6;
+    --white: #fff;
 
     /* Warna Sekunder */
     --secondary-1: #f2b134;
@@ -1814,4 +1815,113 @@ footer .footer-bottom p {
 
 .page-item:last-child {
     margin-left: 0.4rem;
+}
+
+/*--------------------------------------------------------------
+# Visi Misi
+--------------------------------------------------------------*/
+.section-vm {
+    color: var(--default);
+    background-color: var(--bg);
+    padding: 60px 0;
+    scroll-margin-top: 90px;
+    overflow: clip;
+}
+
+@media (max-width: 1199px) {
+    .section-vm {
+        scroll-margin-top: 66px;
+    }
+}
+
+.section-vm-title {
+    text-align: center;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.section-vm-title h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(120deg, var(--default), var(--heading));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-vm-title .vm-title-shape {
+    width: 200px;
+    height: 20px;
+    margin: 0 auto;
+    color: var(--primary-1);
+    opacity: 0.5;
+}
+
+.section-vm-title .vm-title-shape svg {
+    width: 100%;
+    height: 100%;
+}
+
+.section-vm-title p {
+    margin: 15px auto 0;
+    font-size: 16px;
+    max-width: 700px;
+    color: color-mix(in srgb, var(--default), transparent 25%);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .section-vm-title h2 {
+        font-size: 32px;
+    }
+}
+
+.vm-item .card {
+    border: none;
+    background-color: color-mix(in srgb, var(--white), transparent 70%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+}
+
+.header-vm {
+    padding: 0 30px;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-vm .icon-box-vm {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background-color: color-mix(in srgb, var(--primary-2), transparent 90%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-vm .icon-box-vm i {
+    font-size: 22px;
+    color: var(--primary-2);
+}
+
+.header-vm .title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--primary-1);
+}
+
+.vm-item .card-body p,
+.vm-item .card-body ol {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--default), transparent 25%);
+    padding: 0 30px;
+    padding-bottom: 10px;
 }

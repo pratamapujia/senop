@@ -23,17 +23,19 @@
             <li><a href="{{ route('agenda.landing') }}">Agenda</a></li>
             <li><a href="{{ route('galeri.landing') }}">Galeri</a></li>
             <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
-            <li><a href="{{ route('berita') }}">Berita Terbaru</a></li>
           </ul>
         </li>
+        <li><a href="{{ route('berita') }}">Berita</a></li>
         <li><a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank">Virtual Tour</a></li>
         <li><a href="{{ route('ppdb') }}">PPDB</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
     <div class="header-social-links">
+      <a href="https://www.facebook.com/esemka.senopati.9" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
       <a href="https://instagram.com/smk_senopati/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
       <a href="https://tiktok.com/@smk_senopati/" target="_blank" class="tiktok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://www.youtube.com/@smksenopatisedati" target="_blank" class="youtube"><i class="bi bi-youtube"></i></a>
     </div>
   </div>
 </header>
