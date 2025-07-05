@@ -10,10 +10,10 @@
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row align-items-center content">
         <div class="col-md-6 col-lg-6 col-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
-          <h2>Selamat Datang</h2>
-          <p class="lead">Ini adalah website SMK Senopati, mari bergabung bersama kami</p>
+          <h2>Selamat Datang di SMK Senopati Sedati</h2>
+          <p class="lead">Mandiri, Kompeten, Siap Kerja</p>
           <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-            <a href="{{ route('ppdb') }}" class="btn btn-primary">Daftar Disini</a>
+            <a href="{{ route('ppdb') }}" class="btn btn-primary">Info PPDB</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-12 col-sm-12">

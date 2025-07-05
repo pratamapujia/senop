@@ -418,40 +418,103 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Page Titles & Breadcrumbs
+# Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
 .page-title {
-    color: var(--heading);
-    background-color: color-mix(in srgb, var(--primary-1), transparent 90%);
-    padding: 25px 0;
-    position: relative;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.page-title h1 {
-    font-size: 28px;
-    font-weight: 500;
+.page-title .breadcrumbs {
+    margin-bottom: 1.5rem;
+}
+
+.page-title .breadcrumbs .breadcrumb {
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.page-title .breadcrumbs .breadcrumb .breadcrumb-item {
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--default), transparent 30%);
+}
+
+.page-title .breadcrumbs .breadcrumb .breadcrumb-item.active {
+    color: var(--accent);
+}
+
+.page-title .breadcrumbs .breadcrumb .breadcrumb-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.page-title .breadcrumbs .breadcrumb .breadcrumb-item a:hover {
+    color: var(--accent);
+}
+
+.page-title .breadcrumbs .breadcrumb .breadcrumb-item a i {
+    font-size: 0.9rem;
+    margin-right: 0.2rem;
+}
+
+.page-title
+    .breadcrumbs
+    .breadcrumb
+    .breadcrumb-item
+    + .breadcrumb-item::before {
     color: color-mix(in srgb, var(--default), transparent 50%);
 }
 
-.page-title .breadcrumbs ol {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-    font-weight: 400;
+.page-title .title-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 0;
 }
 
-.page-title .breadcrumbs ol li + li {
-    padding-left: 10px;
+.page-title .title-wrapper h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--heading);
 }
 
-.page-title .breadcrumbs ol li + li::before {
-    content: "/";
-    display: inline-block;
-    padding-right: 10px;
-    color: color-mix(in srgb, var(--default), transparent 70%);
+.page-title .title-shape {
+    width: 200px;
+    height: 20px;
+    margin: 0 auto;
+    color: var(--primary-1);
+    opacity: 0.5;
+}
+
+.page-title .title-shape svg {
+    width: 100%;
+    height: 100%;
+}
+
+.page-title .title-wrapper p {
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--default), transparent 20%);
+    margin: 15px auto 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-title .title-wrapper h1 {
+        font-size: 2rem;
+    }
+
+    .page-title .title-wrapper p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title .title-wrapper h1 {
+        font-size: 1.75rem;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1712,109 +1775,45 @@ footer .footer-bottom p {
 }
 
 /*--------------------------------------------------------------
-# Paggination
+# Pagination Section
 --------------------------------------------------------------*/
 .pagination {
+    padding-top: 0;
+    color: color-mix(in srgb, var(--primary-1), transparent 40%);
+}
+
+.pagination ul {
     display: flex;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
     list-style: none;
 }
 
-.page-link {
-    position: relative;
-    display: block;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    color: #435ebe;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.pagination li {
+    margin: 0 5px;
+    transition: 0.3s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .page-link {
-        transition: none;
-    }
+.pagination li a {
+    color: var(--primary-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--primary-1);
 }
 
-.page-link:hover {
-    z-index: 2;
-    color: #000;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
+.pagination li a.active,
+.pagination li a:hover {
+    background: var(--primary-1);
+    color: var(--bg);
 }
 
-.page-link:focus {
-    z-index: 3;
-    color: #364b98;
-    background-color: #e9ecef;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(67, 94, 190, 0.25);
-}
-
-.page-link.active,
-.active > .page-link {
-    z-index: 3;
-    color: #fff;
-    background-color: #435ebe;
-    border-color: #435ebe;
-}
-
-.page-link.disabled,
-.disabled > .page-link {
-    color: #6c757d;
-    pointer-events: none;
-    background-color: #fff;
-    border-color: #dee2e6;
-}
-
-.page-item:not(:first-child) .page-link {
-    margin-left: -1px;
-}
-
-.page-item:first-child .page-link {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-
-.page-item:last-child .page-link {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #435ebe;
-    border-color: #435ebe;
-    box-shadow: 0 2px 5px rgba(67, 94, 190, 0.3);
-}
-
-.page-item:not(.active) .page-link:hover {
-    color: #000;
-}
-
-.page-item i,
-.page-item svg {
-    font-size: 13px;
-    width: 13px;
-    height: 13px;
-}
-
-.page-item .page-link {
-    font-size: 0.875rem;
-}
-
-.page-item .page-link:focus {
-    box-shadow: none;
-}
-
-.page-item:first-child {
-    margin-right: 0.4rem;
-}
-
-.page-item:last-child {
-    margin-left: 0.4rem;
+.pagination li a.active a,
+.pagination li a:hover a {
+    color: var(--bg);
 }
 
 /*--------------------------------------------------------------
@@ -1831,50 +1830,6 @@ footer .footer-bottom p {
 @media (max-width: 1199px) {
     .section-vm {
         scroll-margin-top: 66px;
-    }
-}
-
-.section-vm-title {
-    text-align: center;
-    padding-bottom: 20px;
-    position: relative;
-}
-
-.section-vm-title h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(120deg, var(--default), var(--heading));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.section-vm-title .vm-title-shape {
-    width: 200px;
-    height: 20px;
-    margin: 0 auto;
-    color: var(--primary-1);
-    opacity: 0.5;
-}
-
-.section-vm-title .vm-title-shape svg {
-    width: 100%;
-    height: 100%;
-}
-
-.section-vm-title p {
-    margin: 15px auto 0;
-    font-size: 16px;
-    max-width: 700px;
-    color: color-mix(in srgb, var(--default), transparent 25%);
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .section-vm-title h2 {
-        font-size: 32px;
     }
 }
 
