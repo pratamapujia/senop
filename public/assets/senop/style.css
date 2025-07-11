@@ -1,13 +1,16 @@
 /*--------------------------------------------------------------
 # Root Font
 --------------------------------------------------------------*/
+@import url(../senop/fonts/kalam/css/kalam.css);
+@import url(../senop/fonts/nunito/css/nunito.css);
+@import url(../senop/fonts/trenchslab/css/trench-slab.css);
+@import url(../senop/fonts/poppins/css/poppins.css);
+
 :root {
-    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    --heading-font: "Poppins", sans-serif;
-    --nav-font: "Noto Sans", sans-serif;
+    --tittle-font: "TrenchSlab-Regular";
+    --sub-font: "Kalam-Regular";
+    --default-font: "Poppins-Regular";
+    --nav-font: "Nunito-Bold";
 }
 
 /*--------------------------------------------------------------
@@ -31,6 +34,9 @@
     --accent: #d9b26f;
 }
 
+/*--------------------------------------------------------------
+# Body
+--------------------------------------------------------------*/
 body {
     color: var(--text);
     background-color: var(--bg);
@@ -49,13 +55,9 @@ a:hover {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     color: var(--heading);
-    font-family: var(--heading-font);
+    font-family: var(--tittle-font);
 }
 
 /*--------------------------------------------------------------
@@ -89,7 +91,6 @@ h6 {
     font-size: 24px;
     margin: 0;
     padding-left: 5px;
-    font-weight: 500;
     color: var(--heading);
 }
 
@@ -164,7 +165,6 @@ h6 {
         padding: 18px 15px;
         font-size: 16px;
         font-family: var(--nav-font);
-        font-weight: 400;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -284,7 +284,6 @@ h6 {
         padding: 10px 20px;
         font-family: var(--nav-font);
         font-size: 17px;
-        font-weight: 500;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -540,7 +539,8 @@ h6 {
 }
 
 .hero .content .lead {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-family: var(--sub-font);
     margin-bottom: 2rem;
     color: color-mix(in srgb, var(--default), transparent 20%);
 }
@@ -560,7 +560,6 @@ h6 {
 .hero .cta-buttons .btn {
     padding: 0.8rem 2rem;
     font-size: 1rem;
-    font-weight: 500;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
@@ -714,7 +713,8 @@ h6 {
 
 .section-about-title p {
     margin: 15px auto 0;
-    font-size: 16px;
+    font-size: 1.25rem;
+    font-family: var(--sub-font);
     max-width: 700px;
     color: color-mix(in srgb, var(--default), transparent 25%);
     line-height: 1.8;
@@ -736,6 +736,16 @@ h6 {
     overflow: hidden;
     z-index: 1;
     transition: all 0.3s ease;
+}
+
+.about .about-item h4 {
+    font-family: var(--nav-font);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.about .about-item p {
+    font-family: var(--default-font);
+    font-size: 1rem;
 }
 
 .about .about-item .about-item-icon {
@@ -790,6 +800,7 @@ h6 {
 }
 
 .about .about-content h2 {
+    font-family: var(--tittle-font);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -797,6 +808,7 @@ h6 {
 
 .about .about-content .lead {
     font-size: 1.1rem;
+    font-family: var(--default-font);
     color: color-mix(in srgb, var(--default), transparent 25%);
 }
 
@@ -869,7 +881,8 @@ h6 {
 
 .section-siswa-title p {
     margin: 15px auto 0;
-    font-size: 16px;
+    font-family: var(--sub-font);
+    font-size: 1rem;
     max-width: 700px;
     color: color-mix(in srgb, var(--bg), transparent 15%);
     line-height: 1.8;
@@ -1102,7 +1115,8 @@ h6 {
 }
 
 .agenda .agenda-title h2 {
-    font-size: 32px;
+    font-family: var(--tittle-font);
+    font-size: 28px;
     font-weight: 700;
     margin-bottom: 20px;
     position: relative;
@@ -1121,7 +1135,8 @@ h6 {
 
 .agenda .agenda-title p {
     margin-bottom: 30px;
-    font-size: 16px;
+    font-family: var(--sub-font);
+    font-size: 1.25rem;
     color: color-mix(in srgb, var(--default), transparent 20%);
 }
 
@@ -1206,14 +1221,16 @@ h6 {
 }
 
 .agenda .agenda-card .agenda-text h4 {
-    font-size: 20px;
+    font-family: var(--nav-font);
+    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 8px;
     color: var(--primary-1);
 }
 
 .agenda .agenda-card .agenda-text p {
-    font-size: 14px;
+    font-family: var(--sub-font);
+    font-size: 1rem;
     line-height: 1.5;
     color: color-mix(in srgb, var(--default), transparent 40%);
     margin-bottom: 0;
@@ -1253,11 +1270,9 @@ h6 {
 
 .section-galeri {
     color: var(--default);
-    background-color: var(--bg);
     padding: 60px 0;
     scroll-margin-top: 90px;
     overflow: clip;
-    background-color: color-mix(in srgb, var(--primary-1), transparent 95%);
 }
 
 @media (max-width: 1199px) {
@@ -1298,7 +1313,8 @@ h6 {
 
 .section-galeri-title p {
     margin: 15px auto 0;
-    font-size: 16px;
+    font-family: var(--sub-font);
+    font-size: 1.25rem;
     max-width: 700px;
     color: color-mix(in srgb, var(--default), transparent 25%);
     line-height: 1.8;
@@ -1338,6 +1354,7 @@ h6 {
 }
 
 .galeri-item .card-text {
+    font-family: var(--nav-font);
     font-size: 1rem;
     font-weight: 600;
     color: var(--heading);
@@ -1352,6 +1369,7 @@ h6 {
 .galeri-btn .btn {
     border-radius: 50px; /* Membuat tombol berbentuk kapsul */
     padding: 12px 35px;
+    font-family: var(--nav-font);
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -1400,6 +1418,7 @@ h6 {
 }
 
 .section-testimoni-title h2 {
+    font-family: var(--nav-font);
     font-size: 14px;
     font-weight: 500;
     padding: 0;
@@ -1424,10 +1443,10 @@ h6 {
     color: var(--heading);
     margin: 0;
     margin: 0;
+    font-family: var(--tittle-font);
     font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: var(--heading);
 }
 
 /*--------------------------------------------------------------
@@ -1453,13 +1472,15 @@ h6 {
 }
 
 .testimoni .testimoni-item h3 {
-    font-size: 18px;
+    font-family: var(--nav-font);
+    font-size: 20px;
     font-weight: bold;
     margin: 10px 0 5px 45px;
     color: var(--primary-1);
 }
 
 .testimoni .testimoni-item h4 {
+    font-family: var(--nav-font);
     font-size: 14px;
     color: color-mix(in srgb, var(--default), transparent 20%);
     margin: 0 0 0 45px;
@@ -1487,7 +1508,8 @@ h6 {
 }
 
 .testimoni .testimoni-item p {
-    font-style: italic;
+    font-family: var(--sub-font);
+    font-size: 1.1rem;
     margin: 0 15px 0 15px;
     padding: 20px 20px 60px 20px;
     background: var(--primary-1);
