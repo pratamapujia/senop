@@ -58,10 +58,11 @@ h1,
 h2 {
     color: var(--heading);
     font-family: var(--tittle-font);
+    letter-spacing: 1.5px;
 }
 
 /*--------------------------------------------------------------
-# Header
+# Global Header
 --------------------------------------------------------------*/
 .header {
     color: var(--default);
@@ -517,6 +518,72 @@ h2 {
 }
 
 /*--------------------------------------------------------------
+# Global Section
+--------------------------------------------------------------*/
+.section {
+    color: var(--default);
+    background-color: var(--bg);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    scroll-margin-top: 90px;
+    overflow: clip;
+}
+
+@media (max-width: 1199px) {
+    .section {
+        scroll-margin-top: 66px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Global Section Title
+--------------------------------------------------------------*/
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(120deg, var(--default), var(--heading));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title .title-shape {
+    width: 200px;
+    height: 20px;
+    margin: 0 auto;
+    color: var(--primary-1);
+    opacity: 0.5;
+}
+
+.section-title .title-shape svg {
+    width: 100%;
+    height: 100%;
+}
+
+.section-title p {
+    margin: 15px auto 0;
+    font-size: 1.25rem;
+    font-family: var(--sub-font);
+    max-width: 700px;
+    color: color-mix(in srgb, var(--default), transparent 25%);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 32px;
+    }
+}
+
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
@@ -665,68 +732,6 @@ h2 {
 }
 
 /*--------------------------------------------------------------
-# Section About
---------------------------------------------------------------*/
-.section-about {
-    color: var(--default);
-    background-color: var(--bg);
-    padding: 60px 0;
-    scroll-margin-top: 90px;
-    overflow: clip;
-}
-
-@media (max-width: 1199px) {
-    .section-about {
-        scroll-margin-top: 66px;
-    }
-}
-
-.section-about-title {
-    text-align: center;
-    padding-bottom: 60px;
-    position: relative;
-}
-
-.section-about-title h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(120deg, var(--default), var(--heading));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.section-about-title .about-title-shape {
-    width: 200px;
-    height: 20px;
-    margin: 0 auto;
-    color: var(--primary-1);
-    opacity: 0.5;
-}
-
-.section-about-title .about-title-shape svg {
-    width: 100%;
-    height: 100%;
-}
-
-.section-about-title p {
-    margin: 15px auto 0;
-    font-size: 1.25rem;
-    font-family: var(--sub-font);
-    max-width: 700px;
-    color: color-mix(in srgb, var(--default), transparent 25%);
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .section-about-title h2 {
-        font-size: 32px;
-    }
-}
-
-/*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
 .about .about-item {
@@ -834,74 +839,8 @@ h2 {
 }
 
 /*--------------------------------------------------------------
-# Section Siswa
---------------------------------------------------------------*/
-.section-siswa {
-    color: var(--bg);
-    background-color: var(--primary-1);
-    padding: 60px 0;
-    scroll-margin-top: 90px;
-    overflow: clip;
-}
-
-@media (max-width: 1199px) {
-    .section-siswa {
-        scroll-margin-top: 66px;
-    }
-}
-
-.section-siswa-title {
-    text-align: center;
-    padding-bottom: 60px;
-    position: relative;
-}
-
-.section-siswa-title h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(120deg, var(--bg), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.section-siswa-title .siswa-title-shape {
-    width: 200px;
-    height: 20px;
-    margin: 0 auto;
-    color: var(--secondary-1);
-}
-
-.section-siswa-title .siswa-title-shape svg {
-    width: 100%;
-    height: 100%;
-}
-
-.section-siswa-title p {
-    margin: 15px auto 0;
-    font-family: var(--sub-font);
-    font-size: 1rem;
-    max-width: 700px;
-    color: color-mix(in srgb, var(--bg), transparent 15%);
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .section-siswa-title h2 {
-        font-size: 32px;
-    }
-}
-
-/*--------------------------------------------------------------
 # Siswa Section
 --------------------------------------------------------------*/
-
-.siswa {
-    background-color: var(--primary-1);
-}
-
 .siswa-block .siswa-item {
     position: relative;
     z-index: 1;
@@ -915,7 +854,7 @@ h2 {
     position: absolute;
     width: 180px;
     height: 180px;
-    background-color: var(--bg);
+    background-color: color-mix(in srgb, var(--primary-1), transparent 85%);
     z-index: -1;
     top: 50%;
     left: 50%;
@@ -1229,7 +1168,7 @@ h2 {
 }
 
 .agenda .agenda-card .agenda-text p {
-    font-family: var(--sub-font);
+    font-family: Poppins-Light;
     font-size: 1rem;
     line-height: 1.5;
     color: color-mix(in srgb, var(--default), transparent 40%);
@@ -1242,8 +1181,9 @@ h2 {
 }
 
 .agenda-btn .btn {
-    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
+    border-radius: 50px;
     padding: 12px 35px;
+    font-family: var(--nav-font);
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -1262,68 +1202,6 @@ h2 {
     color: var(--primary-1);
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/*--------------------------------------------------------------
-# Section Galeri
---------------------------------------------------------------*/
-
-.section-galeri {
-    color: var(--default);
-    padding: 60px 0;
-    scroll-margin-top: 90px;
-    overflow: clip;
-}
-
-@media (max-width: 1199px) {
-    .section-galeri {
-        scroll-margin-top: 66px;
-    }
-}
-
-.section-galeri-title {
-    text-align: center;
-    padding-bottom: 60px;
-    position: relative;
-}
-
-.section-galeri-title h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(120deg, var(--default), var(--heading));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-
-.section-galeri-title .galeri-title-shape {
-    width: 200px;
-    height: 20px;
-    margin: 0 auto;
-    color: var(--primary-1);
-    opacity: 0.5;
-}
-
-.section-galeri-title .galeri-title-shape svg {
-    width: 100%;
-    height: 100%;
-}
-
-.section-galeri-title p {
-    margin: 15px auto 0;
-    font-family: var(--sub-font);
-    font-size: 1.25rem;
-    max-width: 700px;
-    color: color-mix(in srgb, var(--default), transparent 25%);
-    line-height: 1.8;
-}
-
-@media (max-width: 768px) {
-    .section-galeri-title h2 {
-        font-size: 32px;
-    }
 }
 
 /*--------------------------------------------------------------
@@ -1367,7 +1245,7 @@ h2 {
 }
 
 .galeri-btn .btn {
-    border-radius: 50px; /* Membuat tombol berbentuk kapsul */
+    border-radius: 50px;
     padding: 12px 35px;
     font-family: var(--nav-font);
     font-size: 1rem;
@@ -1392,61 +1270,6 @@ h2 {
 
 .galeri-item .row > [class*="col-"] {
     padding: 12px;
-}
-
-/*--------------------------------------------------------------
-# Section Testimoni
---------------------------------------------------------------*/
-
-.section-testimoni {
-    color: var(--default);
-    background-color: var(--bg);
-    padding: 60px 0;
-    scroll-margin-top: 90px;
-    overflow: clip;
-}
-
-@media (max-width: 1199px) {
-    .section-testimoni {
-        scroll-margin-top: 66px;
-    }
-}
-
-.section-testimoni-title {
-    padding-bottom: 60px;
-    position: relative;
-}
-
-.section-testimoni-title h2 {
-    font-family: var(--nav-font);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0;
-    line-height: 1px;
-    margin: 0;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--default), transparent 50%);
-    position: relative;
-}
-
-.section-testimoni-title h2::after {
-    content: "";
-    width: 120px;
-    height: 3px;
-    display: inline-block;
-    background: var(--primary-1);
-    margin: 4px 10px;
-}
-
-.section-testimoni-title div {
-    color: var(--heading);
-    margin: 0;
-    margin: 0;
-    font-family: var(--tittle-font);
-    font-size: 28px;
-    font-weight: 700;
-    text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
@@ -1508,8 +1331,8 @@ h2 {
 }
 
 .testimoni .testimoni-item p {
-    font-family: var(--sub-font);
-    font-size: 1.1rem;
+    font-family: var(--nav-font);
+    font-size: 1rem;
     margin: 0 15px 0 15px;
     padding: 20px 20px 60px 20px;
     background: var(--primary-1);

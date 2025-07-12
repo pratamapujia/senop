@@ -1,8 +1,8 @@
 {{-- Partners --}}
 <section id="partners" class="partners section-partners">
-  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+  <div class="container-fluid" data-aos="fade-up">
     <div class="partners-slider">
-      <div class="partners-track track-1" data-aos="fade-right" data-aos-delay="200">
+      <div class="partners-track track-1">
         <div class="partners-slide">
           <img src="{{ asset('assets/senop/img/partners/1.png') }}" class="img-fluid" alt="Partners 1">
         </div>
@@ -60,7 +60,7 @@
           <img src="{{ asset('assets/senop/img/partners/9.png') }}" class="img-fluid" alt="Partners 9">
         </div>
       </div>
-      <div class="partners-track track-2" data-aos="fade-left" data-aos-delay="300">
+      <div class="partners-track track-2">
         <div class="partners-slide">
           <img src="{{ asset('assets/senop/img/partners/10.png') }}" class="img-fluid" alt="Partners 10">
         </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-4 col-sm-6 py-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-4 col-sm-6 py-2">
             <h5>Menu Utama</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -150,7 +150,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4 col-sm-6 py-2" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-4 col-sm-6 py-2">
             <h5>Program</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -167,7 +167,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4 col-sm-6 py-2" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-4 col-sm-6 py-2">
             <h5>Statistik</h5>
             <h3>Website Senopati</h3>
             <ul class="nav flex-column">
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="row my-4">
-          <div class="col-md-6 col-sm-6 py-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6 col-sm-6 py-2">
             <h5>Hubungi Kami</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -198,7 +198,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-6 col-sm-6 py-2" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6 col-sm-6 py-2">
             <h5>Alamat</h5>
             <p>Jl. Senopati No.2, Betro, Kec. Sedati, Kab. Sidoarjo, Jawa Timur 61253</p>
           </div>

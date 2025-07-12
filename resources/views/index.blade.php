@@ -28,10 +28,10 @@
   </section>
 
   {{-- About Section --}}
-  <section id="about" class="about section-about light-background">
-    <div class="container section-about-title" data-aos="fade-up">
+  <section id="about" class="about section light-background">
+    <div class="container section-title" data-aos="fade-up">
       <h2>Kenapa harus senopati ?</h2>
-      <div class="about-title-shape">
+      <div class="title-shape">
         <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="3"></path>
         </svg>
@@ -107,15 +107,15 @@
   </section>
 
   {{-- Siswa Section --}}
-  <section id="siswa" class="siswa section-siswa light-background">
-    <div class="container section-siswa-title" data-aos="fade-up">
+  <section id="siswa" class="siswa section light-background">
+    <div class="container section-title" data-aos="fade-up">
       <h2>Kami memiliki lebih dari 1000+ siswa</h2>
-      <div class="siswa-title-shape">
+      <div class="title-shape">
         <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="3"></path>
         </svg>
       </div>
-      <p>SMK Senopati termasuk dalam sekolah favorit di kabupaten Sidoarjo. <br> SMK Senopati memiliki lima jurusan yang dapat ditempuh oleh siswa. Jadi ayo buruan bergabung dengan SMK Senopati
+      <p>SMK Senopati termasuk dalam sekolah favorit di kabupaten Sidoarjo.
       </p>
     </div>
     <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -173,10 +173,10 @@
   </section>
 
   {{-- Gallery --}}
-  <section id="galeri" class="galeri section-galeri">
-    <div class="container section-galeri-title" data-aos="fade-up" data-aos-delay="100">
+  <section id="galeri" class="galeri section">
+    <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
       <h2>Galeri Foto Kegiatan</h2>
-      <div class="galeri-title-shape">
+      <div class="title-shape">
         <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="3"></path>
         </svg>
@@ -208,10 +208,16 @@
   </section>
 
   {{-- Testimoni --}}
-  <section id="testimoni" class="testimoni section-testimoni">
-    <div class="container section-testimoni-title" data-aos="fade-left">
+  <section id="testimoni" class="testimoni section">
+    <div class="container section-title" data-aos="fade-up">
       <h2>Kata Alumni</h2>
-      <div><span>Testimoni</span> <span class="description-title">Alumni SMK Senopati</span></div>
+      <div class="title-shape">
+        <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="3"></path>
+        </svg>
+      </div>
+      <p>Testimoni alumni terbaik SMK Senopati.
+      </p>
     </div>
     <div class="container" data-aos="fade-left-up" data-aos-delay="100">
       <div class="swiper init-swiper" data-speed="600" data-aos-delay="5000">

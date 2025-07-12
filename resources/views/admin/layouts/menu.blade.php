@@ -12,8 +12,8 @@
         <span>Agenda</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/berita*') ? 'active' : '' }}">
+      <a href="{{ route('berita.index') }}" class='sidebar-link'>
         <i class="bi bi-newspaper"></i>
         <span>Berita</span>
       </a>
@@ -24,8 +24,8 @@
         <span>Galeri</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/guru*') ? 'active' : '' }}">
+      <a href="{{ route('guru.index') }}" class='sidebar-link'>
         <i class="bi bi-person-video3"></i>
         <span>Guru</span>
       </a>
@@ -36,20 +36,20 @@
         <span>Jumlah Siswa</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/prestasi*') ? 'active' : '' }}">
+      <a href="{{ route('prestasi.index') }}" class='sidebar-link'>
         <i class="bi bi-trophy-fill"></i>
         <span>Prestasi</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/ppdb*') ? 'active' : '' }}">
+      <a href="{{ route('ppdb.index') }}" class='sidebar-link'>
         <i class="bi bi-person-fill-add"></i>
         <span>PPDB</span>
       </a>
     </li>
-    <li class="sidebar-item  ">
-      <a href="index.html" class='sidebar-link'>
+    <li class="sidebar-item {{ request()->is('admin/testimoni*') ? 'active' : '' }}">
+      <a href="{{ route('testimoni.index') }}" class='sidebar-link'>
         <i class="bi bi-chat-right-quote"></i>
         <span>Testimoni</span>
       </a>

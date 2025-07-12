@@ -2,9 +2,14 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JSiswaController;
+use App\Http\Controllers\PPDBController;
+use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 
 // Route pengunjung website
@@ -54,6 +59,11 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('admin/agenda', AgendaController::class);
     Route::resource('admin/jsiswa', JSiswaController::class);
     Route::resource('admin/galeri', GaleriController::class);
+    Route::resource('admin/berita', BeritaController::class);
+    Route::resource('admin/guru', GuruController::class);
+    Route::resource('admin/prestasi', PrestasiController::class);
+    Route::resource('admin/testimoni', TestimoniController::class);
+    Route::resource('admin/ppdb', PPDBController::class);
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
