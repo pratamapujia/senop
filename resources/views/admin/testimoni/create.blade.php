@@ -59,9 +59,9 @@
               </div>
               <div class="col-lg-6 col-md-6 col-12">
                 <div class="form-group">
-                  <label class="form-label" for="status">Status Alumni</label>
-                  <input type="text" class="form-control @error('status') is-invalid @enderror" name="status" placeholder="Ex: Staff IT Perusahan A" value="{{ old('status') }}">
-                  @error('status')
+                  <label class="form-label" for="credit">Status Alumni</label>
+                  <input type="text" class="form-control @error('credit') is-invalid @enderror" name="credit" placeholder="Ex: Staff IT Perusahan A" value="{{ old('credit') }}">
+                  @error('credit')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
@@ -71,8 +71,8 @@
               <div class="col-lg-6 col-md-6 col-12">
                 <div class="form-group">
                   <label for="testimoni" class="form-label">Testimoni</label>
-                  <textarea class="form-control" id="testimoni" @error('status') is-invalid @enderror" name="testimoni" value="{{ old('status') }}"></textarea>
-                  @error('status')
+                  <textarea class="form-control @error('testimoni') is-invalid @enderror" placeholder="Masukkan Testimoni" id="testimoni" name="testimoni">{{ old('testimoni') }}</textarea>
+                  @error('testimoni')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

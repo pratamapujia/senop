@@ -220,7 +220,7 @@
       </p>
     </div>
     <div class="container" data-aos="fade-left-up" data-aos-delay="100">
-      <div class="swiper init-swiper" data-speed="600" data-aos-delay="5000">
+      <div class="swiper init-swiper" data-speed="600">
         <script type="aplication/json" class="swiper-config">
               {
                 "loop" : true,
@@ -246,59 +246,24 @@
                 }
               }
             </script>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="testimoni-item">
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid minus sapiente in, voluptates molestias iure tempora! Modi eaque sequi sapiente quidem, quod veritatis hic
-                  ipsum iusto cumque. Autem, distinctio sit!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-              <img src="{{ asset('assets/senop/img/person/person-f-5.webp') }}" class="testimoni-img" alt="">
-              <h3>Rere Ajengwati</h3>
-              <h4>SMK Senopati</h4>
+        <div class="swiper-wrapper" data-aos="zoom-in" data-aos-delay="200">
+          @foreach ($testimoni as $data)
+            @php
+              $path = Storage::url('testimoni/' . $data->foto);
+            @endphp
+            <div class="swiper-slide">
+              <div class="testimoni-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>{{ $data->testimoni }}</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{{ url($path) }}" class="testimoni-img" alt="img-testimoni">
+                <h3>{{ $data->nama }}</h3>
+                <h4>{{ $data->credit }}</h4>
+              </div>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="testimoni-item">
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid minus sapiente in, voluptates molestias iure tempora! Modi eaque sequi sapiente quidem, quod veritatis hic
-                  ipsum iusto cumque. Autem, distinctio sit!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-              <img src="{{ asset('assets/senop/img/person/person-f-8.webp') }}" class="testimoni-img" alt="">
-              <h3>Rere Ajengwati</h3>
-              <h4>SMK Senopati</h4>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="testimoni-item">
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid minus sapiente in, voluptates molestias iure tempora! Modi eaque sequi sapiente quidem, quod veritatis hic
-                  ipsum iusto cumque. Autem, distinctio sit!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-              <img src="{{ asset('assets/senop/img/person/person-m-7.webp') }}" class="testimoni-img" alt="">
-              <h3>Rere Ajengwati</h3>
-              <h4>SMK Senopati</h4>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="testimoni-item">
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid minus sapiente in, voluptates molestias iure tempora! Modi eaque sequi sapiente quidem, quod veritatis hic
-                  ipsum iusto cumque. Autem, distinctio sit!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-              <img src="{{ asset('assets/senop/img/person/person-m-9.webp') }}" class="testimoni-img" alt="">
-              <h3>Rere Ajengwati</h3>
-              <h4>SMK Senopati</h4>
-            </div>
-          </div>
+          @endforeach
         </div>
         <div class="swiper-pagination"></div>
       </div>

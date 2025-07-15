@@ -16,7 +16,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="{{ route('galeri.index') }}">Master Galeri</a>
+                  <a href="{{ route('testimoni.index') }}">Master Testimoni</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   Form Edit Data
@@ -33,36 +33,57 @@
         <div class="card-header">
           <div class="media d-flex align-items-center">
             <div class="me-3">
-              <h5>Master Galeri</h5>
+              <h5>Master Testimoni</h5>
             </div>
             <div class="ms-auto">
-              <a href="{{ route('galeri.index') }}" class="btn icon icon-left btn-primary">
+              <a href="{{ route('testimoni.index') }}" class="btn icon icon-left btn-primary">
                 <i class="fas fa-arrow-left"></i> Kembali
               </a>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form action="{{ route('galeri.update', $galeri->id_galeri) }}" class="form" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('testimoni.update', $testimoni->id_testimoni) }}" class="form" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
-              <div class="col-12">
+              <div class="col-lg-6 col-md-6 col-12">
                 <div class="form-group">
-                  <label for="judul_foto">Judul Foto</label>
-                  <input type="text" class="form-control @error('judul_foto') is-invalid @enderror" name="judul_foto" placeholder="Masukkan Judul Foto"
-                    value="{{ old('judul_foto', $galeri->judul_foto) }}">
-                  @error('judul_foto')
+                  <label class="form-label" for="nama">Nama Alumni</label>
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Masukkan Nama Alumni" value="{{ old('nama', $testimoni->nama) }}">
+                  @error('nama')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>
                   @enderror
                 </div>
               </div>
-              <div class="col-12">
+              <div class="col-lg-6 col-md-6 col-12">
                 <div class="form-group">
-                  <label for="foto">Foto</label>
-                  <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" placeholder="Foto" value="{{ old('foto', $galeri->foto) }}">
+                  <label class="form-label" for="credit">Status Alumni</label>
+                  <input type="text" class="form-control @error('credit') is-invalid @enderror" name="credit" placeholder="Ex: Staff IT Perusahan A" value="{{ old('credit', $testimoni->credit) }}">
+                  @error('credit')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="form-group">
+                  <label for="testimoni" class="form-label">Testimoni</label>
+                  <textarea class="form-control @error('testimoni') is-invalid @enderror" placeholder="Masukkan Testimoni" id="testimoni" name="testimoni">{{ old('testimoni', $testimoni->testimoni) }}</textarea>
+                  @error('testimoni')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="form-group">
+                  <label class="form-label" for="foto">Foto</label>
+                  <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" placeholder="Masukkan Foto" value="{{ old('foto') }}">
                   @error('foto')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -72,7 +93,7 @@
               </div>
               <div class="col-6 mt-2">
                 <button class="btn btn-primary icon icon-left btn-block">
-                  <i class="fas fa-paper-plane"></i> Update
+                  <i class="fas fa-paper-plane"></i> Simpan
                 </button>
               </div>
               <div class="col-6 mt-2">
