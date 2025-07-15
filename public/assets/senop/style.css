@@ -1411,8 +1411,7 @@ h2 {
     display: flex;
     align-items: center; /* Membuat logo center secara vertikal */
     /* Hitungan lebar: (lebar_slide) x (jumlah_slide_total) */
-    /* Contoh: 250px x 18 slide = 4500px */
-    width: calc(250px * 18);
+    width: calc(220px * 18);
     margin-bottom: 20px;
 }
 
@@ -1449,7 +1448,6 @@ h2 {
 .partners-slide:hover img {
     filter: grayscale(0%);
     opacity: 1;
-    transform: scale(1.1);
 }
 
 /* === ANIMASI INTI === */
