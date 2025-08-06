@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -11,7 +12,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        $struktur = Guru::all();
+        return view('admin.guru.index', compact('struktur'));
     }
 
     /**
@@ -19,7 +21,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.guru.create');
     }
 
     /**
@@ -43,7 +45,8 @@ class GuruController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $struktur = Guru::find($id);
+        return view('admin.guru.edit', compact('struktur'));
     }
 
     /**

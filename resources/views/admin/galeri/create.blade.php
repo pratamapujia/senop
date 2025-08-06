@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('amdin.layouts.main')
 
 @section('title')
   <title>Form Tambah Data</title>

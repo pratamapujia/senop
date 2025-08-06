@@ -1723,3 +1723,98 @@ footer .footer-bottom p {
     padding: 0 30px;
     padding-bottom: 10px;
 }
+
+/*--------------------------------------------------------------
+# Struktur Page
+--------------------------------------------------------------*/
+.team-members {
+    position: relative;
+    padding-bottom: 54px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.team-members .box-content {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    padding: 20px 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10.6px rgba(97, 97, 97, 0.15);
+    border-radius: 15px;
+    transition: 0.4s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.team-members .box-img {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.box-img::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(
+        left,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+}
+.box-img:hover::before {
+    -webkit-animation: shine 0.75s;
+    animation: shine 0.75s;
+}
+@-webkit-keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+.team-members .box-img img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    filter: grayscale(0);
+}
+.team-members:hover img {
+    transition: 0.3s ease-in-out;
+    filter: grayscale(100%);
+}
+.team-members a {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: block;
+    color: var(--primary-1);
+    transition: all 0.35s ease-in;
+}
+.team-members .box-text {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    color: #606060;
+    margin: 0;
+}

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('title')
   <title>Form Tambah Data</title>
@@ -16,7 +16,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="{{ route('galeri.index') }}">Master Galeri</a>
+                  <a href="{{ route('guru.index') }}">Master Guru dan Staff</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   Form Tambah Data
@@ -33,24 +33,35 @@
         <div class="card-header">
           <div class="media d-flex align-items-center">
             <div class="me-3">
-              <h5>Master Galeri</h5>
+              <h5>Master Guru dan Staff</h5>
             </div>
             <div class="ms-auto">
-              <a href="{{ route('galeri.index') }}" class="btn icon icon-left btn-primary">
+              <a href="{{ route('guru.index') }}" class="btn icon icon-left btn-primary">
                 <i class="fas fa-arrow-left"></i> Kembali
               </a>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form action="{{ route('galeri.store') }}" class="form" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('guru.store') }}" class="form" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label class="form-label" for="judul_foto">Judul Foto</label>
-                  <input type="text" class="form-control @error('judul_foto') is-invalid @enderror" name="judul_foto" placeholder="Masukkan Judul Foto" value="{{ old('judul_foto') }}">
-                  @error('judul_foto')
+                  <label class="form-label" for="nama">Nama Guru</label>
+                  <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Masukkan Nama Guru" value="{{ old('nama') }}">
+                  @error('nama')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="form-label" for="jabatan">Jabatan</label>
+                  <input type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" placeholder="Masukkan Jabatan" value="{{ old('jabatan') }}">
+                  @error('jabatan')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

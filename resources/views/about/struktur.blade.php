@@ -26,4 +26,72 @@
       <p>Struktur Organisasi Sekolah SMK Senopati</p>
     </div>
   </div>
+  <div class="container w-100 pb-5">
+    <div class="row pb-4 justify-content-center">
+      <div class="col-3">
+        <div class="th-team team-members">
+          <div class="box-img">
+            <img decoding="async" src="{{ asset('assets/static/images/faces/1.jpg') }}" alt="team-1-1">
+          </div>
+          <div class="box-content">
+            <a href="javascript:void(0)">Dr.
+              Malcolm Function</a>
+            <p class="box-text">Kepala Sekolah
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row gy-4 justify-content-between">
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="th-team team-members">
+          <div class="box-img">
+            <img decoding="async" src="{{ asset('assets/static/images/faces/1.jpg') }}" alt="team-1-1">
+          </div>
+          <div class="box-content">
+            <a href="javascript:void(0)">Dr.
+              Malcolm Function</a>
+            <p class="box-text">Neurologist
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="th-team team-members">
+          <div class="box-img">
+            <img decoding="async" src="{{ asset('assets/static/images/faces/2.jpg') }}" alt="team-2">
+          </div>
+          <div class="box-content">
+            <a href="javascript:void(0)">Dr. Malcolm Function</a>
+            <p class="box-text">Neurologist
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 ">
+        <div class="th-team team-members">
+          <div class="box-img">
+            <img decoding="async" src="{{ asset('assets/static/images/faces/3.jpg') }}" alt="team-3">
+          </div>
+          <div class="box-content">
+            <a href="javascript:void(0)">Dr. Malcolm Function</a>
+            <p class="box-text">Neurologist
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 ">
+        <div class="th-team team-members">
+          <div class="box-img">
+            <img decoding="async" src="{{ asset('assets/static/images/faces/4.jpg') }}" alt="team-3">
+          </div>
+          <div class="box-content">
+            <a href="javascript:void(0)">Dr. Malcolm Function</a>
+            <p class="box-text">Neurologist
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('title')
-  <title>Galeri</title>
+  <title>Guru dan Staff</title>
   <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
   <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/table-datatable.css') }}">
 @endsection
@@ -18,13 +18,13 @@
       <div class="page-title">
         <div class="row">
           <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Master Galeri</h3>
+            <h3>Master Guru dan Staff</h3>
           </div>
           <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Master Galeri</li>
+                <li class="breadcrumb-item active" aria-current="page">Master Guru dan Staff</li>
               </ol>
             </nav>
           </div>
@@ -33,7 +33,7 @@
       <section class="section">
         <div class="card">
           <div class="card-header">
-            <a href="{{ route('galeri.create') }}" class="btn icon icon-left btn-primary">
+            <a href="{{ route('guru.create') }}" class="btn icon icon-left btn-primary">
               <i class="fas fa-plus"></i> Tambah Data
             </a>
           </div>
@@ -42,25 +42,27 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Judul Foto</th>
+                  <th>Nama</th>
+                  <th>Jabatan</th>
+                  <th>Foto</th>
                   <th data-sortable="false">Foto</th>
                   <th data-sortable="false">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($galeri as $data)
+                @foreach ($struktur as $data)
                   @php
-                    $path = Storage::url('galeri/' . $data->foto);
+                    $path = Storage::url('guru/' . $data->foto);
                   @endphp
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->judul_foto }}</td>
+                    <td>{{ $data->foto }}</td>
                     <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
                     <td>
-                      <a href="{{ route('galeri.edit', $data->id_galeri) }}" class="btn icon icon-left btn-sm btn-warning">
+                      <a href="{{ route('guru.edit', $data->id) }}" class="btn icon icon-left btn-sm btn-warning">
                         <li class="fas fa-edit"></li> Edit
                       </a>
-                      <form action="{{ route('galeri.destroy', $data->id_galeri) }}" method="POST" class="d-inline">
+                      <form action="{{ route('guru.destroy', $data->id) }}" method="POST" class="d-inline">
                         @csrf
                         <input type="hidden" name="_method" value="delete">
                         <button type="button" class="btn icon icon-left btn-danger btn-sm btn-delete">
