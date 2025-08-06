@@ -4,118 +4,118 @@
     <div class="partners-slider">
       <div class="partners-track track-1">
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/1.png') }}" class="img-fluid" alt="Partners 1">
+          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/2.png') }}" class="img-fluid" alt="Partners 2">
+          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/3.png') }}" class="img-fluid" alt="Partners 3">
+          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/4.png') }}" class="img-fluid" alt="Partners 4">
+          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/5.png') }}" class="img-fluid" alt="Partners 5">
+          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/6.png') }}" class="img-fluid" alt="Partners 6">
+          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/7.png') }}" class="img-fluid" alt="Partners 7">
+          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/8.png') }}" class="img-fluid" alt="Partners 8">
+          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/9.png') }}" class="img-fluid" alt="Partners 9">
+          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9">
         </div>
 
         {{-- Duplikat untuk looping --}}
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/1.png') }}" class="img-fluid" alt="Partners 1">
+          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/2.png') }}" class="img-fluid" alt="Partners 2">
+          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/3.png') }}" class="img-fluid" alt="Partners 3">
+          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/4.png') }}" class="img-fluid" alt="Partners 4">
+          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/5.png') }}" class="img-fluid" alt="Partners 5">
+          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/6.png') }}" class="img-fluid" alt="Partners 6">
+          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/7.png') }}" class="img-fluid" alt="Partners 7">
+          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/8.png') }}" class="img-fluid" alt="Partners 8">
+          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/9.png') }}" class="img-fluid" alt="Partners 9">
+          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9">
         </div>
       </div>
       <div class="partners-track track-2">
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/10.png') }}" class="img-fluid" alt="Partners 10">
+          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/11.png') }}" class="img-fluid" alt="Partners 11">
+          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/12.png') }}" class="img-fluid" alt="Partners 12">
+          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/13.png') }}" class="img-fluid" alt="Partners 13">
+          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/14.png') }}" class="img-fluid" alt="Partners 14">
+          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/15.png') }}" class="img-fluid" alt="Partners 15">
+          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/16.png') }}" class="img-fluid" alt="Partners 16">
+          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/17.png') }}" class="img-fluid" alt="Partners 17">
+          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/18.png') }}" class="img-fluid" alt="Partners 18">
+          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18">
         </div>
 
         {{-- Duplikat untuk looping --}}
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/10.png') }}" class="img-fluid" alt="Partners 10">
+          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/11.png') }}" class="img-fluid" alt="Partners 11">
+          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/12.png') }}" class="img-fluid" alt="Partners 12">
+          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/13.png') }}" class="img-fluid" alt="Partners 13">
+          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/14.png') }}" class="img-fluid" alt="Partners 14">
+          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/15.png') }}" class="img-fluid" alt="Partners 15">
+          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/16.png') }}" class="img-fluid" alt="Partners 16">
+          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/17.png') }}" class="img-fluid" alt="Partners 17">
+          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/18.png') }}" class="img-fluid" alt="Partners 18">
+          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18">
         </div>
       </div>
     </div>
@@ -128,7 +128,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="footer-logo">
-          <img src="{{ asset('assets/senop/img/footer.png') }}" alt="Footer Logo" class="img-fluid">
+          <img src="{{ asset('assets/senop/img/footer.webp') }}" alt="Footer Logo" class="img-fluid">
         </div>
       </div>
       <div class="col-md-8">

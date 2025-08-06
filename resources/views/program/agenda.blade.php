@@ -52,7 +52,7 @@
         </div>
         <div class="col-lg-4 position-relative my-5" data-aos="zoom-out" data-aos-delay="400">
           <div class="agenda-image">
-            <img src="{{ asset('assets/senop/img/agenda.png') }}" alt="Profile Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/agenda.webp') }}" alt="Profile Image" class="img-fluid">
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-6 col-lg-6 col-12 col-sm-12">
           <div class="hero-image">
-            <img src="{{ asset('assets/senop/img/hero.png') }}" data-aos="zoom-out" data-aos-delay="300" alt="Hero Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/hero.webp') }}" data-aos="zoom-out" data-aos-delay="300" alt="Hero Image" class="img-fluid">
             <div class="shape-1"></div>
             <div class="shape-2"></div>
           </div>
@@ -165,7 +165,7 @@
         </div>
         <div class="col-lg-4 position-relative my-5" data-aos="zoom-out" data-aos-delay="400">
           <div class="agenda-image">
-            <img src="{{ asset('assets/senop/img/agenda.png') }}" alt="Profile Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/agenda.webp') }}" alt="Profile Image" class="img-fluid">
           </div>
         </div>
       </div>
