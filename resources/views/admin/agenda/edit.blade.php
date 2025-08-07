@@ -49,10 +49,21 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label for="nama_agenda">Nama agenda</label>
+                  <label for="nama_agenda">Nama Agenda</label>
                   <input type="text" class="form-control @error('nama_agenda') is-invalid @enderror" name="nama_agenda" placeholder="Nama agenda"
                     value="{{ old('nama_agenda', $agenda->nama_agenda) }}">
                   @error('nama_agenda')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="tanggal">Tanggal Agenda</label>
+                  <input type="date" class="form-control @error('tanggal') is-invalid @enderror" name="tanggal" placeholder="Nama agenda" value="{{ old('tanggal', $agenda->tanggal) }}">
+                  @error('tanggal')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

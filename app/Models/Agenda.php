@@ -11,5 +11,5 @@ class Agenda extends Model
 
     protected $table = 'agenda';
     protected $primaryKey = 'id_agenda';
-    protected $fillable = ['nama_agenda', 'keterangan'];
+    protected $fillable = ['nama_agenda', 'keterangan', 'tanggal'];
 }

@@ -34,9 +34,11 @@ class AgendaController extends Controller
         $validasi = Validator::make($request->all(), [
             'nama_agenda' => 'required',
             'keterangan' => 'required',
+            'tanggal' => 'required',
         ], [
             'nama_agenda.required' => 'Nama agenda harus diisi',
             'keterangan.required' => 'Keterangan harus diisi',
+            'tanggal.required' => 'Tanggal harus diisi',
         ]);
 
         if ($validasi->fails()) {
@@ -46,6 +48,7 @@ class AgendaController extends Controller
         $agenda = new Agenda();
         $agenda->nama_agenda = $request->nama_agenda;
         $agenda->keterangan = $request->keterangan;
+        $agenda->tanggal = $request->tanggal;
 
         if ($agenda->save()) {
             return redirect()->route('agenda.index')->with('berhasil', 'Agenda berhasil ditambahkan 👍');
@@ -79,9 +82,11 @@ class AgendaController extends Controller
         $validasi = Validator::make($request->all(), [
             'nama_agenda' => 'required',
             'keterangan' => 'required',
+            'tanggal' => 'required',
         ], [
             'nama_agenda.required' => 'Nama agenda harus diisi',
             'keterangan.required' => 'Keterangan harus diisi',
+            'tanggal.required' => 'Tanggal harus diisi',
         ]);
 
         if ($validasi->fails()) {
@@ -91,6 +96,7 @@ class AgendaController extends Controller
         $agenda = Agenda::find($id);
         $agenda->nama_agenda = $request->nama_agenda;
         $agenda->keterangan = $request->keterangan;
+        $agenda->tanggal = $request->tanggal;
 
         if ($agenda->save()) {
             return redirect()->route('agenda.index')->with('berhasil', 'Agenda berhasil diubah 👍');
@@ -116,7 +122,9 @@ class AgendaController extends Controller
     // Controller untuk halaman agenda di landing page
     public function landing()
     {
-        $agenda = Agenda::latest()->paginate(6);
+        $agenda = Agenda::where('tanggal', '>=', now()->toDateString())
+            ->orderBy('tanggal', 'asc')
+            ->paginate(6);
         return view('program.agenda', compact('agenda'));
     }
 }

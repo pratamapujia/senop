@@ -43,6 +43,7 @@
                 <tr>
                   <th>No</th>
                   <th>Nama Agenda</th>
+                  <th>Tanggal</th>
                   <th>Keterangan</th>
                   <th data-sortable="false">Aksi</th>
                 </tr>
@@ -52,6 +53,7 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->nama_agenda }}</td>
+                    <td>{{ $data->tanggal }}</td>
                     <td>{{ $data->keterangan }}</td>
                     <td>
                       <a href="{{ route('agenda.edit', $data->id_agenda) }}" class="btn icon icon-left btn-sm btn-warning">

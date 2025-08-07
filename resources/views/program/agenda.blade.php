@@ -37,7 +37,7 @@
               @foreach ($agenda as $data)
                 <div class="agenda-card">
                   <div class="icon-box">
-                    <i class="bi bi-calendar-week"></i>
+                    <i>{{ \Carbon\Carbon::parse($data->tanggal)->format('d') }}</i>
                   </div>
                   <div class="agenda-text">
                     <h4 class="Upper">{{ $data->nama_agenda }}</h4>

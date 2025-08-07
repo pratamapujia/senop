@@ -12,7 +12,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $agenda = Agenda::latest()->take(4)->get();
+        $agenda = Agenda::where('tanggal', '>=', now()->toDateString())
+            ->orderBy('tanggal', 'asc')->take(4)
+            ->get();
         $galeri = Galeri::latest()->take(8)->get();
         $jsiswa = JSiswa::all();
         $testimoni = Testimoni::latest()->take(5)->get();
