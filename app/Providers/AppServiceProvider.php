@@ -21,5 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::defaultView('vendor.pagination.mypagination');
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
