@@ -7,7 +7,7 @@
 
     @yield('title')
 
-    <link rel="shortcut icon" href="{{ asset('assets/senop/img/logo/icon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/senop/img/logo/icon.webp') }}" type="image/x-icon">
 
     <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/app.css') }}">
 
