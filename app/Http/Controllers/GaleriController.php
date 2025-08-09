@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
-use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Laravel\Facades\Image;
 
 class GaleriController extends Controller
 {
@@ -53,7 +54,11 @@ class GaleriController extends Controller
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
-            $path = storage_path('app/public/galeri/' . $nama_file);
+            $directoryPath = storage_path('app/public/galeri');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0775, true, true);
+            }
+            $path = $directoryPath . '/' . $nama_file;
             $image = Image::read($file->getRealPath());
             $image->scaleDown(width: 1200);
             $image->toWebp(80)->save($path);
