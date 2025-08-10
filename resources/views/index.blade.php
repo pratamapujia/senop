@@ -146,7 +146,7 @@
           </div>
           <div class="agenda-content">
             <div class="agenda-card-container">
-              @foreach ($agenda as $data)
+              @forelse($agenda as $data)
                 <div class="agenda-card">
                   <div class="icon-box">
                     <i>{{ \Carbon\Carbon::parse($data->tanggal)->format('d') }}</i>
@@ -156,11 +156,23 @@
                     <p><i class="bi bi-play-fill"></i> {{ $data->keterangan }}</p>
                   </div>
                 </div>
-              @endforeach
+              @empty
+                <div class="agenda-card">
+                  <div class="icon-box">
+                    <i class="bi bi-x-lg"></i>
+                  </div>
+                  <div class="agenda-text">
+                    <h4 class="Upper">Tidak Ada Agenda</h4>
+                    <p>Selama beberapa hari kedepan.</p>
+                  </div>
+                </div>
+              @endforelse
             </div>
-            <div class="agenda-btn">
-              <a href="{{ route('agenda.landing') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
-            </div>
+            @if ($agenda->count() >= 4)
+              <div class="agenda-btn">
+                <a href="{{ route('agenda.landing') }}" class="btn btn-primary"><i class="bi bi-arrow-right"></i> Lihat Selengkapnya</a>
+              </div>
+            @endif
           </div>
         </div>
         <div class="col-lg-4 position-relative my-5" data-aos="zoom-out" data-aos-delay="400">

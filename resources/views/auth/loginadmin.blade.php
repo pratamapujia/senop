@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="{{ asset('assets/senop/img/logo/icon.ico') }}" type="image/x-icon">
-
-    {{-- Bootstrap --}}
-    <link href="{{ asset('assets/static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
 
     {{-- FontAwesome --}}
     <link rel="stylesheet" href="{{ asset('assets/extensions/@fortawesome/fontawesome-free/css/all.min.css') }}">
-
     <title>Admin Login</title>
 
     <style>
@@ -49,17 +46,13 @@
   </head>
 
   <body>
-
-    <div class="container-fluid login-container d-flex justify-content-center align-items-center">
-
+    <div class="container login-container d-flex justify-content-center align-items-center">
       <div class="card shadow-lg login-card">
         <div class="card-body p-4">
-
           <h2 class="card-title text-center mb-4">
-            <i class="bi bi-shield-lock-fill me-2"></i>
+            <i class="fas fa-user-shield"></i>
             Admin Login
           </h2>
-
           {{-- Alert --}}
           @if (Session::get('error'))
             <div class="alert alert-danger alert-dismissible show fade">
@@ -67,34 +60,27 @@
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           @endif
-
           <form action="{{ route('loginadmin') }}" method="POST">
             @csrf
             <div class="mb-3">
-              <label for="email" class="form-label">Alamat Email atau Username</label>
+              <label for="email" class="form-label">Email</label>
               <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="Masukkan email Anda" required>
             </div>
-
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Masukkan password" required>
             </div>
-
             <div class="d-grid">
               <button type="submit" class="btn btn-primary btn-lg btn-login">Login</button>
             </div>
-
           </form>
-
           <div class="text-center mt-4">
             <p class="text-muted">Kembali ke <a href="{{ route('home') }}" class="text-decoration-none">Halaman Utama</a></p>
           </div>
-
         </div>
       </div>
     </div>
-
-    <script src="{{ asset('assets/static/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
   </body>
 
 </html>
