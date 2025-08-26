@@ -82,7 +82,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 position-relative" data-aos="fade-right" data-aos-delay="200">
           <div class="about-image">
-            <img src="assets/senop/img/profile/profile-square-2.webp" alt="Profile Image" class="img-fluid rounded-4">
+            <img src="assets/senop/img/profile/kepsek.webp" alt="Profile Image" class="img-fluid rounded-4">
           </div>
         </div>
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">

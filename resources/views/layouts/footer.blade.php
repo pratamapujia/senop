@@ -1,6 +1,6 @@
 {{-- Partners --}}
 <section id="partners" class="partners section-partners">
-  <div class="container-fluid" data-aos="fade-up">
+  <div class="container-fluid">
     <div class="partners-slider">
       <div class="partners-track track-1">
         <div class="partners-slide">
@@ -123,7 +123,7 @@
 </section>
 
 {{-- Footer --}}
-<footer class="footer" data-aos="fade-up">
+<footer class="footer">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -133,7 +133,7 @@
       </div>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-4 col-sm-6 py-2">
+          <div class="col-sm-6 col-md-6 col-lg-3 py-2">
             <h5>Menu Utama</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -150,7 +150,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4 col-sm-6 py-2">
+          <div class="col-sm-6 col-md-6 col-lg-3 py-2">
             <h5>Program</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -167,24 +167,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4 col-sm-6 py-2">
-            <h5>Statistik</h5>
-            <h3>Website Senopati</h3>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a href="#" class="nav-link ps-0 pb-0">Visitor Hari Ini : 12</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link ps-0 pb-0">Visitor Bulan Ini : 200</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link ps-0 pb-0">Total Visitor : 1000</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row my-4">
-          <div class="col-md-6 col-sm-6 py-2">
+          <div class="col-sm-6 col-md-6 col-lg-6 py-2">
             <h5>Hubungi Kami</h5>
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -198,7 +181,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-6 col-sm-6 py-2">
+          <div class="col-sm-6 col-md-6 col-lg-12 py-2">
             <h5>Alamat</h5>
             <p>Jl. Senopati No.2, Betro, Kec. Sedati, Kab. Sidoarjo, Jawa Timur 61253</p>
           </div>
@@ -207,7 +190,12 @@
     </div>
     <div class="divider"></div>
     <div class="footer-bottom pt-3">
-      <p>&copy; 2025 SMK Senopati Sedati Sidoarjo</p>
+      <div class=float-start>
+        <p>2025 &copy; SMK Senopati</p>
+      </div>
+      <div class=float-end>
+        <p>Credits by <a href="https://github.com/pratamapujia">PPA</a></p>
+      </div>
     </div>
   </div>
 </footer>
