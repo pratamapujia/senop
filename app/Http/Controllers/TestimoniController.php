@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Testimoni;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -57,8 +58,12 @@ class TestimoniController extends Controller
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $nama_file = Str::slug($testimoni->nama) . "-" . time() . ".webp";
-            $path = storage_path('app/public/testimoni/' . $nama_file);
+            $nama_file = Str::slug($testimoni->judul_foto) . "-" . time() . ".webp";
+            $directoryPath = storage_path('app/public/testimoni');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0775, true, true);
+            }
+            $path = $directoryPath . '/' . $nama_file;
             $image = Image::read($file->getRealPath());
             $image->scaleDown(width: 1200);
             $image->toWebp(80)->save($path);

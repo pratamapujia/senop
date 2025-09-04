@@ -96,12 +96,11 @@ class GaleriController extends Controller
     {
         $validasi = Validator::make($request->all(), [
             'judul_foto' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'foto' => 'image|mimes:jpeg,png,jpg',
         ], [
             'judul_foto.required' => 'Judul foto harus diisi',
             'foto.image' => 'Foto harus berupa gambar',
             'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
-            'foto.max' => 'Ukuran foto maksimal 2MB',
         ]);
 
         if ($validasi->fails()) {

@@ -31,67 +31,37 @@
       <div class="col-3">
         <div class="th-team team-members">
           <div class="box-img">
-            <img decoding="async" src="{{ asset('assets/static/images/faces/1.jpg') }}" alt="team-1-1">
+            @php
+              $path = Storage::url('guru/' . $kepsek->foto);
+            @endphp
+            <img decoding="async" src="{{ url($path) }}" alt="Kepsek">
           </div>
           <div class="box-content">
-            <a href="javascript:void(0)">Dr.
-              Malcolm Function</a>
-            <p class="box-text">Kepala Sekolah
+            <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
+            <p class="box-text">{{ $kepsek->jabatan }}
             </p>
           </div>
         </div>
       </div>
     </div>
     <div class="row gy-4 justify-content-between">
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="th-team team-members">
-          <div class="box-img">
-            <img decoding="async" src="{{ asset('assets/static/images/faces/1.jpg') }}" alt="team-1-1">
-          </div>
-          <div class="box-content">
-            <a href="javascript:void(0)">Dr.
-              Malcolm Function</a>
-            <p class="box-text">Neurologist
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="th-team team-members">
-          <div class="box-img">
-            <img decoding="async" src="{{ asset('assets/static/images/faces/2.jpg') }}" alt="team-2">
-          </div>
-          <div class="box-content">
-            <a href="javascript:void(0)">Dr. Malcolm Function</a>
-            <p class="box-text">Neurologist
-            </p>
+      @foreach ($semuaGuru as $data)
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="th-team team-members">
+            @php
+              $path = Storage::url('guru/' . $data->foto);
+            @endphp
+            <div class="box-img">
+              <img decoding="async" src="{{ url($path) }}" alt="guru">
+            </div>
+            <div class="box-content">
+              <a href="javascript:void(0)">{{ $data->nama }}</a>
+              <p class="box-text">{{ $data->jabatan }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 ">
-        <div class="th-team team-members">
-          <div class="box-img">
-            <img decoding="async" src="{{ asset('assets/static/images/faces/3.jpg') }}" alt="team-3">
-          </div>
-          <div class="box-content">
-            <a href="javascript:void(0)">Dr. Malcolm Function</a>
-            <p class="box-text">Neurologist
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 ">
-        <div class="th-team team-members">
-          <div class="box-img">
-            <img decoding="async" src="{{ asset('assets/static/images/faces/4.jpg') }}" alt="team-3">
-          </div>
-          <div class="box-content">
-            <a href="javascript:void(0)">Dr. Malcolm Function</a>
-            <p class="box-text">Neurologist
-            </p>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 @endsection

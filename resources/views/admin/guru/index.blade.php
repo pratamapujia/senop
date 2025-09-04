@@ -42,22 +42,22 @@
               <thead>
                 <tr>
                   <th>No</th>
+                  <th data-sortable="false">Foto</th>
                   <th>Nama</th>
                   <th>Jabatan</th>
-                  <th>Foto</th>
-                  <th data-sortable="false">Foto</th>
                   <th data-sortable="false">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($struktur as $data)
+                @foreach ($guru as $data)
                   @php
                     $path = Storage::url('guru/' . $data->foto);
                   @endphp
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->foto }}</td>
                     <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->jabatan }}</td>
                     <td>
                       <a href="{{ route('guru.edit', $data->id) }}" class="btn icon icon-left btn-sm btn-warning">
                         <li class="fas fa-edit"></li> Edit

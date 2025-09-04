@@ -24,9 +24,7 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/prestasi', function () {
         return view('about.prestasi');
     })->name('prestasi');
-    Route::get('/struktur', function () {
-        return view('about.struktur');
-    })->name('struktur');
+    Route::get('/struktur', [GuruController::class, 'landing'])->name('struktur');
     Route::get('/visimisi', function () {
         return view('about.visimisi');
     })->name('visimisi');
