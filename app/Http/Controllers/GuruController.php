@@ -55,14 +55,14 @@ class GuruController extends Controller
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $nama_file = Str::slug($guru->judul_foto) . "-" . time() . ".webp";
+            $nama_file = Str::slug($guru->nama) . "-" . time() . ".webp";
             $directoryPath = storage_path('app/public/guru');
             if (!File::isDirectory($directoryPath)) {
                 File::makeDirectory($directoryPath, 0775, true, true);
             }
             $path = $directoryPath . '/' . $nama_file;
             $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
+            $image->cover(300, 350, 'top');
             $image->toWebp(80)->save($path);
             $guru->foto = $nama_file;
         }
@@ -124,7 +124,7 @@ class GuruController extends Controller
             $nama_file = Str::slug($guru->nama) . "-" . time() . ".webp";
             $path = storage_path('app/public/guru/' . $nama_file);
             $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
+            $image->cover(300, 350, 'top');
             $image->toWebp(80)->save($path);
             $guru->foto = $nama_file;
         }

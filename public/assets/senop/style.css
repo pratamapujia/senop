@@ -34,6 +34,11 @@
     --accent: #d9b26f;
 }
 
+/* Smooth scroll */
+:root {
+    scroll-behavior: smooth;
+}
+
 /*--------------------------------------------------------------
 # Body
 --------------------------------------------------------------*/
@@ -1336,7 +1341,7 @@ h2 {
     margin: 0 15px 0 15px;
     padding: 20px 20px 60px 20px;
     background: var(--primary-1);
-    border-radius: 6px;
+    border-radius: 15px;
     position: relative;
     color: var(--bg);
     z-index: 1;
@@ -1729,7 +1734,7 @@ footer .footer-bottom p {
 --------------------------------------------------------------*/
 .team-members {
     position: relative;
-    padding-bottom: 54px;
+    padding-bottom: 40px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -1742,20 +1747,24 @@ footer .footer-bottom p {
     display: flex;
     padding: 20px 20px;
     background-color: #fff;
-    box-shadow: 0px 0px 10.6px rgba(97, 97, 97, 0.15);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     transition: 0.4s ease-in-out;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.team-members .box-img {
-    width: 100%;
+.team-members .box-img,
+.team-members .box-img2 {
     position: relative;
+    width: 300px;
     overflow: hidden;
+    border: var(--primary-1) solid 5px;
     border-radius: 20px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.35);
 }
-.box-img::before {
+.box-img::before,
+.box-img2::before {
     position: absolute;
     top: 0;
     left: -75%;
@@ -1777,7 +1786,8 @@ footer .footer-bottom p {
     -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
 }
-.box-img:hover::before {
+.box-img:hover::before,
+.box-img2:hover::before {
     -webkit-animation: shine 0.75s;
     animation: shine 0.75s;
 }
@@ -1791,15 +1801,17 @@ footer .footer-bottom p {
         left: 125%;
     }
 }
-.team-members .box-img img {
-    border-radius: 20px;
-    max-width: 100%;
+.team-members .box-img img,
+.team-members .box-img2 img {
+    border-radius: 14px;
+    width: 100%;
     height: auto;
     transition: 0.3s ease-in-out;
     overflow: hidden;
     filter: grayscale(0);
 }
-.team-members:hover img {
+.team-members .box-img:hover img,
+.team-members .box-img2:hover img {
     transition: 0.3s ease-in-out;
     filter: grayscale(100%);
 }

@@ -4,118 +4,118 @@
     <div class="partners-slider">
       <div class="partners-track track-1">
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1">
+          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2">
+          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3">
+          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4">
+          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5">
+          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6">
+          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7">
+          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8">
+          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9">
+          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9" loading="lazy">
         </div>
 
         {{-- Duplikat untuk looping --}}
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1">
+          <img src="{{ asset('assets/senop/img/partners/1.webp') }}" class="img-fluid" alt="Partners 1" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2">
+          <img src="{{ asset('assets/senop/img/partners/2.webp') }}" class="img-fluid" alt="Partners 2" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3">
+          <img src="{{ asset('assets/senop/img/partners/3.webp') }}" class="img-fluid" alt="Partners 3" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4">
+          <img src="{{ asset('assets/senop/img/partners/4.webp') }}" class="img-fluid" alt="Partners 4" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5">
+          <img src="{{ asset('assets/senop/img/partners/5.webp') }}" class="img-fluid" alt="Partners 5" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6">
+          <img src="{{ asset('assets/senop/img/partners/6.webp') }}" class="img-fluid" alt="Partners 6" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7">
+          <img src="{{ asset('assets/senop/img/partners/7.webp') }}" class="img-fluid" alt="Partners 7" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8">
+          <img src="{{ asset('assets/senop/img/partners/8.webp') }}" class="img-fluid" alt="Partners 8" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9">
+          <img src="{{ asset('assets/senop/img/partners/9.webp') }}" class="img-fluid" alt="Partners 9" loading="lazy">
         </div>
       </div>
       <div class="partners-track track-2">
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10">
+          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11">
+          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12">
+          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13">
+          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14">
+          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15">
+          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16">
+          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17">
+          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18">
+          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18" loading="lazy">
         </div>
 
         {{-- Duplikat untuk looping --}}
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10">
+          <img src="{{ asset('assets/senop/img/partners/10.webp') }}" class="img-fluid" alt="Partners 10" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11">
+          <img src="{{ asset('assets/senop/img/partners/11.webp') }}" class="img-fluid" alt="Partners 11" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12">
+          <img src="{{ asset('assets/senop/img/partners/12.webp') }}" class="img-fluid" alt="Partners 12" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13">
+          <img src="{{ asset('assets/senop/img/partners/13.webp') }}" class="img-fluid" alt="Partners 13" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14">
+          <img src="{{ asset('assets/senop/img/partners/14.webp') }}" class="img-fluid" alt="Partners 14" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15">
+          <img src="{{ asset('assets/senop/img/partners/15.webp') }}" class="img-fluid" alt="Partners 15" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16">
+          <img src="{{ asset('assets/senop/img/partners/16.webp') }}" class="img-fluid" alt="Partners 16" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17">
+          <img src="{{ asset('assets/senop/img/partners/17.webp') }}" class="img-fluid" alt="Partners 17" loading="lazy">
         </div>
         <div class="partners-slide">
-          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18">
+          <img src="{{ asset('assets/senop/img/partners/18.webp') }}" class="img-fluid" alt="Partners 18" loading="lazy">
         </div>
       </div>
     </div>
@@ -128,7 +128,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="footer-logo">
-          <img src="{{ asset('assets/senop/img/footer.webp') }}" alt="Footer Logo" class="img-fluid">
+          <img src="{{ asset('assets/senop/img/footer.webp') }}" alt="Footer Logo" class="img-fluid" loading="lazy">
         </div>
       </div>
       <div class="col-md-8">
@@ -178,6 +178,12 @@
               </li>
               <li class="nav-item">
                 <a href="mailto:smksenopati.sdt@gmail.com" class="nav-link ps-0 pb-0"><i class="bi bi-envelope"></i> smksenopati.sdt@gmail.com</a>
+              </li>
+              <li class="nav-item" style="display: flex;">
+                <a href="https://www.facebook.com/esemka.senopati.9" target="_blank" class="nav-link ps-0 pb-0"><i class="bi bi-facebook"></i></a>
+                <a href="https://instagram.com/smk_senopati/" target="_blank" class="nav-link ps-0 pb-0"><i class="bi bi-instagram"></i></a>
+                <a href="https://tiktok.com/@smk_senopati/" target="_blank" class="nav-link ps-0 pb-0"><i class="bi bi-tiktok"></i></a>
+                <a href="https://www.youtube.com/@smksenopatisedati" target="_blank" class="nav-link ps-0 pb-0"><i class="bi bi-youtube"></i></a>
               </li>
             </ul>
           </div>

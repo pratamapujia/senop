@@ -26,25 +26,23 @@
       <p>Struktur Organisasi Sekolah SMK Senopati</p>
     </div>
   </div>
-  <div class="container w-100 pb-5">
-    <div class="row pb-4 justify-content-center">
-      <div class="col-3">
-        <div class="th-team team-members">
-          <div class="box-img">
-            @php
-              $path = Storage::url('guru/' . $kepsek->foto);
-            @endphp
-            <img decoding="async" src="{{ url($path) }}" alt="Kepsek">
-          </div>
-          <div class="box-content">
-            <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
-            <p class="box-text">{{ $kepsek->jabatan }}
-            </p>
-          </div>
+  <div class="container w-100 pb-5" data-aos="fade-up" data-aos-delay="100">
+    <div class="pb-4 justify-content-center">
+      <div class="th-team team-members">
+        <div class="box-img2">
+          @php
+            $path = Storage::url('guru/' . $kepsek->foto);
+          @endphp
+          <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
+        </div>
+        <div class="box-content">
+          <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
+          <p class="box-text">{{ $kepsek->jabatan }}
+          </p>
         </div>
       </div>
     </div>
-    <div class="row gy-4 justify-content-between">
+    <div class="row gy-4 justify-content-between" data-aos="fade-up" data-aos-delay="200">
       @foreach ($semuaGuru as $data)
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="th-team team-members">
@@ -52,7 +50,7 @@
               $path = Storage::url('guru/' . $data->foto);
             @endphp
             <div class="box-img">
-              <img decoding="async" src="{{ url($path) }}" alt="guru">
+              <img decoding="async" src="{{ url($path) }}" alt="guru" loading="lazy">
             </div>
             <div class="box-content">
               <a href="javascript:void(0)">{{ $data->nama }}</a>

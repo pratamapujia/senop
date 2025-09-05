@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-6 col-lg-6 col-12 col-sm-12">
           <div class="hero-image">
-            <img src="{{ asset('assets/senop/img/hero.webp') }}" data-aos="zoom-out" data-aos-delay="300" alt="Hero Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/hero.webp') }}" data-aos="zoom-out" data-aos-delay="300" alt="Hero Image" class="img-fluid" loading="lazy">
             <div class="shape-1"></div>
             <div class="shape-2"></div>
           </div>
@@ -82,7 +82,7 @@
       <div class="row align-items-center">
         <div class="col-lg-4 position-relative" data-aos="fade-right" data-aos-delay="200">
           <div class="about-image">
-            <img src="assets/senop/img/profile/kepsek.webp" alt="Profile Image" class="img-fluid rounded-4">
+            <img src="assets/senop/img/profile/kepsek.webp" alt="Profile Image" class="img-fluid rounded-4" loading="lazy">
           </div>
         </div>
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
@@ -137,9 +137,9 @@
 
   {{-- Agenda --}}
   <section id="agenda" class="agenda light-background">
-    <div class="container py-2" data-aos="fade-up" data-aos-delay="100">
+    <div class="container py-2" data-aos="fade-right" data-aos-delay="200">
       <div class="row">
-        <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
+        <div class="col-lg-8">
           <div class="agenda-title">
             <h2>Agenda Sekolah</h2>
             <p>Agenda Sekolah SMK Senopati selama beberapa hari kedepan.</p>
@@ -175,9 +175,9 @@
             @endif
           </div>
         </div>
-        <div class="col-lg-4 position-relative my-5" data-aos="zoom-out" data-aos-delay="400">
+        <div class="col-lg-4 position-relative my-5">
           <div class="agenda-image">
-            <img src="{{ asset('assets/senop/img/agenda.webp') }}" alt="Profile Image" class="img-fluid">
+            <img src="{{ asset('assets/senop/img/agenda.webp') }}" alt="Profile Image" class="img-fluid" loading="lazy">
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@
       </div>
       <p>Yuk, mengenal lebih dekat dengan SMK Senopati</p>
     </div>
-    <div class="container pb-5" data-aos="zoom-in" data-aos-delay="200">
+    <div class="container pb-5" data-aos="fade-up" data-aos-delay="200">
       <div class="galeri-item">
         <div class="row align-items-center" data-aos="fade-up" data-aos-delay="300">
           @foreach ($galeri as $data)
@@ -204,7 +204,7 @@
             @endphp
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
-                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}">
+                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}" loading="lazy">
                 <div class="card-body">
                   <p class="card-text text-center">{{ $data->judul_foto }}</p>
                 </div>
@@ -221,7 +221,7 @@
 
   {{-- Testimoni --}}
   <section id="testimoni" class="testimoni section">
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
       <h2>Kata Alumni</h2>
       <div class="title-shape">
         <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
@@ -231,7 +231,7 @@
       <p>Testimoni alumni terbaik SMK Senopati.
       </p>
     </div>
-    <div class="container" data-aos="fade-left-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="200">
       <div class="swiper init-swiper" data-speed="600">
         <script type="aplication/json" class="swiper-config">
               {
@@ -258,7 +258,7 @@
                 }
               }
             </script>
-        <div class="swiper-wrapper" data-aos="zoom-in" data-aos-delay="200">
+        <div class="swiper-wrapper">
           @foreach ($testimoni as $data)
             @php
               $path = Storage::url('testimoni/' . $data->foto);
@@ -270,7 +270,7 @@
                   <span>{{ $data->testimoni }}</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
-                <img src="{{ url($path) }}" class="testimoni-img" alt="img-testimoni">
+                <img src="{{ url($path) }}" class="testimoni-img" alt="img-testimoni" loading="lazy">
                 <h3>{{ $data->nama }}</h3>
                 <h4>{{ $data->credit }}</h4>
               </div>

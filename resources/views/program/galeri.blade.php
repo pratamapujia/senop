@@ -38,7 +38,7 @@
             @endphp
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
-                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}">
+                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}" loading="lazy">
                 <div class="card-body">
                   <p class="card-text text-center">{{ $data->judul_foto }}</p>
                 </div>
