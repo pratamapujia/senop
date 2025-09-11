@@ -6,6 +6,7 @@ use App\Models\Testimoni;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -58,14 +59,14 @@ class TestimoniController extends Controller
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $nama_file = Str::slug($testimoni->judul_foto) . "-" . time() . ".webp";
+            $nama_file = Str::slug($testimoni->nama) . "-" . time() . ".webp";
             $directoryPath = storage_path('app/public/testimoni');
             if (!File::isDirectory($directoryPath)) {
                 File::makeDirectory($directoryPath, 0775, true, true);
             }
             $path = $directoryPath . '/' . $nama_file;
             $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
+            $image->cover(300, 300, 'top');
             $image->toWebp(80)->save($path);
             $testimoni->foto = $nama_file;
         }
@@ -103,14 +104,13 @@ class TestimoniController extends Controller
             'nama' => 'required',
             'credit' => 'required',
             'testimoni' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'foto' => 'image|mimes:jpeg,png,jpg',
         ], [
             'nama.required' => 'Nama harus diisi',
             'credit.required' => 'Credit harus diisi',
             'testimoni.required' => 'Testimoni harus diisi',
             'foto.image' => 'Foto harus berupa gambar',
             'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
-            'foto.max' => 'Ukuran foto maksimal 2MB',
         ]);
 
         if ($validasi->fails()) {
@@ -132,7 +132,7 @@ class TestimoniController extends Controller
             $nama_file = Str::slug($testimoni->nama) . "-" . time() . ".webp";
             $path = storage_path('app/public/testimoni/' . $nama_file);
             $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
+            $image->cover(300, 300, 'top');
             $image->toWebp(80)->save($path);
             $testimoni->foto = $nama_file;
         }

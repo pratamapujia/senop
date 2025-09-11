@@ -16,7 +16,7 @@ class HomeController extends Controller
             ->orderBy('tanggal', 'asc')->take(4)
             ->get();
         $galeri = Galeri::latest()->take(8)->get();
-        $jsiswa = JSiswa::all();
+        $jsiswa = JSiswa::orderBy('jurusan', 'asc')->get();
         $testimoni = Testimoni::latest()->take(5)->get();
 
 

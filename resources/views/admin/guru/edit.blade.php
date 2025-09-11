@@ -60,6 +60,17 @@
               </div>
               <div class="col-12">
                 <div class="form-group">
+                  <label for="jabatan">Jabatan</label>
+                  <input type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" placeholder="Masukkan Jabatan Guru" value="{{ old('jabatan', $struktur->jabatan) }}">
+                  @error('jabatan')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
                   <label for="foto">Foto</label>
                   <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" placeholder="Foto" value="{{ old('foto', $struktur->foto) }}">
                   @error('foto')

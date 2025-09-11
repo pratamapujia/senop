@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Container\Attributes\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 
 class GuruController extends Controller
@@ -156,7 +157,7 @@ class GuruController extends Controller
     {
         $kepsek = Guru::where('jabatan', 'Kepala Sekolah')->first();
         $waka = Guru::whereLike('jabatan', 'Waka%')
-            ->orderBy('nama', 'asc')->get();
+            ->orderBy('jabatan', 'asc')->get();
         $kakomka = Guru::whereLike('jabatan', 'Kakomka%')
             ->orderBy('jabatan', 'asc')->get();
         $guru = Guru::where('jabatan', 'Guru')
