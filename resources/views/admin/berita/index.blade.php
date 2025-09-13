@@ -1,9 +1,18 @@
 @extends('admin.layouts.main')
 
 @section('title')
-  <title>Galeri</title>
+  <title>Berita</title>
   <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
   <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/table-datatable.css') }}">
+  <style>
+    .berita-overflow {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+  </style>
 @endsection
 
 @section('main')
@@ -18,13 +27,13 @@
       <div class="page-title">
         <div class="row">
           <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Master Galeri</h3>
+            <h3>Master Berita</h3>
           </div>
           <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Master Galeri</li>
+                <li class="breadcrumb-item active" aria-current="page">Master Berita</li>
               </ol>
             </nav>
           </div>
@@ -33,7 +42,7 @@
       <section class="section">
         <div class="card">
           <div class="card-header">
-            <a href="{{ route('galeri.create') }}" class="btn icon icon-left btn-primary">
+            <a href="{{ route('berita.create') }}" class="btn icon icon-left btn-primary">
               <i class="fas fa-plus"></i> Tambah Data
             </a>
           </div>
@@ -42,25 +51,33 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Judul Foto</th>
                   <th data-sortable="false">Foto</th>
+                  <th>Judul Berita</th>
+                  <th data-sortable="false">Berita</th>
+                  <th>Penulis</th>
+                  <th>Tanggal Terbit</th>
+                  <th>Credit</th>
                   <th data-sortable="false">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($galeri as $data)
+                @foreach ($berita as $data)
                   @php
-                    $path = Storage::url('galeri/' . $data->foto);
+                    $path = Storage::url('berita/' . $data->foto);
                   @endphp
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->judul_foto }}</td>
                     <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
+                    <td>{{ $data->judul }}</td>
+                    <td class="berita-overflow">{!! $data->berita !!}</td>
+                    <td>{{ $data->penulis }}</td>
+                    <td>{{ $data->tanggal }}</td>
+                    <td>{{ $data->credit }}</td>
                     <td>
-                      <a href="{{ route('galeri.edit', $data->id_galeri) }}" class="btn icon icon-left btn-sm btn-warning">
+                      <a href="{{ route('berita.edit', $data->id_berita) }}" class="btn icon icon-left btn-sm btn-warning">
                         <li class="fas fa-edit"></li> Edit
                       </a>
-                      <form action="{{ route('galeri.destroy', $data->id_galeri) }}" method="POST" class="d-inline">
+                      <form action="{{ route('berita.destroy', $data->id_berita) }}" method="POST" class="d-inline">
                         @csrf
                         <input type="hidden" name="_method" value="delete">
                         <button type="button" class="btn icon icon-left btn-danger btn-sm btn-delete">
