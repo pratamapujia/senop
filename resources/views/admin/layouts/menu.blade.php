@@ -54,6 +54,12 @@
         <span>Testimoni</span>
       </a>
     </li>
+    <li class="sidebar-item {{ request()->is('admin/configs') ? 'active' : '' }}">
+      <a href="{{ route('config.index') }}" class='sidebar-link'>
+        <i class="bi bi-gear"></i>
+        <span>Pengaturan</span>
+      </a>
+    </li>
 
   </ul>
 </div>

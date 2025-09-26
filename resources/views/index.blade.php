@@ -82,24 +82,33 @@
       <div class="row align-items-center">
         <div class="col-lg-4 position-relative" data-aos="fade-right" data-aos-delay="200">
           <div class="about-image">
-            <img src="assets/senop/img/profile/kepsek.webp" alt="Profile Image" class="img-fluid rounded-4" loading="lazy">
+            @foreach ($config as $data)
+              @if ($data->name == 'foto_kepsek')
+                @php
+                  $path = Storage::url('configs/' . $data->value);
+                @endphp
+                <img src="{{ url($path) }}" alt="Profile Image" class="img-fluid rounded-4" loading="lazy">
+              @endif
+            @endforeach
           </div>
         </div>
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="300">
           <div class="about-content">
             <h2>Sambutan Kepala Sekolah</h2>
-            <p class="lead mb-4">Assalamu’alaikum Wr. Wb. <br> <br>
-              Selamat datang di web resmi SMK Senopati Sedati Sidoarjo , web ini berfungsi sebagai media untuk menginformasikan ke publik perihal profil dan kegiatan yang ada di SMK Senopati.
-              Singkat kata kami harap dari pembaca publik maupun civitas terhadap isi dan program sekolah yang termuat di web ini dapat kiranya memberikan saran, kritik dan info masukan melalui
-              kontak yang sudah tertera di web ini. <br> <br>
-              Akhirnya kami sampaikan terimakasih atas kunjungan dan perhatiannya, mudah-mudahan website ini bisa memberikan manfaat kepada masyarakat umum dan kepada civitas SMK Senopati Sedati
-              Sidoarjo . <br> <br>
-              Wassalamu’alaikum Wr. Wb.</p>
-            <div class="signature mt-4">
-              <div class="signature-info">
-                <h4> - Fathoni, M.Pd.</h4>
-              </div>
-            </div>
+            @foreach ($config as $data)
+              @if ($data->name == 'sambutan_kepsek')
+                <div class="lead mb-4">{!! $data->value !!}</div>
+              @endif
+            @endforeach
+            @foreach ($config as $data)
+              @if ($data->name == 'nama_kepsek')
+                <div class="signature mt-4">
+                  <div class="signature-info">
+                    <h4> - {!! $data->value !!}</h4>
+                  </div>
+                </div>
+              @endif
+            @endforeach
           </div>
         </div>
       </div>
