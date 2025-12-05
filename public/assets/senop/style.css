@@ -1668,7 +1668,7 @@ footer .footer-bottom p {
 .section-vm {
   color: var(--default);
   background-color: var(--bg);
-  padding: 60px 0;
+  padding: 10px 0 60px;
   scroll-margin-top: 90px;
   overflow: clip;
 }
