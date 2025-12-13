@@ -49,22 +49,25 @@
               </thead>
               <tbody>
                 @foreach ($galeri as $data)
-                  @php
+                  {{-- @php
                     $path = Storage::url('galeri/' . $data->foto);
-                  @endphp
+                  @endphp --}}
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->judul_foto }}</td>
-                    <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
+                    <td><img src="{{ $data->foto }}" width="100" alt="{{ $data->judul_foto }}"></td>
                     <td>
                       <a href="{{ route('galeri.edit', $data->id_galeri) }}" class="btn icon icon-left btn-sm btn-warning">
                         <li class="fas fa-edit"></li> Edit
                       </a>
-                      <form action="{{ route('galeri.destroy', $data->id_galeri) }}" method="POST" class="d-inline">
+                      <form action="{{ route('galeri.destroy', $data->id_galeri) }}" method="POST" class="d-inline formDelete">
                         @csrf
-                        <input type="hidden" name="_method" value="delete">
+                        @method('DELETE')
                         <button type="button" class="btn icon icon-left btn-danger btn-sm btn-delete">
                           <li class="fas fa-trash"></li> Hapus
+                        </button>
+                        <button type="button" class="btn icon icon-left btn-danger btn-sm btn-hapus-loading" style="display: none;" disabled>
+                          <i class="fas fa-spinner fa-spin"></i> Menghapus...
                         </button>
                       </form>
                     </td>
@@ -77,6 +80,18 @@
       </section>
     </div>
   </div>
+  <script>
+    const deleteForms = document.querySelectorAll('.formDelete');
+    deleteForms.forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btnDelete = this.querySelector('.btn-delete');
+        const btnHapusLoading = this.querySelector('.btn-hapus-loading');
+        btnDelete.style.display = 'none';
+        btnHapusLoading.style.display = 'inline-block';
+      })
+    })
+  </script>
 @endsection
 @section('script')
   <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>

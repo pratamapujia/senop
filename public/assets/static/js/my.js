@@ -30,9 +30,10 @@ $(document).ready(function () {
 });
 
 // Alert Delete
-$(document).on("click", ".btn-delete", function () {
+$(document).on("click", ".btn-delete", function (e) {
+    e.preventDefault();
     var form = $(this).closest("form");
-    var url = form.attr("action");
+    // var url = form.attr("action");
 
     Swal.fire({
         title: "Apakah Anda yakin?",
@@ -42,10 +43,23 @@ $(document).on("click", ".btn-delete", function () {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Ya, hapus!",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            form.attr("action", url);
-            form.submit();
-        }
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+            return new Promise((resolve) => {
+                form.submit();
+            });
+        },
     });
 });
+
+// FormUpload
+const formUpload = document.getElementById("formUpload");
+const btnSimpan = document.getElementById("btnSimpan");
+const btnLoading = document.getElementById("btnLoading");
+
+if (formUpload) {
+    formUpload.addEventListener("submit", function (e) {
+        btnSimpan.style.display = "none";
+        btnLoading.style.display = "inline-block";
+    });
+}

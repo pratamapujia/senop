@@ -281,12 +281,12 @@
       <div class="galeri-item">
         <div class="row align-items-center" data-aos="fade-up" data-aos-delay="300">
           @foreach ($galeri as $data)
-            @php
+            {{-- @php
               $path = Storage::url('galeri/' . $data->foto);
-            @endphp
+            @endphp --}}
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 px-3 py-1">
               <div class="card">
-                <img src="{{ url($path) }}" class="card-img-top" alt="{{ $data->judul_foto }}" loading="lazy">
+                <img src="{{ $data->foto }}" class="card-img-top" alt="{{ $data->judul_foto }}" loading="lazy">
                 <div class="card-body">
                   <p class="card-text text-center">{{ $data->judul_foto }}</p>
                 </div>

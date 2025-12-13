@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use Cloudinary\Cloudinary;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -51,19 +52,38 @@ class GaleriController extends Controller
         $galeri = new Galeri();
         $galeri->judul_foto = $request->judul_foto;
 
+
         if ($request->hasFile('foto')) {
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
             $file = $request->file('foto');
-            $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
-            $directoryPath = storage_path('app/public/galeri');
-            if (!File::isDirectory($directoryPath)) {
-                File::makeDirectory($directoryPath, 0775, true, true);
-            }
-            $path = $directoryPath . '/' . $nama_file;
-            $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
-            $image->toWebp(80)->save($path);
-            $galeri->foto = $nama_file;
+            $path = $uploadApi->upload($file->getRealPath(), [
+                'folder' => 'galeri',
+                'public_id' => Str::slug($galeri->judul_foto),
+                'format' => 'webp',
+                'quality' => 80,
+                'transformation' => [
+                    'width' => 1200,
+                    'crop' => 'limit',
+                ]
+            ]);
+            $galeri->foto = $path['secure_url'];
+            $galeri->public_id = $path['public_id'];
         }
+
+        // if ($request->hasFile('foto')) {
+        //     $file = $request->file('foto');
+        //     $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
+        //     $directoryPath = storage_path('app/public/galeri');
+        //     if (!File::isDirectory($directoryPath)) {
+        //         File::makeDirectory($directoryPath, 0775, true, true);
+        //     }
+        //     $path = $directoryPath . '/' . $nama_file;
+        //     $image = Image::read($file->getRealPath());
+        //     $image->scaleDown(width: 1200);
+        //     $image->toWebp(80)->save($path);
+        //     $galeri->foto = $nama_file;
+        // }
 
         if ($galeri->save()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil ditambahkan 👍');
@@ -110,20 +130,45 @@ class GaleriController extends Controller
         $galeri = Galeri::find($id);
         $galeri->judul_foto = $request->judul_foto;
 
-        if ($request->hasFile('foto')) {
-            // Hapus foto lama jika ada
-            if ($galeri->foto) {
-                Storage::delete('public/galeri/' . $galeri->foto);
+        if (request()->hasFile('foto')) {
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
+
+            // Hapus foto lama di Cloudinary jika ada
+            if ($galeri->public_id) {
+                $uploadApi->destroy($galeri->public_id, ['resource_type' => 'image', 'invalidate' => true]);
             }
 
+            // Upload foto baru
             $file = $request->file('foto');
-            $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
-            $path = storage_path('app/public/galeri/' . $nama_file);
-            $image = Image::read($file->getRealPath());
-            $image->scaleDown(width: 1200);
-            $image->toWebp(80)->save($path);
-            $galeri->foto = $nama_file;
+            $path = $uploadApi->upload($file->getRealPath(), [
+                'folder' => 'galeri',
+                'public_id' => Str::slug($galeri->judul_foto),
+                'format' => 'webp',
+                'quality' => 80,
+                'transformation' => [
+                    'width' => 1200,
+                    'crop' => 'limit',
+                ]
+            ]);
+            $galeri->foto = $path['secure_url'];
+            $galeri->public_id = $path['public_id'];
         }
+
+        // if ($request->hasFile('foto')) {
+        //     // Hapus foto lama jika ada
+        //     if ($galeri->foto) {
+        //         Storage::delete('public/galeri/' . $galeri->foto);
+        //     }
+
+        //     $file = $request->file('foto');
+        //     $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
+        //     $path = storage_path('app/public/galeri/' . $nama_file);
+        //     $image = Image::read($file->getRealPath());
+        //     $image->scaleDown(width: 1200);
+        //     $image->toWebp(80)->save($path);
+        //     $galeri->foto = $nama_file;
+        // }
 
         if ($galeri->save()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil diubah 👍');
@@ -138,9 +183,13 @@ class GaleriController extends Controller
     public function destroy(string $id)
     {
         $galeri = Galeri::find($id);
-        if ($galeri->foto) {
-            Storage::delete('public/galeri/' . $galeri->foto);
+
+        if ($galeri->public_id) {
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
+            $uploadApi->destroy($galeri->public_id, ['resource_type' => 'image', 'invalidate' => true]);
         }
+
         if ($galeri->delete()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil dihapus 👍');
         } else {
