@@ -11,5 +11,5 @@ class Prestasi extends Model
 
     protected $table = 'prestasi';
     protected $primaryKey = 'id_prestasi';
-    protected $fillable = ['judul', 'foto', 'keterangan', 'tanggal'];
+    protected $fillable = ['public_id','judul', 'foto', 'keterangan', 'tanggal'];
 }

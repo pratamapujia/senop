@@ -143,7 +143,7 @@
                 <a href="{{ route('about') }}" class="nav-link ps-0 pb-0">Profil Sekolah</a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('berita') }}" class="nav-link ps-0 pb-0">Berita Terbaru</a>
+                <a href="{{ route('berita.landing') }}" class="nav-link ps-0 pb-0">Berita Terbaru</a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('ppdb') }}" class="nav-link ps-0 pb-0">PPDB</a>

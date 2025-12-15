@@ -51,15 +51,15 @@
               </thead>
               <tbody>
                 @foreach ($testimoni as $data)
-                  @php
+                  {{-- @php
                     $path = Storage::url('testimoni/' . $data->foto);
-                  @endphp
+                  @endphp --}}
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->credit }}</td>
                     <td>{{ $data->testimoni }}</td>
-                    <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
+                    <td><img src="{{ $data->foto }}" width="100" alt="{{ $data->foto }}"></td>
                     <td>
                       <a href="{{ route('testimoni.edit', $data->id_testimoni) }}" class="btn icon icon-left btn-sm btn-warning">
                         <li class="fas fa-edit"></li> Edit

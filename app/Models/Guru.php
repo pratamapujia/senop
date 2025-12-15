@@ -10,5 +10,6 @@ class Guru extends Model
     use HasFactory;
 
     protected $table = "struktur";
-    protected $fillable = ['nama', 'jabatan', 'foto'];
+    protected $primaryKey = "id";
+    protected $fillable = ['public_id', 'nama', 'jabatan', 'foto'];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimoni;
+use Cloudinary\Cloudinary;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -59,16 +60,23 @@ class TestimoniController extends Controller
 
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $nama_file = Str::slug($testimoni->nama) . "-" . time() . ".webp";
-            $directoryPath = storage_path('app/public/testimoni');
-            if (!File::isDirectory($directoryPath)) {
-                File::makeDirectory($directoryPath, 0775, true, true);
-            }
-            $path = $directoryPath . '/' . $nama_file;
-            $image = Image::read($file->getRealPath());
-            $image->cover(300, 300, 'top');
-            $image->toWebp(80)->save($path);
-            $testimoni->foto = $nama_file;
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
+            $path = $uploadApi->upload($file->getRealPath(), [
+                'folder' => 'testimoni',
+                'public_id' => Str::slug($testimoni->nama) . '-' . time(),
+                'format' => 'webp',
+                'quality' => 80,
+                'transformation' => [
+                    'width' => 320,
+                    'height' => 320,
+                    'aspect_ratio' => '1:1',
+                    'crop' => 'fill',
+                    'gravity' => 'auto'
+                ]
+            ]);
+            $testimoni->foto = $path['secure_url'];
+            $testimoni->public_id = $path['public_id'];
         }
 
         if ($testimoni->save()) {
@@ -122,19 +130,32 @@ class TestimoniController extends Controller
         $testimoni->credit = $request->credit;
         $testimoni->testimoni = $request->testimoni;
 
-        if ($request->hasFile('foto')) {
-            // Hapus foto lama jika ada
-            if ($testimoni->foto) {
-                Storage::delete('public/testimoni/' . $testimoni->foto);
+        if (request()->hasFile('foto')) {
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
+
+            // Hapus foto lama di Cloudinary jika ada
+            if ($testimoni->public_id) {
+                $uploadApi->destroy($testimoni->public_id, ['resource_type' => 'image', 'invalidate' => true]);
             }
 
+            // Upload foto baru
             $file = $request->file('foto');
-            $nama_file = Str::slug($testimoni->nama) . "-" . time() . ".webp";
-            $path = storage_path('app/public/testimoni/' . $nama_file);
-            $image = Image::read($file->getRealPath());
-            $image->cover(300, 300, 'top');
-            $image->toWebp(80)->save($path);
-            $testimoni->foto = $nama_file;
+            $path = $uploadApi->upload($file->getRealPath(), [
+                'folder' => 'testimoni',
+                'public_id' => Str::slug($testimoni->nama) . '-' . time(),
+                'format' => 'webp',
+                'quality' => 80,
+                'transformation' => [
+                    'width' => 320,
+                    'height' => 320,
+                    'aspect_ratio' => '1:1',
+                    'crop' => 'fill',
+                    'gravity' => 'auto'
+                ]
+            ]);
+            $testimoni->foto = $path['secure_url'];
+            $testimoni->public_id = $path['public_id'];
         }
 
         if ($testimoni->save()) {
@@ -150,8 +171,10 @@ class TestimoniController extends Controller
     public function destroy(string $id)
     {
         $testimoni = Testimoni::find($id);
-        if ($testimoni->foto) {
-            Storage::delete('public/testimoni/' . $testimoni->foto);
+        if ($testimoni->public_id) {
+            $cloudinary = new Cloudinary();
+            $uploadApi = $cloudinary->uploadApi();
+            $uploadApi->destroy($testimoni->public_id, ['resource_type' => 'image', 'invalidate' => true]);
         }
         if ($testimoni->delete()) {
             return redirect()->route('testimoni.index')->with('berhasil', 'testimoni berhasil dihapus 👍');

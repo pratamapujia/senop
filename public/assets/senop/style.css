@@ -1310,6 +1310,13 @@ h2 {
   background-color: var(--primary-1);
 }
 
+@media (min-width: 1400px) {
+  .testimoni .testimoni-item p {
+    width: 380px;
+    height: 210px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Partners Section
 --------------------------------------------------------------*/

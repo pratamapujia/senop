@@ -62,12 +62,12 @@
               </thead>
               <tbody>
                 @foreach ($berita as $data)
-                  @php
+                  {{-- @php
                     $path = Storage::url('berita/' . $data->foto);
-                  @endphp
+                  @endphp --}}
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td><img src="{{ url($path) }}" width="100" alt="{{ $data->foto }}"></td>
+                    <td><img src="{{ $data->foto }}" width="100" alt="{{ $data->slug }}"></td>
                     <td>{{ $data->judul }}</td>
                     <td class="berita-overflow">{!! $data->berita !!}</td>
                     <td>{{ $data->penulis }}</td>

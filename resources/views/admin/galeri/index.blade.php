@@ -66,9 +66,6 @@
                         <button type="button" class="btn icon icon-left btn-danger btn-sm btn-delete">
                           <li class="fas fa-trash"></li> Hapus
                         </button>
-                        <button type="button" class="btn icon icon-left btn-danger btn-sm btn-hapus-loading" style="display: none;" disabled>
-                          <i class="fas fa-spinner fa-spin"></i> Menghapus...
-                        </button>
                       </form>
                     </td>
                   </tr>

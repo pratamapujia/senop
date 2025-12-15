@@ -64,26 +64,15 @@ class GaleriController extends Controller
                 'quality' => 80,
                 'transformation' => [
                     'width' => 1200,
-                    'crop' => 'limit',
+                    'height' => 800,
+                    'aspect_ratio' => '16:9',
+                    'crop' => 'fill',
+                    'gravity' => 'auto'
                 ]
             ]);
             $galeri->foto = $path['secure_url'];
             $galeri->public_id = $path['public_id'];
         }
-
-        // if ($request->hasFile('foto')) {
-        //     $file = $request->file('foto');
-        //     $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
-        //     $directoryPath = storage_path('app/public/galeri');
-        //     if (!File::isDirectory($directoryPath)) {
-        //         File::makeDirectory($directoryPath, 0775, true, true);
-        //     }
-        //     $path = $directoryPath . '/' . $nama_file;
-        //     $image = Image::read($file->getRealPath());
-        //     $image->scaleDown(width: 1200);
-        //     $image->toWebp(80)->save($path);
-        //     $galeri->foto = $nama_file;
-        // }
 
         if ($galeri->save()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil ditambahkan 👍');
@@ -148,27 +137,15 @@ class GaleriController extends Controller
                 'quality' => 80,
                 'transformation' => [
                     'width' => 1200,
-                    'crop' => 'limit',
+                    'height' => 800,
+                    'aspect_ratio' => '16:9',
+                    'crop' => 'fill',
+                    'gravity' => 'auto'
                 ]
             ]);
             $galeri->foto = $path['secure_url'];
             $galeri->public_id = $path['public_id'];
         }
-
-        // if ($request->hasFile('foto')) {
-        //     // Hapus foto lama jika ada
-        //     if ($galeri->foto) {
-        //         Storage::delete('public/galeri/' . $galeri->foto);
-        //     }
-
-        //     $file = $request->file('foto');
-        //     $nama_file = Str::slug($galeri->judul_foto) . "-" . time() . ".webp";
-        //     $path = storage_path('app/public/galeri/' . $nama_file);
-        //     $image = Image::read($file->getRealPath());
-        //     $image->scaleDown(width: 1200);
-        //     $image->toWebp(80)->save($path);
-        //     $galeri->foto = $nama_file;
-        // }
 
         if ($galeri->save()) {
             return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil diubah 👍');

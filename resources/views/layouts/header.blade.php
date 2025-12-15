@@ -25,7 +25,7 @@
             <li><a href="{{ route('ekskul') }}">Ekstrakurikuler</a></li>
           </ul>
         </li>
-        <li><a href="{{ route('berita') }}">Berita</a></li>
+        <li><a href="{{ route('berita.landing') }}">Berita</a></li>
         <li><a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank">Virtual Tour</a></li>
         <li><a href="{{ route('ppdb') }}">PPDB</a></li>
       </ul>

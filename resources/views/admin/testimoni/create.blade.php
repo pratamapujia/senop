@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="card-body">
-          <form action="{{ route('testimoni.store') }}" class="form" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('testimoni.store') }}" class="form" method="POST" enctype="multipart/form-data" id="formUpload">
             @csrf
             <div class="row">
               <div class="col-lg-6 col-md-6 col-12">
@@ -91,8 +91,11 @@
                 </div>
               </div>
               <div class="col-6 mt-2">
-                <button class="btn btn-primary icon icon-left btn-block">
+                <button type="submit" id="btnSimpan" class="btn btn-primary icon icon-left btn-block">
                   <i class="fas fa-paper-plane"></i> Simpan
+                </button>
+                <button type="button" id="btnLoading" class="btn btn-primary icon icon-left btn-block" style="display: none" disabled>
+                  <i class="fas fa-spinner fa-spin"></i> Mengupload...
                 </button>
               </div>
               <div class="col-6 mt-2">

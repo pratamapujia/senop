@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Berita;
 use App\Models\Configs;
 use App\Models\Galeri;
 use App\Models\JSiswa;
@@ -20,8 +21,9 @@ class HomeController extends Controller
         $jsiswa = JSiswa::orderBy('jurusan', 'asc')->get();
         $testimoni = Testimoni::latest()->take(5)->get();
         $config = Configs::all();
+        $berita = Berita::latest()->take(4)->get();
 
 
-        return view('index', compact('agenda', 'jsiswa', 'galeri', 'testimoni', 'config'));
+        return view('index', compact('agenda', 'jsiswa', 'galeri', 'testimoni', 'config', 'berita'));
     }
 }

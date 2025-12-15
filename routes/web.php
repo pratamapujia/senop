@@ -29,9 +29,7 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/visimisi', function () {
         return view('about.visimisi');
     })->name('visimisi');
-    Route::get('/berita', function () {
-        return view('program.berita');
-    })->name('berita');
+    Route::get('/berita', [BeritaController::class, 'landing'])->name('berita.landing');
     Route::get('/ekskul', function () {
         return view('program.ekskul');
     })->name('ekskul');
