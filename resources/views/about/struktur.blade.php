@@ -29,44 +29,57 @@
   <div class="container w-100 pb-5" data-aos="fade-up" data-aos-delay="100">
     <div class="pb-4 justify-content-center">
       <div class="th-team team-members">
-        <div class="box-img2">
-          @php
-            $path = Storage::url('guru/' . $kepsek->foto);
-          @endphp
-          @if (null)
+        @if (empty($kepsek))
+          <div class="box-img2">
             <img src="{{ asset('assets/senop/img/none.jpg') }}" alt="">
-          @else
-            <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
-          @endif
-          <div class="box-content">
-            <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
-            <p class="box-text">{{ $kepsek->jabatan }}
-            </p>
+            <div class="box-content">
+              <a href="javascript:void(0)">Tidak Ada Data</a>
+              <p class="box-text">Tidak Ada Data
+              </p>
+            </div>
           </div>
-        </div>
+        @else
+          <div class="box-img2">
+            <img decoding="async" src="{{ Storage::url('guru/' . $kepsek->foto) }}" alt="Kepsek" loading="lazy">
+            <div class="box-content">
+              <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
+              <p class="box-text">{{ $kepsek->jabatan }}
+              </p>
+            </div>
+          </div>
+        @endif
       </div>
     </div>
     <div class="row gy-4 justify-content-between" data-aos="fade-up" data-aos-delay="200">
       @foreach ($semuaGuru as $data)
-        <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-          <div class="th-team team-members">
-            <div class="box-img">
-              @php
-                $path = Storage::url('guru/' . $data->foto);
-              @endphp
-              @if (null)
+        @if (empty($data))
+          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+            <div class="th-team team-members">
+              <div class="box-img">
                 <img src="{{ asset('assets/senop/img/none.jpg') }}" alt="">
-              @else
-                <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
-              @endif
-              <div class="box-content">
-                <a href="javascript:void(0)">{{ $data->nama }}</a>
-                <p class="box-text">{{ $data->jabatan }}
-                </p>
+                <div class="box-content">
+                  <a href="javascript:void(0)">Tidak Ada Data</a>
+                  <p class="box-text">Tidak Ada Data
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        @else
+          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+            <div class="th-team team-members">
+              <div class="box-img">
+                <img src="{{ asset('assets/senop/img/none.jpg') }}" alt="">
+                <img decoding="async" src="{{ Storage::url('guru/' . $data->foto) }}" alt="Kepsek" loading="lazy">
+                <div class="box-content">
+                  <a href="javascript:void(0)">{{ $data->nama }}</a>
+                  <p class="box-text">{{ $data->jabatan }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        @endif
       @endforeach
     </div>
   </div>
