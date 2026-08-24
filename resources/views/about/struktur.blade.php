@@ -33,7 +33,11 @@
           @php
             $path = Storage::url('guru/' . $kepsek->foto);
           @endphp
-          <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
+          @if (null)
+            <img src="{{ asset('assets/senop/img/none.jpg') }}" alt="">
+          @else
+            <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
+          @endif
           <div class="box-content">
             <a href="javascript:void(0)">{{ $kepsek->nama }}</a>
             <p class="box-text">{{ $kepsek->jabatan }}
@@ -46,11 +50,15 @@
       @foreach ($semuaGuru as $data)
         <div class="col-lg-3 col-md-6 col-sm-6 col-6">
           <div class="th-team team-members">
-            @php
-              $path = Storage::url('guru/' . $data->foto);
-            @endphp
             <div class="box-img">
-              <img decoding="async" src="{{ url($path) }}" alt="guru" loading="lazy">
+              @php
+                $path = Storage::url('guru/' . $data->foto);
+              @endphp
+              @if (null)
+                <img src="{{ asset('assets/senop/img/none.jpg') }}" alt="">
+              @else
+                <img decoding="async" src="{{ url($path) }}" alt="Kepsek" loading="lazy">
+              @endif
               <div class="box-content">
                 <a href="javascript:void(0)">{{ $data->nama }}</a>
                 <p class="box-text">{{ $data->jabatan }}
