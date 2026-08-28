@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Mews\Purifier\Facades\Purifier;
 
 class AgendaController extends Controller
 {
@@ -31,29 +30,32 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        $validasi = Validator::make($request->all(), [
-            'nama_agenda' => 'required',
-            'keterangan' => 'required',
-            'tanggal' => 'required',
+        $validated = $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'tanggal' => 'required|date',
+            'tempat' => 'required|string|max:255',
         ], [
-            'nama_agenda.required' => 'Nama agenda harus diisi',
-            'keterangan.required' => 'Keterangan harus diisi',
-            'tanggal.required' => 'Tanggal harus diisi',
+            'judul.required' => 'Judul harus diisi.',
+            'deskripsi.required' => 'Deskripsi harus diisi.',
+            'tanggal.required' => 'Tanggal harus diisi.',
+            'tempat.required' => 'Tempat harus diisi.',
         ]);
 
-        if ($validasi->fails()) {
-            return redirect()->back()->withErrors($validasi)->withInput();
+        if (!$validated) {
+            return redirect()->back()->withErrors($validated)->withInput();
         }
 
         $agenda = new Agenda();
-        $agenda->nama_agenda = $request->nama_agenda;
-        $agenda->keterangan = $request->keterangan;
-        $agenda->tanggal = $request->tanggal;
+        $agenda->judul = $request->input('judul');
+        $agenda->deskripsi = Purifier::clean($request->input('deskripsi'));
+        $agenda->tanggal = $request->input('tanggal');
+        $agenda->tempat = $request->input('tempat');
 
         if ($agenda->save()) {
-            return redirect()->route('agenda.index')->with('berhasil', 'Agenda berhasil ditambahkan 👍');
+            return redirect()->route('dm-agenda.index')->with('success', 'Data agenda berhasil ditambahkan.');
         } else {
-            return redirect()->back()->with('gagal', 'Agenda gagal ditambahkan 😭');
+            return redirect()->back()->with('error', 'Data agenda gagal ditambahkan.');
         }
     }
 
@@ -70,7 +72,7 @@ class AgendaController extends Controller
      */
     public function edit(string $id)
     {
-        $agenda = Agenda::find($id);
+        $agenda = Agenda::findOrFail($id);
         return view('admin.agenda.edit', compact('agenda'));
     }
 
@@ -79,29 +81,32 @@ class AgendaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validasi = Validator::make($request->all(), [
-            'nama_agenda' => 'required',
-            'keterangan' => 'required',
-            'tanggal' => 'required',
+        $validated = $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'tanggal' => 'required|date',
+            'tempat' => 'required|string|max:255',
         ], [
-            'nama_agenda.required' => 'Nama agenda harus diisi',
-            'keterangan.required' => 'Keterangan harus diisi',
-            'tanggal.required' => 'Tanggal harus diisi',
+            'judul.required' => 'Judul harus diisi.',
+            'deskripsi.required' => 'Deskripsi harus diisi.',
+            'tanggal.required' => 'Tanggal harus diisi.',
+            'tempat.required' => 'Tempat harus diisi.',
         ]);
 
-        if ($validasi->fails()) {
-            return redirect()->back()->withErrors($validasi)->withInput();
+        if (!$validated) {
+            return redirect()->back()->withErrors($validated)->withInput();
         }
 
-        $agenda = Agenda::find($id);
-        $agenda->nama_agenda = $request->nama_agenda;
-        $agenda->keterangan = $request->keterangan;
-        $agenda->tanggal = $request->tanggal;
+        $agenda = Agenda::findOrFail($id);
+        $agenda->judul = $request->input('judul');
+        $agenda->deskripsi = Purifier::clean($request->input('deskripsi'));
+        $agenda->tanggal = $request->input('tanggal');
+        $agenda->tempat = $request->input('tempat');
 
         if ($agenda->save()) {
-            return redirect()->route('agenda.index')->with('berhasil', 'Agenda berhasil diubah 👍');
+            return redirect()->route('dm-agenda.index')->with('success', 'Data agenda berhasil diperbarui.');
         } else {
-            return redirect()->back()->with('gagal', 'Agenda gagal diubah 😭');
+            return redirect()->back()->with('error', 'Data agenda gagal diperbarui.');
         }
     }
 
@@ -110,21 +115,18 @@ class AgendaController extends Controller
      */
     public function destroy(string $id)
     {
-        $agenda = Agenda::find($id);
+        $agenda = Agenda::findOrFail($id);
 
         if ($agenda->delete()) {
-            return redirect()->back()->with('berhasil', 'Agenda berhasil dihapus 👍');
+            return redirect()->route('dm-agenda.index')->with('success', 'Data agenda berhasil dihapus.');
         } else {
-            return redirect()->back()->with('gagal', 'Agenda gagal dihapus 😭');
+            return redirect()->back()->with('error', 'Data agenda gagal dihapus.');
         }
     }
 
-    // Controller untuk halaman agenda di landing page
-    public function landing()
+    public function agendaLanding()
     {
-        $agenda = Agenda::where('tanggal', '>=', now()->toDateString())
-            ->orderBy('tanggal', 'asc')
-            ->paginate(6);
-        return view('program.agenda', compact('agenda'));
+        $agenda = Agenda::orderBy('tanggal', 'asc')->paginate(6);
+        return view('event.index', compact('agenda'));
     }
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galeri extends Model
+class Struktur extends Model
 {
     use HasFactory;
 
-    protected $table = 'galeri';
+    protected $table = 'struktur';
     protected $primaryKey = 'id';
-    protected $fillable = ['judul', 'deskripsi', 'kategori', 'gambar'];
+    protected $fillable = ['nama_lengkap', 'jabatan', 'foto', 'status'];
 }

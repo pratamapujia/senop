@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use Cloudinary\Cloudinary;
-use Illuminate\Support\Str;
+use App\Models\Galeri;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
 class BeritaController extends Controller
@@ -34,60 +34,68 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $validasi = Validator::make($request->all(), [
-            'judul' => 'required',
-            'berita' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg',
-            'penulis' => 'required',
-            'tanggal' => 'required',
+        $validated = $request->validate([
+            'judul' => 'required|max:255',
+            'kategori' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,webp',
+            'konten' => 'required',
+            // 'status' => 'required|in:draft,review,published'
         ], [
-            'judul.required' => 'Judul harus diisi',
-            'berita.required' => 'Berita harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
-            'penulis.required' => 'Penulis harus diisi',
-            'tanggal.required' => 'Tanggal harus diisi',
+            'judul.required' => 'Judul berita harus diisi.',
+            'kategori.required' => 'Kategori berita harus dipilih.',
+            'gambar.required' => 'Gambar berita harus diunggah.',
+            'gambar.image' => 'File yang diunggah harus berupa gambar.',
+            'gambar.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau webp.',
+            'konten.required' => 'Konten berita harus diisi.',
+            // 'status.required' => 'Status berita harus dipilih.',
+            // 'status.in' => 'Status berita tidak valid.'
         ]);
-
-        if ($validasi->fails()) {
-            return redirect()->back()->withErrors($validasi)->withInput();
+        if (!$validated) {
+            return redirect()->back()->withErrors($validated)->withInput();
         }
 
         $berita = new Berita();
-        $berita->judul = $request->judul;
-        $berita->berita = $request->berita;
-        $berita->penulis = $request->penulis;
-        $berita->credit = $request->credit;
-        $berita->tanggal = $request->tanggal;
-        $berita->slug = Str::slug($request->judul);
+        $berita->judul = $request->input('judul');
+        $berita->slug = Str::slug($request->input('judul'));
+        $berita->kategori = $request->input('kategori');
+        $berita->konten = $request->input('konten');
+        $berita->user_id = Auth::user()->id;
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'berita',
-                'public_id' => Str::slug($berita->judul),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 1200,
-                    'height' => 800,
-                    'aspect_ratio' => '16:9',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-
-            $berita->foto = $path['secure_url'];
-            $berita->public_id = $path['public_id'];
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = Str::slug($berita->judul) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/berita');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0755, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(800, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $berita->gambar = $filename;
         }
 
         if ($berita->save()) {
-            return redirect()->route('berita.index')->with('berhasil', 'Berita berhasil ditambahkan 👍');
+            if ($request->has('masukkan_galeri') && $request->masukkan_galeri == '1') {
+                // Memetakan kategori Berita ke kategori Galeri
+                // (Bisa disesuaikan dengan kebutuhan Anda)
+                $kategoriGaleri = 'Kegiatan';
+                if ($request->kategori == 'Agenda') $kategoriGaleri = 'Kegiatan';
+                if ($request->kategori == 'Prestasi') $kategoriGaleri = 'Prestasi';
+                if ($request->kategori == 'Ekskul') $kategoriGaleri = 'Ekstrakurikuler';
+
+                // Buat data Galeri menggunakan path gambar yang SAMA
+                Galeri::create([
+                    'judul' => $request->judul,
+                    // Mengambil 100 karakter pertama dari isi berita sebagai deskripsi galeri
+                    'deskripsi' => Str::limit(strip_tags($request->konten), 100),
+                    'kategori' => $kategoriGaleri,
+                    'gambar' => $filename // <-- KUNCI: Path gambar tidak di-upload ulang
+                ]);
+            }
+            return redirect()->route('dm-berita.index')->with('success', 'Berita berhasil ditambahkan.');
         } else {
-            return redirect()->back()->with('gagal', 'Berita gagal ditambahkan 😭');
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan berita. Silakan coba lagi.');
         }
     }
 
@@ -96,7 +104,8 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        return view('admin.berita.show', compact('berita'));
     }
 
     /**
@@ -104,7 +113,7 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        $berita = Berita::find($id);
+        $berita = Berita::findOrFail($id);
         return view('admin.berita.edit', compact('berita'));
     }
 
@@ -113,66 +122,52 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validasi = Validator::make($request->all(), [
-            'judul' => 'required',
-            'berita' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg',
-            'penulis' => 'required',
-            'tanggal' => 'required',
+        $validated = $request->validate([
+            'judul' => 'required|max:255',
+            'kategori' => 'required',
+            'konten' => 'required',
+            'status' => 'required|in:draft,review,published'
         ], [
-            'judul.required' => 'Judul harus diisi',
-            'berita.required' => 'Berita harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
-            'penulis.required' => 'Penulis harus diisi',
-            'tanggal.required' => 'Tanggal harus diisi',
+            'judul.required' => 'Judul berita harus diisi.',
+            'kategori.required' => 'Kategori berita harus dipilih.',
+            'konten.required' => 'Konten berita harus diisi.',
+            'status.required' => 'Status berita harus dipilih.',
+            'status.in' => 'Status berita tidak valid.'
         ]);
-
-        if ($validasi->fails()) {
-            return redirect()->back()->withErrors($validasi)->withInput();
+        if (!$validated) {
+            return redirect()->back()->withErrors($validated)->withInput();
         }
 
-        $berita = Berita::find($id);
-        $berita->judul = $request->judul;
-        $berita->berita = $request->berita;
-        $berita->penulis = $request->penulis;
-        $berita->credit = $request->credit;
-        $berita->tanggal = $request->tanggal;
-        $berita->slug = Str::slug($request->judul);
+        $berita = Berita::findOrFail($id);
+        $berita->judul = $request->input('judul');
+        $berita->slug = Str::slug($request->input('judul'));
+        $berita->kategori = $request->input('kategori');
+        $berita->konten = $request->input('konten');
+        $berita->status = $request->input('status');
+        $berita->user_id = Auth::user()->id;
 
-        if (request()->hasFile('foto')) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-
-            // Hapus foto lama di Cloudinary jika ada
-            if ($berita->public_id) {
-                $uploadApi->destroy($berita->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        if ($request->hasFile('gambar')) {
+            // Hapus foto lama jika ada
+            if ($berita->gambar && File::exists(storage_path('app/public/berita/' . $berita->gambar))) {
+                File::delete(storage_path('app/public/berita/' . $berita->gambar));
             }
-
-            // Upload foto baru
-            $file = $request->file('foto');
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'berita',
-                'public_id' => Str::slug($berita->judul),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 1200,
-                    'height' => 800,
-                    'aspect_ratio' => '16:9',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-            $berita->foto = $path['secure_url'];
-            $berita->public_id = $path['public_id'];
+            $file = $request->file('gambar');
+            $filename = Str::slug($berita->judul) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/berita');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0755, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(800, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $berita->gambar = $filename;
         }
 
         if ($berita->save()) {
-            return redirect()->route('berita.index')->with('berhasil', 'Berita berhasil diubah 👍');
+            return redirect()->route('dm-berita.index')->with('success', 'Berita berhasil diperbarui.');
         } else {
-            return redirect()->back()->with('gagal', 'Berita gagal diubah 😭');
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui berita. Silakan coba lagi.');
         }
     }
 
@@ -181,24 +176,81 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        $berita = Berita::find($id);
+        $berita = Berita::findOrFail($id);
 
-        if ($berita->public_id) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $uploadApi->destroy($berita->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        // Hapus gambar dari storage jika ada
+        if ($berita->gambar) {
+            $imagePath = storage_path('app/public/berita/' . $berita->gambar);
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
         }
 
         if ($berita->delete()) {
-            return redirect()->route('berita.index')->with('berhasil', 'Berita berhasil dihapus 👍');
+            return redirect()->route('dm-berita.index')->with('success', 'Berita berhasil dihapus.');
         } else {
-            return redirect()->back()->with('gagal', 'Berita gagal dihapus 😭');
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus berita. Silakan coba lagi.');
         }
     }
 
-    public function landing()
+    public function updateStatus(Request $request, Berita $berita)
     {
-        $berita = Berita::latest()->paginate(8);
-        return view('program.berita', compact('berita'));
+        $request->validate([
+            'status' => 'required|in:draft,review,published'
+        ]);
+
+        $berita->update([
+            'status' => $request->status
+        ]);
+
+        $pesan = $request->status == 'published' ? 'Berita berhasil diterbitkan!' : 'Berita dikembalikan ke Draft.';
+        return redirect()->route('dm-berita.index')->with('success', $pesan);
+    }
+
+    public function beritaLanding(Request $request)
+    {
+        // Fitur Pencarian (Search) yang sudah ada di widget sebelumnya
+        $query = Berita::with('author')->where('status', 'published');
+
+        if ($request->has('q') && !empty($request->q)) {
+            $query->where('judul', 'like', '%' . $request->q . '%');
+        }
+
+        $berita = $query->latest()->paginate(9)->withQueryString();
+        return view('news.index', compact('berita'));
+    }
+
+    public function category($kategori)
+    {
+        $berita = Berita::with('author')
+            ->where('status', 'published')
+            ->where('kategori', $kategori)
+            ->latest()
+            ->paginate(9);
+
+        return view('news.index', compact('berita', 'kategori'));
+    }
+
+    public function detailBerita($slug)
+    {
+        // Ambil data berita yang sedang dibuka
+        $berita = Berita::with('author')
+            ->where('slug', $slug)
+            ->where('status', 'published')
+            ->firstOrFail();
+
+        // Cari berita SEBELUMNYA (Tanggal/Waktu lebih LAMA dari berita saat ini)
+        $prevBerita = Berita::where('created_at', '<', $berita->created_at)
+            ->where('status', 'published')
+            ->orderBy('created_at', 'desc') // Urutkan dari yang paling mendekati waktu saat ini mundur
+            ->first();
+
+        // Cari berita SELANJUTNYA (Tanggal/Waktu lebih BARU dari berita saat ini)
+        $nextBerita = Berita::where('created_at', '>', $berita->created_at)
+            ->where('status', 'published')
+            ->orderBy('created_at', 'asc') // Urutkan dari yang paling mendekati waktu saat ini maju
+            ->first();
+
+        return view('news.detail', compact('berita', 'prevBerita', 'nextBerita'));
     }
 }

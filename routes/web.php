@@ -1,70 +1,112 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\GuruController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PPDBController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\JSiswaController;
-use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\TestimoniController;
+use Illuminate\Support\Facades\Route;
 
-// Route pengunjung website
+// Route Landing Page
 Route::middleware('guest:admin')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/about', function () {
-        return view('about.index');
-    })->name('about');
-    Route::get('/fasilitas', function () {
-        return view('about.fasilitas');
-    })->name('fasilitas');
-    Route::get('/prestasi', function () {
-        return view('about.prestasi');
-    })->name('prestasi');
-    Route::get('/struktur', [GuruController::class, 'landing'])->name('struktur');
-    Route::get('/visimisi', function () {
-        return view('about.visimisi');
-    })->name('visimisi');
-    Route::get('/berita', [BeritaController::class, 'landing'])->name('berita.landing');
-    Route::get('/ekskul', function () {
-        return view('program.ekskul');
-    })->name('ekskul');
-    Route::get('/profjur', function () {
-        return view('program.profjur');
-    })->name('profjur');
-    Route::get('/agenda', [AgendaController::class, 'landing'])->name('agenda.landing');
-    Route::get('/galeri', [GaleriController::class, 'landing'])->name('galeri.landing');
-    Route::get('/ppdb', function () {
-        return view('program.ppdb');
-    })->name('ppdb');
+    Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
+
+    // Login Admin
     Route::get('/panel', function () {
-        return view('auth.loginadmin');
-    })->name('login');
-    Route::post('login', [AuthController::class, 'login'])->name('loginadmin');
+        return view('auth.index');
+    })->name('login-admin');
+    Route::post('login', [AuthController::class, 'login'])->name('loginAdmin');
+
+    // Visi & Misi
+    Route::get('/visi-misi', function () {
+        return view('visimisi.index');
+    })->name('visi-misi');
+
+    // Profil
+    Route::get('/profil', function () {
+        return view('profil.index');
+    })->name('profil');
+
+    // Sejarah
+    Route::get('/sejarah', function () {
+        return view('sejarah.index');
+    })->name('sejarah');
+
+    // Struktur
+    Route::get('/struktur', function () {
+        return view('struktur.index');
+    })->name('struktur');
+
+    // Fasilitas
+    Route::get('/fasilitas', function () {
+        return view('fasilitas.index');
+    })->name('fasilitas');
+
+    // Prestasi
+    Route::get('/prestasi', function () {
+        return view('prestasi.index');
+    })->name('prestasi');
+
+    // Jurusan
+    Route::get('/jurusan-tkj', function () {
+        return view('jurusan.tkj');
+    })->name('tkj');
+    Route::get('/jurusan-rpl', function () {
+        return view('jurusan.rpl');
+    })->name('rpl');
+    Route::get('/jurusan-mp', function () {
+        return view('jurusan.mp');
+    })->name('mp');
+    Route::get('/jurusan-tsm', function () {
+        return view('jurusan.tsm');
+    })->name('tsm');
+    Route::get('/jurusan-tkr', function () {
+        return view('jurusan.tkr');
+    })->name('tkr');
+    Route::get('/jurusan-dkv', function () {
+        return view('jurusan.dkv');
+    })->name('dkv');
+
+    // Berita
+    Route::get('/berita', [BeritaController::class, 'beritaLanding'])->name('berita');
+    // Detail Berita
+    Route::get('/detail-berita/{slug}', [BeritaController::class, 'detailBerita'])->name('detail-berita');
+    // Rute list berita berdasarkan kategori
+    Route::get('/berita/kategori/{kategori}', [BeritaController::class, 'category'])->name('berita.category');
+
+    // Agenda
+    Route::get('/agenda', [AgendaController::class, 'agendaLanding'])->name('agenda');
+
+    // Galeri
+    Route::get('/galeri', [GaleriController::class, 'galeriLanding'])->name('galeri');
+
+    // Kontak
+    Route::get('/kontak', function () {
+        return view('kontak.index');
+    })->name('kontak');
 });
 
-// Route admin
+
+// Route Admin
 Route::middleware('auth:admin')->group(function () {
-    Route::get('/dashboard', function () {
+
+    // Dashboard Admin
+    Route::get('/admin', function () {
         return view('admin.index');
-    })->name('dashboard');
+    })->name('admin');
 
-    Route::resource('admin/agenda', AgendaController::class);
-    Route::resource('admin/jsiswa', JSiswaController::class);
-    Route::resource('admin/galeri', GaleriController::class);
-    Route::resource('admin/berita', BeritaController::class);
-    Route::resource('admin/guru', GuruController::class);
-    Route::resource('admin/prestasi', PrestasiController::class);
-    Route::resource('admin/testimoni', TestimoniController::class);
-    Route::resource('admin/ppdb', PPDBController::class);
+    // Route Resource
+    Route::resource('dm-struktur', StrukturController::class);
+    Route::resource('dm-agenda', AgendaController::class);
+    Route::resource('dm-berita', BeritaController::class);
+    Route::resource('dm-galeri', GaleriController::class);
+    Route::resource('dm-testimoni', TestimoniController::class);
 
-    // Route Config
-    Route::get('/admin/configs', [ConfigController::class, 'index'])->name('config.index');
-    Route::post('/admin/configs', [ConfigController::class, 'update'])->name('config.update');
+    // Rute untuk mengubah status saja (tanpa edit foto/konten)
+    Route::patch('berita/{berita}/status', [BeritaController::class, 'updateStatus'])->name('dm-berita.update-status');
 
+    // Logout Admin
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

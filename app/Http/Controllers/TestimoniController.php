@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Testimoni;
-use Cloudinary\Cloudinary;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
 class TestimoniController extends Controller
@@ -35,54 +32,44 @@ class TestimoniController extends Controller
      */
     public function store(Request $request)
     {
-        $validasi = Validator::make($request->all(), [
+        $validasi = $request->validate([
             'nama' => 'required',
-            'credit' => 'required',
+            'jabatan' => 'nullable',
             'testimoni' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg',
+            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp',
         ], [
             'nama.required' => 'Nama harus diisi',
-            'credit.required' => 'Credit harus diisi',
             'testimoni.required' => 'Testimoni harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
+            'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
 
-        if ($validasi->fails()) {
+        if (!$validasi) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
         $testimoni = new Testimoni();
         $testimoni->nama = $request->nama;
-        $testimoni->credit = $request->credit;
+        $testimoni->jabatan = $request->jabatan;
         $testimoni->testimoni = $request->testimoni;
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'testimoni',
-                'public_id' => Str::slug($testimoni->nama) . '-' . time(),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 320,
-                    'height' => 320,
-                    'aspect_ratio' => '1:1',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-            $testimoni->foto = $path['secure_url'];
-            $testimoni->public_id = $path['public_id'];
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = Str::slug($testimoni->nama) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/testimoni');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0777, true, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(450, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $testimoni->gambar = $filename;
         }
 
         if ($testimoni->save()) {
-            return redirect()->route('testimoni.index')->with('berhasil', 'Testimoni berhasil ditambahkan 👍');
+            return redirect()->route('dm-testimoni.index')->with('success', 'Testimoni berhasil ditambahkan');
         } else {
-            return redirect()->back()->with('gagal', 'Testimoni gagal ditambahkan 😭');
+            return redirect()->back()->with('error', 'Testimoni gagal ditambahkan');
         }
     }
 
@@ -99,7 +86,7 @@ class TestimoniController extends Controller
      */
     public function edit(string $id)
     {
-        $testimoni = Testimoni::find($id);
+        $testimoni = Testimoni::findOrFail($id);
         return view('admin.testimoni.edit', compact('testimoni'));
     }
 
@@ -108,60 +95,48 @@ class TestimoniController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validasi = Validator::make($request->all(), [
+        $validasi = $request->validate([
             'nama' => 'required',
-            'credit' => 'required',
+            'jabatan' => 'nullable',
             'testimoni' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg',
+            'gambar' => 'nullable|mimes:png,jpg,jpeg,webp',
         ], [
             'nama.required' => 'Nama harus diisi',
-            'credit.required' => 'Credit harus diisi',
             'testimoni.required' => 'Testimoni harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
+            'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
 
-        if ($validasi->fails()) {
+        if (!$validasi) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $testimoni = Testimoni::find($id);
+        $testimoni = Testimoni::findOrFail($id);
         $testimoni->nama = $request->nama;
-        $testimoni->credit = $request->credit;
+        $testimoni->jabatan = $request->jabatan;
         $testimoni->testimoni = $request->testimoni;
 
-        if (request()->hasFile('foto')) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-
-            // Hapus foto lama di Cloudinary jika ada
-            if ($testimoni->public_id) {
-                $uploadApi->destroy($testimoni->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        if ($request->hasFile('gambar')) {
+            // Hapus foto lama jika ada
+            if ($testimoni->gambar && File::exists(storage_path('app/public/testimoni/' . $testimoni->gambar))) {
+                File::delete(storage_path('app/public/testimoni/' . $testimoni->gambar));
             }
-
-            // Upload foto baru
-            $file = $request->file('foto');
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'testimoni',
-                'public_id' => Str::slug($testimoni->nama) . '-' . time(),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 320,
-                    'height' => 320,
-                    'aspect_ratio' => '1:1',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-            $testimoni->foto = $path['secure_url'];
-            $testimoni->public_id = $path['public_id'];
+            $file = $request->file('gambar');
+            $filename = Str::slug($testimoni->nama) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/testimoni');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0777, true, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(450, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $testimoni->gambar = $filename;
         }
 
         if ($testimoni->save()) {
-            return redirect()->route('testimoni.index')->with('berhasil', 'Testimoni berhasil diubah 👍');
+            return redirect()->route('dm-testimoni.index')->with('success', 'Testimoni berhasil diperbarui');
         } else {
-            return redirect()->back()->with('gagal', 'Testimoni gagal diubah 😭');
+            return redirect()->back()->with('error', 'Testimoni gagal diperbarui');
         }
     }
 
@@ -170,16 +145,16 @@ class TestimoniController extends Controller
      */
     public function destroy(string $id)
     {
-        $testimoni = Testimoni::find($id);
-        if ($testimoni->public_id) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $uploadApi->destroy($testimoni->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        $testimoni = Testimoni::findOrFail($id);
+        // Hapus foto lama jika ada
+        if ($testimoni->gambar && File::exists(storage_path('app/public/testimoni/' . $testimoni->gambar))) {
+            File::delete(storage_path('app/public/testimoni/' . $testimoni->gambar));
         }
+
         if ($testimoni->delete()) {
-            return redirect()->route('testimoni.index')->with('berhasil', 'testimoni berhasil dihapus 👍');
+            return redirect()->route('dm-testimoni.index')->with('success', 'Testimoni berhasil dihapus');
         } else {
-            return redirect()->back()->with('gagal', 'testimoni gagal dihapus 😭');
+            return redirect()->back()->with('error', 'Testimoni gagal dihapus');
         }
     }
 }

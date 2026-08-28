@@ -1,92 +1,204 @@
 @extends('admin.layouts.main')
 
 @section('title')
-  <title>Edit Data</title>
+  <title>Edit Data Galeri</title>
+  <link rel="stylesheet" href="{{ asset('assets/admin/extensions/quill/quill.snow.css') }}">
 @endsection
 
 @section('main')
-  <div id="main-content">
-    <div class="page-heading">
-      <div class="page-title">
-        <div class="row">
-          <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Form Edit Data</h3>
-          </div>
-          <div class="col-12 col-md-6 order-md-2 order-first">
-            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="{{ route('galeri.index') }}">Master Galeri</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Form Edit Data
-                </li>
-              </ol>
-            </nav>
-          </div>
+  <div class="page-heading">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-12 col-md-6 order-md-1 order-last">
+          <h3>Form Edit Data Galeri</h3>
         </div>
-      </div>
-    </div>
-    <div class="page-content">
-      <div class="flash-data" data-gagal="{{ Session::get('gagal') }}"></div>
-      <div class="card">
-        <div class="card-header">
-          <div class="media d-flex align-items-center">
-            <div class="me-3">
-              <h5>Master Galeri</h5>
-            </div>
-            <div class="ms-auto">
-              <a href="{{ route('galeri.index') }}" class="btn icon icon-left btn-primary">
-                <i class="fas fa-arrow-left"></i> Kembali
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <form action="{{ route('galeri.update', $galeri->id_galeri) }}" class="form" method="POST" enctype="multipart/form-data" id="formUpload">
-            @csrf
-            @method('PUT')
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="judul_foto">Judul Foto</label>
-                  <input type="text" class="form-control @error('judul_foto') is-invalid @enderror" name="judul_foto" placeholder="Masukkan Judul Foto"
-                    value="{{ old('judul_foto', $galeri->judul_foto) }}">
-                  @error('judul_foto')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group">
-                  <label for="foto">Foto</label>
-                  <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" placeholder="Foto" value="{{ old('foto', $galeri->foto) }}">
-                  @error('foto')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
-                </div>
-              </div>
-              <div class="col-6 mt-2">
-                <button type="submit" id="btnSimpan" class="btn btn-primary icon icon-left btn-block">
-                  <i class="fas fa-paper-plane"></i> Simpan
-                </button>
-                <button type="button" id="btnLoading" class="btn btn-primary icon icon-left btn-block" style="display: none" disabled>
-                  <i class="fas fa-spinner fa-spin"></i> Mengupload...
-                </button>
-              </div>
-              <div class="col-6 mt-2">
-                <button type="reset" class="btn btn-secondary icon icon-left btn-block">
-                  <i class="fas fa-sync"></i> Reset
-                </button>
-              </div>
-            </div>
-          </form>
+        <div class="col-12 col-md-6 order-md-2 order-first">
+          <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{{ route('dm-galeri.index') }}">Data Galeri</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Edit Data
+              </li>
+            </ol>
+          </nav>
         </div>
       </div>
     </div>
   </div>
+  <div class="page-content">
+    <div class="flash-data" data-error="{{ Session::get('error') }}"></div>
+    <div class="card">
+      <div class="card-header">
+        <div class="media d-flex align-items-center">
+          <div class="me-3">
+            <h5>Data Galeri Sekolah</h5>
+          </div>
+          <div class="ms-auto">
+            <a href="{{ route('dm-galeri.index') }}" class="btn icon icon-left btn-primary">
+              <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        {{-- Pastikan ada enctype="multipart/form-data" untuk upload file --}}
+        <form action="{{ route('dm-galeri.update', $galeri->id) }}" class="form" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <div class="row">
+
+            {{-- Field Judul --}}
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-group">
+                <label class="form-label" for="judul">Judul</label>
+                <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" placeholder="Masukkan Judul" value="{{ old('judul', $galeri->judul) }}">
+                @error('judul')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+
+            {{-- Field Kategori --}}
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-group">
+                <label class="form-label" for="kategori">Kategori</label>
+                <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
+                  <option value="" disabled {{ old('kategori') ? '' : 'selected' }}>Pilih Kategori</option>
+                  <option value="Prestasi" {{ old('kategori', $galeri->kategori) == 'Prestasi' ? 'selected' : '' }}>Prestasi</option>
+                  <option value="Kegiatan" {{ old('kategori', $galeri->kategori) == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
+                  <option value="Fasilitas" {{ old('kategori', $galeri->kategori) == 'Fasilitas' ? 'selected' : '' }}>Fasilitas</option>
+                  <option value="Ekstrakurikuler" {{ old('kategori', $galeri->kategori) == 'Ekstrakurikuler' ? 'selected' : '' }}>Ekstrakurikuler</option>
+                </select>
+                @error('kategori')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+
+            {{-- Field Gambar --}}
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label class="form-label" for="gambar">Gambar</label>
+                <div class="d-flex align-items-top gap-3">
+
+                  <!-- Sisi Kiri: Form Input -->
+                  <div class="grow">
+                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                    @error('gambar')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                    <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
+                  </div>
+
+                  <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->
+                  @if (isset($galeri) && $galeri->gambar)
+                    <div class="shrink-0">
+                      <a href="{{ Storage::url('berita/' . $galeri->gambar) }}" target="_blank" title="Lihat Foto Penuh">
+                        <img src="{{ Storage::url('berita/' . $galeri->gambar) }}" alt="Preview" class="img-thumbnail shadow-sm rounded" style="height: 70px; object-fit: cover;">
+                      </a>
+                    </div>
+                  @endif
+
+                </div>
+              </div>
+            </div>
+
+            {{-- Field Konten (Quill) --}}
+            <div class="col-12 col-md-6 col-lg-12 mt-3">
+              <div class="form-group">
+                <label class="form-label" for="deskripsi">Deskripsi</label>
+
+                <!-- Input hidden ini yang akan dikirim ke Controller -->
+                <input type="hidden" name="deskripsi" id="input_deskripsi" value="{{ old('deskripsi', $galeri->deskripsi) }}">
+
+                <!-- Wadah editor Quill -->
+                <div id="full" class="@error('deskripsi') is-invalid @enderror">{!! old('deskripsi', $galeri->deskripsi) !!}</div>
+
+                @error('deskripsi')
+                  <div class="invalid-feedback d-block mt-2">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <button class="btn btn-primary icon icon-left btn-block">
+                <i class="fas fa-paper-plane"></i> Simpan
+              </button>
+            </div>
+            <div class="col-6 mt-4">
+              <button type="reset" class="btn btn-secondary icon icon-left btn-block">
+                <i class="fas fa-sync"></i> Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@endsection
+
+@section('js')
+  <script src="{{ asset('assets/admin/extensions/quill/quill.min.js') }}"></script>
+  <script>
+    var quill = new Quill("#full", {
+      bounds: "#full-container .editor",
+      modules: {
+        toolbar: [
+          [{
+            font: []
+          }, {
+            size: []
+          }],
+          ["bold", "italic", "underline", "strike"],
+          [{
+            color: []
+          }, {
+            background: []
+          }],
+          [{
+            script: "super"
+          }, {
+            script: "sub"
+          }],
+          [{
+            list: "ordered"
+          }, {
+            list: "bullet"
+          }, {
+            indent: "-1"
+          }, {
+            indent: "+1"
+          }],
+          ["direction", {
+            align: []
+          }],
+          ["link", "image", "video"],
+          ["clean"],
+        ],
+      },
+      theme: "snow",
+    });
+
+    // Sinkronisasi isi Quill ke input tersembunyi
+    quill.on('text-change', function(delta, oldDelta, source) {
+      let html = quill.root.innerHTML;
+
+      if (html === '<p><br></p>') {
+        html = '';
+      }
+
+      // Pastikan ID ini sama dengan ID di tag <input type="hidden">
+      document.getElementById('input_deskripsi').value = html;
+    });
+  </script>
 @endsection

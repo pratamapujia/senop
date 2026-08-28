@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Testimoni extends Model
 {
-    use HasFactory;
-
     protected $table = 'testimoni';
-    protected $primaryKey = 'id_testimoni';
-    protected $fillable = ['public_id', 'nama', 'testimoni', 'credit', 'foto'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['nama', 'jabatan', 'testimoni', 'gambar'];
 }

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Galeri;
-use Cloudinary\Cloudinary;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
 class GaleriController extends Controller
@@ -18,7 +16,7 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        $galeri = Galeri::all();
+        $galeri = Galeri::latest()->get();
         return view('admin.galeri.index', compact('galeri'));
     }
 
@@ -35,49 +33,44 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        $validasi = Validator::make($request->all(), [
-            'judul_foto' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg',
+        $validasi = $request->validate([
+            'judul' => 'required',
+            'kategori' => 'required',
+            'gambar' => 'required|mimes:png,jpg,jpeg,webp',
         ], [
-            'judul_foto.required' => 'Judul foto harus diisi',
-            'foto.required' => 'Foto harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
+            'judul.required' => 'Judul harus diisi',
+            'kategori.required' => 'Kategori harus diisi',
+            'gambar.required' => 'Gambar harus diisi',
+            'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
 
-        if ($validasi->fails()) {
+        if (!$validasi) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
         $galeri = new Galeri();
-        $galeri->judul_foto = $request->judul_foto;
+        $galeri->judul = $request->judul;
+        $galeri->deskripsi = $request->deskripsi;
+        $galeri->kategori = $request->kategori;
 
-
-        if ($request->hasFile('foto')) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $file = $request->file('foto');
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'galeri',
-                'public_id' => Str::slug($galeri->judul_foto),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 1200,
-                    'height' => 800,
-                    'aspect_ratio' => '16:9',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-            $galeri->foto = $path['secure_url'];
-            $galeri->public_id = $path['public_id'];
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = Str::slug($galeri->judul) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/berita');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0755, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(800, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $galeri->gambar = $filename;
         }
 
         if ($galeri->save()) {
-            return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil ditambahkan 👍');
+            return redirect()->route('dm-galeri.index')->with('success', 'Data berhasil disimpan');
         } else {
-            return redirect()->back()->with('gagal', 'Galeri gagal ditambahkan 😭');
+            return redirect()->back()->with('error', 'Data gagal disimpan');
         }
     }
 
@@ -94,7 +87,7 @@ class GaleriController extends Controller
      */
     public function edit(string $id)
     {
-        $galeri = Galeri::find($id);
+        $galeri = Galeri::findOrFail($id);
         return view('admin.galeri.edit', compact('galeri'));
     }
 
@@ -103,54 +96,52 @@ class GaleriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $validasi = Validator::make($request->all(), [
-            'judul_foto' => 'required',
-            'foto' => 'image|mimes:jpeg,png,jpg',
+        $validasi = $request->validate([
+            'judul' => 'required',
+            'kategori' => 'required',
+            'gambar' => 'required|mimes:png,jpg,jpeg,webp',
         ], [
-            'judul_foto.required' => 'Judul foto harus diisi',
-            'foto.image' => 'Foto harus berupa gambar',
-            'foto.mimes' => 'Format foto harus jpeg, png, atau jpg',
+            'judul.required' => 'Judul harus diisi',
+            'kategori.required' => 'Kategori harus diisi',
+            'gambar.required' => 'Gambar harus diisi',
+            'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
 
-        if ($validasi->fails()) {
+        if (!$validasi) {
             return redirect()->back()->withErrors($validasi)->withInput();
         }
 
-        $galeri = Galeri::find($id);
-        $galeri->judul_foto = $request->judul_foto;
+        $galeri = Galeri::findOrFail($id);
+        $galeri->judul = $request->judul;
+        $galeri->deskripsi = $request->deskripsi;
+        $galeri->kategori = $request->kategori;
 
-        if (request()->hasFile('foto')) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-
-            // Hapus foto lama di Cloudinary jika ada
-            if ($galeri->public_id) {
-                $uploadApi->destroy($galeri->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        if ($request->hasFile('gambar')) {
+            $dipakaiDiBerita = Berita::where('gambar', $galeri->gambar)->exists();
+            // Hapus gambar dari storage jika ada
+            if (!$dipakaiDiBerita) {
+                $imagePath = storage_path('app/public/berita/' . $galeri->gambar);
+                if (File::exists($imagePath)) {
+                    File::delete($imagePath);
+                }
             }
-
-            // Upload foto baru
-            $file = $request->file('foto');
-            $path = $uploadApi->upload($file->getRealPath(), [
-                'folder' => 'galeri',
-                'public_id' => Str::slug($galeri->judul_foto),
-                'format' => 'webp',
-                'quality' => 80,
-                'transformation' => [
-                    'width' => 1200,
-                    'height' => 800,
-                    'aspect_ratio' => '16:9',
-                    'crop' => 'fill',
-                    'gravity' => 'auto'
-                ]
-            ]);
-            $galeri->foto = $path['secure_url'];
-            $galeri->public_id = $path['public_id'];
+            $file = $request->file('gambar');
+            $filename = Str::slug($galeri->judul) . '-' . time() . '.' . 'webp';
+            $directoryPath = storage_path('app/public/berita');
+            if (!File::isDirectory($directoryPath)) {
+                File::makeDirectory($directoryPath, 0755, true);
+            }
+            $path = $directoryPath . '/' . $filename;
+            $image = Image::decode($file->getRealPath());
+            $image->cover(800, 450, 'top');
+            $image->save($path, 90, 'webp');
+            $galeri->gambar = $filename;
         }
 
         if ($galeri->save()) {
-            return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil diubah 👍');
+            return redirect()->route('dm-galeri.index')->with('success', 'Data berhasil disimpan');
         } else {
-            return redirect()->back()->with('gagal', 'Galeri gagal diubah 😭');
+            return redirect()->back()->with('error', 'Data gagal disimpan');
         }
     }
 
@@ -159,24 +150,40 @@ class GaleriController extends Controller
      */
     public function destroy(string $id)
     {
-        $galeri = Galeri::find($id);
+        $galeri = Galeri::findOrFail($id);
 
-        if ($galeri->public_id) {
-            $cloudinary = new Cloudinary();
-            $uploadApi = $cloudinary->uploadApi();
-            $uploadApi->destroy($galeri->public_id, ['resource_type' => 'image', 'invalidate' => true]);
+        $dipakaiDiBerita = Berita::where('gambar', $galeri->gambar)->exists();
+        // Hapus gambar dari storage jika ada
+        if (!$dipakaiDiBerita) {
+            $imagePath = storage_path('app/public/berita/' . $galeri->gambar);
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
         }
 
         if ($galeri->delete()) {
-            return redirect()->route('galeri.index')->with('berhasil', 'Galeri berhasil dihapus 👍');
+            return redirect()->route('dm-galeri.index')->with('success', 'Galeri berhasil dihapus.');
         } else {
-            return redirect()->back()->with('gagal', 'Galeri gagal dihapus 😭');
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus galeri. Silakan coba lagi.');
         }
     }
 
-    public function landing()
+    public function galeriLanding(Request $request)
     {
-        $galeri = Galeri::latest()->paginate(8);
-        return view('program.galeri', compact('galeri'));
+        // Cek apakah ada filter kategori dari URL (misal: /galeri?kategori=Fasilitas)
+        $kategoriAktif = $request->query('kategori');
+
+        // Query dasar
+        $query = Galeri::latest();
+
+        // Terapkan filter jika ada
+        if ($kategoriAktif) {
+            $query->where('kategori', $kategoriAktif);
+        }
+
+        // Ambil data dengan paginasi (misal 12 foto per halaman untuk 4 kolom x 3 baris)
+        $galeri = $query->paginate(12)->withQueryString();
+
+        return view('gallery.index', compact('galeri', 'kategoriAktif'));
     }
 }

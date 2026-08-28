@@ -10,6 +10,12 @@ class Berita extends Model
     use HasFactory;
 
     protected $table = 'berita';
-    protected $primaryKey = 'id_berita';
-    protected $fillable = ['public_id','judul', 'berita', 'foto', 'penulis', 'slug', 'tanggal', 'credit'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['judul', 'slug', 'kategori', 'status', 'gambar', 'konten', 'user_id'];
+
+    // Relasi ke tabel users (Penulis)
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
