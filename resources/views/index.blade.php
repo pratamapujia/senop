@@ -51,7 +51,7 @@
             <a href="/"
               class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-secondary0/30 transform hover:-translate-y-1">
               Info SPMB
-              <i class="bi bi-arrow-right ml-2"></i>
+              <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
 
             {{-- Tombol Sekunder (Opsional: Misal Video Profil) --}}
@@ -80,9 +80,18 @@
 
           {{-- Elemen Dekorasi Melayang (Floating Card) - Opsional --}}
           <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden md:flex items-center gap-3 animate-bounce-slow">
-            <div class="bg-green-100 p-1.75 h-10 w-10 rounded-full text-center text-green-600">
-              <i class="bi bi-check-circle-fill text-xl"></i>
+
+            {{-- Wadah Ikon dengan Animasi Detak (Ping) --}}
+            <div class="relative flex items-center justify-center h-10 w-10 shrink-0">
+              {{-- Lingkaran Gelombang Animasi (Di Belakang) --}}
+              <span class="absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75 animate-ping"></span>
+
+              {{-- Lingkaran Ikon Utama (Di Depan) --}}
+              <div class="relative inline-flex items-center justify-center h-full w-full bg-green-100 rounded-full text-green-600">
+                <i class="bi bi-check-circle-fill text-xl"></i>
+              </div>
             </div>
+
             <div>
               <p class="text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
               <p class="text-sm font-bold text-header">Sangat Baik (A)</p>
@@ -222,7 +231,7 @@
 
                 {{-- Ikon Profil --}}
                 <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-primary shadow-inner border border-blue-100/50">
-                  <i class="bi bi-person-check-fill text-2xl"></i>
+                  <i class="fa-solid fa-user-tie text-2xl"></i>
                 </div>
 
                 <div class="flex flex-col">
@@ -277,7 +286,7 @@
         {{-- Tombol DKV (Aktif Default) --}}
         <button onclick="switchTab('tab-dkv')" id="btn-tab-dkv"
           class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30">
-          <i class="bi bi-code-slash mr-1.5"></i> DKV
+          <i class="bi bi-palette mr-1.5"></i> DKV
         </button>
 
         {{-- Tombol MP --}}
@@ -325,7 +334,7 @@
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-red-600 to-pink-500 mb-4">Multimedia / DKV</h3>
+                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-red-600 to-pink-500 mb-4">Desain Komunikasi Visual</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-red-500 transition-all duration-500"></div>
                 <p class="text-gray-600 mb-6 leading-relaxed">
                   DKV membekali siswa dengan kemampuan menciptakan komunikasi visual melalui desain, fotografi, videografi, branding, dan media digital. Siswa tidak hanya belajar membuat karya, tetapi
@@ -354,7 +363,7 @@
             class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.2)] transition-all duration-500 relative overflow-hidden group">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-purple-100 rounded-full blur-3xl opacity-60 group-hover:bg-purple-200 transition-colors duration-500"></div>
             <div class="absolute bottom-4 right-8 text-9xl text-purple-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
-              <i class="bi bi-building"></i>
+              <i class="fa-regular fa-building"></i>
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
@@ -375,7 +384,7 @@
               <div class="md:w-1/3 flex justify-center">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-purple-50 to-purple-100 rounded-full flex items-center justify-center text-purple-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <i class="bi bi-briefcase"></i>
+                  <i class="fa-solid fa-briefcase"></i>
                 </div>
               </div>
             </div>
@@ -388,7 +397,7 @@
             class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.2)] transition-all duration-500 relative overflow-hidden group">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-blue-100 rounded-full blur-3xl opacity-60 group-hover:bg-blue-200 transition-colors duration-500"></div>
             <div class="absolute bottom-4 right-8 text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
-              <i class="bi bi-code-slash"></i>
+              <i class="fa-solid fa-code"></i>
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
@@ -409,7 +418,7 @@
               <div class="md:w-1/3 flex justify-center">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center text-primary text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <i class="bi bi-laptop"></i>
+                  <i class="fa-solid fa-laptop-code"></i>
                 </div>
               </div>
             </div>
@@ -422,7 +431,7 @@
             class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(234,179,8,0.2)] transition-all duration-500 relative overflow-hidden group">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-yellow-100 rounded-full blur-3xl opacity-60 group-hover:bg-yellow-200 transition-colors duration-500"></div>
             <div class="absolute bottom-4 right-8 text-9xl text-yellow-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
-              <i class="bi bi-hdd-network"></i>
+              <i class="fa-solid fa-wifi"></i>
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
@@ -443,7 +452,7 @@
               <div class="md:w-1/3 flex justify-center">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <i class="bi bi-router"></i>
+                  <i class="fa-solid fa-network-wired"></i>
                 </div>
               </div>
             </div>
@@ -456,7 +465,7 @@
             class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.2)] transition-all duration-500 relative overflow-hidden group">
             <div class="absolute -top-10 -right-10 w-48 h-48 bg-emerald-100 rounded-full blur-3xl opacity-60 group-hover:bg-emerald-200 transition-colors duration-500"></div>
             <div class="absolute bottom-4 right-8 text-9xl text-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
-              <i class="bi bi-car-front"></i>
+              <i class="fa-solid fa-car-on"></i>
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
@@ -477,7 +486,7 @@
               <div class="md:w-1/3 flex justify-center">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-emerald-50 to-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <i class="bi bi-tools"></i>
+                  <i class="fa-solid fa-car"></i>
                 </div>
               </div>
             </div>
@@ -511,7 +520,7 @@
               <div class="md:w-1/3 flex justify-center">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-orange-50 to-orange-100 rounded-full flex items-center justify-center text-orange-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
-                  <i class="bi bi-gear-wide-connected"></i>
+                  <i class="fa-solid fa-motorcycle"></i>
                 </div>
               </div>
             </div>
@@ -553,13 +562,13 @@
                   </p>
                 </div>
                 <div class="hidden xl:flex w-8 h-8 text-primary items-center justify-center group-hover:bg-blue-100' group-hover:text-accent transition-all shrink-0">
-                  <i class="bi bi-calendar-week text-2xl"></i>
+                  <i class="fa-solid fa-calendar text-2xl"></i>
                 </div>
               </div>
             @empty
               <div class="col-span-1 md:col-span-2 bg-gray-50 rounded-2xl p-8 text-center border border-dashed border-gray-300">
                 <div class="w-12 h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-                  <i class="bi bi-calendar-x"></i>
+                  <i class="fa-solid fa-calendar"></i>
                 </div>
                 <h4 class="text-base font-bold text-gray-700">Belum Ada Agenda</h4>
               </div>
@@ -571,7 +580,7 @@
             <div class="mt-8">
               <a href="#" class="inline-flex items-center text-sm font-bold text-primary hover:text-blue-800 transition-colors group">
                 Lihat Seluruh Agenda
-                <i class="bi bi-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
               </a>
             </div>
           @endif
@@ -601,7 +610,7 @@
           <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-50 animate-bounce-slow hidden xl:block">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center text-xl">
-                <i class="bi bi-bell-fill"></i>
+                <i class="fa-regular fa-bell"></i>
               </div>
               <div>
                 <p class="text-[10px] text-gray-500 font-bold uppercase">Reminder</p>
@@ -638,8 +647,8 @@
             </div>
             <div class="p-6 flex flex-col flex-1">
               <div class="flex items-center gap-4 text-xs text-gray-500 mb-3 font-medium">
-                <div class="flex items-center gap-1"><i class="bi bi-calendar3 text-blue-400"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
-                <div class="flex items-center gap-1"><i class="bi bi-person text-blue-400"></i> {{ $item->author->name }}</div>
+                <div class="flex items-center gap-1"><i class="fa-regular fa-calendar text-blue-400"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
+                <div class="flex items-center gap-1"><i class="fa-regular fa-user text-blue-400"></i> {{ $item->author->name }}</div>
               </div>
               <h3 class="text-xl font-bold text-header mb-3 line-clamp-2 transition-colors">
                 <a href="{{ route('detail-berita', $item->slug) }}">{{ $item->judul }}</a>
@@ -649,14 +658,14 @@
               </p>
               <a href="{{ route('detail-berita', $item->slug) }}" class="inline-flex items-center text-sm font-bold text-primary hover:text-accent transition-colors group/link w-max">
                 Baca Selengkapnya
-                <i class="bi bi-arrow-right ml-2 transition-transform duration-300 group-hover/link:translate-x-2"></i>
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover/link:translate-x-2"></i>
               </a>
             </div>
           </article>
         @empty
           <div class="col-span-1 md:col-span-2 xl:col-span-4 bg-gray-50 rounded-2xl p-8 text-center border border-dashed border-gray-300">
             <div class="w-12 h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-              <i class="bi bi-newspaper"></i>
+              <i class="fa-regular fa-newspaper"></i>
             </div>
             <h4 class="text-base font-bold text-gray-700">Belum Ada Berita</h4>
           </div>
@@ -667,7 +676,7 @@
         <a href="{{ route('berita') }}"
           class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1">
           Lihat Semua Berita
-          <i class="bi bi-arrow-right ml-2"></i>
+          <i class="fa-solid fa-arrow-right ml-2"></i>
         </a>
       </div>
     </div>
@@ -771,11 +780,11 @@
         <div class="flex justify-center gap-3 mt-4">
           <button
             class="swiper-prev-custom w-10 h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
-            <i class="bi bi-chevron-left text-sm font-bold"></i>
+            <i class="fa-solid fa-chevron-left text-sm font-bold"></i>
           </button>
           <button
             class="swiper-next-custom w-10 h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
-            <i class="bi bi-chevron-right text-sm font-bold"></i>
+            <i class="fa-solid fa-chevron-right text-sm font-bold"></i>
           </button>
         </div>
 

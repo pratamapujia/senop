@@ -64,10 +64,10 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Visual Storytelling</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Kreativitasmu Bisa Jadi Profesi.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              DKV merupakan jurusan yang mempelajari cara menyampaikan pesan melalui media visual. Di sini, siswa tidak hanya belajar menggambar, tetapi juga mendalami fotografi, videografi, periklanan,
-              hingga desain identitas merek (branding).
+              DKV membekali siswa dengan kemampuan menciptakan komunikasi visual melalui desain, fotografi, videografi, branding, dan media digital. Siswa tidak hanya belajar membuat karya, tetapi juga
+              memahami bagaimana sebuah visual digunakan untuk menyampaikan pesan dan memenuhi kebutuhan dunia industri.
             </p>
           </div>
 
@@ -79,7 +79,7 @@
                   <path stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Graphic Design & Branding</h4>
+              <h4 class="font-bold text-slate-800 mb-2">Dasar-dasar desain grafis</h4>
               <p class="text-sm text-gray-500">Penguasaan Adobe Illustrator & Photoshop untuk pembuatan logo, poster, dan identitas visual perusahaan.</p>
             </div>
             {{-- Materi 2 --}}

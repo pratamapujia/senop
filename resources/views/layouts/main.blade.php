@@ -27,6 +27,9 @@
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons/bootstrap-icons.min.css') }}">
 
+    {{-- FontAwesome --}}
+    <link rel="stylesheet" href="{{ asset('assets/admin/extensions/fontawesome/css/all.min.css') }}">
+
     {{-- AOS Animation --}}
     <link rel="stylesheet" href="{{ asset('assets/aos/aos.css') }}">
 
