@@ -65,7 +65,7 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">MBelajar Teknologi Otomotif, Bangun Keahlian Profesional.</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Belajar Teknologi Otomotif, Bangun Keahlian Profesional.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
               TKR mempersiapkan siswa untuk memahami teknologi kendaraan ringan, khususnya mobil, melalui pembelajaran teori dan praktik. Siswa dilatih melakukan perawatan, pemeriksaan, diagnosis,
               hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.

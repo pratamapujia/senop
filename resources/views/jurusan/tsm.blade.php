@@ -63,7 +63,7 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Teknik Sepeda Motor</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Bangun Teknologi Otomotif, Bangun Keahlian Profesional</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
               Teknik Sepeda Motor membekali siswa dengan keterampilan dalam perawatan, perbaikan, diagnosis, dan teknologi kendaraan roda dua. Pembelajaran menggabungkan teori dan praktik agar siswa
               terbiasa bekerja secara teliti, disiplin, dan sesuai standar dunia industri.
@@ -80,24 +80,24 @@
               <p class="text-sm text-gray-500">Overhaul mesin, penyetelan katup, dan pemeliharaan sistem pendingin serta pelumasan mesin roda dua.</p>
             </div>
             {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
-              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
-                <i class="fa-solid fa-gas-pump"></i>
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-cyan-300 transition-all">
+              <div class="w-12 h-12 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 mb-5">
+                <i class="fa-solid fa-gear"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Sistem Injeksi Motor</h4>
               <p class="text-sm text-gray-500">Diagnosa sensor, reset ECU, dan pembersihan injektor menggunakan alat scan khusus standar pabrikan.</p>
             </div>
             {{-- Materi 3 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
-              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-green-300 transition-all">
+              <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-5">
                 <i class="fa-solid fa-car-battery"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Sistem Kelistrikan Motor</h4>
               <p class="text-sm text-gray-500">Mempelajari tentang Kelistrikan Motor, pengaturan tegangan, dan pemeliharaan kelistrikan.</p>
             </div>
             {{-- Materi 4 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
-              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-orange-300 transition-all">
+              <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-5">
                 <i class="fa-solid fa-motorcycle"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Teknologi Motor Listrik</h4>
