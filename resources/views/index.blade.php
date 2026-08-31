@@ -79,22 +79,20 @@
           </div>
 
           {{-- Elemen Dekorasi Melayang (Floating Card) - Opsional --}}
-          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden md:flex items-center gap-3 animate-bounce-slow">
-
+          <div
+            class="absolute -bottom-4 left-4 md:-bottom-6 md:-left-6 bg-white px-3 py-2.5 rounded-lg shadow-lg md:p-4 md:rounded-xl md:shadow-xl border border-gray-100 flex items-center gap-3 animate-bounce-slow">
             {{-- Wadah Ikon dengan Animasi Detak (Ping) --}}
-            <div class="relative flex items-center justify-center h-10 w-10 shrink-0">
+            <div class="relative flex items-center justify-center h-5 w-5 md:h-10 md:w-10 shrink-0">
               {{-- Lingkaran Gelombang Animasi (Di Belakang) --}}
               <span class="absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75 animate-ping"></span>
-
               {{-- Lingkaran Ikon Utama (Di Depan) --}}
               <div class="relative inline-flex items-center justify-center h-full w-full bg-green-100 rounded-full text-green-600">
                 <i class="bi bi-check-circle-fill text-xl"></i>
               </div>
             </div>
-
             <div>
-              <p class="text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
-              <p class="text-sm font-bold text-header">Sangat Baik (A)</p>
+              <p class="text-[10px] md:text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
+              <p class="text-xs md:text-sm font-bold text-header">Unggul (A)</p>
             </div>
           </div>
         </div>
