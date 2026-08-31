@@ -375,10 +375,10 @@
                   menggabungkan keterampilan administrasi dengan pemanfaatan teknologi digital.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi perkantoran</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi keuangan dasar</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi digital</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi bisnis</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Perkantoran</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Keuangan Dasar</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Digital</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi Bisnis</li>
                 </ul>
               </div>
               <div class="md:w-1/3 flex justify-center">
@@ -409,10 +409,10 @@
                   pemrograman, tetapi juga terbiasa menciptakan solusi digital.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Logika dan algoritma pemrograman</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman web</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman aplikasi</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX dasar</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Database System</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Web</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Mobile</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX Dasar</li>
                 </ul>
               </div>
               <div class="md:w-1/3 flex justify-center">
@@ -443,10 +443,10 @@
                   masalah pada sistem komputer dan jaringan.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Perakitan dan perawatan komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Jaringan komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Teknologi jaringan nirkabel</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Dasar cloud dan teknologi jaringan modern</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Perakitan & Perawatan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Jaringan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cybersecurity</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cloud & Teknologi Jaringan Modern</li>
                 </ul>
               </div>
               <div class="md:w-1/3 flex justify-center">
@@ -477,10 +477,10 @@
                   melakukan perawatan, pemeriksaan, diagnosis, hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Dasar-dasar teknik otomotif</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Mesin kendaraan ringan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Diagnosis dan perbaikan kendaraan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi kendaraan listrik</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Dasar-Dasar Teknik Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Mesin Kendaraan Ringan</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Diagnosis & Perbaikan Kendaraan</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi Kendaraan Listrik</li>
                 </ul>
               </div>
               <div class="md:w-1/3 flex justify-center">
@@ -511,10 +511,10 @@
                   terbiasa bekerja secara teliti, disiplin, dan sesuai standar dunia industri.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Dasar-dasar otomotif</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem mesin dan pembakaran</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem kelistrikan sepeda motor</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi sepeda motor injeksi</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Dasar-Dasar Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Mesin & Pembakaran</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Kelistrikan Sepeda Motor</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi Sepeda Motor Injeksi</li>
                 </ul>
               </div>
               <div class="md:w-1/3 flex justify-center">
