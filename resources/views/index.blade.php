@@ -771,8 +771,28 @@
               </div>
             </div>
           @empty
-            {{-- Tampilan jika tidak ada testimoni --}}
-            <div class="text-center text-gray-400 py-10">Belum ada testimoni yang ditambahkan.</div>
+            {{-- Empty State Testimoni yang Elegan --}}
+            <div
+              class="w-full h-auto md:h-105 flex flex-col items-center justify-center bg-linear-to-b from-gray-50 to-white rounded-4xl border-2 border-dashed border-gray-200 p-8 md:p-12 text-center relative overflow-hidden">
+
+              {{-- Watermark Latar Belakang --}}
+              <i class="fa-solid fa-quote-right absolute top-10 right-10 text-[10rem] text-gray-100/50 rotate-12 z-0"></i>
+
+              {{-- Ikon dengan Efek Soft Glow --}}
+              <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-50 mb-6 border border-blue-100 z-10">
+                <div class="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-40"></div>
+                <i class="fa-solid fa-comments text-4xl text-primary relative z-10"></i>
+              </div>
+
+              {{-- Konten Teks --}}
+              <div class="relative z-10">
+                <h4 class="text-xl md:text-2xl font-black text-gray-800 mb-3">Belum Ada Testimoni</h4>
+                <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto leading-relaxed">
+                  Kisah inspiratif, ulasan, dan pengalaman dari alumni maupun mitra SMK Senopati belum tersedia saat ini. Nantikan pembaruan dari kami!
+                </p>
+              </div>
+
+            </div>
           @endforelse
         </div>
 

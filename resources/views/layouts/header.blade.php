@@ -155,7 +155,7 @@
         </div>
 
         <li class="px-2 pt-2">
-          <a href="#" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">PPDB</a>
+          <a href="#" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">SPMB</a>
         </li>
       </ul>
     </div>

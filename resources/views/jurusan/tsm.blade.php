@@ -63,10 +63,10 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Mastering Two-Wheel Technology</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Teknik Sepeda Motor</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Teknik Sepeda Motor (TSM) memfokuskan siswa pada penguasaan mesin sepeda motor, sistem transmisi, sasis, dan sistem kelistrikan. Kurikulum diselaraskan dengan kebutuhan industri otomotif
-              roda dua yang berkembang pesat menuju era motor listrik dan sistem injeksi cerdas.
+              Teknik Sepeda Motor membekali siswa dengan keterampilan dalam perawatan, perbaikan, diagnosis, dan teknologi kendaraan roda dua. Pembelajaran menggabungkan teori dan praktik agar siswa
+              terbiasa bekerja secara teliti, disiplin, dan sesuai standar dunia industri.
             </p>
           </div>
 
@@ -74,23 +74,34 @@
             {{-- Materi 1 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-red-300 transition-all">
               <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2"
-                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
+                <i class="fa-solid fa-wrench"></i>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Engine Maintenance</h4>
+              <h4 class="font-bold text-slate-800 mb-2">Perawatan dan Service Sepeda Motor</h4>
               <p class="text-sm text-gray-500">Overhaul mesin, penyetelan katup, dan pemeliharaan sistem pendingin serta pelumasan mesin roda dua.</p>
             </div>
             {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-red-300 transition-all">
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
               <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <i class="fa-solid fa-gas-pump"></i>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Fuel Injection System</h4>
+              <h4 class="font-bold text-slate-800 mb-2">Sistem Injeksi Motor</h4>
               <p class="text-sm text-gray-500">Diagnosa sensor, reset ECU, dan pembersihan injektor menggunakan alat scan khusus standar pabrikan.</p>
+            </div>
+            {{-- Materi 3 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
+              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
+                <i class="fa-solid fa-car-battery"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Sistem Kelistrikan Motor</h4>
+              <p class="text-sm text-gray-500">Mempelajari tentang Kelistrikan Motor, pengaturan tegangan, dan pemeliharaan kelistrikan.</p>
+            </div>
+            {{-- Materi 4 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
+              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
+                <i class="fa-solid fa-motorcycle"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Teknologi Motor Listrik</h4>
+              <p class="text-sm text-gray-500">Mempelajari tentang teknologi motor listrik, pemeliharaan dan perawatan motor listrik.</p>
             </div>
           </div>
         </div>

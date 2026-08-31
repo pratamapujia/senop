@@ -75,22 +75,34 @@
             {{-- Materi 1 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
               <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+                <i class="fa-solid fa-palette"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Dasar-dasar desain grafis</h4>
-              <p class="text-sm text-gray-500">Penguasaan Adobe Illustrator & Photoshop untuk pembuatan logo, poster, dan identitas visual perusahaan.</p>
+              <p class="text-sm text-gray-500">Mengenal dasar-dasar desain grafis, seperti tipografi, warna, dan layout.</p>
             </div>
             {{-- Materi 2 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-violet-300 transition-all">
               <div class="w-12 h-12 bg-violet-100 rounded-2xl flex items-center justify-center text-violet-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
+                <i class="fa-solid fa-video"></i>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Multimedia & Videografi</h4>
+              <h4 class="font-bold text-slate-800 mb-2">Fotografi & Videografi</h4>
               <p class="text-sm text-gray-500">Teknik pengambilan gambar, editing video, motion graphics, dan produksi konten media sosial.</p>
+            </div>
+            {{-- Materi 3 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-yellow-300 transition-all">
+              <div class="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-5">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Branding & Identitas Visual</h4>
+              <p class="text-sm text-gray-500">Penguasaan Adobe Illustrator & Photoshop untuk pembuatan logo, poster, dan identitas visual perusahaan.</p>
+            </div>
+            {{-- Materi 4 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-lime-300 transition-all">
+              <div class="w-12 h-12 bg-lime-100 rounded-2xl flex items-center justify-center text-lime-600 mb-5">
+                <i class="fa-solid fa-film"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Produksi Karya Kreatif</h4>
+              <p class="text-sm text-gray-500">Membuat karya kreatif seperti poster, brosur, video, dan media sosial.</p>
             </div>
           </div>
         </div>
@@ -112,6 +124,15 @@
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <div class="w-1.5 h-1.5 bg-rose-400 rounded-full"></div> Creative Director
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-rose-400 rounded-full"></div> Freelancer
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-rose-400 rounded-full"></div> Wirausaha bidang Kreatif
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-rose-400 rounded-full"></div> Wirausaha bidang Kreatif
               </li>
             </ul>
           </div>

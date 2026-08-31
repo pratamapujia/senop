@@ -64,10 +64,10 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Pusat Tata Kelola Bisnis</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Profesional Mengelola Administrasi, Komunikasi, dan Informasi.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Manajemen Perkantoran (MP) membekali siswa dengan keterampilan di bidang korespondensi, kearsipan, manajemen waktu, hingga penguasaan teknologi perkantoran modern untuk mendukung
-              operasional organisasi.
+              Manajemen Perkantoran mempersiapkan siswa menjadi tenaga profesional yang mampu mengelola administrasi, dokumen, informasi, komunikasi, dan berbagai aktivitas perkantoran. Pembelajaran
+              menggabungkan keterampilan administrasi dengan pemanfaatan teknologi digital.
             </p>
           </div>
 
@@ -75,9 +75,7 @@
             {{-- Materi 1 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-emerald-300 transition-all">
               <div class="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
+                <i class="fa-solid fa-edit"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Administrasi Digital</h4>
               <p class="text-sm text-gray-500">Otomatisasi perkantoran, pengelolaan dokumen digital, dan korespondensi bisnis profesional.</p>
@@ -85,13 +83,26 @@
             {{-- Materi 2 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-emerald-300 transition-all">
               <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2"
-                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                </svg>
+                <i class="fa-solid fa-handshake"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Public Relations</h4>
               <p class="text-sm text-gray-500">Teknik komunikasi efektif, layanan prima (service excellence), dan protokol kesehatan kerja.</p>
+            </div>
+            {{-- Materi 3 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
+              <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Administrasi Keuangan</h4>
+              <p class="text-sm text-gray-500">Pengelolaan keuangan, akuntansi, dan perbankan profesional.</p>
+            </div>
+            {{-- Materi 4 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-yellow-300 transition-all">
+              <div class="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-5">
+                <i class="fa-solid fa-fax"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Administrasi Perkantoran</h4>
+              <p class="text-sm text-gray-500">Pengelolaan administrasi perkantoran, dokumen, dan informasi profesional.</p>
             </div>
           </div>
         </div>
@@ -103,16 +114,22 @@
             <h3 class="text-xl font-black mb-6">Prospek Karier</h3>
             <ul class="space-y-4">
               <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Administrative Assistant
+                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Administrasi
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Customer Service Officer
+                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Secretary
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Office Manager
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Public Relations Staff
+                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Operasional
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Tata Usaha
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Digital Administration Staff
               </li>
             </ul>
           </div>

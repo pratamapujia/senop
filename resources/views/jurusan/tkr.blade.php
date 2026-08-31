@@ -65,10 +65,10 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Masa Depan Industri Otomotif</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">MBelajar Teknologi Otomotif, Bangun Keahlian Profesional.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Teknik Kendaraan Ringan (TKR) membekali siswa dengan keahlian dalam pemeliharaan dan perbaikan kendaraan bermotor. Fokus pembelajaran meliputi mesin (engine), sistem pemindah tenaga,
-              sasis, hingga kelistrikan otomotif berbasis teknologi injeksi dan hybrid.
+              TKR mempersiapkan siswa untuk memahami teknologi kendaraan ringan, khususnya mobil, melalui pembelajaran teori dan praktik. Siswa dilatih melakukan perawatan, pemeriksaan, diagnosis,
+              hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.
             </p>
           </div>
 
@@ -76,23 +76,33 @@
             {{-- Materi 1 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-orange-300 transition-all">
               <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <i class="fa-solid fa-gear"></i>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Engine & Kelistrikan</h4>
-              <p class="text-sm text-gray-500">Tune-up mesin, diagnosa sistem EFI (Electronic Fuel Injection), dan sistem kelistrikan body kendaraan.</p>
+              <h4 class="font-bold text-slate-800 mb-2">Dasar Teknik Otomotif</h4>
+              <p class="text-sm text-gray-500">Belajar Dasar Teknik Otomotif</p>
             </div>
             {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-orange-300 transition-all">
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
               <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                </svg>
+                <i class="fa-solid fa-wrench"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Sasis & Pemindah Tenaga</h4>
               <p class="text-sm text-gray-500">Perbaikan sistem rem (ABS), suspensi, transmisi manual dan otomatis, serta spooring & balancing.</p>
+            </div>
+            {{-- Materi 3 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
+              <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
+                <i class="fa-solid fa-hexagon-nodes-bolt"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Sistem Kelistrikan Kendaraan</h4>
+              <p class="text-sm text-gray-500">Perbaikan sistem kelistrikan, mulai dari baterai, kabel dan lampu.</p>
+            </div>
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-lime-300 transition-all">
+              <div class="w-12 h-12 bg-lime-100 rounded-2xl flex items-center justify-center text-lime-600 mb-5">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Teknologi Kendaraan Listrik</h4>
+              <p class="text-sm text-gray-500">Belajar Teknologi Kendaraan Listrik</p>
             </div>
           </div>
         </div>
