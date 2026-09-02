@@ -189,7 +189,7 @@
             {{-- Pembungkus Foto --}}
             <div class="relative rounded-4xl overflow-hidden shadow-xl border-4 border-white group bg-gray-200">
               <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-              <img src="{{ asset('assets/senop/img/profile/kepsek.webp') }}" alt="Kepala Sekolah SMK Senopati"
+              <img src="{{ asset('assets/senop/img/profile/kepsek.jpeg') }}" alt="Kepala Sekolah SMK Senopati"
                 class="w-full object-cover aspect-4/5 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
             </div>
           </div>
@@ -331,6 +331,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-red-600 to-pink-500 mb-4">Desain Komunikasi Visual</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-red-500 transition-all duration-500"></div>
@@ -345,11 +346,17 @@
                   <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> Photography & Broadcasting</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center text-red-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="bi bi-palette"></i>
                 </div>
+                <a href="{{ route('dkv') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 text-sm font-bold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -365,6 +372,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-purple-600 to-fuchsia-400 mb-4">Manajemen Perkantoran</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-purple-500 transition-all duration-500"></div>
@@ -379,11 +387,17 @@
                   <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi Bisnis</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-purple-50 to-purple-100 rounded-full flex items-center justify-center text-purple-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
+                <a href="{{ route('mp') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-purple-50 text-purple-600 text-sm font-bold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -399,6 +413,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-cyan-400 mb-4">Rekayasa Perangkat Lunak</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-blue-500 transition-all duration-500"></div>
@@ -413,11 +428,17 @@
                   <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX Dasar</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center text-primary text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-laptop-code"></i>
                 </div>
+                <a href="{{ route('rpl') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-50 text-blue-600 text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -433,6 +454,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-yellow-500 to-orange-400 mb-4">Teknik Komputer & Jaringan</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-yellow-500 transition-all duration-500"></div>
@@ -447,11 +469,17 @@
                   <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cloud & Teknologi Jaringan Modern</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
+                <a href="{{ route('tkj') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow-50 text-yellow-600 text-sm font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -467,6 +495,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-emerald-600 to-teal-400 mb-4">Teknik Kendaraan Ringan</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-emerald-500 transition-all duration-500"></div>
@@ -481,11 +510,17 @@
                   <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi Kendaraan Listrik</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-emerald-50 to-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-car"></i>
                 </div>
+                <a href="{{ route('tkr') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-50 text-emerald-600 text-sm font-bold rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -501,6 +536,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-orange-600 to-amber-400 mb-4">Teknik Sepeda Motor</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-orange-500 transition-all duration-500"></div>
@@ -515,11 +551,17 @@
                   <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi Sepeda Motor Injeksi</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-orange-50 to-orange-100 rounded-full flex items-center justify-center text-orange-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-motorcycle"></i>
                 </div>
+                <a href="{{ route('tsm') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-50 text-orange-600 text-sm font-bold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>

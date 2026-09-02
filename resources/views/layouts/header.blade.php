@@ -56,8 +56,9 @@
 
       {{-- LOGO SECTION --}}
       <a href="/" class="flex items-center gap-2 shrink-0">
-        <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" class="h-10 w-auto object-contain" alt="Logo SMK Senopati">
-        <img src="{{ asset('assets/senop/img/logo/smksenopati.webp') }}" class="h-10 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/smksenopati.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/sekolahindonesia.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
       </a>
 
       {{-- DESKTOP MENU (Looping dari Array $menus) --}}

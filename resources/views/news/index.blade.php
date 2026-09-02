@@ -228,7 +228,7 @@
 
             {{-- Widget: Banner PPDB (Kecil) --}}
             <div class="relative overflow-hidden rounded-4xl aspect-3/4 group" data-aos="fade-left" data-aos-delay="300">
-              <img src="{{ asset('assets/senop/img/hero.webp') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="PPDB">
+              <img src="{{ asset('assets/senop/img/banner.webp') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="PPDB">
               <div class="absolute inset-0 bg-linear-to-t from-blue-900/90 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-5 text-white">
                 <h4 class="text-lg font-black mb-1">SPMB {{ date('Y') }}</h4>
