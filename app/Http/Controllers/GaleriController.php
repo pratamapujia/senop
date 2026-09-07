@@ -17,8 +17,9 @@ class GaleriController extends Controller
      */
     public function index()
     {
+        $kategori = Kategori::all();
         $galeri = Galeri::latest()->get();
-        return view('admin.galeri.index', compact('galeri'));
+        return view('admin.galeri.index', compact('galeri', 'kategori'));
     }
 
     /**
@@ -26,7 +27,8 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        return view('admin.galeri.create');
+        $kategori = Kategori::all();
+        return view('admin.galeri.create', compact('kategori'));
     }
 
     /**
@@ -88,8 +90,9 @@ class GaleriController extends Controller
      */
     public function edit(string $id)
     {
+        $kategori = Kategori::all();
         $galeri = Galeri::findOrFail($id);
-        return view('admin.galeri.edit', compact('galeri'));
+        return view('admin.galeri.edit', compact('galeri', 'kategori'));
     }
 
     /**

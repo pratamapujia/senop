@@ -38,13 +38,13 @@ class BeritaController extends Controller
     {
         $validated = $request->validate([
             'judul' => 'required|max:255',
-            'kategori' => 'required',
+            'kategori_id' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,webp',
             'konten' => 'required',
             // 'status' => 'required|in:draft,review,published'
         ], [
             'judul.required' => 'Judul berita harus diisi.',
-            'kategori.required' => 'Kategori berita harus dipilih.',
+            'kategori_id.required' => 'Kategori berita harus dipilih.',
             'gambar.required' => 'Gambar berita harus diunggah.',
             'gambar.image' => 'File yang diunggah harus berupa gambar.',
             'gambar.mimes' => 'Format gambar harus berupa jpeg, png, jpg, atau webp.',
@@ -57,10 +57,10 @@ class BeritaController extends Controller
         }
 
         $berita = new Berita();
-        $berita->judul = $request->input('judul');
-        $berita->slug = Str::slug($request->input('judul'));
-        $berita->kategori = $request->input('kategori');
-        $berita->konten = $request->input('konten');
+        $berita->judul = $request->judul;
+        $berita->slug = Str::slug($request->judul);
+        $berita->kategori_id = $request->kategori_id;
+        $berita->konten = $request->konten;
         $berita->user_id = Auth::user()->id;
 
         if ($request->hasFile('gambar')) {
@@ -79,20 +79,12 @@ class BeritaController extends Controller
 
         if ($berita->save()) {
             if ($request->has('masukkan_galeri') && $request->masukkan_galeri == '1') {
-                // Memetakan kategori Berita ke kategori Galeri
-                // (Bisa disesuaikan dengan kebutuhan Anda)
-                $kategoriGaleri = 'Kegiatan';
-                if ($request->kategori == 'Agenda') $kategoriGaleri = 'Kegiatan';
-                if ($request->kategori == 'Prestasi') $kategoriGaleri = 'Prestasi';
-                if ($request->kategori == 'Ekskul') $kategoriGaleri = 'Ekstrakurikuler';
-
                 // Buat data Galeri menggunakan path gambar yang SAMA
                 Galeri::create([
-                    'judul' => $request->judul,
-                    // Mengambil 100 karakter pertama dari isi berita sebagai deskripsi galeri
-                    'deskripsi' => Str::limit(strip_tags($request->konten), 100),
-                    'kategori' => $kategoriGaleri,
-                    'gambar' => $filename // <-- KUNCI: Path gambar tidak di-upload ulang
+                    'judul'       => $request->judul,
+                    'deskripsi'   => Str::limit(strip_tags($request->konten), 100),
+                    'kategori_id' => $request->kategori_id, // <-- KUNCI: Langsung panggil ID yang sama
+                    'gambar'      => $filename
                 ]);
             }
             return redirect()->route('dm-berita.index')->with('success', 'Berita berhasil ditambahkan.');
@@ -128,12 +120,12 @@ class BeritaController extends Controller
     {
         $validated = $request->validate([
             'judul' => 'required|max:255',
-            'kategori' => 'required',
+            'kategori_id' => 'required',
             'konten' => 'required',
             'status' => 'required|in:draft,review,published'
         ], [
             'judul.required' => 'Judul berita harus diisi.',
-            'kategori.required' => 'Kategori berita harus dipilih.',
+            'kategori_id.required' => 'Kategori berita harus dipilih.',
             'konten.required' => 'Konten berita harus diisi.',
             'status.required' => 'Status berita harus dipilih.',
             'status.in' => 'Status berita tidak valid.'
@@ -143,11 +135,11 @@ class BeritaController extends Controller
         }
 
         $berita = Berita::findOrFail($id);
-        $berita->judul = $request->input('judul');
-        $berita->slug = Str::slug($request->input('judul'));
-        $berita->kategori = $request->input('kategori');
-        $berita->konten = $request->input('konten');
-        $berita->status = $request->input('status');
+        $berita->judul = $request->judul;
+        $berita->slug = Str::slug($request->judul);
+        $berita->kategori_id = $request->kategori_id;
+        $berita->konten = $request->konten;
+        $berita->status = $request->status;
         $berita->user_id = Auth::user()->id;
 
         if ($request->hasFile('gambar')) {
@@ -213,27 +205,48 @@ class BeritaController extends Controller
 
     public function beritaLanding(Request $request)
     {
-        // Fitur Pencarian (Search) yang sudah ada di widget sebelumnya
+        // 1. Query Berita & Fitur Pencarian
         $query = Berita::with('author')->where('status', 'published');
 
-        if ($request->has('q') && !empty($request->q)) {
+        if ($request->has('q') && !request('q') == '') {
             $query->where('judul', 'like', '%' . $request->q . '%');
         }
 
         $berita = $query->latest()->paginate(9)->withQueryString();
-        return view('news.index', compact('berita'));
+
+        // 2. Ambil Semua Kategori + Jumlah berita per kategorinya (menggunakan withCount)
+        $kategoriList = Kategori::withCount(['berita' => function ($query) {
+            $query->where('status', 'published');
+        }])->get();
+
+        // 3. Hitung total semua berita untuk widget "Semua Kategori"
+        $totalBerita = Berita::where('status', 'published')->count();
+
+        // Kirim $kategoriList dan $totalBerita ke view
+        return view('news.index', compact('berita', 'kategoriList', 'totalBerita'));
     }
 
-    public function category($kategori)
+    public function category($slug)
     {
-        $kategori = Kategori::where('slug', $kategori)->firstOrFail();
+        // 1. Ambil data 1 kategori yang sedang dibuka
+        $kategori = Kategori::where('slug', $slug)->firstOrFail();
+
+        // 2. Query Berita berdasarkan kategori tersebut
         $berita = Berita::with('author')
             ->where('status', 'published')
             ->where('kategori_id', $kategori->id)
             ->latest()
             ->paginate(9);
 
-        return view('news.index', compact('berita', 'kategori'));
+        // 3. Ambil Semua Kategori untuk Sidebar Widget (sama seperti di beritaLanding)
+        $kategoriList = \App\Models\Kategori::withCount(['berita' => function ($query) {
+            $query->where('status', 'published');
+        }])->get();
+
+        $totalBerita = \App\Models\Berita::where('status', 'published')->count();
+
+        // Kirim $kategori (kategori aktif), $kategoriList (semua kategori), dll ke view
+        return view('news.index', compact('berita', 'kategori', 'kategoriList', 'totalBerita'));
     }
 
     public function detailBerita($slug)

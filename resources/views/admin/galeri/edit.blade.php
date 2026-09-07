@@ -65,84 +65,85 @@
             {{-- Field Kategori --}}
             <div class="col-12 col-md-6 col-lg-4">
               <div class="form-group">
-                <label class="form-label" for="kategori">Kategori</label>
-                <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
-                  <option value="" disabled {{ old('kategori') ? '' : 'selected' }}>Pilih Kategori</option>
-                  <option value="Prestasi" {{ old('kategori', $galeri->kategori) == 'Prestasi' ? 'selected' : '' }}>Prestasi</option>
-                  <option value="Kegiatan" {{ old('kategori', $galeri->kategori) == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
-                  <option value="Fasilitas" {{ old('kategori', $galeri->kategori) == 'Fasilitas' ? 'selected' : '' }}>Fasilitas</option>
-                  <option value="Ekstrakurikuler" {{ old('kategori', $galeri->kategori) == 'Ekstrakurikuler' ? 'selected' : '' }}>Ekstrakurikuler</option>
+                <label class="form-label" for="kategori_id">Kategori</label>
+                <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id">
+                  <option value="" disabled {{ old('kategori_id') ? '' : 'selected' }}>Pilih Kategori</option>
+                  @foreach ($kategori as $k)
+                    <option value="{{ $k->id }}" {{ old('kategori_id', $galeri->kategori_id) == $k->id ? 'selected' : '' }}>
+                      {{ $k->nama }}
+                    </option>
+                  @endforeach
                 </select>
-                @error('kategori')
+                @error('kategori_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                 @enderror
               </div>
             </div>
+          </div>
 
-            {{-- Field Gambar --}}
-            <div class="col-12 col-md-6">
-              <div class="form-group">
-                <label class="form-label" for="gambar">Gambar</label>
-                <div class="d-flex align-items-top gap-3">
+          {{-- Field Gambar --}}
+          <div class="col-12 col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="gambar">Gambar</label>
+              <div class="d-flex align-items-top gap-3">
 
-                  <!-- Sisi Kiri: Form Input -->
-                  <div class="grow">
-                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
-                    @error('gambar')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
-                    <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
-                  </div>
-
-                  <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->
-                  @if (isset($galeri) && $galeri->gambar)
-                    <div class="shrink-0">
-                      <a href="{{ Storage::url('berita/' . $galeri->gambar) }}" target="_blank" title="Lihat Foto Penuh">
-                        <img src="{{ Storage::url('berita/' . $galeri->gambar) }}" alt="Preview" class="img-thumbnail shadow-sm rounded" style="height: 70px; object-fit: cover;">
-                      </a>
+                <!-- Sisi Kiri: Form Input -->
+                <div class="grow">
+                  <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                  @error('gambar')
+                    <div class="invalid-feedback">
+                      {{ $message }}
                     </div>
-                  @endif
-
+                  @enderror
+                  <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
                 </div>
-              </div>
-            </div>
 
-            {{-- Field Konten (Quill) --}}
-            <div class="col-12 col-md-6 col-lg-12 mt-3">
-              <div class="form-group">
-                <label class="form-label" for="deskripsi">Deskripsi</label>
-
-                <!-- Input hidden ini yang akan dikirim ke Controller -->
-                <input type="hidden" name="deskripsi" id="input_deskripsi" value="{{ old('deskripsi', $galeri->deskripsi) }}">
-
-                <!-- Wadah editor Quill -->
-                <div id="full" class="@error('deskripsi') is-invalid @enderror">{!! old('deskripsi', $galeri->deskripsi) !!}</div>
-
-                @error('deskripsi')
-                  <div class="invalid-feedback d-block mt-2">
-                    {{ $message }}
+                <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->
+                @if (isset($galeri) && $galeri->gambar)
+                  <div class="shrink-0">
+                    <a href="{{ Storage::url('berita/' . $galeri->gambar) }}" target="_blank" title="Lihat Foto Penuh">
+                      <img src="{{ Storage::url('berita/' . $galeri->gambar) }}" alt="Preview" class="img-thumbnail shadow-sm rounded" style="height: 70px; object-fit: cover;">
+                    </a>
                   </div>
-                @enderror
-              </div>
-            </div>
+                @endif
 
-            <div class="col-6 mt-4">
-              <button class="btn btn-primary icon icon-left btn-block">
-                <i class="fas fa-paper-plane"></i> Simpan
-              </button>
-            </div>
-            <div class="col-6 mt-4">
-              <button type="reset" class="btn btn-secondary icon icon-left btn-block">
-                <i class="fas fa-sync"></i> Reset
-              </button>
+              </div>
             </div>
           </div>
-        </form>
+
+          {{-- Field Konten (Quill) --}}
+          <div class="col-12 col-md-6 col-lg-12 mt-3">
+            <div class="form-group">
+              <label class="form-label" for="deskripsi">Deskripsi</label>
+
+              <!-- Input hidden ini yang akan dikirim ke Controller -->
+              <input type="hidden" name="deskripsi" id="input_deskripsi" value="{{ old('deskripsi', $galeri->deskripsi) }}">
+
+              <!-- Wadah editor Quill -->
+              <div id="full" class="@error('deskripsi') is-invalid @enderror">{!! old('deskripsi', $galeri->deskripsi) !!}</div>
+
+              @error('deskripsi')
+                <div class="invalid-feedback d-block mt-2">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+          </div>
+
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary icon icon-left btn-block">
+              <i class="fas fa-paper-plane"></i> Simpan
+            </button>
+          </div>
+          <div class="col-6 mt-4">
+            <button type="reset" class="btn btn-secondary icon icon-left btn-block">
+              <i class="fas fa-sync"></i> Reset
+            </button>
+          </div>
       </div>
+      </form>
     </div>
   </div>
 @endsection

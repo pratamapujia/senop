@@ -53,7 +53,7 @@
         </span>
         <span class="flex items-center gap-2">
           <i class="bi bi-tag-fill text-cyan-400"></i>
-          {{ $berita->kategori }}
+          {{ $berita->kategori->nama ?? 'Tidak ada kategori' }}
         </span>
       </div>
 

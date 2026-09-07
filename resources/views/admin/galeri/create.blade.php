@@ -64,15 +64,14 @@
             {{-- Field Kategori --}}
             <div class="col-12 col-md-6 col-lg-4">
               <div class="form-group">
-                <label class="form-label" for="kategori">Kategori</label>
-                <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
-                  <option value="" disabled {{ old('kategori') ? '' : 'selected' }}>Pilih Kategori</option>
-                  <option value="Prestasi" {{ old('kategori') == 'Prestasi' ? 'selected' : '' }}>Prestasi</option>
-                  <option value="Kegiatan" {{ old('kategori') == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
-                  <option value="Fasilitas" {{ old('kategori') == 'Fasilitas' ? 'selected' : '' }}>Fasilitas</option>
-                  <option value="Ekstrakurikuler" {{ old('kategori') == 'Ekstrakurikuler' ? 'selected' : '' }}>Ekstrakurikuler</option>
+                <label class="form-label" for="kategori_id">Kategori</label>
+                <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id">
+                  <option value="" disabled {{ old('kategori_id') ? '' : 'selected' }}>Pilih Kategori</option>
+                  @foreach ($kategori as $item)
+                    <option value="{{ $item->id }}" {{ old('kategori_id') == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
+                  @endforeach
                 </select>
-                @error('kategori')
+                @error('kategori_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>

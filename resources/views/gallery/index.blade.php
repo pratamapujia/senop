@@ -84,7 +84,7 @@
             {{-- KATEGORI (Kiri Atas, Muncul saat Hover) --}}
             <div
               class="absolute top-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 py-1.5 flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-500 z-10">
-              <span class="text-[10px] font-bold uppercase tracking-widest">{{ $item->kategori }}</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">{{ $item->kategori->nama }}</span>
             </div>
 
             {{-- TOMBOL PERBESAR (Kanan Atas, Muncul saat Hover) --}}

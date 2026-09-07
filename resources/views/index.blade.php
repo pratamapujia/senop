@@ -681,7 +681,7 @@
           <article class="group h-full flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 overflow-hidden">
             <div class="relative h-56 overflow-hidden">
               <span class="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                {{ $item->kategori }}
+                {{ $item->kategori->nama ?? 'Tidak ada kategori' }}
               </span>
               <img src="{{ Storage::url('berita/' . $item->gambar) }}" alt="{{ $item->slug }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             </div>

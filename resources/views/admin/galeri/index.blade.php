@@ -61,7 +61,7 @@
                   </td>
 
                   <td>
-                    <span class="badge bg-light-primary text-primary">{{ $item->kategori }}</span>
+                    <span class="badge bg-light-primary text-primary">{{ $item->kategori->nama ?? 'Tidak ada kategori' }}</span>
                   </td>
 
                   <td title="{{ strip_tags($item->deskripsi) }}" style="cursor: help;">

@@ -73,7 +73,7 @@
 
                   {{-- Kategori Badge --}}
                   <span class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                    {{ $item->kategori }}
+                    {{ $item->kategori->nama ?? 'Tidak ada kategori' }}
                   </span>
                 </div>
 
@@ -167,8 +167,8 @@
         <div class="lg:col-span-3">
 
           {{-- STICKY WRAPPER --}}
-          {{-- Class 'sticky top-32' membuat elemen ini diam saat di-scroll --}}
-          <div class="sticky top-32 space-y-6">
+          {{-- Class 'sticky top-28' membuat elemen ini diam saat di-scroll --}}
+          <div class="sticky top-28 space-y-6">
 
             {{-- Widget: Search --}}
             <div class="bg-white p-5 rounded-4xl border border-gray-100 shadow-sm" data-aos="fade-left" data-aos-delay="100">
@@ -193,42 +193,49 @@
                 Kategori
                 <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-accent rounded-full"></span>
               </h4>
-              <ul class="space-y-2">
-                @php
-                  $categories = ['Prestasi', 'Agenda', 'Artikel', 'Pengumuman', 'Ekskul'];
-                @endphp
 
-                {{-- Menampilkan semua kategori --}}
-                <li>
-                  <a href="{{ route('berita') }}" class="flex items-center justify-between group p-2 hover:bg-blue-50 rounded-lg transition-colors">
-                    <span class="text-gray-600 text-sm font-medium group-hover:text-primary transition-colors">Semua Kategori</span>
-                    <span class="w-5 h-5 flex items-center justify-center bg-gray-100 text-[10px] text-gray-500 rounded-full group-hover:bg-blue-200 group-hover:text-accent transition-colors">
-                      {{ \App\Models\Berita::where('status', 'published')->count() }}
-                    </span>
-                  </a>
-                </li>
+              {{-- data-lenis-prevent WAJIB ada: tanpa ini, library Lenis tetap meng-hijack
+                   wheel/touch event di dalam div ini dan meneruskannya ke scroll halaman utama --}}
+              <div class="max-h-56 overflow-y-auto overscroll-contain pr-2 custom-scrollbar" style="scrollbar-width: thin;" data-lenis-prevent>
+                <ul class="space-y-2">
 
-                @foreach ($categories as $cat)
-                  @php
-                    // Hitung jumlah berita yang 'published' berdasarkan kategori
-                    $count = \App\Models\Berita::where('status', 'published')->where('kategori', $cat)->count();
-                  @endphp
+                  {{-- Tombol "Semua Kategori" --}}
                   <li>
-                    <a href="{{ route('berita.category', $cat) }}" class="flex items-center justify-between group p-2 hover:bg-blue-50 rounded-lg transition-colors">
-                      <span class="text-gray-600 text-sm font-medium group-hover:text-primary transition-colors">{{ $cat }}</span>
-                      {{-- Menampilkan jumlah data asli dari database --}}
+                    {{-- Memberi background biru jika sedang tidak membuka kategori spesifik --}}
+                    <a href="{{ route('berita') }}" class="flex items-center justify-between group p-2 rounded-lg transition-colors {{ !isset($kategori) ? 'bg-blue-50' : 'hover:bg-blue-50' }}">
+                      <span class="text-sm font-medium transition-colors {{ !isset($kategori) ? 'text-primary' : 'text-gray-600 group-hover:text-primary' }}">
+                        Semua Kategori
+                      </span>
                       <span class="w-5 h-5 flex items-center justify-center bg-gray-100 text-[10px] text-gray-500 rounded-full group-hover:bg-blue-200 group-hover:text-accent transition-colors">
-                        {{ $count }}
+                        {{ $totalBerita }}
                       </span>
                     </a>
                   </li>
-                @endforeach
-              </ul>
+
+                  {{-- Looping daftar kategori dari Controller ($kategoriList) --}}
+                  @foreach ($kategoriList as $item)
+                    <li>
+                      {{-- Memberi background biru jika kategori item ini sama dengan kategori yang sedang dibuka --}}
+                      <a href="{{ route('berita.category', $item->slug) }}"
+                        class="flex items-center justify-between group p-2 rounded-lg transition-colors {{ isset($kategori) && $kategori->id == $item->id ? 'bg-blue-50' : 'hover:bg-blue-50' }}">
+                        <span class="text-sm font-medium transition-colors {{ isset($kategori) && $kategori->id == $item->id ? 'text-primary' : 'text-gray-600 group-hover:text-primary' }}">
+                          {{ $item->nama }}
+                        </span>
+                        <span class="w-5 h-5 flex items-center justify-center bg-gray-100 text-[10px] text-gray-500 rounded-full group-hover:bg-blue-200 group-hover:text-accent transition-colors">
+                          {{-- Mengambil nilai hitungan langsung dari fitur withCount() --}}
+                          {{ $item->berita_count }}
+                        </span>
+                      </a>
+                    </li>
+                  @endforeach
+
+                </ul>
+              </div>
             </div>
 
-            {{-- Widget: Banner PPDB (Kecil) --}}
+            {{-- Widget: Banner SPMB (Kecil) --}}
             <div class="relative overflow-hidden rounded-4xl aspect-3/4 group" data-aos="fade-left" data-aos-delay="300">
-              <img src="{{ asset('assets/senop/img/banner.webp') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="PPDB">
+              <img src="{{ asset('assets/senop/img/banner.webp') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="SPMB">
               <div class="absolute inset-0 bg-linear-to-t from-blue-900/90 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-5 text-white">
                 <h4 class="text-lg font-black mb-1">SPMB {{ date('Y') }}</h4>
@@ -236,13 +243,13 @@
                 <a href="#" class="inline-block bg-white text-blue-900 text-xs font-bold px-4 py-2 rounded-full hover:bg-blue-50 transition-colors">Daftar Sekarang</a>
               </div>
             </div>
-
           </div>
-          {{-- End Sticky Wrapper --}}
 
         </div>
+        {{-- End Sticky Wrapper --}}
 
       </div>
+
     </div>
   </section>
 @endsection
