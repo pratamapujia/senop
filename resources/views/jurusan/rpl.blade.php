@@ -61,10 +61,10 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Membangun Dunia Digital</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Ubah Ide Menjadi Teknologi.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Rekayasa Perangkat Lunak (RPL) adalah jurusan yang mendalami cara-cara pengembangan perangkat lunak termasuk pembuatan, pemeliharaan, manajemen organisasi pengembangan perangkat lunak dan
-              manajemen kualitas.
+              RPL membekali siswa dengan kemampuan untuk merancang, membuat, mengembangkan, dan mengelola perangkat lunak. Siswa belajar melalui berbagai projek sehingga tidak hanya memahami teori
+              pemrograman, tetapi juga terbiasa menciptakan solusi digital.
             </p>
           </div>
 
@@ -72,22 +72,34 @@
             {{-- Materi 1 --}}
             <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-purple-300 transition-all">
               <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
+                <i class="fa-solid fa-code"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Web & Mobile Dev</h4>
               <p class="text-sm text-gray-500">Mempelajari HTML, CSS, JavaScript, PHP, hingga pengembangan aplikasi Android dan iOS.</p>
             </div>
             {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-purple-300 transition-all">
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-indigo-300 transition-all">
               <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-5">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4" />
-                </svg>
+                <i class="fa-solid fa-database"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Database Management</h4>
               <p class="text-sm text-gray-500">Penguasaan SQL (MySQL, PostgreSQL) dan pemahaman struktur data untuk aplikasi skala besar.</p>
+            </div>
+            {{-- Materi 3 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-green-300 transition-all">
+              <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-5">
+                <i class="fa-solid fa-paintbrush"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">UI/UX</h4>
+              <p class="text-sm text-gray-500">Menguasai desain antarmuka (UI) dan pengalaman pengguna (UX) untuk membuat aplikasi yang memukau dan intuitif.</p>
+            </div>
+            {{-- Materi 4 --}}
+            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
+              <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Dasar Teknologi AI</h4>
+              <p class="text-sm text-gray-500">Memahami dasar-dasar teknologi AI dan pemahaman dasar pemrograman untuk pengembangan aplikasi AI.</p>
             </div>
           </div>
         </div>
@@ -96,14 +108,6 @@
         <div class="space-y-8" data-aos="fade-left">
           {{-- Prospek Card --}}
           <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-xl relative overflow-hidden">
-            {{-- Aksen Background --}}
-            <div class="absolute top-0 right-0 p-4 opacity-10">
-              <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zM7 10a1 1 0 01-1 1H5a1 1 0 110-2h1a1 1 0 011 1z" />
-              </svg>
-            </div>
-
             <h3 class="text-xl font-black mb-6 relative z-10">Prospek Karier</h3>
             <ul class="space-y-4 relative z-10">
               <li class="flex items-center gap-3 text-sm text-gray-300">
@@ -117,6 +121,15 @@
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> UI/UX Designer
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Frontend & Backend Developer
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Software Tester
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> IT Support
               </li>
             </ul>
           </div>

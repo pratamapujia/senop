@@ -62,31 +62,41 @@
         {{-- SISI KIRI: DESKRIPSI & MATERI --}}
         <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
           <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Tentang Jurusan</h2>
+            <h2 class="text-3xl font-black text-slate-900 mb-6">Bangun Infrastruktur Digital, Kuasai Teknologi Masa Depan.</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              Teknik Komputer dan Jaringan (TKJ) merupakan kompetensi keahlian yang membekali siswa dengan keterampilan, pengetahuan, dan sikap agar kompeten dalam merakit, menginstalasi, memperbaiki
-              komputer serta membangun infrastruktur jaringan.
+              TKJ membekali siswa dengan kemampuan dalam komputer, jaringan, server, dan teknologi infrastruktur digital. Siswa belajar bagaimana membangun, mengelola, mengamankan, dan memecahkan
+              masalah pada sistem komputer dan jaringan.
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-blue-300 transition-all">
               <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+                <i class="fa-solid fa-laptop"></i>
               </div>
-              <h4 class="font-bold text-slate-800 mb-2">Perakitan & OS</h4>
-              <p class="text-xs text-gray-500">Mempelajari hardware, instalasi Windows/Linux, serta troubleshooting.</p>
+              <h4 class="font-bold text-slate-800 mb-2">Dasar Komputer</h4>
+              <p class="text-xs text-gray-500">Menguasai dasar-dasar komputer seperti pengkodean, pemrograman, dan perangkat lunak.</p>
             </div>
-            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-cyan-300 transition-all">
               <div class="w-10 h-10 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-600 mb-4">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
+                <i class="fa-solid fa-network-wired"></i>
               </div>
               <h4 class="font-bold text-slate-800 mb-2">Jaringan & Server</h4>
               <p class="text-xs text-gray-500">Routing, Switching, Mikrotik, Cisco, dan administrasi Server.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
+              <div class="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center text-rose-600 mb-4">
+                <i class="fa-solid fa-person-dots-from-line"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Keamanan Jaaringan</h4>
+              <p class="text-xs text-gray-500">Menguasai keamanan jaringan, penyelesaian masalah keamanan, dan implementasi keamanan jaringan.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-yellow-300 transition-all">
+              <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-4">
+                <i class="fa-solid fa-comment-nodes"></i>
+              </div>
+              <h4 class="font-bold text-slate-800 mb-2">Administrasi Jaringan</h4>
+              <p class="text-xs text-gray-500">Menguasai administrasi jaringan, penyelesaian masalah jaringan, dan implementasi administrasi jaringan.</p>
             </div>
           </div>
         </div>
@@ -97,13 +107,19 @@
             <h3 class="text-xl font-black mb-6">Prospek Karir</h3>
             <ul class="space-y-4">
               <li class="flex items-center gap-3 text-sm text-gray-300">
-                <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> Network Engineer
+                <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> Teknisi Komputer & Jaringan
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> System Administrator
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> IT Technical Support
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> Junior Cyber Security Support
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <span class="w-2 h-2 bg-cyan-400 rounded-full"></span> Wirausaha jasa komputer dan jaringan
               </li>
             </ul>
           </div>

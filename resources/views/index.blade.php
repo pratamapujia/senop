@@ -79,22 +79,20 @@
           </div>
 
           {{-- Elemen Dekorasi Melayang (Floating Card) - Opsional --}}
-          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden md:flex items-center gap-3 animate-bounce-slow">
-
+          <div
+            class="absolute -bottom-4 left-4 md:-bottom-6 md:-left-6 bg-white px-3 py-2.5 rounded-lg shadow-lg md:p-4 md:rounded-xl md:shadow-xl border border-gray-100 flex items-center gap-3 animate-bounce-slow">
             {{-- Wadah Ikon dengan Animasi Detak (Ping) --}}
-            <div class="relative flex items-center justify-center h-10 w-10 shrink-0">
+            <div class="relative flex items-center justify-center h-5 w-5 md:h-10 md:w-10 shrink-0">
               {{-- Lingkaran Gelombang Animasi (Di Belakang) --}}
               <span class="absolute inline-flex h-full w-full rounded-full bg-green-300 opacity-75 animate-ping"></span>
-
               {{-- Lingkaran Ikon Utama (Di Depan) --}}
               <div class="relative inline-flex items-center justify-center h-full w-full bg-green-100 rounded-full text-green-600">
                 <i class="bi bi-check-circle-fill text-xl"></i>
               </div>
             </div>
-
             <div>
-              <p class="text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
-              <p class="text-sm font-bold text-header">Sangat Baik (A)</p>
+              <p class="text-[10px] md:text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
+              <p class="text-xs md:text-sm font-bold text-header">Unggul (A)</p>
             </div>
           </div>
         </div>
@@ -191,7 +189,7 @@
             {{-- Pembungkus Foto --}}
             <div class="relative rounded-4xl overflow-hidden shadow-xl border-4 border-white group bg-gray-200">
               <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-              <img src="{{ asset('assets/senop/img/profile/kepsek.webp') }}" alt="Kepala Sekolah SMK Senopati"
+              <img src="{{ asset('assets/senop/img/profile/kepsek.jpeg') }}" alt="Kepala Sekolah SMK Senopati"
                 class="w-full object-cover aspect-4/5 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
             </div>
           </div>
@@ -333,6 +331,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-red-600 to-pink-500 mb-4">Desain Komunikasi Visual</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-red-500 transition-all duration-500"></div>
@@ -347,11 +346,17 @@
                   <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> Photography & Broadcasting</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center text-red-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="bi bi-palette"></i>
                 </div>
+                <a href="{{ route('dkv') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 text-sm font-bold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -367,6 +372,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-purple-600 to-fuchsia-400 mb-4">Manajemen Perkantoran</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-purple-500 transition-all duration-500"></div>
@@ -375,17 +381,23 @@
                   menggabungkan keterampilan administrasi dengan pemanfaatan teknologi digital.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi perkantoran</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi keuangan dasar</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi digital</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi bisnis</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Perkantoran</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Keuangan Dasar</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Digital</li>
+                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi Bisnis</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-purple-50 to-purple-100 rounded-full flex items-center justify-center text-purple-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
+                <a href="{{ route('mp') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-purple-50 text-purple-600 text-sm font-bold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -401,6 +413,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-cyan-400 mb-4">Rekayasa Perangkat Lunak</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-blue-500 transition-all duration-500"></div>
@@ -409,17 +422,23 @@
                   pemrograman, tetapi juga terbiasa menciptakan solusi digital.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Logika dan algoritma pemrograman</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman web</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman aplikasi</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX dasar</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Database System</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Web</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Mobile</li>
+                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX Dasar</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center text-primary text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-laptop-code"></i>
                 </div>
+                <a href="{{ route('rpl') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-50 text-blue-600 text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -435,6 +454,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-yellow-500 to-orange-400 mb-4">Teknik Komputer & Jaringan</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-yellow-500 transition-all duration-500"></div>
@@ -443,17 +463,23 @@
                   masalah pada sistem komputer dan jaringan.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Perakitan dan perawatan komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Jaringan komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Teknologi jaringan nirkabel</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Dasar cloud dan teknologi jaringan modern</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Perakitan & Perawatan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Jaringan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cybersecurity</li>
+                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cloud & Teknologi Jaringan Modern</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
+                <a href="{{ route('tkj') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow-50 text-yellow-600 text-sm font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -469,6 +495,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-emerald-600 to-teal-400 mb-4">Teknik Kendaraan Ringan</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-emerald-500 transition-all duration-500"></div>
@@ -477,17 +504,23 @@
                   melakukan perawatan, pemeriksaan, diagnosis, hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Dasar-dasar teknik otomotif</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Mesin kendaraan ringan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Diagnosis dan perbaikan kendaraan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi kendaraan listrik</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Dasar-Dasar Teknik Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Mesin Kendaraan Ringan</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Diagnosis & Perbaikan Kendaraan</li>
+                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi Kendaraan Listrik</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-emerald-50 to-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-car"></i>
                 </div>
+                <a href="{{ route('tkr') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-50 text-emerald-600 text-sm font-bold rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -503,6 +536,7 @@
             </div>
 
             <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+              {{-- Area Teks --}}
               <div class="md:w-2/3">
                 <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-orange-600 to-amber-400 mb-4">Teknik Sepeda Motor</h3>
                 <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-orange-500 transition-all duration-500"></div>
@@ -511,17 +545,23 @@
                   terbiasa bekerja secara teliti, disiplin, dan sesuai standar dunia industri.
                 </p>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Dasar-dasar otomotif</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem mesin dan pembakaran</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem kelistrikan sepeda motor</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi sepeda motor injeksi</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Dasar-Dasar Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Mesin & Pembakaran</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Kelistrikan Sepeda Motor</li>
+                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi Sepeda Motor Injeksi</li>
                 </ul>
               </div>
-              <div class="md:w-1/3 flex justify-center">
+
+              {{-- Area Ikon & Tombol --}}
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
                 <div
                   class="w-40 h-40 bg-linear-to-br from-orange-50 to-orange-100 rounded-full flex items-center justify-center text-orange-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-motorcycle"></i>
                 </div>
+                <a href="{{ route('tsm') }}"
+                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-50 text-orange-600 text-sm font-bold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-sm">
+                  Selengkapnya <i class="bi bi-arrow-right"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -771,8 +811,28 @@
               </div>
             </div>
           @empty
-            {{-- Tampilan jika tidak ada testimoni --}}
-            <div class="text-center text-gray-400 py-10">Belum ada testimoni yang ditambahkan.</div>
+            {{-- Empty State Testimoni yang Elegan --}}
+            <div
+              class="w-full h-auto md:h-105 flex flex-col items-center justify-center bg-linear-to-b from-gray-50 to-white rounded-4xl border-2 border-dashed border-gray-200 p-8 md:p-12 text-center relative overflow-hidden">
+
+              {{-- Watermark Latar Belakang --}}
+              <i class="fa-solid fa-quote-right absolute top-10 right-10 text-[10rem] text-gray-100/50 rotate-12 z-0"></i>
+
+              {{-- Ikon dengan Efek Soft Glow --}}
+              <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-50 mb-6 border border-blue-100 z-10">
+                <div class="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-40"></div>
+                <i class="fa-solid fa-comments text-4xl text-primary relative z-10"></i>
+              </div>
+
+              {{-- Konten Teks --}}
+              <div class="relative z-10">
+                <h4 class="text-xl md:text-2xl font-black text-gray-800 mb-3">Belum Ada Testimoni</h4>
+                <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto leading-relaxed">
+                  Kisah inspiratif, ulasan, dan pengalaman dari alumni maupun mitra SMK Senopati belum tersedia saat ini. Nantikan pembaruan dari kami!
+                </p>
+              </div>
+
+            </div>
           @endforelse
         </div>
 

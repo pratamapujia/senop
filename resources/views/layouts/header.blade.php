@@ -56,8 +56,9 @@
 
       {{-- LOGO SECTION --}}
       <a href="/" class="flex items-center gap-2 shrink-0">
-        <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" class="h-10 w-auto object-contain" alt="Logo SMK Senopati">
-        <img src="{{ asset('assets/senop/img/logo/smksenopati.webp') }}" class="h-10 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/smksenopati.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
+        <img src="{{ asset('assets/senop/img/logo/sekolahindonesia.webp') }}" class="h-8 w-auto object-contain" alt="Logo SMK Senopati">
       </a>
 
       {{-- DESKTOP MENU (Looping dari Array $menus) --}}
@@ -155,7 +156,7 @@
         </div>
 
         <li class="px-2 pt-2">
-          <a href="#" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">PPDB</a>
+          <a href="#" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">SPMB</a>
         </li>
       </ul>
     </div>
