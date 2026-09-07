@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\TestimoniController;
@@ -100,6 +101,7 @@ Route::middleware('auth:admin')->group(function () {
     // Route Resource
     Route::resource('dm-struktur', StrukturController::class);
     Route::resource('dm-agenda', AgendaController::class);
+    Route::resource('dm-kategori', KategoriController::class);
     Route::resource('dm-berita', BeritaController::class);
     Route::resource('dm-galeri', GaleriController::class);
     Route::resource('dm-testimoni', TestimoniController::class);

@@ -60,7 +60,7 @@
                 <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 text-muted" style="font-size: 0.95rem;">
                   <span class="d-flex align-items-center gap-2"><i class="fas fa-user-circle fs-5 text-primary"></i> {{ $berita->author->name ?? 'Admin' }}</span>
                   <span class="d-flex align-items-center gap-2"><i class="fas fa-calendar-alt text-primary"></i> {{ $berita->created_at->format('d F Y, H:i') }}</span>
-                  <span class="d-flex align-items-center gap-2"><i class="fas fa-folder-open text-primary"></i> {{ $berita->kategori }}</span>
+                  <span class="d-flex align-items-center gap-2"><i class="fas fa-folder-open text-primary"></i> {{ $berita->kategori->nama ?? 'Tidak ada kategori' }}</span>
                 </div>
               </div>
 

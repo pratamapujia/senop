@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('slug')->unique(); // Untuk URL detail-berita/judul-berita
-            $table->string('kategori'); // Misal: Prestasi, Agenda, Umum
+            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade'); // Relasi ke kategori
             $table->string('gambar')->nullable(); // Path foto
             $table->longText('konten'); // Isi berita dari Summernote/Quill
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Relasi ke penulis (Admin)

@@ -11,11 +11,17 @@ class Berita extends Model
 
     protected $table = 'berita';
     protected $primaryKey = 'id';
-    protected $fillable = ['judul', 'slug', 'kategori', 'status', 'gambar', 'konten', 'user_id'];
+    protected $fillable = ['judul', 'slug', 'kategori_id', 'status', 'gambar', 'konten', 'user_id'];
 
     // Relasi ke tabel users (Penulis)
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    // Relasi ke tabel kategori
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }

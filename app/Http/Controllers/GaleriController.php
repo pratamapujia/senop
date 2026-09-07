@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Galeri;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -35,11 +36,11 @@ class GaleriController extends Controller
     {
         $validasi = $request->validate([
             'judul' => 'required',
-            'kategori' => 'required',
+            'kategori_id' => 'required',
             'gambar' => 'required|mimes:png,jpg,jpeg,webp',
         ], [
             'judul.required' => 'Judul harus diisi',
-            'kategori.required' => 'Kategori harus diisi',
+            'kategori_id.required' => 'Kategori harus diisi',
             'gambar.required' => 'Gambar harus diisi',
             'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
@@ -51,7 +52,7 @@ class GaleriController extends Controller
         $galeri = new Galeri();
         $galeri->judul = $request->judul;
         $galeri->deskripsi = $request->deskripsi;
-        $galeri->kategori = $request->kategori;
+        $galeri->kategori_id = $request->kategori_id;
 
         if ($request->hasFile('gambar')) {
             $file = $request->file('gambar');
@@ -98,11 +99,11 @@ class GaleriController extends Controller
     {
         $validasi = $request->validate([
             'judul' => 'required',
-            'kategori' => 'required',
+            'kategori_id' => 'required',
             'gambar' => 'required|mimes:png,jpg,jpeg,webp',
         ], [
             'judul.required' => 'Judul harus diisi',
-            'kategori.required' => 'Kategori harus diisi',
+            'kategori_id.required' => 'Kategori harus diisi',
             'gambar.required' => 'Gambar harus diisi',
             'gambar.mimes' => 'Format gambar harus png, jpg, jpeg, webp',
         ]);
@@ -114,7 +115,7 @@ class GaleriController extends Controller
         $galeri = Galeri::findOrFail($id);
         $galeri->judul = $request->judul;
         $galeri->deskripsi = $request->deskripsi;
-        $galeri->kategori = $request->kategori;
+        $galeri->kategori_id = $request->kategori_id;
 
         if ($request->hasFile('gambar')) {
             $dipakaiDiBerita = Berita::where('gambar', $galeri->gambar)->exists();
@@ -170,15 +171,23 @@ class GaleriController extends Controller
 
     public function galeriLanding(Request $request)
     {
-        // Cek apakah ada filter kategori dari URL (misal: /galeri?kategori=Fasilitas)
-        $kategoriAktif = $request->query('kategori');
+        $kategori = Kategori::all();
+
+        // Cek apakah ada filter kategori dari slug di tabel kategori
+        $kategoriAktif = null;
+        if ($request->has('kategori')) {
+            $kategoriAktif = Kategori::where('slug', $request->kategori)->first();
+            if ($kategoriAktif) {
+                $kategoriAktif = $kategoriAktif->id;
+            }
+        }
 
         // Query dasar
         $query = Galeri::latest();
 
         // Terapkan filter jika ada
         if ($kategoriAktif) {
-            $query->where('kategori', $kategoriAktif);
+            $query->where('kategori_id', $kategoriAktif);
         }
 
         // Ambil data dengan paginasi (misal 12 foto per halaman untuk 4 kolom x 3 baris)

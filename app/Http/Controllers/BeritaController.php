@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Galeri;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -26,7 +27,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('admin.berita.create');
+        $kategori = Kategori::all(); // Ambil semua kategori dari model Kategori
+        return view('admin.berita.create', compact('kategori'));
     }
 
     /**
@@ -105,7 +107,8 @@ class BeritaController extends Controller
     public function show(string $id)
     {
         $berita = Berita::findOrFail($id);
-        return view('admin.berita.show', compact('berita'));
+        $kategori = Kategori::all();
+        return view('admin.berita.show', compact('berita', 'kategori'));
     }
 
     /**
@@ -114,7 +117,8 @@ class BeritaController extends Controller
     public function edit(string $id)
     {
         $berita = Berita::findOrFail($id);
-        return view('admin.berita.edit', compact('berita'));
+        $kategori = Kategori::all();
+        return view('admin.berita.edit', compact('berita', 'kategori'));
     }
 
     /**
@@ -222,9 +226,10 @@ class BeritaController extends Controller
 
     public function category($kategori)
     {
+        $kategori = Kategori::where('slug', $kategori)->firstOrFail();
         $berita = Berita::with('author')
             ->where('status', 'published')
-            ->where('kategori', $kategori)
+            ->where('kategori_id', $kategori->id)
             ->latest()
             ->paginate(9);
 

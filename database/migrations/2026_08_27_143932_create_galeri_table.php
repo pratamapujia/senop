@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('deskripsi')->nullable();
-            $table->enum('kategori',['Kegiatan','Prestasi','Fasilitas','Ekstrakurikuler']);
+            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
             $table->string('gambar');
             $table->timestamps();
         });

@@ -11,5 +11,11 @@ class Galeri extends Model
 
     protected $table = 'galeri';
     protected $primaryKey = 'id';
-    protected $fillable = ['judul', 'deskripsi', 'kategori', 'gambar'];
+    protected $fillable = ['judul', 'deskripsi', 'kategori_id', 'gambar'];
+
+    // Relasi ke tabel kategori
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id');
+    }
 }

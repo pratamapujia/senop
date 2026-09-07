@@ -23,6 +23,13 @@
           'children' => [],
       ],
       [
+          'title' => 'Kategori',
+          'url' => route('dm-kategori.index'),
+          'icon' => 'fa-tags',
+          'active' => request()->is('dm-kategori*'),
+          'children' => [],
+      ],
+      [
           'title' => 'Berita',
           'url' => route('dm-berita.index'),
           'icon' => 'fa-newspaper',

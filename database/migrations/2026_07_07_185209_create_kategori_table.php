@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('berita', function (Blueprint $table) {
-            // Tambahkan kolom status dengan default 'draft'
-            $table->enum('status', ['draft', 'review', 'published'])->default('draft')->after('kategori_id');
+        Schema::create('kategori', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('slug')->unique();
+            $table->timestamps();
         });
     }
 
@@ -22,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('berita', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('kategori');
     }
 };
