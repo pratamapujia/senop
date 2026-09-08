@@ -2,6 +2,26 @@
 
 @section('title')
   <title>Jurusan DKV - SMK Senopati</title>
+  <style>
+    .foto-praktek-swiper .swiper-pagination {
+      bottom: 16px;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      margin: 0 4px !important;
+      transition: all 0.3s ease;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet-active {
+      background: oklch(71.2% 0.194 13.428);
+      width: 22px;
+      border-radius: 4px;
+    }
+  </style>
 @endsection
 
 @section('main')

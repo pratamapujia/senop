@@ -21,4 +21,10 @@ class Kategori extends Model
     {
         return $this->hasMany(Galeri::class, 'kategori_id');
     }
+
+    // Relasi ke tabel jurusan
+    public function jurusan()
+    {
+        return $this->hasMany(Jurusan::class, 'kategori_id');
+    }
 }

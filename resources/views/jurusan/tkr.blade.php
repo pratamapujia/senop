@@ -1,7 +1,28 @@
 @extends('layouts.main')
 
 @section('title')
-  <title>Jurusan TKR - SMK Senopati</title>
+  <title>Jurusan {{ $jurusan->kode_jurusan }} - SMK Senopati</title>
+  <style>
+    .foto-praktek-swiper .swiper-pagination {
+      bottom: 16px;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      margin: 0 4px !important;
+      transition: all 0.3s ease;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet-active {
+      background: #fb923c;
+      /* orange-400, samakan dengan dot di card Prospek Karier */
+      width: 22px;
+      border-radius: 4px;
+    }
+  </style>
 @endsection
 
 @section('main')
@@ -44,14 +65,14 @@
       <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
         <a href="/" class="text-xs font-bold text-gray-300 hover:text-white uppercase tracking-wider transition-colors">Jurusan</a>
         <span class="text-gray-500 text-xs">/</span>
-        <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">TKR</span>
+        <span class="text-xs font-bold text-orange-400 uppercase tracking-wider">{{ $jurusan->kode_jurusan }}</span>
       </div>
 
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-        Teknik Kendaraan Ringan
+        {{ $jurusan->nama_jurusan }}
       </h1>
       <p class="text-blue-100/80 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-        Menguasai teknologi otomotif modern dan sistem mekanis kendaraan untuk menjadi teknisi profesional di industri global.
+        {{ $jurusan->deskripsi_hero }}
       </p>
     </div>
   </section>
@@ -59,83 +80,103 @@
   {{-- ISI DETAIL JURUSAN --}}
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 max-w-6xl">
-
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-        {{-- SISI KIRI: DESKRIPSI & MATERI --}}
-        <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
-          <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Belajar Teknologi Otomotif, Bangun Keahlian Profesional.</h2>
-            <p class="text-gray-600 leading-relaxed mb-4">
-              TKR mempersiapkan siswa untuk memahami teknologi kendaraan ringan, khususnya mobil, melalui pembelajaran teori dan praktik. Siswa dilatih melakukan perawatan, pemeriksaan, diagnosis,
-              hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.
-            </p>
+        {{-- SISI KIRI: Konten Deskripsi Jurusan --}}
+        <div class="lg:col-span-2 space-y-8" data-aos="fade-right">
+
+          {{-- Header Section (Opsional, sebagai pembuka yang manis) --}}
+          <div class="flex items-center gap-4 pl-2">
+            <div class="w-14 h-14 bg-linear-to-br from-orange-100 to-amber-50 rounded-2xl flex items-center justify-center text-orange-600 shadow-inner border border-orange-200/50">
+              <i class="bi bi-journal-richtext text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="text-3xl font-black text-slate-900 tracking-tight">Tentang Jurusan</h2>
+              <p class="text-gray-500 text-sm font-medium">Informasi dan detail program keahlian</p>
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {{-- Materi 1 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-orange-300 transition-all">
-              <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-5">
-                <i class="fa-solid fa-gear"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Dasar Teknik Otomotif</h4>
-              <p class="text-sm text-gray-500">Belajar Dasar Teknik Otomotif</p>
+          {{-- Wadah Card Premium untuk Konten Quill --}}
+          <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl shadow-slate-200/40 border border-gray-100 relative overflow-hidden">
+
+            {{-- Dekorasi Glow Latar Belakang --}}
+            <div class="absolute top-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl z-0 opacity-40 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-56 h-56 bg-amber-50 rounded-full blur-3xl z-0 opacity-60 -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+            {{-- Modifikasi Super Styling untuk class Prose Tailwind --}}
+            <div
+              class="prose prose-lg prose-slate max-w-none relative z-10
+                        prose-headings:font-black prose-headings:text-slate-800 prose-headings:tracking-tight
+                        prose-h1:text-4xl prose-h1:mb-8
+                        prose-h2:text-3xl prose-h2:border-b-2 prose-h2:border-gray-100 prose-h2:pb-4 prose-h2:mb-6 prose-h2:mt-10
+                        prose-h3:text-2xl prose-h3:text-orange-600
+                        prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6
+                        prose-a:text-orange-600 prose-a:font-bold prose-a:no-underline hover:prose-a:underline hover:prose-a:text-orange-700
+                        prose-ul:list-none prose-ul:pl-0 prose-li:relative prose-li:pl-7 prose-li:text-gray-600
+                        prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-3 prose-li:before:w-2 prose-li:before:h-2 prose-li:before:bg-orange-500 prose-li:before:rounded-full
+                        prose-img:rounded-3xl prose-img:shadow-lg
+                        prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-linear-to-r prose-blockquote:from-orange-50 prose-blockquote:to-transparent prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:font-medium prose-blockquote:italic prose-blockquote:text-slate-700">
+              {!! $jurusan->konten !!}
             </div>
-            {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-slate-300 transition-all">
-              <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-600 mb-5">
-                <i class="fa-solid fa-wrench"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Sasis & Pemindah Tenaga</h4>
-              <p class="text-sm text-gray-500">Perbaikan sistem rem (ABS), suspensi, transmisi manual dan otomatis, serta spooring & balancing.</p>
-            </div>
-            {{-- Materi 3 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
-              <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
-                <i class="fa-solid fa-hexagon-nodes-bolt"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Sistem Kelistrikan Kendaraan</h4>
-              <p class="text-sm text-gray-500">Perbaikan sistem kelistrikan, mulai dari baterai, kabel dan lampu.</p>
-            </div>
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-lime-300 transition-all">
-              <div class="w-12 h-12 bg-lime-100 rounded-2xl flex items-center justify-center text-lime-600 mb-5">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Teknologi Kendaraan Listrik</h4>
-              <p class="text-sm text-gray-500">Belajar Teknologi Kendaraan Listrik</p>
-            </div>
+
           </div>
         </div>
 
         {{-- SISI KANAN: PROSPEK & FOTO --}}
-        <div class="space-y-8" data-aos="fade-left">
+        {{-- Tambahkan lg:sticky, lg:top-28, dan lg:self-start di sini --}}
+        <div class="space-y-8 lg:sticky lg:top-32 lg:self-start" data-aos="fade-left">
+
           {{-- Prospek Card --}}
           <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-xl relative overflow-hidden">
             <h3 class="text-xl font-black mb-6">Prospek Karier</h3>
             <ul class="space-y-4">
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-orange-400 rounded-full"></div> Teknisi Bengkel Resmi (Astra/Toyota/Dll)
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-orange-400 rounded-full"></div> Service Advisor
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-orange-400 rounded-full"></div> Operator Industri Otomotif
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-orange-400 rounded-full"></div> Wirausaha Bengkel Mandiri
-              </li>
+              @foreach ($jurusan->peluang_kerja as $peluang)
+                <li class="flex items-center gap-3 text-sm text-gray-300">
+                  <div class="w-1.5 h-1.5 bg-orange-400 rounded-full"></div> {{ $peluang }}
+                </li>
+              @endforeach
             </ul>
           </div>
 
-          {{-- Foto Praktek TKR 3:4 --}}
-          <div class="aspect-3/4 rounded-[2.5rem] overflow-hidden shadow-lg border-4 border-white group">
-            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=600" alt="Siswa TKR sedang praktek"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          {{-- Foto Praktek — Swiper carousel dari galeri --}}
+          <div class="aspect-3/4 rounded-[2.5rem] overflow-hidden shadow-lg border-4 border-white relative">
+            @if ($galeri->count())
+              <div class="swiper foto-praktek-swiper h-full w-full">
+                <div class="swiper-wrapper">
+                  @foreach ($galeri as $foto)
+                    <div class="swiper-slide">
+                      <img src="{{ Storage::url('berita/' . $foto->gambar) }}" alt="Siswa {{ $jurusan->kode_jurusan }} sedang praktek" class="w-full h-full object-cover">
+                    </div>
+                  @endforeach
+                </div>
+
+                {{-- Hanya pagination dots, arrow dihapus --}}
+                <div class="swiper-pagination"></div>
+              </div>
+            @else
+              <img src="{{ asset('assets/senop/img/banner.webp') }}" alt="Siswa {{ $jurusan->kode_jurusan }} sedang praktek" class="w-full h-full object-cover">
+            @endif
           </div>
+
         </div>
 
       </div>
     </div>
   </section>
+@endsection
+
+@section('js')
+  <script>
+    new Swiper('.foto-praktek-swiper', {
+      loop: {{ $galeri->count() > 2 ? 'true' : 'false' }},
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 @endsection

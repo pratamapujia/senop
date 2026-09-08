@@ -353,7 +353,7 @@
                   class="w-40 h-40 bg-linear-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center text-red-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="bi bi-palette"></i>
                 </div>
-                <a href="{{ route('dkv') }}"
+                <a href="{{ route('jurusan.show', 'dkv') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 text-sm font-bold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
@@ -394,7 +394,7 @@
                   class="w-40 h-40 bg-linear-to-br from-purple-50 to-purple-100 rounded-full flex items-center justify-center text-purple-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
-                <a href="{{ route('mp') }}"
+                <a href="{{ route('jurusan.show', 'mp') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-purple-50 text-purple-600 text-sm font-bold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
@@ -435,7 +435,7 @@
                   class="w-40 h-40 bg-linear-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center text-primary text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-laptop-code"></i>
                 </div>
-                <a href="{{ route('rpl') }}"
+                <a href="{{ route('jurusan.show', 'rpl') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-50 text-blue-600 text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
@@ -476,7 +476,7 @@
                   class="w-40 h-40 bg-linear-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
-                <a href="{{ route('tkj') }}"
+                <a href="{{ route('jurusan.show', 'tkj') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow-50 text-yellow-600 text-sm font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
@@ -517,7 +517,7 @@
                   class="w-40 h-40 bg-linear-to-br from-emerald-50 to-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-car"></i>
                 </div>
-                <a href="{{ route('tkr') }}"
+                <a href="{{ route('jurusan.show', 'tkr') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-50 text-emerald-600 text-sm font-bold rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
@@ -558,7 +558,7 @@
                   class="w-40 h-40 bg-linear-to-br from-orange-50 to-orange-100 rounded-full flex items-center justify-center text-orange-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-motorcycle"></i>
                 </div>
-                <a href="{{ route('tsm') }}"
+                <a href="{{ route('jurusan.show', 'tsm') }}"
                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-50 text-orange-600 text-sm font-bold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>

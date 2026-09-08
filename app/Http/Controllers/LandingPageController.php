@@ -17,7 +17,8 @@ class LandingPageController extends Controller
             ->orderBy('tanggal', 'asc')
             ->take(6)
             ->get();
-        $berita = Berita::orderBy('created_at', 'desc')->take(4)->get();
+        $query = Berita::with('author')->where('status', 'published');
+        $berita = $query->orderBy('created_at', 'desc')->take(4)->get();
         $testimoni = Testimoni::orderBy('created_at', 'desc')->take(6)->get();
         return view('index', compact('agenda', 'berita', 'testimoni'));
     }

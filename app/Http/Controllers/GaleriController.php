@@ -174,28 +174,29 @@ class GaleriController extends Controller
 
     public function galeriLanding(Request $request)
     {
-        $kategori = Kategori::all();
+        // 1. Ambil semua kategori beserta jumlah galerinya (untuk sidebar)
+        $kategoriList = Kategori::withCount('galeri')->get();
 
-        // Cek apakah ada filter kategori dari slug di tabel kategori
+        // 2. Hitung total semua foto galeri (untuk tombol "Semua Kategori")
+        $totalGaleri = Galeri::count();
+
+        // 3. Persiapkan Query Utama (Gunakan 'with' untuk mencegah N+1 Problem saat memanggil relasi di blade)
+        $query = Galeri::with('kategori')->latest();
+
+        // 4. Tangani Filter Kategori (berdasarkan parameter URL ?kategori=slug)
         $kategoriAktif = null;
-        if ($request->has('kategori')) {
+        if ($request->has('kategori') && !empty($request->kategori)) {
+            // Ambil object kategorinya utuh, bukan cuma ID-nya
             $kategoriAktif = Kategori::where('slug', $request->kategori)->first();
+
             if ($kategoriAktif) {
-                $kategoriAktif = $kategoriAktif->id;
+                $query->where('kategori_id', $kategoriAktif->id);
             }
         }
 
-        // Query dasar
-        $query = Galeri::latest();
-
-        // Terapkan filter jika ada
-        if ($kategoriAktif) {
-            $query->where('kategori_id', $kategoriAktif);
-        }
-
-        // Ambil data dengan paginasi (misal 12 foto per halaman untuk 4 kolom x 3 baris)
+        // 5. Eksekusi Query dengan Paginasi (9 atau 12 pas untuk 3 kolom)
         $galeri = $query->paginate(12)->withQueryString();
 
-        return view('gallery.index', compact('galeri', 'kategoriAktif'));
+        return view('gallery.index', compact('galeri', 'kategoriList', 'totalGaleri', 'kategoriAktif'));
     }
 }

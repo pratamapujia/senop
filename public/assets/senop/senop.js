@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Swiper
 document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper(".testimoni-swiper", {
+    new Swiper(".testimoni-swiper", {
         loop: true,
         speed: 1000, // Speed lambat agar elegan
         effect: "fade", // Fade effect wajib untuk opsi 1, opsional untuk opsi 2

@@ -22,12 +22,12 @@
           'title' => 'Konsentrasi Keahlian',
           'url' => 'javascript:void(0)',
           'children' => [
-              ['title' => 'Desain Komunikasi Visual', 'url' => route('dkv')],
-              ['title' => 'Manajemen Perkantoran', 'url' => route('mp')],
-              ['title' => 'Rekayasa Perangkat Lunak', 'url' => route('rpl')],
-              ['title' => 'Teknik Komputer dan Jaringan', 'url' => route('tkj')],
-              ['title' => 'Teknik Kendaraan Ringan', 'url' => route('tkr')],
-              ['title' => 'Teknik Sepeda Motor', 'url' => route('tsm')],
+              ['title' => 'Desain Komunikasi Visual', 'url' => route('jurusan.show', 'dkv')],
+              ['title' => 'Manajemen Perkantoran', 'url' => route('jurusan.show', 'mp')],
+              ['title' => 'Rekayasa Perangkat Lunak', 'url' => route('jurusan.show', 'rpl')],
+              ['title' => 'Teknik Komputer dan Jaringan', 'url' => route('jurusan.show', 'tkj')],
+              ['title' => 'Teknik Kendaraan Ringan', 'url' => route('jurusan.show', 'tkr')],
+              ['title' => 'Teknik Sepeda Motor', 'url' => route('jurusan.show', 'tsm')],
           ],
       ],
       [

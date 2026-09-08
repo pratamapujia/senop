@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\StrukturController;
@@ -51,24 +52,8 @@ Route::middleware('guest:admin')->group(function () {
     })->name('prestasi');
 
     // Jurusan
-    Route::get('/jurusan-tkj', function () {
-        return view('jurusan.tkj');
-    })->name('tkj');
-    Route::get('/jurusan-rpl', function () {
-        return view('jurusan.rpl');
-    })->name('rpl');
-    Route::get('/jurusan-mp', function () {
-        return view('jurusan.mp');
-    })->name('mp');
-    Route::get('/jurusan-tsm', function () {
-        return view('jurusan.tsm');
-    })->name('tsm');
-    Route::get('/jurusan-tkr', function () {
-        return view('jurusan.tkr');
-    })->name('tkr');
-    Route::get('/jurusan-dkv', function () {
-        return view('jurusan.dkv');
-    })->name('dkv');
+    Route::get('/jurusan/{jurusan:kode_jurusan}', [JurusanController::class, 'show'])
+        ->name('jurusan.show');
 
     // Berita
     Route::get('/berita', [BeritaController::class, 'beritaLanding'])->name('berita');
@@ -105,6 +90,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('dm-berita', BeritaController::class);
     Route::resource('dm-galeri', GaleriController::class);
     Route::resource('dm-testimoni', TestimoniController::class);
+    Route::resource('dm-jurusan', JurusanController::class);
 
     // Rute untuk mengubah status saja (tanpa edit foto/konten)
     Route::patch('berita/{berita}/status', [BeritaController::class, 'updateStatus'])->name('dm-berita.update-status');

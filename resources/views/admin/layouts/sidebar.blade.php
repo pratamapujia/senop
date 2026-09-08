@@ -30,6 +30,13 @@
           'children' => [],
       ],
       [
+          'title' => 'Jurusan',
+          'url' => route('dm-jurusan.index'),
+          'icon' => 'fa-graduation-cap',
+          'active' => request()->is('dm-jurusan*'),
+          'children' => [],
+      ],
+      [
           'title' => 'Berita',
           'url' => route('dm-berita.index'),
           'icon' => 'fa-newspaper',
