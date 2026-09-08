@@ -18,7 +18,6 @@
 
     .foto-praktek-swiper .swiper-pagination-bullet-active {
       background: #fb923c;
-      /* orange-400, samakan dengan dot di card Prospek Karier */
       width: 22px;
       border-radius: 4px;
     }

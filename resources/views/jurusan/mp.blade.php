@@ -1,7 +1,27 @@
 @extends('layouts.main')
 
 @section('title')
-  <title>Jurusan Manajemen Perkantoran - SMK Senopati</title>
+  <title>Jurusan {{ $jurusan->kode_jurusan }} - SMK Senopati</title>
+  <style>
+    .foto-praktek-swiper .swiper-pagination {
+      bottom: 16px;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      opacity: 1;
+      margin: 0 4px !important;
+      transition: all 0.3s ease;
+    }
+
+    .foto-praktek-swiper .swiper-pagination-bullet-active {
+      background: #34d399;
+      width: 22px;
+      border-radius: 4px;
+    }
+  </style>
 @endsection
 
 @section('main')
@@ -43,14 +63,14 @@
       <div class="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
         <a href="/" class="text-xs font-bold text-gray-300 hover:text-white uppercase tracking-wider transition-colors">Jurusan</a>
         <span class="text-gray-500 text-xs">/</span>
-        <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">MP</span>
+        <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider">{{ $jurusan->kode_jurusan }}</span>
       </div>
 
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-        Manajemen Perkantoran
+        {{ $jurusan->nama_jurusan }}
       </h1>
       <p class="text-blue-100/80 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-        Membentuk tenaga administrator profesional dengan keahlian tata kelola bisnis dan komunikasi perkantoran modern.
+        {{ $jurusan->deskripsi_hero }}
       </p>
     </div>
   </section>
@@ -58,89 +78,103 @@
   {{-- ISI DETAIL JURUSAN --}}
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 max-w-6xl">
-
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-        {{-- SISI KIRI: DESKRIPSI & MATERI --}}
-        <div class="lg:col-span-2 space-y-12" data-aos="fade-right">
-          <div>
-            <h2 class="text-3xl font-black text-slate-900 mb-6">Profesional Mengelola Administrasi, Komunikasi, dan Informasi.</h2>
-            <p class="text-gray-600 leading-relaxed mb-4">
-              Manajemen Perkantoran mempersiapkan siswa menjadi tenaga profesional yang mampu mengelola administrasi, dokumen, informasi, komunikasi, dan berbagai aktivitas perkantoran. Pembelajaran
-              menggabungkan keterampilan administrasi dengan pemanfaatan teknologi digital.
-            </p>
+        {{-- SISI KIRI: Konten Deskripsi Jurusan --}}
+        <div class="lg:col-span-2 space-y-8" data-aos="fade-right">
+
+          {{-- Header Section (Opsional, sebagai pembuka yang manis) --}}
+          <div class="flex items-center gap-4 pl-2">
+            <div class="w-14 h-14 bg-linear-to-br from-emerald-100 to-amber-50 rounded-2xl flex items-center justify-center text-emerald-600 shadow-inner border border-emerald-200/50">
+              <i class="bi bi-journal-richtext text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="text-3xl font-black text-slate-900 tracking-tight">Tentang Jurusan</h2>
+              <p class="text-gray-500 text-sm font-medium">Informasi dan detail program keahlian</p>
+            </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {{-- Materi 1 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-emerald-300 transition-all">
-              <div class="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-5">
-                <i class="fa-solid fa-edit"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Administrasi Digital</h4>
-              <p class="text-sm text-gray-500">Otomatisasi perkantoran, pengelolaan dokumen digital, dan korespondensi bisnis profesional.</p>
+          {{-- Wadah Card Premium untuk Konten Quill --}}
+          <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl shadow-slate-200/40 border border-gray-100 relative overflow-hidden">
+
+            {{-- Dekorasi Glow Latar Belakang --}}
+            <div class="absolute top-0 right-0 w-72 h-72 bg-emerald-100 rounded-full blur-3xl z-0 opacity-40 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-56 h-56 bg-amber-50 rounded-full blur-3xl z-0 opacity-60 -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+            {{-- Modifikasi Super Styling untuk class Prose Tailwind --}}
+            <div
+              class="prose prose-lg prose-slate max-w-none relative z-10
+                        prose-headings:font-black prose-headings:text-slate-800 prose-headings:tracking-tight
+                        prose-h1:text-4xl prose-h1:mb-8
+                        prose-h2:text-3xl prose-h2:border-b-2 prose-h2:border-gray-100 prose-h2:pb-4 prose-h2:mb-6 prose-h2:mt-10
+                        prose-h3:text-2xl prose-h3:text-emerald-600
+                        prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6
+                        prose-a:text-emerald-600 prose-a:font-bold prose-a:no-underline hover:prose-a:underline hover:prose-a:text-emerald-700
+                        prose-ul:list-none prose-ul:pl-0 prose-li:relative prose-li:pl-7 prose-li:text-gray-600
+                        prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-3 prose-li:before:w-2 prose-li:before:h-2 prose-li:before:bg-emerald-500 prose-li:before:rounded-full
+                        prose-img:rounded-3xl prose-img:shadow-lg
+                        prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-linear-to-r prose-blockquote:from-emerald-50 prose-blockquote:to-transparent prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:font-medium prose-blockquote:italic prose-blockquote:text-slate-700">
+              {!! $jurusan->konten !!}
             </div>
-            {{-- Materi 2 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-emerald-300 transition-all">
-              <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-5">
-                <i class="fa-solid fa-handshake"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Public Relations</h4>
-              <p class="text-sm text-gray-500">Teknik komunikasi efektif, layanan prima (service excellence), dan protokol kesehatan kerja.</p>
-            </div>
-            {{-- Materi 3 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-rose-300 transition-all">
-              <div class="w-12 h-12 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-5">
-                <i class="fa-solid fa-chart-line"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Administrasi Keuangan</h4>
-              <p class="text-sm text-gray-500">Pengelolaan keuangan, akuntansi, dan perbankan profesional.</p>
-            </div>
-            {{-- Materi 4 --}}
-            <div class="bg-white p-8 rounded-4xl border border-gray-100 shadow-sm hover:border-yellow-300 transition-all">
-              <div class="w-12 h-12 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-5">
-                <i class="fa-solid fa-fax"></i>
-              </div>
-              <h4 class="font-bold text-slate-800 mb-2">Administrasi Perkantoran</h4>
-              <p class="text-sm text-gray-500">Pengelolaan administrasi perkantoran, dokumen, dan informasi profesional.</p>
-            </div>
+
           </div>
         </div>
 
         {{-- SISI KANAN: PROSPEK & FOTO --}}
-        <div class="space-y-8" data-aos="fade-left">
+        {{-- Tambahkan lg:sticky, lg:top-28, dan lg:self-start di sini --}}
+        <div class="space-y-8 lg:sticky lg:top-32 lg:self-start" data-aos="fade-left">
+
           {{-- Prospek Card --}}
-          <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-xl">
+          <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-xl relative overflow-hidden">
             <h3 class="text-xl font-black mb-6">Prospek Karier</h3>
             <ul class="space-y-4">
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Administrasi
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Secretary
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Office Manager
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Operasional
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Staff Tata Usaha
-              </li>
-              <li class="flex items-center gap-3 text-sm text-gray-300">
-                <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> Digital Administration Staff
-              </li>
+              @foreach ($jurusan->peluang_kerja as $peluang)
+                <li class="flex items-center gap-3 text-sm text-gray-300">
+                  <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> {{ $peluang }}
+                </li>
+              @endforeach
             </ul>
           </div>
 
-          {{-- Foto Praktek Perkantoran 3:4 --}}
-          <div class="aspect-3/4 rounded-[2.5rem] overflow-hidden shadow-lg border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Praktek Administrasi" class="w-full h-full object-cover">
+          {{-- Foto Praktek — Swiper carousel dari galeri --}}
+          <div class="aspect-3/4 rounded-[2.5rem] overflow-hidden shadow-lg border-4 border-white relative">
+            @if ($galeri->count())
+              <div class="swiper foto-praktek-swiper h-full w-full">
+                <div class="swiper-wrapper">
+                  @foreach ($galeri as $foto)
+                    <div class="swiper-slide">
+                      <img src="{{ Storage::url('berita/' . $foto->gambar) }}" alt="Siswa {{ $jurusan->kode_jurusan }} sedang praktek" class="w-full h-full object-cover">
+                    </div>
+                  @endforeach
+                </div>
+
+                {{-- Hanya pagination dots, arrow dihapus --}}
+                <div class="swiper-pagination"></div>
+              </div>
+            @else
+              <img src="{{ asset('assets/senop/img/banner.webp') }}" alt="Siswa {{ $jurusan->kode_jurusan }} sedang praktek" class="w-full h-full object-cover">
+            @endif
           </div>
+
         </div>
 
       </div>
     </div>
   </section>
+@endsection
+
+@section('js')
+  <script>
+    new Swiper('.foto-praktek-swiper', {
+      loop: {{ $galeri->count() > 2 ? 'true' : 'false' }},
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 @endsection
