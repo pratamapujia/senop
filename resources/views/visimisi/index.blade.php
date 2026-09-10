@@ -43,18 +43,19 @@
 
     </div>
   </section>
+
   {{-- VISI & MISI SECTION --}}
   <section class="py-15 bg-gray-50 overflow-hidden">
     <div class="container mx-auto px-4 max-w-7xl">
 
-      {{-- BAGIAN VISI --}}
-      <div class="mb-20" data-aos="fade-up">
+      {{-- ================= BAGIAN VISI ================= --}}
+      <div class="mb-24" data-aos="fade-up">
         <div class="text-center mb-10">
           <span class="px-4 py-1.5 rounded-full bg-blue-100 text-primary text-xs font-bold uppercase tracking-widest">Tujuan Utama</span>
           <h2 class="text-4xl font-black text-header mt-4">Visi Kami</h2>
         </div>
 
-        <div class="relative p-10 md:p-16 bg-white rounded-[40px] shadow-xl shadow-blue-900/5 border border-gray-100 text-center">
+        <div class="relative p-10 md:p-16 bg-white rounded-[40px] shadow-xl shadow-blue-900/5 border border-gray-100 text-center max-w-5xl mx-auto">
           {{-- Dekorasi Tanda Kutip --}}
           <div class="absolute top-10 left-10 text-blue-100 opacity-50">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="currentColor" viewBox="0 0 24 24">
@@ -69,145 +70,136 @@
         </div>
       </div>
 
-      {{-- BAGIAN MISI --}}
+      {{-- ================= BAGIAN MISI ================= --}}
       <div data-aos="fade-up" data-aos-delay="200">
         <div class="text-center mb-12">
           <span class="px-4 py-1.5 rounded-full bg-indigo-100 text-accent text-xs font-bold uppercase tracking-widest">Langkah Nyata</span>
           <h2 class="text-4xl font-black text-header mt-4">Misi Sekolah</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {{-- WADAH MISI VERTIKAL (SEKARANG DI ATAS & MENJADI 1 CARD) --}}
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[40px] shadow-xl shadow-blue-900/5 border border-gray-100 mb-20 relative overflow-hidden">
 
-          {{-- Misi Item 1 --}}
+          {{-- Dekorasi Latar Belakang Card --}}
+          <div class="absolute top-0 right-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl -z-0 opacity-60 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+          <div class="space-y-6 md:space-y-8 relative z-10">
+
+            {{-- Misi Item 1 --}}
+            <div class="group flex items-start gap-5 md:gap-6 border-b border-gray-100 pb-6 md:pb-8 last:border-0 last:pb-0">
+              <div
+                class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-xl md:text-2xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                1
+              </div>
+              <div class="pt-2 md:pt-3">
+                <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed group-hover:text-primary transition-colors duration-300">
+                  Meningkatkan lulusan yang bertaqwa kepada Tuhan Yang Maha Esa.
+                </p>
+              </div>
+            </div>
+
+            {{-- Misi Item 2 --}}
+            <div class="group flex items-start gap-5 md:gap-6 border-b border-gray-100 pb-6 md:pb-8 last:border-0 last:pb-0">
+              <div
+                class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-xl md:text-2xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                2
+              </div>
+              <div class="pt-2 md:pt-3">
+                <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed group-hover:text-primary transition-colors duration-300">
+                  Menanamkan sifat kedisiplinan <span class="text-primary italic font-semibold">"Dwi Warna Purwa Cendekia Wusana"</span>.
+                </p>
+              </div>
+            </div>
+
+            {{-- Misi Item 3 --}}
+            <div class="group flex items-start gap-5 md:gap-6 border-b border-gray-100 pb-6 md:pb-8 last:border-0 last:pb-0">
+              <div
+                class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-xl md:text-2xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                3
+              </div>
+              <div class="pt-2 md:pt-3">
+                <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed group-hover:text-primary transition-colors duration-300">
+                  Meningkatkan lulusan yang berbudi pekerti luhur dan trampil di era digitalisasi.
+                </p>
+              </div>
+            </div>
+
+            {{-- Misi Item 4 --}}
+            <div class="group flex items-start gap-5 md:gap-6 border-b border-gray-100 pb-6 md:pb-8 last:border-0 last:pb-0">
+              <div
+                class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-xl md:text-2xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                4
+              </div>
+              <div class="pt-2 md:pt-3">
+                <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed group-hover:text-primary transition-colors duration-300">
+                  Meningkatkan lulusan yang siap kerja, professional dan mampu bersaing di pasar bebas.
+                </p>
+              </div>
+            </div>
+
+            {{-- Misi Item 5 --}}
+            <div class="group flex items-start gap-5 md:gap-6 border-b border-gray-100 pb-6 md:pb-8 last:border-0 last:pb-0">
+              <div
+                class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-xl md:text-2xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                5
+              </div>
+              <div class="pt-2 md:pt-3">
+                <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed group-hover:text-primary transition-colors duration-300">
+                  Meningkatkan pendidikan dan pelatihan kejuruan yang adaptif, fleksibel dan berwawasan global.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {{-- 3 KARTU NILAI TAMBAH (SEKARANG DI BAWAH) --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="300">
+
+          {{-- Nilai Item 1 --}}
           <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 relative overflow-hidden">
-            {{-- <span class="absolute -right-4 -bottom-4 text-8xl font-black text-slate-50 group-hover:text-blue-50 transition-colors">01</span> --}}
             <div class="relative z-10">
-              <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-200">
+              <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
               <h4 class="text-xl font-bold text-slate-800 mb-3">Pendidikan Berkualitas</h4>
-              <p class="text-gray-500 leading-relaxed">Menyelenggarakan proses pembelajaran yang inovatif berbasis teknologi informasi dan komunikasi.</p>
+              <p class="text-gray-500 leading-relaxed text-sm">Menyelenggarakan proses pembelajaran yang inovatif berbasis teknologi informasi dan komunikasi.</p>
             </div>
           </div>
 
-          {{-- Misi Item 2 --}}
-          <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 relative overflow-hidden">
-            {{-- <span class="absolute -right-4 -bottom-4 text-8xl font-black text-slate-50 group-hover:text-blue-50 transition-colors">02</span> --}}
+          {{-- Nilai Item 2 --}}
+          <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-cyan-300 transition-all duration-300 relative overflow-hidden">
             <div class="relative z-10">
-              <div class="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-cyan-200">
+              <div class="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-cyan-200 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
               <h4 class="text-xl font-bold text-slate-800 mb-3">Karakter Siswa</h4>
-              <p class="text-gray-500 leading-relaxed">Membentuk pribadi siswa yang religius, berintegritas, dan memiliki jiwa kepemimpinan.</p>
+              <p class="text-gray-500 leading-relaxed text-sm">Membentuk pribadi siswa yang religius, berintegritas, dan memiliki jiwa kepemimpinan.</p>
             </div>
           </div>
 
-          {{-- Misi Item 3 --}}
-          <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 relative overflow-hidden">
-            {{-- <span class="absolute -right-4 -bottom-4 text-8xl font-black text-slate-50 group-hover:text-blue-50 transition-colors">03</span> --}}
+          {{-- Nilai Item 3 --}}
+          <div class="group p-8 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-rose-300 transition-all duration-300 relative overflow-hidden">
             <div class="relative z-10">
-              <div class="w-12 h-12 bg-rose-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-rose-200">
+              <div class="w-12 h-12 bg-rose-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-rose-200 group-hover:scale-110 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h4 class="text-xl font-bold text-slate-800 mb-3">Sekolah Indonesia</h4>
-              <p class="text-gray-500 leading-relaxed">Berkarakter, toleran, dan berbudaya serta tempat tumbuhnya generasi yang menghargai perbedaan & menjunjung persatuan</p>
+              <p class="text-gray-500 leading-relaxed text-sm">Berkarakter, toleran, dan berbudaya serta tempat tumbuhnya generasi yang menghargai perbedaan & menjunjung persatuan</p>
             </div>
           </div>
+
         </div>
       </div>
 
-      {{-- Wadah List Misi Vertikal --}}
-      <div class="max-w-4xl mx-auto space-y-6">
-
-        {{-- Misi Item 1 --}}
-        <div
-          class="group relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex items-start gap-6 overflow-hidden">
-          {{-- Background Bar saat Hover --}}
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-          {{-- Nomor Urut --}}
-          <div
-            class="shrink-0 w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-2xl md:text-3xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            1
-          </div>
-
-          {{-- Teks Misi --}}
-          <div class="pt-1.5 md:pt-2.5">
-            <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed">
-              Meningkatkan lulusan yang bertaqwa kepada Tuhan Yang Maha Esa.
-            </p>
-          </div>
-        </div>
-
-        {{-- Misi Item 2 --}}
-        <div
-          class="group relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex items-start gap-6 overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div
-            class="shrink-0 w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-2xl md:text-3xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            2
-          </div>
-          <div class="pt-1.5 md:pt-2.5">
-            <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed">
-              Menanamkan sifat kedisiplinan <span class="text-primary italic font-semibold">"Dwi Warna Purwa Cendekia Wusana"</span>.
-            </p>
-          </div>
-        </div>
-
-        {{-- Misi Item 3 --}}
-        <div
-          class="group relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex items-start gap-6 overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div
-            class="shrink-0 w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-2xl md:text-3xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            3
-          </div>
-          <div class="pt-1.5 md:pt-2.5">
-            <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed">
-              Meningkatkan lulusan yang berbudi pekerti luhur dan trampil di era digitalisasi.
-            </p>
-          </div>
-        </div>
-
-        {{-- Misi Item 4 --}}
-        <div
-          class="group relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex items-start gap-6 overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div
-            class="shrink-0 w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-2xl md:text-3xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            4
-          </div>
-          <div class="pt-1.5 md:pt-2.5">
-            <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed">
-              Meningkatkan lulusan yang siap kerja, professional dan mampu bersaing di pasar bebas.
-            </p>
-          </div>
-        </div>
-
-        {{-- Misi Item 5 --}}
-        <div
-          class="group relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex items-start gap-6 overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div
-            class="shrink-0 w-14 h-14 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-primary font-black text-2xl md:text-3xl border border-blue-100 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-            5
-          </div>
-          <div class="pt-1.5 md:pt-2.5">
-            <p class="text-gray-700 font-medium text-lg md:text-xl leading-relaxed">
-              Meningkatkan pendididkan dan pelatihan kejuruan yang adaptif, fleksibel dan berwawasan global.
-            </p>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 @endsection
