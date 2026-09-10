@@ -37,9 +37,7 @@ Route::middleware('guest:admin')->group(function () {
     })->name('sejarah');
 
     // Struktur
-    Route::get('/struktur', function () {
-        return view('struktur.index');
-    })->name('struktur');
+    Route::get('/struktur', [StrukturController::class, 'strukturLanding'])->name('struktur');
 
     // Fasilitas
     Route::get('/fasilitas', function () {

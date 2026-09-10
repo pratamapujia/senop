@@ -171,4 +171,31 @@ class StrukturController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data. Silakan coba lagi.');
         }
     }
+
+    public function strukturLanding()
+    {
+        // 1. Ambil Kepala Sekolah
+        $kepsek = Struktur::where('status', 'aktif')
+            ->where('jabatan', 'like', '%Kepala Sekolah%')
+            ->first();
+
+        // 2. Ambil Wakil Kepala Sekolah
+        $wakasek = Struktur::where('status', 'aktif')
+            ->where('jabatan', 'like', '%Waka%')
+            ->get();
+
+        // 3. Ambil Guru
+        $guru = Struktur::where('status', 'aktif')
+            ->where('jabatan', 'like', '%Guru%')
+            ->get();
+
+        // 4. Ambil Staff & Karyawan (Yang BUKAN Kepsek, Waka, atau Guru)
+        $staff = Struktur::where('status', 'aktif')
+            ->where('jabatan', 'not like', '%Kepala Sekolah%')
+            ->where('jabatan', 'not like', '%Waka%')
+            ->where('jabatan', 'not like', '%Guru%')
+            ->get();
+
+        return view('struktur.index', compact('kepsek', 'wakasek', 'guru', 'staff'));
+    }
 }
