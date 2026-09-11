@@ -50,7 +50,7 @@
           <div class="row">
 
             {{-- Field Judul --}}
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-lg-4">
               <div class="form-group">
                 <label class="form-label" for="judul">Judul</label>
                 <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" placeholder="Masukkan Judul" value="{{ old('judul', $galeri->judul) }}">
@@ -81,78 +81,76 @@
                 @enderror
               </div>
             </div>
-          </div>
 
-          {{-- Field Gambar --}}
-          <div class="col-12 col-md-6">
-            <div class="form-group">
-              <label class="form-label" for="gambar">Gambar</label>
-              <div class="d-flex align-items-top gap-3">
+            {{-- Field Gambar --}}
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-group">
+                <label class="form-label" for="gambar">Gambar</label>
+                <div class="d-flex align-items-top gap-3">
 
-                <!-- Sisi Kiri: Form Input -->
-                <div class="grow">
-                  <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
-                  @error('gambar')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
-                  <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
-                </div>
-
-                <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->
-                @if (isset($galeri) && $galeri->gambar)
-                  <div class="shrink-0">
-                    <a href="{{ Storage::url('berita/' . $galeri->gambar) }}" target="_blank" title="Lihat Foto Penuh">
-                      <img src="{{ Storage::url('berita/' . $galeri->gambar) }}" alt="Preview" class="img-thumbnail shadow-sm rounded" style="height: 70px; object-fit: cover;">
-                    </a>
+                  <!-- Sisi Kiri: Form Input -->
+                  <div class="grow">
+                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+                    @error('gambar')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                    <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
                   </div>
-                @endif
 
+                  <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->
+                  @if (isset($galeri) && $galeri->gambar)
+                    <div class="shrink-0">
+                      <a href="{{ Storage::url('berita/' . $galeri->gambar) }}" target="_blank" title="Lihat Foto Penuh">
+                        <img src="{{ Storage::url('berita/' . $galeri->gambar) }}" alt="Preview" class="img-thumbnail shadow-sm rounded" style="height: 70px; object-fit: cover;">
+                      </a>
+                    </div>
+                  @endif
+
+                </div>
               </div>
             </div>
-          </div>
 
-          {{-- Field Konten (Quill) --}}
-          <div class="col-12 col-md-6 col-lg-12 mt-3">
-            <div class="form-group">
-              <label class="form-label" for="deskripsi">Deskripsi</label>
+            {{-- Field Konten (Quill) --}}
+            <div class="col-12">
+              <div class="form-group">
+                <label class="form-label" for="deskripsi">Deskripsi</label>
 
-              <!-- Input hidden ini yang akan dikirim ke Controller -->
-              <input type="hidden" name="deskripsi" id="input_deskripsi" value="{{ old('deskripsi', $galeri->deskripsi) }}">
+                <!-- Input hidden ini yang akan dikirim ke Controller -->
+                <input type="hidden" name="deskripsi" id="input_deskripsi" value="{{ old('deskripsi', $galeri->deskripsi) }}">
 
-              <!-- Wadah editor Quill -->
-              <div id="full" class="@error('deskripsi') is-invalid @enderror">{!! old('deskripsi', $galeri->deskripsi) !!}</div>
+                <!-- Wadah editor Quill -->
+                <div id="editor-deskripsi" class="@error('deskripsi') is-invalid @enderror">{!! old('deskripsi', $galeri->deskripsi) !!}</div>
 
-              @error('deskripsi')
-                <div class="invalid-feedback d-block mt-2">
-                  {{ $message }}
-                </div>
-              @enderror
+                @error('deskripsi')
+                  <div class="invalid-feedback d-block mt-2">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <button class="btn btn-primary icon icon-left btn-block">
+                <i class="fas fa-paper-plane"></i> Simpan
+              </button>
+            </div>
+            <div class="col-6 mt-4">
+              <button type="reset" class="btn btn-secondary icon icon-left btn-block">
+                <i class="fas fa-sync"></i> Reset
+              </button>
             </div>
           </div>
-
-          <div class="col-6 mt-4">
-            <button class="btn btn-primary icon icon-left btn-block">
-              <i class="fas fa-paper-plane"></i> Simpan
-            </button>
-          </div>
-          <div class="col-6 mt-4">
-            <button type="reset" class="btn btn-secondary icon icon-left btn-block">
-              <i class="fas fa-sync"></i> Reset
-            </button>
-          </div>
+        </form>
       </div>
-      </form>
     </div>
-  </div>
-@endsection
+  @endsection
 
-@section('js')
-  <script src="{{ asset('assets/admin/extensions/quill/quill.min.js') }}"></script>
-  <script>
-    var quill = new Quill("#full", {
-      bounds: "#full-container .editor",
+  @section('js')
+    <script src="{{ asset('assets/admin/extensions/quill/quill.min.js') }}"></script>
+    <script>
+      var quill = new Quill("#editor-deskripsi", {
       modules: {
         toolbar: [
           [{
@@ -190,16 +188,40 @@
       theme: "snow",
     });
 
-    // Sinkronisasi isi Quill ke input tersembunyi
-    quill.on('text-change', function(delta, oldDelta, source) {
-      let html = quill.root.innerHTML;
+      // Sinkronisasi isi Quill ke input tersembunyi
+      quill.on('text-change', function(delta, oldDelta, source) {
+        let html = quill.root.innerHTML;
 
-      if (html === '<p><br></p>') {
-        html = '';
-      }
+        if (html === '<p><br></p>') {
+          html = '';
+        }
 
-      // Pastikan ID ini sama dengan ID di tag <input type="hidden">
-      document.getElementById('input_deskripsi').value = html;
-    });
-  </script>
-@endsection
+        // Pastikan ID ini sama dengan ID di tag <input type="hidden">
+        document.getElementById('input_deskripsi').value = html;
+      });
+
+      document.querySelector('form').addEventListener('submit', function(e) {
+        // 1. Sinkronisasi akhir Quill sebelum submit
+        let html = quill.root.innerHTML;
+        if (html === '<p><br></p>') html = '';
+        document.getElementById('input_deskripsi').value = html;
+
+        // 2. Cek validasi form bawaan HTML5 (misal: required)
+        if (!this.checkValidity()) {
+          return; // Jika ada yang kosong, batalkan loading dan biarkan browser memberi peringatan
+        }
+
+        // 3. Tampilkan SweetAlert Loading
+        Swal.fire({
+          title: 'Menyimpan Data...',
+          text: 'Mohon tunggu, sedang memproses gambar dan konten.',
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          showConfirmButton: false,
+          didOpen: () => {
+            Swal.showLoading();
+          }
+        });
+      });
+    </script>
+  @endsection

@@ -94,3 +94,33 @@
     </div>
   </div>
 @endsection
+
+@section('js')
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ambil elemen form berdasarkan class 'form'
+      const form = document.querySelector('form.form');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Cek validasi form bawaan browser (misalnya jika ada atribut required)
+          if (!this.checkValidity()) {
+            return; // Batalkan loading jika ada field yang belum valid
+          }
+
+          // Tampilkan pop-up loading SweetAlert
+          Swal.fire({
+            title: 'Menyimpan Data...',
+            text: 'Mohon tunggu, sistem sedang mengunggah foto dan memproses data.',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showConfirmButton: false,
+            didOpen: () => {
+              Swal.showLoading();
+            }
+          });
+        });
+      }
+    });
+  </script>
+@endsection

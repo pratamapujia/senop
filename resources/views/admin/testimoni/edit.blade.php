@@ -144,8 +144,7 @@
 @section('js')
   <script src="{{ asset('assets/admin/extensions/quill/quill.min.js') }}"></script>
   <script>
-    var quill = new Quill("#full", {
-      bounds: "#full-container .editor",
+    var quill = new Quill("#editor-testimoni", {
       modules: {
         toolbar: [
           [{
@@ -193,6 +192,30 @@
 
       // Pastikan ID ini sama dengan ID di tag <input type="hidden">
       document.getElementById('input_testimoni').value = html;
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+      // 1. Sinkronisasi akhir Quill sebelum submit
+      let html = quill.root.innerHTML;
+      if (html === '<p><br></p>') html = '';
+      document.getElementById('input_testimoni').value = html;
+
+      // 2. Cek validasi form bawaan HTML5 (misal: required)
+      if (!this.checkValidity()) {
+        return; // Jika ada yang kosong, batalkan loading dan biarkan browser memberi peringatan
+      }
+
+      // 3. Tampilkan SweetAlert Loading
+      Swal.fire({
+        title: 'Menyimpan Data...',
+        text: 'Mohon tunggu, sedang memproses gambar dan konten.',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showConfirmButton: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
     });
   </script>
 @endsection

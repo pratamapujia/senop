@@ -81,7 +81,7 @@
         <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[40px] shadow-xl shadow-blue-900/5 border border-gray-100 mb-20 relative overflow-hidden">
 
           {{-- Dekorasi Latar Belakang Card --}}
-          <div class="absolute top-0 right-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl -z-0 opacity-60 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+          <div class="absolute top-0 right-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl z-0 opacity-60 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
           <div class="space-y-6 md:space-y-8 relative z-10">
 

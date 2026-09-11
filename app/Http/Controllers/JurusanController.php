@@ -174,9 +174,21 @@ class JurusanController extends Controller
             File::makeDirectory($directoryPath, 0755, true);
         }
 
+        // 1. OPSI: Hapus foto-foto galeri lama yang terhubung ke jurusan ini 
+        // (jika Anda ingin menggantinya secara total dengan yang baru diunggah)
+        $galeriLama = Galeri::where('kategori_id', $jurusan->kategori_id)->get();
+        foreach ($galeriLama as $itemLama) {
+            $oldPath = $directoryPath . '/' . $itemLama->gambar;
+            // Periksa apakah file fisiknya ada di penyimpanan, lalu hapus
+            if ($itemLama->gambar && File::exists($oldPath)) {
+                File::delete($oldPath);
+            }
+            // Hapus record-nya dari database tabel galeri
+            $itemLama->delete();
+        }
+
+        // 2. Proses unggah foto-foto yang baru
         foreach ($request->file('foto_galeri') as $file) {
-            // slug + time() + random string biar filename tidak bentrok
-            // walau beberapa file diupload dalam detik yang sama
             $filename = Str::slug($jurusan->nama_jurusan)
                 . '-' . time()
                 . '-' . Str::random(5)
@@ -184,14 +196,14 @@ class JurusanController extends Controller
 
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            // Buat cover image dengan ukuran portrait 450x600, crop dari tengah atas (center, top)
-            $image->cover(450, 600, 'center', 'top');
+
+            // Catatan: Pastikan parameter cover sesuai dokumentasi Intervention Image Anda (lebar, tinggi)
             $image->save($path, 90, 'webp');
 
             Galeri::create([
                 'kategori_id' => $jurusan->kategori_id,
                 'judul'       => 'Dokumentasi ' . $jurusan->nama_jurusan,
-                'gambar'      => $filename, // hanya nama file, sama pola dengan berita
+                'gambar'      => $filename,
             ]);
         }
     }

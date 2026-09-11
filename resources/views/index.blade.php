@@ -218,7 +218,7 @@
                 menghadapi dinamika dunia nyata melalui penguasaan keahlian mendalam, pembentukan karakter luhur, dan pengalaman langsung.
               </p>
               <p>
-                Berlandaskan semangat <span class="font-bold text-primary">BMW (Bekerja, Melanjutkan, dan Wirausaha)</span>, kami senantiasa membimbing setiap peserta didik untuk tumbuh menjadi sumber
+                Berlandaskan semangat <span class="font-bold text-gray-800">BMW (Bekerja, Melanjutkan, dan Wirausaha)</span>, kami senantiasa membimbing setiap peserta didik untuk tumbuh menjadi sumber
                 daya manusia yang profesional dan berdaya saing.
               </p>
             </div>
