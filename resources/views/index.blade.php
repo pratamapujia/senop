@@ -568,8 +568,9 @@
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             @forelse ($agenda as $item)
-              <div
-                class="group bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex items-center gap-4 cursor-default h-full relative overflow-hidden">
+              <div onclick="openAgendaModal(this)" data-judul="{{ $item->judul }}" data-tanggal="{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}"
+                data-tempat="{{ $item->tempat }}" data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi tambahan untuk agenda ini.' }}"
+                class="group bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex items-center gap-4 cursor-pointer h-full relative overflow-hidden">
                 <div class="shrink-0 w-16 h-16 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   <span class="text-xl font-black leading-none">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d') }}</span>
                   <span class="text-[10px] font-bold uppercase mt-1">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F') }}</span>
@@ -579,11 +580,11 @@
                     {{ $item->judul }}
                   </h4>
                   <p class="text-gray-500 text-xs flex items-center gap-2 line-clamp-1">
-                    <span class="shrink-0 w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <i class="bi bi-geo-fill text-sm text-rose-400"></i>
                     {{ $item->tempat }}
                   </p>
                 </div>
-                <div class="hidden xl:flex w-8 h-8 text-primary items-center justify-center group-hover:bg-blue-100' group-hover:text-accent transition-all shrink-0">
+                <div class="hidden xl:flex w-8 h-8 text-primary items-center justify-center group-hover:bg-blue-100 group-hover:text-accent transition-all shrink-0">
                   <i class="fa-solid fa-calendar text-2xl"></i>
                 </div>
               </div>
@@ -595,6 +596,39 @@
                 <h4 class="text-base font-bold text-gray-700">Belum Ada Agenda</h4>
               </div>
             @endforelse
+          </div>
+
+          {{-- MODAL DETAIL AGENDA --}}
+          <div id="agendaModal" onclick="if (event.target === this) closeAgendaModal()" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-slate-200/50 backdrop-blur-xs rounded-2xl">
+            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full relative animate-[fadeIn_0.2s_ease-out]">
+
+              {{-- Tombol Tutup --}}
+              <button onclick="closeAgendaModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <div class="p-6">
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="shrink-0 w-14 h-14 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center">
+                    <i class="fa-solid fa-calendar text-xl"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <h3 id="agendaModalJudul" class="text-lg font-black text-header leading-snug"></h3>
+                    <p id="agendaModalTanggal" class="text-gray-500 text-sm font-semibold"></p>
+                  </div>
+                </div>
+
+                <p class="text-gray-500 text-sm flex items-center gap-2 mb-4">
+                  <i class="bi bi-geo-fill text-rose-400"></i>
+                  <span id="agendaModalTempat"></span>
+                </p>
+
+                <div class="border-t border-gray-100 pt-4">
+                  <p id="agendaModalDeskripsi" class="text-gray-600 text-sm leading-relaxed"></p>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           {{-- Button More --}}
@@ -867,5 +901,28 @@
         activeBtn.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/30');
       }
     }
+
+    function openAgendaModal(el) {
+      document.getElementById('agendaModalJudul').textContent = el.dataset.judul;
+      document.getElementById('agendaModalTanggal').textContent = el.dataset.tanggal;
+      document.getElementById('agendaModalTempat').textContent = el.dataset.tempat;
+      document.getElementById('agendaModalDeskripsi').innerHTML = el.dataset.deskripsi;
+
+      const modal = document.getElementById('agendaModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeAgendaModal() {
+      const modal = document.getElementById('agendaModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeAgendaModal();
+    });
   </script>
 @endsection
