@@ -36,6 +36,10 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        // --- TINGKATKAN LIMIT PHP SEMENTARA ---
+        ini_set('max_execution_time', 900); // Batas eksekusi menjadi 900 detik (15 menit)
+        ini_set('memory_limit', '512M');    // Batas RAM dinaikkan menjadi 512 MB
+
         $validated = $request->validate([
             'judul' => 'required|max:255',
             'kategori_id' => 'required',
@@ -72,7 +76,7 @@ class BeritaController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(1280, 720, 'center');
+            $image->cover(854, 480, 'center');
             $image->save($path, 90, 'webp');
             $berita->gambar = $filename;
         }
@@ -118,6 +122,10 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // --- TINGKATKAN LIMIT PHP SEMENTARA ---
+        ini_set('max_execution_time', 900); // Batas eksekusi menjadi 900 detik (15 menit)
+        ini_set('memory_limit', '512M');    // Batas RAM dinaikkan menjadi 512 MB
+
         $validated = $request->validate([
             'judul' => 'required|max:255',
             'kategori_id' => 'required',
@@ -155,7 +163,7 @@ class BeritaController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(1280, 720, 'center');
+            $image->cover(854, 480, 'center');
             $image->save($path, 90, 'webp');
             $berita->gambar = $filename;
         }
