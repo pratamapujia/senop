@@ -42,6 +42,24 @@
 
   <body class="font-sans antialiased bg-gray-50 text-gray-800 min-h-screen overflow-x-hidden">
 
+    {{-- PRELOADER ANIMATION --}}
+    <div id="preloader" class="fixed inset-0 z-9999 bg-gray-50 flex items-center justify-center transition-opacity duration-500">
+      <div class="relative flex flex-col items-center">
+        {{-- Animasi Logo Berdenyut --}}
+        <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" alt="Loading..." class="w-32 h-32 md:w-40 md:h-40 object-contain animate-pulse">
+
+        {{-- Indikator Loading (3 Titik) --}}
+        <div class="mt-6 flex gap-2">
+          <div class="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
+          <div class="w-3 h-3 bg-primary rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+          <div class="w-3 h-3 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+        </div>
+
+        {{-- Teks Opsional --}}
+        <p class="mt-4 text-primary font-bold text-sm tracking-widest uppercase animate-pulse">Memuat Data...</p>
+      </div>
+    </div>
+
     {{-- Header --}}
     @include('layouts.header')
 

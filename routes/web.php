@@ -69,6 +69,11 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/kontak', function () {
         return view('kontak.index');
     })->name('kontak');
+
+    // SPMB
+    Route::get('/spmb', function () {
+        return view('spmb.index');
+    })->name('spmb');
 });
 
 

@@ -104,7 +104,7 @@
           <a href="https://tiktok.com/@smk_senopati/" target="_blank" class="text-accent/70 hover:text-black transition-colors"><i class="bi bi-tiktok text-lg"></i></a>
           <a href="https://www.youtube.com/@smksenopatisedati" target="_blank" class="text-accent/70 hover:text-red-600 transition-colors"><i class="bi bi-youtube text-lg"></i></a>
         </div>
-        <a href="javascript:void(0)" class="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-accent transition-shadow shadow-md hover:shadow-lg">
+        <a href="{{ route('spmb') }}" class="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-accent transition-shadow shadow-md hover:shadow-lg">
           SPMB
         </a>
       </div>
@@ -156,7 +156,7 @@
         </div>
 
         <li class="px-2 pt-2">
-          <a href="#" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">SPMB</a>
+          <a href="{{ route('spmb') }}" class="block text-center w-full px-4 py-2 bg-primary text-white rounded-full font-semibold hover:bg-accent shadow-md">SPMB</a>
         </li>
       </ul>
     </div>

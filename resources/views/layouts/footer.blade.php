@@ -90,22 +90,22 @@
           <ul class="space-y-4">
             <li>
               <a href="/" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Beranda
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Beranda
               </a>
             </li>
             <li>
               <a href="{{ route('profil') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Identitas Sekolah
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Identitas Sekolah
               </a>
             </li>
             <li>
               <a href="{{ route('visi-misi') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Visi & Misi
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Visi & Misi
               </a>
             </li>
             <li>
-              <a href="/" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> PPDB
+              <a href="{{ route('spmb') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> SPMB
               </a>
             </li>
           </ul>
@@ -117,23 +117,23 @@
           <ul class="space-y-4">
             <li>
               <a href="{{ route('berita') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Berita
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Berita
               </a>
             </li>
             <li>
               <a href="{{ route('agenda') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Agenda
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Agenda
               </a>
             </li>
             <li>
               <a href="{{ route('galeri') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Galeri
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Galeri
               </a>
             </li>
             <li>
               <a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank"
                 class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors"></span> Virtual Tour
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Virtual Tour
               </a>
             </li>
           </ul>
@@ -173,7 +173,7 @@
     {{-- Footer Bottom --}}
     <div class="border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
       <p class="text-center md:text-left mb-4 md:mb-0">
-        &copy; 2025 <strong class="text-primary">SMK Senopati</strong>. All rights reserved.
+        &copy; {{ date('Y') }} <strong class="text-primary">SMK Senopati</strong>. All rights reserved.
       </p>
       <div class="flex items-center gap-6">
         <p>Crafted by <a href="javascript:void(0)" class="text-primary hover:underline font-bold">PPA</a> with <i class="fa-solid fa-heart text-red-600"></i></p>

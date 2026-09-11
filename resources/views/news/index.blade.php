@@ -240,7 +240,7 @@
               <div class="absolute bottom-0 left-0 p-5 text-white">
                 <h4 class="text-lg font-black mb-1">SPMB {{ date('Y') }}</h4>
                 <p class="text-blue-200 text-xs mb-3">Ayo menjadi bagian dari masa depan SMK Senopati.</p>
-                <a href="#" class="inline-block bg-white text-blue-900 text-xs font-bold px-4 py-2 rounded-full hover:bg-blue-50 transition-colors">Daftar Sekarang</a>
+                <a href="{{ route('spmb') }}" class="inline-block bg-white text-blue-900 text-xs font-bold px-4 py-2 rounded-full hover:bg-blue-50 transition-colors">Daftar Sekarang</a>
               </div>
             </div>
           </div>

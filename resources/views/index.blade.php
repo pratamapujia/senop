@@ -5,24 +5,6 @@
 @endsection
 
 @section('main')
-  {{-- PRELOADER ANIMATION --}}
-  <div id="preloader" class="fixed inset-0 z-9999 bg-gray-50 flex items-center justify-center transition-opacity duration-500">
-    <div class="relative flex flex-col items-center">
-      {{-- Animasi Logo Berdenyut --}}
-      <img src="{{ asset('assets/senop/img/logo/icon.webp') }}" alt="Loading..." class="w-32 h-32 md:w-40 md:h-40 object-contain animate-pulse">
-
-      {{-- Indikator Loading (3 Titik) --}}
-      <div class="mt-6 flex gap-2">
-        <div class="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
-        <div class="w-3 h-3 bg-primary rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-        <div class="w-3 h-3 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-      </div>
-
-      {{-- Teks Opsional --}}
-      <p class="mt-4 text-primary font-bold text-sm tracking-widest uppercase animate-pulse">Memuat Data...</p>
-    </div>
-  </div>
-
   <section id="hero" class="relative -mt-32 pt-48 pb-20 lg:pt-60 lg:pb-28 bg-gray-50 overflow-hidden">
 
     {{-- Container Utama --}}
@@ -48,8 +30,8 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <a href="/"
-              class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-secondary0/30 transform hover:-translate-y-1">
+            <a href="{{ route('spmb') }}"
+              class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
               Info SPMB
               <i class="fa-solid fa-arrow-right ml-2"></i>
             </a>
