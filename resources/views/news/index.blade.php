@@ -158,7 +158,7 @@
 
           {{-- Pagination --}}
           <div class="mt-12">
-            {{ $berita->links('pagination::tailwind') }}
+            {{ $berita->links('layouts.pagination') }}
           </div>
 
         </div>

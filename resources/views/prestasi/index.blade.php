@@ -46,70 +46,89 @@
 
   {{-- PRESTASI SECTION --}}
   <section class="py-20 bg-gray-50 min-h-screen">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 max-w-7xl">
 
-      {{-- STATS SINGKAT --}}
-      <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-20" data-aos="fade-up">
-        <div class="text-center">
-          <h4 class="text-4xl font-black text-slate-900">50+</h4>
-          <p class="text-sm font-bold text-blue-600 uppercase tracking-widest mt-1">Medali Emas</p>
+      {{-- STATS SINGKAT DINAMIS --}}
+      <div class="flex flex-wrap justify-center gap-12 md:gap-24 mb-20" data-aos="fade-up">
+
+        <div class="text-center relative">
+          <h4 class="text-5xl font-black text-slate-900">{{ $totalPrestasi }}</h4>
+          <p class="text-sm font-bold text-blue-600 uppercase tracking-widest mt-2">Total Prestasi</p>
+          {{-- Garis Pemisah (Hanya Muncul di Desktop) --}}
+          <div class="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-px h-12 bg-gray-200"></div>
         </div>
-        <div class="text-center">
-          <h4 class="text-4xl font-black text-slate-900">120+</h4>
-          <p class="text-sm font-bold text-cyan-500 uppercase tracking-widest mt-1">Prestasi Nasional</p>
+
+        <div class="text-center relative">
+          <h4 class="text-5xl font-black text-slate-900">{{ $countAkademik }}</h4>
+          <p class="text-sm font-bold text-cyan-500 uppercase tracking-widest mt-2">Akademik</p>
+          <div class="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 w-px h-12 bg-gray-200"></div>
         </div>
+
         <div class="text-center">
-          <h4 class="text-4xl font-black text-slate-900">15</h4>
-          <p class="text-sm font-bold text-indigo-600 uppercase tracking-widest mt-1">Kerja Sama Internasional</p>
+          <h4 class="text-5xl font-black text-slate-900">{{ $countNonAkademik }}</h4>
+          <p class="text-sm font-bold text-indigo-600 uppercase tracking-widest mt-2">Non-Akademik</p>
         </div>
+
       </div>
 
-      {{-- DAFTAR PRESTASI --}}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {{-- DAFTAR PRESTASI (Diubah menjadi 3 Kolom & Card Vertikal) --}}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div class="group bg-white p-2 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col sm:flex-row items-center gap-6" data-aos="fade-up"
-          data-aos-delay="100">
-          <div class="w-full sm:w-48 aspect-3/4 rounded-4xl overflow-hidden bg-slate-100 shrink-0">
-            {{-- Foto Dokumentasi Prestasi --}}
-            <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=400" alt="Prestasi"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          </div>
-          <div class="p-6 sm:pl-0 pr-8">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="px-3 py-1 bg-blue-600 text-white text-[10px] font-bold rounded-full uppercase">Internasional</span>
-              <span class="text-gray-400 text-xs font-bold">2024</span>
-            </div>
-            <h3 class="text-xl font-black text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">Juara 1 World Robot Olympiad</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Tim Robotik SMK Senopati berhasil meraih medali emas dalam kategori 'Innovation Solution' di Berlin, Jerman.</p>
-          </div>
-        </div>
+        @forelse ($prestasi as $item)
+          <div class="group bg-white p-3 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col" data-aos="fade-up">
 
-        <div class="group bg-white p-2 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col sm:flex-row items-center gap-6" data-aos="fade-up"
-          data-aos-delay="200">
-          <div class="w-full sm:w-48 aspect-3/4 rounded-4xl overflow-hidden bg-slate-100 shrink-0">
-            <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&q=80&w=400" alt="Prestasi"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          </div>
-          <div class="p-6 sm:pl-0 pr-8">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="px-3 py-1 bg-cyan-500 text-white text-[10px] font-bold rounded-full uppercase">Nasional</span>
-              <span class="text-gray-400 text-xs font-bold">2023</span>
+            {{-- Foto Dokumentasi Prestasi (Di atas) --}}
+            <div class="w-full aspect-4/3 rounded-4xl overflow-hidden bg-slate-100 relative shrink-0">
+              <img src="{{ Storage::url('berita/' . $item->gambar) }}" alt="{{ $item->judul }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+
+              {{-- Badge Kategori --}}
+              <div class="absolute top-4 left-4">
+                @if ($item->kategori->slug == 'prestasi-akademik')
+                  <span class="px-3 py-1.5 bg-cyan-500 text-white text-[10px] font-bold rounded-full uppercase shadow-sm">Akademik</span>
+                @else
+                  <span class="px-3 py-1.5 bg-indigo-500 text-white text-[10px] font-bold rounded-full uppercase shadow-sm">Non-Akademik</span>
+                @endif
+              </div>
             </div>
-            <h3 class="text-xl font-black text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">Medali Emas LKS Nasional</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Keberhasilan dalam bidang IT Network System Administration yang diselenggarakan oleh Kemendikbudristek.</p>
+
+            {{-- Teks & Detail Prestasi (Di bawah) --}}
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-gray-400 text-xs font-bold">{{ $item->created_at->translatedFormat('d F Y') }}</span>
+              </div>
+
+              <h3 class="text-xl font-black text-slate-900 mb-3 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">
+                <a href="{{ route('detail-berita', $item->slug) }}">{{ $item->judul }}</a>
+              </h3>
+
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4 flex-1">
+                {{ Str::limit(strip_tags($item->konten), 120) }}
+              </p>
+
+              <a href="{{ route('detail-berita', $item->slug) }}" class="inline-flex items-center text-xs font-bold text-blue-600 hover:text-blue-800 w-max group/link mt-auto">
+                Baca Detail <i class="bi bi-arrow-right ml-1 transform group-hover/link:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
+
           </div>
-        </div>
+        @empty
+          <div class="col-span-full py-24 flex flex-col items-center justify-center text-center px-4" data-aos="fade-up">
+            <div class="relative w-28 h-28 flex items-center justify-center bg-gray-50 rounded-full mb-8 shadow-inner border border-gray-100">
+              <div class="absolute inset-0 bg-blue-100 rounded-full blur-xl opacity-60"></div>
+              <i class="bi bi-trophy text-5xl text-primary relative z-10 opacity-80"></i>
+            </div>
+            <h3 class="text-2xl font-black text-slate-800 mb-3">Belum Ada Prestasi</h3>
+            <p class="text-gray-500 max-w-md mx-auto mb-8 leading-relaxed text-sm md:text-base">
+              Data prestasi siswa saat ini belum dipublikasikan. Nantikan pembaruan informasi selanjutnya.
+            </p>
+          </div>
+        @endforelse
 
       </div>
 
       {{-- PAGINATION --}}
-      <div class="mt-20 flex justify-center">
-        <nav class="flex items-center gap-3 bg-white p-2 rounded-2xl shadow-sm border border-gray-100">
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-400 hover:bg-gray-50 transition-all">&larr;</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-600 text-white font-bold shadow-lg shadow-blue-200">1</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-600 font-bold hover:bg-gray-50 transition-all">2</a>
-          <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl text-gray-400 hover:bg-gray-50 transition-all">&rarr;</a>
-        </nav>
+      <div class="mt-20">
+        {{ $prestasi->links('layouts.pagination') }}
       </div>
 
     </div>

@@ -3,10 +3,12 @@
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
@@ -40,14 +42,10 @@ Route::middleware('guest:admin')->group(function () {
     Route::get('/struktur', [StrukturController::class, 'strukturLanding'])->name('struktur');
 
     // Fasilitas
-    Route::get('/fasilitas', function () {
-        return view('fasilitas.index');
-    })->name('fasilitas');
+    Route::get('/fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');
 
     // Prestasi
-    Route::get('/prestasi', function () {
-        return view('prestasi.index');
-    })->name('prestasi');
+    Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
     // Jurusan
     Route::get('/jurusan/{jurusan:kode_jurusan}', [JurusanController::class, 'show'])

@@ -126,7 +126,7 @@
 
           {{-- PAGINATION[cite: 5] --}}
           <div class="mt-12">
-            {{ $galeri->links('pagination::tailwind') }}
+            {{ $galeri->links('layouts.pagination') }}
           </div>
 
         </div>

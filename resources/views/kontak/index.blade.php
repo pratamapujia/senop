@@ -80,7 +80,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold text-slate-800">Email Resmi</h4>
-                  <p class="text-sm text-gray-500">info@smksenopati.sch.id</p>
+                  <p class="text-sm text-gray-500">smk.senopati@gmail.com</p>
                 </div>
               </div>
 
@@ -93,8 +93,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="font-bold text-slate-800">Telepon / WhatsApp</h4>
-                  <p class="text-sm text-gray-500">+62 123 4567 890</p>
+                  <h4 class="font-bold text-slate-800">Telepon</h4>
+                  <p class="text-sm text-gray-500">031-8915186</p>
                 </div>
               </div>
             </div>
@@ -102,50 +102,13 @@
 
           {{-- KANAN: FORMULIR PESAN --}}
           <div class="lg:w-2/3" data-aos="fade-left">
-            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/50 border border-gray-100">
-              <form action="#" method="POST" class="space-y-6">
-                @csrf
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-2">Nama Lengkap</label>
-                    <input type="text" class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
-                      placeholder="Masukkan nama...">
-                  </div>
-                  <div>
-                    <label class="block text-sm font-bold text-slate-700 mb-2">Alamat Email</label>
-                    <input type="email" class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
-                      placeholder="example@mail.com">
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-slate-700 mb-2">Subjek Pesan</label>
-                  <input type="text" class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
-                    placeholder="Tanya PPDB, Administrasi, dll.">
-                </div>
-
-                <div>
-                  <label class="block text-sm font-bold text-slate-700 mb-2">Pesan Anda</label>
-                  <textarea rows="4" class="w-full px-5 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all"
-                    placeholder="Tuliskan pesan secara detail..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-200 active:scale-[0.98]">
-                  Kirim Pesan Sekarang
-                </button>
-              </form>
+            <div class="rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-100 hover:grayscale transition-all duration-700" data-aos="zoom-in">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.6261564661295!2d112.7625807!3d-7.395718899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e5bb37214749%3A0x3eb190ed23bd402b!2sSMK%20SENOPATI!5e0!3m2!1sid!2sid!4v1776143443492!5m2!1sid!2sid"
+                class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
-
         </div>
-
-        {{-- MAPS SECTION (OPSIONAL) --}}
-        <div class="mt-20 rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-100 grayscale hover:grayscale-0 transition-all duration-700" data-aos="zoom-in">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.6261564661295!2d112.7625807!3d-7.395718899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e5bb37214749%3A0x3eb190ed23bd402b!2sSMK%20SENOPATI!5e0!3m2!1sid!2sid!4v1776143443492!5m2!1sid!2sid"
-            class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
       </div>
     </div>
   </section>

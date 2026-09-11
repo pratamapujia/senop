@@ -65,7 +65,7 @@ class GaleriController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(800, 450, 'top');
+            $image->cover(1280, 720, 'center');
             $image->save($path, 90, 'webp');
             $galeri->gambar = $filename;
         }
@@ -137,7 +137,7 @@ class GaleriController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(800, 450, 'top');
+            $image->cover(1280, 720, 'center');
             $image->save($path, 90, 'webp');
             $galeri->gambar = $filename;
         }

@@ -72,7 +72,7 @@ class BeritaController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(800, 450, 'top');
+            $image->cover(1280, 720, 'center');
             $image->save($path, 90, 'webp');
             $berita->gambar = $filename;
         }
@@ -155,7 +155,7 @@ class BeritaController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(800, 450, 'top');
+            $image->cover(1280, 720, 'center');
             $image->save($path, 90, 'webp');
             $berita->gambar = $filename;
         }
@@ -212,7 +212,7 @@ class BeritaController extends Controller
             $query->where('judul', 'like', '%' . $request->q . '%');
         }
 
-        $berita = $query->latest()->paginate(9)->withQueryString();
+        $berita = $query->latest('created_at')->paginate(9)->withQueryString();
 
         // 2. Ambil Semua Kategori + Jumlah berita per kategorinya (menggunakan withCount)
         $kategoriList = Kategori::withCount(['berita' => function ($query) {
