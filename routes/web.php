@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JurusanController;
@@ -75,9 +76,7 @@ Route::middleware('guest:admin')->group(function () {
 Route::middleware('auth:admin')->group(function () {
 
     // Dashboard Admin
-    Route::get('/admin', function () {
-        return view('admin.index');
-    })->name('admin');
+    Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
 
     // Route Resource
     Route::resource('dm-struktur', StrukturController::class);
