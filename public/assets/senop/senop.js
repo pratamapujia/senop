@@ -61,26 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Swiper
-document.addEventListener("DOMContentLoaded", function () {
-    new Swiper(".testimoni-swiper", {
-        loop: true,
-        speed: 1000, // Speed lambat agar elegan
-        effect: "fade", // Fade effect wajib untuk opsi 1, opsional untuk opsi 2
-        fadeEffect: {
-            crossFade: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: ".swiper-next-custom",
-            prevEl: ".swiper-prev-custom",
-        },
-    });
-});
-
 // Scroll To Top
 document.addEventListener("DOMContentLoaded", function () {
     const progressPath = document.querySelector("#progress-path");

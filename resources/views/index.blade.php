@@ -752,40 +752,54 @@
 
       {{-- Swiper Container --}}
       <div class="swiper testimoni-swiper max-w-5xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
-        <div class="swiper-wrapper mb-12"> {{-- Margin bottom untuk space tombol --}}
+        <div class="swiper-wrapper mb-12">
 
           @forelse ($testimoni as $item)
             <div class="swiper-slide">
-              <div class="relative w-full h-auto md:h-105 rounded-4xl overflow-hidden group shadow-xl">
+              <div class="relative w-full rounded-4xl overflow-hidden group shadow-xl bg-slate-900 flex flex-col md:block md:h-105">
 
-                {{-- BG IMAGE --}}
-                <div class="absolute inset-0">
+                {{-- BG IMAGE — mobile: block biasa di atas; desktop: absolute full bg --}}
+                <div class="relative h-56 sm:h-64 md:absolute md:inset-0 md:h-full w-full shrink-0">
                   <img src="{{ Storage::url('testimoni/' . $item->gambar) }}" class="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110" alt="BG">
-                  <div class="absolute inset-0 bg-linear-to-r from-slate-900 via-slate-900/80 to-slate-900/40"></div>
+                  <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent md:bg-linear-to-r md:via-slate-900/80 md:to-slate-900/40"></div>
                 </div>
 
-                {{-- CONTENT WRAPPER --}}
-                <div class="absolute inset-0 p-6 md:p-12 flex flex-col justify-between z-10">
+                {{-- CONTENT WRAPPER — mobile: flow normal; desktop: absolute overlay --}}
+                <div class="relative md:absolute md:inset-0 px-6 pb-6 md:p-12 flex flex-col justify-between z-10 -mt-14 sm:-mt-16 md:mt-0">
 
-                  {{-- Top Area: Quote & Avatar --}}
-                  <div class="flex flex-col-reverse md:flex-row items-center md:items-start h-full gap-8">
+                  <div class="flex flex-col-reverse md:flex-row items-center md:items-start md:h-full gap-6 md:gap-8">
+
+                    {{-- Avatar Side --}}
+                    <div class="w-full md:w-2/5 flex justify-center md:justify-end order-1 md:order-2 relative mt-2 md:mt-0">
+                      <div class="relative">
+                        <div class="absolute -inset-4 md:-inset-5 rounded-full border-t-2 border-r-2 border-cyan-400 animate-[spin_8s_linear_infinite]"></div>
+                        <div class="absolute -inset-2.5 md:-inset-3 rounded-full border-b-2 border-l-2 border-blue-500 opacity-60 animate-[spin_10s_linear_infinite_reverse]"></div>
+
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-44 md:h-44 rounded-full border-4 border-white shadow-[0_0_30px_rgba(34,211,238,0.2)] overflow-hidden relative z-10 bg-slate-800">
+                          <img src="{{ Storage::url('testimoni/' . $item->gambar) }}" class="w-full h-full object-cover" alt="{{ $item->nama }}">
+                        </div>
+
+                        <div
+                          class="absolute -bottom-3 md:-bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-4 md:px-5 py-1.5 md:py-2 rounded-xl font-bold text-xs md:text-sm shadow-xl whitespace-nowrap z-20 border border-slate-700/50">
+                          {{ $item->nama }}
+                        </div>
+                      </div>
+                    </div>
 
                     {{-- Text Side --}}
-                    <div class="w-full md:w-3/5 text-center md:text-left text-white relative pt-4 md:pt-8">
-                      <span class="absolute -top-4 left-0 md:-top-6 md:-left-4 text-6xl md:text-8xl font-serif text-white/20 leading-none">“</span>
+                    <div class="w-full md:w-3/5 text-center md:text-left text-white relative order-2 md:order-1 pt-6 md:pt-8">
+                      <span class="hidden sm:block absolute -top-2 left-0 md:-top-6 md:-left-4 text-6xl md:text-8xl font-serif text-white/20 leading-none">&ldquo;</span>
 
-                      {{-- LOGIKA DINAMIS UKURAN FONT --}}
                       @php
                         $teksBersih = strip_tags($item->testimoni);
                         $panjangKarakter = strlen($teksBersih);
 
-                        // Atur ukuran font berdasarkan jumlah karakter
                         if ($panjangKarakter < 100) {
-                            $ukuranFont = 'text-xl md:text-3xl leading-relaxed'; // Pesan Singkat (Besar)
+                            $ukuranFont = 'text-lg sm:text-xl md:text-3xl leading-relaxed';
                         } elseif ($panjangKarakter <= 250) {
-                            $ukuranFont = 'text-lg md:text-2xl leading-relaxed'; // Pesan Sedang (Menengah)
+                            $ukuranFont = 'text-base sm:text-lg md:text-2xl leading-relaxed';
                         } else {
-                            $ukuranFont = 'text-base md:text-lg leading-normal'; // Pesan Panjang (Kecil)
+                            $ukuranFont = 'text-sm sm:text-base md:text-lg leading-normal';
                         }
                       @endphp
 
@@ -794,65 +808,42 @@
                       </h3>
                     </div>
 
-                    {{-- Avatar Side (Floating Effect) --}}
-                    <div class="w-full md:w-2/5 flex justify-center md:justify-end relative mt-8 md:mt-0">
-                      <div class="relative">
-                        <div class="absolute -inset-5 rounded-full border-t-2 border-r-2 border-cyan-400 animate-[spin_8s_linear_infinite]"></div>
-                        <div class="absolute -inset-3 rounded-full border-b-2 border-l-2 border-blue-500 opacity-60 animate-[spin_10s_linear_infinite_reverse]"></div>
-
-                        <div class="w-32 h-32 md:w-44 md:h-44 rounded-full border-4 border-white shadow-[0_0_30px_rgba(34,211,238,0.2)] overflow-hidden relative z-10 bg-slate-800">
-                          <img src="{{ Storage::url('testimoni/' . $item->gambar) }}" class="w-full h-full object-cover" alt="User">
-                        </div>
-
-                        <div
-                          class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-5 py-2 rounded-xl font-bold text-sm shadow-xl whitespace-nowrap z-20 border border-slate-700/50">
-                          {{ $item->nama }}
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
 
                   {{-- Bottom Bar: Identity & Role --}}
-                  <div class="mt-8 md:mt-auto flex items-end justify-between w-full relative z-20">
+                  <div class="mt-6 md:mt-auto flex flex-col items-center md:flex-row md:items-end md:justify-between w-full relative z-20 gap-2 md:gap-0">
                     <div class="flex items-center gap-3">
-                      <h4 class="text-xl md:text-2xl font-bold text-white tracking-wide">{{ $item->nama }}</h4>
+                      <h4 class="text-base sm:text-lg md:text-2xl font-bold text-white tracking-wide">{{ $item->nama }}</h4>
                       <span class="px-3 py-1 rounded-full bg-blue-100/90 text-blue-900 text-xs font-bold tracking-wider shadow-sm">
                         {{ $item->jabatan }}
                       </span>
                     </div>
                   </div>
+
                 </div>
 
               </div>
             </div>
           @empty
-            {{-- Empty State Testimoni yang Elegan --}}
+            {{-- Empty State — tetap sama, sudah responsif karena tidak pakai absolute --}}
             <div
               class="w-full h-auto md:h-105 flex flex-col items-center justify-center bg-linear-to-b from-gray-50 to-white rounded-4xl border-2 border-dashed border-gray-200 p-8 md:p-12 text-center relative overflow-hidden">
-
-              {{-- Watermark Latar Belakang --}}
               <i class="fa-solid fa-quote-right absolute top-10 right-10 text-[10rem] text-gray-100/50 rotate-12 z-0"></i>
-
-              {{-- Ikon dengan Efek Soft Glow --}}
               <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-50 mb-6 border border-blue-100 z-10">
                 <div class="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-40"></div>
                 <i class="fa-solid fa-comments text-4xl text-primary relative z-10"></i>
               </div>
-
-              {{-- Konten Teks --}}
               <div class="relative z-10">
                 <h4 class="text-xl md:text-2xl font-black text-gray-800 mb-3">Belum Ada Testimoni</h4>
                 <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto leading-relaxed">
                   Kisah inspiratif, ulasan, dan pengalaman dari alumni maupun mitra SMK Senopati belum tersedia saat ini. Nantikan pembaruan dari kami!
                 </p>
               </div>
-
             </div>
           @endforelse
         </div>
 
-        {{-- Navigasi (Kotak Minimalis di posisi tengah bawah) --}}
+        {{-- Navigasi --}}
         <div class="flex justify-center gap-3 mt-4">
           <button
             class="swiper-prev-custom w-10 h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
@@ -923,6 +914,20 @@
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeAgendaModal();
+    });
+
+    // Swiper
+    new Swiper(".testimoni-swiper", {
+      loop: true,
+      autoHeight: true, // WAJIB — biar tinggi wrapper ikut tinggi slide aktif
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-next-custom",
+        prevEl: ".swiper-prev-custom",
+      },
     });
   </script>
 @endsection
