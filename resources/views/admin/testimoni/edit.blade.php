@@ -76,7 +76,7 @@
             </div>
 
             {{-- Field Gambar --}}
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="form-group">
                 <label class="form-label" for="gambar">Gambar</label>
                 <div class="d-flex align-items-top gap-3">
@@ -114,7 +114,7 @@
                 <input type="hidden" name="testimoni" id="input_testimoni" value="{{ old('testimoni', $testimoni->testimoni) }}">
 
                 <!-- Wadah editor Quill -->
-                <div id="full" class="@error('testimoni') is-invalid @enderror">{!! old('testimoni', $testimoni->testimoni) !!}</div>
+                <div id="editor-testimoni" class="@error('testimoni') is-invalid @enderror">{!! old('testimoni', $testimoni->testimoni) !!}</div>
 
                 @error('testimoni')
                   <div class="invalid-feedback d-block mt-2">
