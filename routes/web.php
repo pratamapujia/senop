@@ -9,6 +9,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\TestimoniController;
@@ -71,9 +72,7 @@ Route::middleware('guest:admin')->group(function () {
     })->name('kontak');
 
     // SPMB
-    Route::get('/spmb', function () {
-        return view('spmb.index');
-    })->name('spmb');
+    Route::get('/info-spmb', [PendaftaranController::class, 'spmbLanding'])->name('spmb');
 });
 
 
@@ -91,6 +90,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('dm-galeri', GaleriController::class);
     Route::resource('dm-testimoni', TestimoniController::class);
     Route::resource('dm-jurusan', JurusanController::class);
+    Route::resource('spmb', PendaftaranController::class)->only('index', 'store', 'destroy');
 
     // Rute untuk mengubah status saja (tanpa edit foto/konten)
     Route::patch('berita/{berita}/status', [BeritaController::class, 'updateStatus'])->name('dm-berita.update-status');

@@ -57,12 +57,13 @@
           'active' => request()->is('dm-testimoni*'),
           'children' => [],
       ],
-      // [
-      //     'title' => 'PPDB',
-      //     'url' => route('admin-ppdb'),
-      //     'icon' => 'bi-person-plus',
-      //     'active' => request()->is('admin/ppdb*'),
-      // ],
+      [
+          'title' => 'SPMB',
+          'url' => route('spmb.index'),
+          'icon' => 'fa-folder-open',
+          'active' => request()->is('spmb*'),
+          'children' => [],
+      ],
   ];
 @endphp
 

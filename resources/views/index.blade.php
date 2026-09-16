@@ -568,12 +568,20 @@
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             @forelse ($agenda as $item)
-              <div onclick="openAgendaModal(this)" data-judul="{{ $item->judul }}" data-tanggal="{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}"
-                data-tempat="{{ $item->tempat }}" data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi tambahan untuk agenda ini.' }}"
+              @php $tanggalAgenda = \Carbon\Carbon::parse($item->tanggal); @endphp
+              <div onclick="openAgendaModal(this)" data-judul="{{ $item->judul }}" data-tanggal="{{ $tanggalAgenda->translatedFormat('d F Y') }}" data-tempat="{{ $item->tempat }}"
+                data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi tambahan untuk agenda ini.' }}"
                 class="group bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex items-center gap-4 cursor-pointer h-full relative overflow-hidden">
-                <div class="shrink-0 w-16 h-16 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span class="text-xl font-black leading-none">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d') }}</span>
-                  <span class="text-[10px] font-bold uppercase mt-1">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('F') }}</span>
+
+                <div class="relative shrink-0 w-16 h-16 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  @if ($tanggalAgenda->isToday())
+                    <span class="absolute -top-1.5 -left-1.5 flex h-4 w-4">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
+                    </span>
+                  @endif
+                  <span class="text-xl font-black leading-none">{{ $tanggalAgenda->translatedFormat('d') }}</span>
+                  <span class="text-[10px] font-bold uppercase mt-1">{{ $tanggalAgenda->translatedFormat('F') }}</span>
                 </div>
                 <div class="flex-1 min-w-0">
                   <h4 class="text-base font-bold text-header group-hover:text-gray-700 transition-colors mb-1 line-clamp-2 leading-snug">
@@ -584,7 +592,7 @@
                     {{ $item->tempat }}
                   </p>
                 </div>
-                <div class="hidden xl:flex w-8 h-8 text-primary items-center justify-center group-hover:bg-blue-100 group-hover:text-accent transition-all shrink-0">
+                <div class="hidden xl:flex w-8 h-8 text-primary items-center justify-center group-hover:text-accent transition-all shrink-0">
                   <i class="fa-solid fa-calendar text-2xl"></i>
                 </div>
               </div>
