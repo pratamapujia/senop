@@ -109,7 +109,23 @@
                         {{ $message }}
                       </div>
                     @enderror
-                    <small class="text-danger mt-1 d-block">*Biarkan kosong jika tidak ingin mengubah foto.</small>
+                    @php
+                      $sudahDiGaleri = \App\Models\Galeri::where('berita_id', $berita->id)->exists();
+                    @endphp
+                    {{-- Opsi Sinkronisasi ke Galeri --}}
+                    <div class="form-check mt-3">
+                      <input class="form-check-input" type="checkbox" name="masukkan_galeri" value="1" id="masukkanGaleri"
+                        {{ old('masukkan_galeri', $sudahDiGaleri ? '1' : null) ? 'checked' : '' }}>
+                      <label class="form-check-label cursor-pointer text-sm" for="masukkanGaleri">
+                        Tampilkan foto ini di Halaman Galeri
+                        @if ($sudahDiGaleri)
+                          <span class="badge bg-success ms-1" style="font-size: 10px;">Sudah ada di Galeri</span>
+                        @endif
+                      </label>
+                    </div>
+                    <small class=" mt-1 d-block">
+                      *Foto di galeri otomatis ikut berubah kalau Anda upload thumbnail baru. Centang/hilangkan centang hanya mengatur apakah foto ini tampil di halaman Galeri.
+                    </small>
                   </div>
 
                   <!-- Sisi Kanan: Preview Foto (Jika ada di database) -->

@@ -2,6 +2,36 @@
 
 @section('title')
   <title>Detail Berita</title>
+  <style>
+    /* Mengamankan gambar & iframe (video) dari Quill */
+    .article-body img,
+    .article-body iframe {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 1.5rem !important;
+      /* Membuat sudut membulat/rounded yang cantik */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      /* Menambahkan efek shadow/bayangan */
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    /* Memastikan perataan teks/gambar dari Quill bekerja dengan baik */
+    .article-body .ql-align-center {
+      text-align: center;
+    }
+
+    .article-body .ql-align-right {
+      text-align: right;
+    }
+
+    .article-body .ql-align-justify {
+      text-align: justify;
+    }
+  </style>
 @endsection
 
 @section('main')
@@ -75,8 +105,7 @@
           </div>
 
           {{-- Body Text --}}
-          <div class="prose prose-lg prose-blue max-w-none text-gray-600 leading-loose">
-            {{-- Gunakan {!! !!} untuk render HTML dari summernote/editor --}}
+          <div class="article-body prose prose-lg prose-blue max-w-none text-gray-600 leading-loose prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-headings:text-slate-800">
             {!! $berita->konten !!}
           </div>
 

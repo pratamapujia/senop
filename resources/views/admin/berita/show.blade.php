@@ -2,6 +2,29 @@
 
 @section('title')
   <title>Review Data Berita</title>
+  <style>
+    /* Mencegah gambar & iframe dari Quill keluar dari batas layar */
+    .article-content img,
+    .article-content iframe {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 0.5rem;
+      /* Tambahan: agar sudut gambar agak melengkung */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Jika admin menaruh gambar dengan alignment, pastikan jaraknya rapi */
+    .article-content .ql-align-center {
+      text-align: center;
+    }
+
+    .article-content .ql-align-right {
+      text-align: right;
+    }
+  </style>
 @endsection
 
 @section('main')
