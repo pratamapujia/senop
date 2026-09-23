@@ -66,8 +66,8 @@ class StrukturController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(270, 360, 'top');
-            $image->save($path, 80, 'webp');
+            $image->cover(768, 1024, 'top');
+            $image->save($path, 90, 'webp');
             $struktur->foto = $filename;
         }
 
@@ -141,7 +141,7 @@ class StrukturController extends Controller
             }
             $path = $directoryPath . '/' . $filename;
             $image = Image::decode($file->getRealPath());
-            $image->cover(270, 360, 'top');
+            $image->cover(768, 1024, 'top');
             $image->save($path, 80, 'webp');
             $struktur->foto = $filename;
         }
