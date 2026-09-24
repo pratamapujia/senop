@@ -56,11 +56,11 @@
       @if ($kepsek)
         <div class="flex justify-center mb-16" data-aos="fade-up">
           <div class="group relative">
-            <div class="absolute -inset-1 bg-linear-to-r from-blue-600 to-indigo-500 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            <div class="absolute -inset-1 bg-linear-to-r from-primary to-indigo-500 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
             <div class="relative bg-white p-6 rounded-[2.5rem] shadow-sm border border-gray-100 text-center w-72 md:w-80">
-              <div class="aspect-3/4 mb-5 rounded-2xl overflow-hidden shadow-inner bg-slate-100 border border-gray-50">
-                <img src="{{ Storage::url('struktur/' . $kepsek->foto) }}" alt="{{ $kepsek->nama_lengkap }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
+              <div class="aspect-3/4 mb-5 rounded-2xl overflow-hidden shadow-inner bg-linear-to-t from-primary to-white border border-gray-50">
+                <img src="{{ Storage::url('struktur/' . $kepsek->foto) }}" alt="{{ $kepsek->nama_lengkap }}"
+                  class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
               </div>
               <h3 class="text-xl font-black text-slate-800 line-clamp-1" title="{{ $kepsek->nama_lengkap }}">{{ $kepsek->nama_lengkap }}</h3>
               <p class="text-primary font-bold text-xs uppercase tracking-widest mt-1">{{ $kepsek->jabatan }}</p>
@@ -74,10 +74,9 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-24" data-aos="fade-up" data-aos-delay="100">
           @foreach ($wakasek as $waka)
             <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
-              <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-slate-50 relative">
-                <div class="absolute inset-0 bg-linear-to-t from-slate-900/10 to-transparent z-10 pointer-events-none"></div>
-                <img src="{{ Storage::url('struktur/' . $waka->foto) }}" alt="{{ $waka->nama_lengkap }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
+              <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-linear-to-t from-primary to-white relative">
+                <img src="{{ Storage::url('struktur/' . $waka->foto) }}" alt="{{ $waka->nama_lengkap }}"
+                  class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
               </div>
               <div class="mt-auto">
                 <h4 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $waka->nama_lengkap }}">{{ $waka->nama_lengkap }}</h4>
@@ -88,61 +87,53 @@
         </div>
       @endif
 
-      {{-- LEVEL 3: KAKOMKA (SWIPER GRID) --}}
-      @if (isset($kakomka) && $kakomka->count() > 0)
-        <div class="space-y-10 mb-24" data-aos="fade-up" data-aos-delay="150">
-          <div class="text-center">
-            <h3 class="text-2xl font-black text-slate-800 uppercase tracking-widest">Ketua Kompetensi Keahlian</h3>
-            <div class="h-1 w-20 bg-blue-600 mx-auto mt-3 rounded-full"></div>
-          </div>
-          <div class="relative px-2 md:px-8">
-            <div class="swiper kakomka-swiper pb-10">
-              <div class="swiper-wrapper pb-10">
-                @foreach ($kakomka as $k)
-                  <div class="swiper-slide h-auto">
-                    <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                      <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-slate-50 relative">
-                        <img src="{{ Storage::url('struktur/' . $k->foto) }}" alt="{{ $k->nama_lengkap }}"
-                          class="w-full h-full object-cover group-hover:scale-105 group-hover:grayscale transition-all duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
-                      </div>
-                      <div class="mt-auto">
-                        <h5 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $k->nama_lengkap }}">{{ $k->nama_lengkap }}</h5>
-                        <p class="text-[10px] text-gray-500 font-medium uppercase tracking-wider mt-1.5">{{ $k->jabatan ?? 'Kakomka' }}</p>
-                      </div>
-                    </div>
-                  </div>
-                @endforeach
-              </div>
-              <div class="swiper-pagination org-swiper-pagination bottom-0"></div>
-            </div>
-          </div>
-        </div>
-      @endif
-
-      {{-- LEVEL 4: DEWAN GURU (SWIPER GRID) --}}
-      @if ($guru && $guru->count() > 0)
+      {{-- LEVEL 3: DEWAN GURU & KAKOMKA (SWIPER GRID) --}}
+      @if ((isset($kakomka) && $kakomka->count() > 0) || (isset($guru) && $guru->count() > 0))
         <div class="space-y-10 mb-24" data-aos="fade-up" data-aos-delay="200">
           <div class="text-center">
             <h3 class="text-2xl font-black text-slate-800 uppercase tracking-widest">Dewan Guru</h3>
-            <div class="h-1 w-20 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+            <div class="h-1 w-20 bg-primary mx-auto mt-3 rounded-full"></div>
           </div>
-          <div class="relative px-2 md:px-8">
+          <div class="relative">
             <div class="swiper guru-swiper pb-10">
               <div class="swiper-wrapper pb-10">
-                @foreach ($guru as $g)
-                  <div class="swiper-slide h-auto">
-                    <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                      <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-slate-50 relative">
-                        <img src="{{ Storage::url('struktur/' . $g->foto) }}" alt="{{ $g->nama_lengkap }}"
-                          class="w-full h-full object-cover group-hover:scale-105 group-hover:grayscale transition-all duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
-                      </div>
-                      <div class="mt-auto">
-                        <h5 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $g->nama_lengkap }}">{{ $g->nama_lengkap }}</h5>
-                        <p class="text-[10px] text-gray-500 font-medium uppercase tracking-wider mt-1.5">{{ $g->jabatan ?? 'Guru' }}</p>
+
+                {{-- LOOPING 1: Kakomka diurutkan paling awal --}}
+                @if (isset($kakomka))
+                  @foreach ($kakomka as $k)
+                    <div class="swiper-slide h-auto">
+                      <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-linear-to-t from-primary to-white relative">
+                          <img src="{{ Storage::url('struktur/' . $k->foto) }}" alt="{{ $k->nama_lengkap }}"
+                            class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
+                        </div>
+                        <div class="mt-auto">
+                          <h5 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $k->nama_lengkap }}">{{ $k->nama_lengkap }}</h5>
+                          <p class="text-[10px] text-gray-500 font-medium uppercase tracking-wider mt-1.5">{{ $k->jabatan ?? 'Kakomka' }}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                @endforeach
+                  @endforeach
+                @endif
+
+                {{-- LOOPING 2: Guru akan mengisi sisa slot setelah Kakomka --}}
+                @if (isset($guru))
+                  @foreach ($guru as $g)
+                    <div class="swiper-slide h-auto">
+                      <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                        <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-linear-to-t from-primary to-white relative">
+                          <img src="{{ Storage::url('struktur/' . $g->foto) }}" alt="{{ $g->nama_lengkap }}"
+                            class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
+                        </div>
+                        <div class="mt-auto">
+                          <h5 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $g->nama_lengkap }}">{{ $g->nama_lengkap }}</h5>
+                          <p class="text-[10px] text-gray-500 font-medium uppercase tracking-wider mt-1.5">{{ $g->jabatan ?? 'Guru' }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  @endforeach
+                @endif
+
               </div>
               <div class="swiper-pagination org-swiper-pagination bottom-0"></div>
             </div>
@@ -150,22 +141,22 @@
         </div>
       @endif
 
-      {{-- LEVEL 5: STAFF & KARYAWAN (SWIPER GRID) --}}
+      {{-- LEVEL 4: STAFF & KARYAWAN (SWIPER GRID) --}}
       @if ($staff && $staff->count() > 0)
         <div class="space-y-10" data-aos="fade-up" data-aos-delay="300">
           <div class="text-center">
             <h3 class="text-2xl font-black text-slate-800 uppercase tracking-widest">Staf & Karyawan</h3>
-            <div class="h-1 w-20 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+            <div class="h-1 w-20 bg-primary mx-auto mt-3 rounded-full"></div>
           </div>
-          <div class="relative px-2 md:px-8">
+          <div class="relative">
             <div class="swiper staff-swiper pb-10">
               <div class="swiper-wrapper pb-10">
                 @foreach ($staff as $s)
                   <div class="swiper-slide h-auto">
-                    <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                      <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-slate-50 relative">
+                    <div class="group bg-white p-4 rounded-3xl shadow-sm border border-gray-100 text-center hover:shadow-lg hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                      <div class="aspect-3/4 mb-4 rounded-2xl overflow-hidden bg-linear-to-t from-primary to-white relative">
                         <img src="{{ Storage::url('struktur/' . $s->foto) }}" alt="{{ $s->nama_lengkap }}"
-                          class="w-full h-full object-cover group-hover:scale-105 group-hover:grayscale transition-all duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
+                          class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-500" onerror="this.src='{{ asset('assets/senop/img/none.jpg') }}'">
                       </div>
                       <div class="mt-auto">
                         <h5 class="text-sm font-bold text-slate-800 leading-snug line-clamp-2" title="{{ $s->nama_lengkap }}">{{ $s->nama_lengkap }}</h5>
@@ -218,7 +209,7 @@
         autoplay: {
           delay: 3000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true, // <-- FITUR BARU: Berhenti otomatis saat mouse menyorot card
+          pauseOnMouseEnter: true,
         },
         pagination: {
           el: '.org-swiper-pagination',
@@ -246,17 +237,7 @@
         }
       };
 
-      // Inisialisasi Swiper (dengan pengecekan agar tidak error jika data kosong)
-      if (document.querySelector('.kakomka-swiper')) {
-        new Swiper('.kakomka-swiper', {
-          ...swiperConfig,
-          pagination: {
-            el: '.kakomka-swiper .swiper-pagination',
-            clickable: true
-          }
-        });
-      }
-
+      // Inisialisasi Swiper Guru (Yang sekarang sudah mencakup Kakomka)
       if (document.querySelector('.guru-swiper')) {
         new Swiper('.guru-swiper', {
           ...swiperConfig,

@@ -184,18 +184,24 @@ class StrukturController extends Controller
             ->where('jabatan', 'like', '%Waka%')
             ->get();
 
-        // 3. Ambil Guru
+        // 3. Ambil Kakomka
+        $kakomka = Struktur::where('status', 'aktif')
+            ->where('jabatan', 'like', '%Kakomka%')
+            ->get();
+
+        // 4. Ambil Guru
         $guru = Struktur::where('status', 'aktif')
             ->where('jabatan', 'like', '%Guru%')
             ->get();
 
-        // 4. Ambil Staff & Karyawan (Yang BUKAN Kepsek, Waka, atau Guru)
+        // 5. Ambil Staff & Karyawan (Yang BUKAN Kepsek, Waka, atau Guru)
         $staff = Struktur::where('status', 'aktif')
             ->where('jabatan', 'not like', '%Kepala Sekolah%')
             ->where('jabatan', 'not like', '%Waka%')
+            ->where('jabatan', 'not like', '%Kakomka%')
             ->where('jabatan', 'not like', '%Guru%')
             ->get();
 
-        return view('struktur.index', compact('kepsek', 'wakasek', 'guru', 'staff'));
+        return view('struktur.index', compact('kepsek', 'wakasek', 'kakomka', 'guru', 'staff'));
     }
 }
