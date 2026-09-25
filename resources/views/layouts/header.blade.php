@@ -34,9 +34,10 @@
           'title' => 'Informasi',
           'url' => 'javascript:void(0)',
           'children' => [
-              ['title' => 'Berita', 'url' => route('berita')],
               ['title' => 'Agenda Kegiatan', 'url' => route('agenda')],
+              ['title' => 'Berita', 'url' => route('berita')],
               ['title' => 'Galeri', 'url' => route('galeri')],
+              ['title' => 'Bursa Kerja (BKK)', 'url' => 'https://bkksmksenopati.blogspot.com/', 'target' => '_blank'],
               ['title' => 'Hubungi Kami', 'url' => route('kontak')],
           ],
       ],
@@ -84,7 +85,7 @@
                   class="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden py-2 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 transform origin-top z-60">
                   @foreach ($menu['children'] as $child)
                     <li>
-                      <a href="{{ $child['url'] }}" class="block px-5 py-2.5 hover:bg-blue-50 hover:text-primary transition-colors">
+                      <a href="{{ $child['url'] }}" target="{{ $child['target'] ?? '_self' }}" class="block px-5 py-2.5 hover:bg-blue-50 hover:text-primary transition-colors">
                         {{ $child['title'] }}
                       </a>
                     </li>
@@ -137,7 +138,7 @@
               <ul class="hidden pl-4 pr-2 mt-1 space-y-1 bg-gray-50 rounded-xl mx-2 py-2">
                 @foreach ($menu['children'] as $child)
                   <li>
-                    <a href="{{ $child['url'] }}" class="block px-4 py-2 hover:text-primary text-sm">
+                    <a href="{{ $child['url'] }}" target="{{ $child['target'] ?? '_self' }}" class="block px-4 py-2 hover:text-primary text-sm">
                       {{ $child['title'] }}
                     </a>
                   </li>
