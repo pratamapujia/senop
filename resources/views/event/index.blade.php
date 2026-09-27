@@ -55,20 +55,23 @@
           <div
             class="group relative bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
 
+            @php
+              $formatTgl = \Carbon\Carbon::parse($item->tanggal);
+            @endphp
             {{-- HEADER KARTU (Sama seperti sebelumnya) --}}
             <div class="flex gap-5 items-start mb-5">
               <div class="shrink-0 w-16 h-16 bg-blue-50/50 rounded-2xl flex flex-col items-center justify-center border border-blue-100/50 group-hover:bg-primary transition-colors duration-300">
                 <span class="text-xl font-black text-primary group-hover:text-white leading-none">
-                  {{ \Carbon\Carbon::parse($item->tanggal)->format('d') }}
+                  {{ $formatTgl->format('d') }}
                 </span>
                 <span class="text-[10px] font-bold text-accent group-hover:text-blue-100 uppercase tracking-widest mt-1">
-                  {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('M') }}
+                  {{ $formatTgl->translatedFormat('M') }}
                 </span>
               </div>
               <div class="flex flex-col gap-2 pt-1">
                 <span class="text-gray-500 text-xs font-medium flex items-center gap-1.5">
                   <i class="bi bi-calendar-event text-primary/70"></i>
-                  {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l, d F Y') }}
+                  {{ $formatTgl->translatedFormat('l, d F Y') }}
                 </span>
                 <span class="px-3 py-1 bg-slate-50 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-widest w-max border border-slate-100 flex items-center gap-1.5">
                   <i class="bi bi-geo-alt-fill text-gray-400"></i> {{ Str::limit($item->tempat, 25) }}
@@ -89,19 +92,21 @@
             {{-- FOOTER KARTU --}}
             <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center relative z-20">
               <span class="text-xs font-bold text-primary group-hover:text-blue-700 transition-colors">Lihat Detail Agenda</span>
-              <div class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-primary transition-colors">
+              <button class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-blue-50 group-hover:text-primary transition-colors cursor-pointer"
+                onclick="openAgendaModal('agenda-data-{{ $item->id }}')">
                 <i class="bi bi-arrow-right"></i>
-              </div>
+              </button>
             </div>
 
             {{-- TOMBOL OVERLAY (Memicu Modal) --}}
             <button type="button" onclick="openAgendaModal('agenda-data-{{ $item->id }}')" class="absolute inset-0 z-10 w-full h-full cursor-pointer focus:outline-none"
-              aria-label="Lihat detail {{ $item->judul }}"></button>
+              aria-label="Lihat detail {{ $item->judul }}">
+            </button>
 
             {{-- DATA TERSEMBUNYI UNTUK MODAL --}}
             <div id="agenda-data-{{ $item->id }}" class="hidden">
               <div class="data-title">{{ $item->judul }}</div>
-              <div class="data-date">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('l, d F Y') }}</div>
+              <div class="data-date">{{ $formatTgl->translatedFormat('l, d F Y') }}</div>
               <div class="data-place">{{ $item->tempat }}</div>
               {{-- Gunakan {!! !!} agar tag HTML dari Purifier tereksekusi dengan benar --}}
               <div class="data-desc">{!! $item->deskripsi !!}</div>

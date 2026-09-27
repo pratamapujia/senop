@@ -107,8 +107,9 @@
 
         {{-- ITEM 1: Fasilitas --}}
         <div data-aos="fade-up" data-aos-delay="100">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-            <div class="w-14 h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+            <div
+              class="w-14 h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
               <i class="bi bi-door-open"></i>
             </div>
             <h4 class="text-xl font-bold text-header mb-3">Fasilitas Lengkap</h4>
@@ -118,8 +119,9 @@
 
         {{-- ITEM 2: Lingkungan --}}
         <div data-aos="fade-up" data-aos-delay="200">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-            <div class="w-14 h-14 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors duration-300">
+          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+            <div
+              class="w-14 h-14 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
               <i class="bi bi-house-heart-fill"></i>
             </div>
             <h4 class="text-xl font-bold text-header mb-3">Lingkungan Nyaman</h4>
@@ -129,8 +131,9 @@
 
         {{-- ITEM 3: Pengajar --}}
         <div data-aos="fade-up" data-aos-delay="300">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-            <div class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+            <div
+              class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
               <i class="bi bi-person-workspace"></i>
             </div>
             <h4 class="text-xl font-bold text-header mb-3">Pengajar Kompeten</h4>
@@ -140,8 +143,9 @@
 
         {{-- ITEM 4: Kerjasama --}}
         <div data-aos="fade-up" data-aos-delay="400">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-            <div class="w-14 h-14 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
+          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+            <div
+              class="w-14 h-14 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
               <i class="bi bi-diagram-3"></i>
             </div>
             <h4 class="text-xl font-bold text-header mb-3">Kerjasama Luas</h4>
