@@ -90,22 +90,22 @@
           <ul class="space-y-4">
             <li>
               <a href="/" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Beranda
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Beranda
               </a>
             </li>
             <li>
               <a href="{{ route('profil') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Identitas Sekolah
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Identitas Sekolah
               </a>
             </li>
             <li>
               <a href="{{ route('visi-misi') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Visi & Misi
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Visi & Misi
               </a>
             </li>
             <li>
               <a href="{{ route('spmb') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> SPMB
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> SPMB
               </a>
             </li>
           </ul>
@@ -117,23 +117,23 @@
           <ul class="space-y-4">
             <li>
               <a href="{{ route('berita') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Berita
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Berita
               </a>
             </li>
             <li>
               <a href="{{ route('agenda') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Agenda
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Agenda
               </a>
             </li>
             <li>
               <a href="{{ route('galeri') }}" class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Galeri
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Galeri
               </a>
             </li>
             <li>
               <a href="https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d" target="_blank"
                 class="text-gray-600 hover:text-primary transition-colors inline-flex items-center gap-2 group">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-700 group-hover:bg-primary transition-colors"></span> Virtual Tour
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-800 group-hover:bg-primary transition-colors"></span> Virtual Tour
               </a>
             </li>
           </ul>
@@ -144,25 +144,25 @@
           <h4 class="font-bold text-header text-lg mb-6">Hubungi Kami</h4>
           <ul class="space-y-5">
             <li class="flex gap-3">
-              <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center shrink-0">
-                <i class="fa-solid fa-magnifying-glass-location"></i>
+              <div class="w-10 h-10 rounded-full bg-sky-50 text-primary flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
               </div>
               <span class="text-gray-600 text-sm leading-relaxed">Jl. Senopati No.2, Betro, Kec. Sedati, Kab. Sidoarjo</span>
             </li>
             <li>
               <a href="tel:0318915186" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center shrink-0 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                <div class="w-10 h-10 rounded-full bg-sky-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
                   <i class="fa-solid fa-phone-volume"></i>
                 </div>
-                <span class="text-gray-600 group-hover:text-green-600 transition-colors">031-8915186</span>
+                <span class="text-gray-600 group-hover:text-primary transition-colors">031-8915186</span>
               </a>
             </li>
             <li>
               <a href="mailto:smk.senopati@gmail.com" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                <div class="w-10 h-10 rounded-full bg-sky-50 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
                   <i class="fa-solid fa-envelope-open"></i>
                 </div>
-                <span class="text-gray-600 group-hover:text-red-600 transition-colors">smk.senopati@gmail.com</span>
+                <span class="text-gray-600 group-hover:text-primary transition-colors">smk.senopati@gmail.com</span>
               </a>
             </li>
           </ul>

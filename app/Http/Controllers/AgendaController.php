@@ -13,7 +13,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        $agenda = Agenda::all();
+        $agenda = Agenda::orderBy('tanggal', 'desc')->get();
         return view('admin.agenda.index', compact('agenda'));
     }
 

@@ -12,40 +12,38 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
         {{-- KOLOM KIRI: Teks & CTA --}}
-        <div class="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+        <div class="order-1 flex flex-col items-center lg:items-start text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
 
-          {{-- Badge Kecil (Opsional: Pemanis) --}}
-          <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-sm font-semibold mb-4">
-            Sekolah Pusat Keunggulan
-          </span>
-
-          <h2 class="text-4xl lg:text-5xl font-extrabold text-header leading-tight mb-4">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-header leading-tight mb-4">
             Selamat Datang di <br>
             <span class="text-primary">SMK Senopati Sedati</span>
           </h2>
 
-          <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+          <p class="text-sm md:text-base lg:text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
             SMK Senopati mempersiapkan generasi muda dengan <span class="font-semibold text-header underline">Kompetensi</span>, <span class="font-semibold text-header underline">Pengalaman</span>, dan
             <span class="font-semibold text-header underline">Karakter</span> untuk menghadapi tantangan global.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div class="flex flex-row gap-3 w-full sm:w-auto">
+
+            {{-- Tombol Utama --}}
             <a href="{{ route('spmb') }}"
-              class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
+              class="inline-flex flex-1 sm:flex-none justify-center items-center px-4 py-2.5 text-[13px] md:text-sm font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 text-center whitespace-nowrap">
               Info SPMB
-              <i class="fa-solid fa-arrow-right ml-2"></i>
+              <i class="fa-solid fa-arrow-right ml-1.5 text-xs"></i>
             </a>
 
-            {{-- Tombol Sekunder (Opsional: Misal Video Profil) --}}
+            {{-- Tombol Sekunder --}}
             <a href="{{ route('visi-misi') }}"
-              class="inline-flex justify-center items-center px-8 py-3.5 text-base font-semibold text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:border-gray-300 shadow-sm">
+              class="inline-flex flex-1 sm:flex-none justify-center items-center px-4 py-2.5 text-[13px] md:text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:border-gray-300 shadow-sm text-center whitespace-nowrap">
               Visi & Misi
             </a>
+
           </div>
         </div>
 
         {{-- KOLOM KANAN: Gambar & Shape --}}
-        <div class="order-1 lg:order-2 relative" data-aos="zoom-out" data-aos-delay="200">
+        <div class="order-2 relative" data-aos="zoom-out" data-aos-delay="200">
 
           {{-- DEKORASI SHAPE (Background Blobs) --}}
           {{-- Shape 1: Biru Pudar --}}
@@ -73,8 +71,8 @@
               </div>
             </div>
             <div>
-              <p class="text-[10px] md:text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
-              <p class="text-xs md:text-sm font-bold text-header">Unggul (A)</p>
+              <p class="text-[9px] md:text-xs text-gray-500 font-semibold uppercase">Terakreditasi</p>
+              <p class="text-[11px] md:text-sm font-bold text-header">Unggul (A)</p>
             </div>
           </div>
         </div>
@@ -87,69 +85,85 @@
 
     {{-- Section Title --}}
     <div class="container mx-auto px-4 mb-16 text-center" data-aos="fade-up">
-      <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-xs font-bold tracking-wider uppercase mb-3">
+      <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3">
         Keunggulan Kami
       </span>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-header mb-4">
+      <h2 class="text-2xl md:text-4xl font-extrabold text-header mb-4">
         Kenapa Harus
         <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-cyan-500">
           Senopati?
         </span>
       </h2>
-      <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
+      <p class="text-sm md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
         Temukan alasan kuat mengapa SMK Senopati adalah tempat terbaik untuk masa depanmu.
       </p>
     </div>
 
     {{-- Cards Grid --}}
-    <div class="container mx-auto px-4 mb-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <div class="container mx-auto px-2 sm:px-4 mb-20">
+      {{-- Mengubah grid-cols-1 menjadi grid-cols-2 untuk tampilan mobile, jarak gap juga diperkecil (gap-3) --}}
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
 
         {{-- ITEM 1: Fasilitas --}}
         <div data-aos="fade-up" data-aos-delay="100">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+          {{-- Padding diperkecil (p-4) saat mobile, kembali normal (md:p-8) saat desktop --}}
+          <div
+            class="h-full bg-white p-4 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left flex flex-col justify-between">
+            {{-- Ikon diperkecil (w-10 h-10) saat mobile --}}
             <div
-              class="w-14 h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
+              class="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-xl md:text-2xl mb-3 md:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0 shrink-0">
               <i class="bi bi-door-open"></i>
             </div>
-            <h4 class="text-xl font-bold text-header mb-3">Fasilitas Lengkap</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">SMK Senopati memiliki fasilitas yang lengkap untuk menunjang pembelajaran</p>
+            <div>
+              {{-- Teks judul dan deskripsi diperkecil saat mobile --}}
+              <h4 class="text-sm md:text-xl font-bold text-header mb-2 md:mb-3 leading-tight">Fasilitas Lengkap</h4>
+              <p class="text-gray-500 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">SMK Senopati memiliki fasilitas yang lengkap untuk menunjang pembelajaran</p>
+            </div>
           </div>
         </div>
 
         {{-- ITEM 2: Lingkungan --}}
         <div data-aos="fade-up" data-aos-delay="200">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+          <div
+            class="h-full bg-white p-4 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left flex flex-col justify-between">
             <div
-              class="w-14 h-14 rounded-xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
+              class="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-xl md:text-2xl mb-3 md:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0 shrink-0">
               <i class="bi bi-house-heart-fill"></i>
             </div>
-            <h4 class="text-xl font-bold text-header mb-3">Lingkungan Nyaman</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">SMK Senopati memiliki lingkungan yang nyaman bagi peserta didik</p>
+            <div>
+              <h4 class="text-sm md:text-xl font-bold text-header mb-2 md:mb-3 leading-tight">Lingkungan Nyaman</h4>
+              <p class="text-gray-500 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">SMK Senopati memiliki lingkungan yang nyaman bagi peserta didik</p>
+            </div>
           </div>
         </div>
 
         {{-- ITEM 3: Pengajar --}}
         <div data-aos="fade-up" data-aos-delay="300">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+          <div
+            class="h-full bg-white p-4 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left flex flex-col justify-between">
             <div
-              class="w-14 h-14 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
+              class="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-xl md:text-2xl mb-3 md:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0 shrink-0">
               <i class="bi bi-person-workspace"></i>
             </div>
-            <h4 class="text-xl font-bold text-header mb-3">Pengajar Kompeten</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">SMK Senopati memiliki pengajar yang kompeten dan bersertifikasi</p>
+            <div>
+              <h4 class="text-sm md:text-xl font-bold text-header mb-2 md:mb-3 leading-tight">Pengajar Kompeten</h4>
+              <p class="text-gray-500 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">SMK Senopati memiliki pengajar yang kompeten dan bersertifikasi</p>
+            </div>
           </div>
         </div>
 
         {{-- ITEM 4: Kerjasama --}}
         <div data-aos="fade-up" data-aos-delay="400">
-          <div class="h-full bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left">
+          <div
+            class="h-full bg-white p-4 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group text-center md:text-left flex flex-col justify-between">
             <div
-              class="w-14 h-14 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 mx-auto md:mx-0">
+              class="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-secondary text-primary flex items-center justify-center text-xl md:text-2xl mb-3 md:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 mx-auto md:mx-0 shrink-0">
               <i class="bi bi-diagram-3"></i>
             </div>
-            <h4 class="text-xl font-bold text-header mb-3">Kerjasama Luas</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">SMK Senopati memiliki kerjasama yang luas dengan industri</p>
+            <div>
+              <h4 class="text-sm md:text-xl font-bold text-header mb-2 md:mb-3 leading-tight">Kerjasama Luas</h4>
+              <p class="text-gray-500 text-[10px] sm:text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">SMK Senopati memiliki kerjasama yang luas dengan industri</p>
+            </div>
           </div>
         </div>
 
@@ -159,12 +173,12 @@
     <div class="container mx-auto px-4 max-w-7xl" data-aos="fade-up" data-aos-delay="100">
 
       {{-- Wadah Utama (Card) dengan Border Dashed Biru Transparan & Padding Lebih Lebar --}}
-      <div class="bg-white rounded-[2.5rem] p-8 lg:p-16 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border-2 border-dashed border-primary/30 relative overflow-hidden">
+      <div class="bg-white rounded-[2.5rem] p-6 lg:p-16 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border-2 border-dashed border-primary/30 relative overflow-hidden">
 
         {{-- Watermark Kutipan di Latar Belakang --}}
-        <i class="bi bi-quote absolute top-0 right-10 text-[15rem] text-gray-50 z-0 rotate-12"></i>
+        <i class="bi bi-quote absolute top-0 right-10 text-[10rem] md:text-[15rem] text-gray-50 z-0 rotate-12"></i>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center relative z-10">
 
           {{-- Foto Kepsek (Proporsi 5 Kolom) --}}
           <div class="lg:col-span-5 relative" data-aos="fade-right" data-aos-delay="200">
@@ -184,21 +198,21 @@
           <div class="lg:col-span-7" data-aos="fade-left" data-aos-delay="300">
 
             {{-- Badge "Pesan Pimpinan" --}}
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-8">
-              <div class="relative flex h-2.5 w-2.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-6 md:mb-8">
+              <div class="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-primary"></span>
               </div>
-              <span class="text-xs font-bold text-primary uppercase tracking-widest">Pesan Pimpinan</span>
+              <span class="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest">Pesan Pimpinan</span>
             </div>
 
             {{-- Judul Utama --}}
-            <h3 class="text-3xl font-black text-gray-800 mb-8 leading-tight">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-black text-gray-800 mb-4 md:mb-8 leading-tight">
               Sambutan <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-cyan-500">Kepala Sekolah</span>
             </h3>
 
             {{-- Konten Teks --}}
-            <div class="text-gray-600 leading-relaxed text-lg text-justify md:text-left space-y-5">
+            <div class="text-gray-600 leading-relaxed text-[13px] md:text-sm lg:text-lg text-justify md:text-left space-y-4 md:space-y-5">
               <p>
                 Selamat datang di website resmi <span class="font-bold text-gray-800">SMK Senopati</span>. Sebagai institusi pendidikan vokasi terdepan, kami berkomitmen membentuk lulusan yang siap
                 menghadapi dinamika dunia nyata melalui penguasaan keahlian mendalam, pembentukan karakter luhur, dan pengalaman langsung.
@@ -210,19 +224,19 @@
             </div>
 
             {{-- Penutup / Identitas Kepala Sekolah --}}
-            <div class="mt-12 pt-8 border-t border-gray-100 flex items-center justify-between">
-              <div class="flex items-center gap-5">
+            <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-100 flex items-center justify-between">
+              <div class="flex items-center gap-4 md:gap-5">
 
                 {{-- Ikon Profil --}}
-                <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-primary shadow-inner border border-blue-100/50">
-                  <i class="fa-solid fa-user-tie text-2xl"></i>
+                <div class="w-10 h-10 md:w-14 md:h-14 rounded-full bg-blue-50 flex items-center justify-center text-primary shadow-inner border border-blue-100/50">
+                  <i class="fa-solid fa-user-tie text-lg md:text-2xl"></i>
                 </div>
 
                 <div class="flex flex-col">
-                  <h4 class="text-lg font-black text-gray-800">
+                  <h4 class="text-base md:text-lg font-black text-gray-800">
                     Fathoni, M.Pd.
                   </h4>
-                  <span class="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1">Kepala SMK Senopati</span>
+                  <span class="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-widest mt-0.5 md:mt-1">Kepala SMK Senopati</span>
                 </div>
               </div>
 
@@ -256,50 +270,50 @@
     </style>
 
     {{-- Header --}}
-    <div class="container mx-auto px-4 text-center mb-12" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-header mb-2">Program Keahlian</h2>
-      <div class="h-1.5 w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
-      <p class="text-gray-500 max-w-2xl mx-auto">Jelajahi program keahlian unggulan kami dan temukan minat bakatmu untuk meraih masa depan.</p>
+    <div class="container mx-auto px-4 text-center mb-10 md:mb-12" data-aos="fade-up">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-header mb-2">Program Keahlian</h2>
+      <div class="h-1.5 w-16 md:w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
+      <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">Jelajahi program keahlian unggulan kami dan temukan minat bakatmu untuk meraih masa depan.</p>
     </div>
 
     <div class="container mx-auto px-4 max-w-6xl">
 
       {{-- Tab Navigation --}}
-      <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-12" data-aos="fade-up" data-aos-delay="100">
 
         {{-- Tombol DKV (Aktif Default) --}}
         <button onclick="switchTab('tab-dkv')" id="btn-tab-dkv"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-primary text-white shadow-lg shadow-primary/30">
           <i class="bi bi-palette mr-1.5"></i> DKV
         </button>
 
         {{-- Tombol MP --}}
         <button onclick="switchTab('tab-mp')" id="btn-tab-mp"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
           <i class="bi bi-briefcase mr-1.5"></i> MP
         </button>
 
         {{-- Tombol RPL --}}
         <button onclick="switchTab('tab-rpl')" id="btn-tab-rpl"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
           <i class="bi bi-code-slash mr-1.5"></i> RPL
         </button>
 
         {{-- Tombol TKJ --}}
         <button onclick="switchTab('tab-tkj')" id="btn-tab-tkj"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
           <i class="bi bi-hdd-network mr-1.5"></i> TKJ
         </button>
 
         {{-- Tombol TKR --}}
         <button onclick="switchTab('tab-tkr')" id="btn-tab-tkr"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
           <i class="bi bi-car-front mr-1.5"></i> TKR
         </button>
 
         {{-- Tombol TSM --}}
         <button onclick="switchTab('tab-tsm')" id="btn-tab-tsm"
-          class="tab-btn cursor-pointer px-5 md:px-6 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
+          class="tab-btn cursor-pointer px-4 md:px-6 py-2 md:py-3 rounded-full font-bold text-[13px] md:text-base transition-all duration-300 bg-white text-gray-500 hover:bg-gray-100 shadow-[0_4px_15px_-5px_rgba(0,0,0,0.05)]">
           <i class="bi bi-wrench-adjustable mr-1.5"></i> TSM
         </button>
       </div>
@@ -310,37 +324,37 @@
         {{-- TAB 1: DKV / Multimedia --}}
         <div id="tab-dkv" class="tab-pane active" data-aos="fade-up" data-aos-delay="200">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(220,38,38,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-red-100 rounded-full blur-3xl opacity-60 group-hover:bg-red-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-red-600 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(220,38,38,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="bi bi-camera-reels"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-red-600 to-pink-500 mb-4">Desain Komunikasi Visual</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-red-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Desain Komunikasi Visual</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   DKV membekali siswa dengan kemampuan menciptakan komunikasi visual melalui desain, fotografi, videografi, branding, dan media digital. Siswa tidak hanya belajar membuat karya, tetapi
                   juga memahami bagaimana sebuah visual digunakan untuk menyampaikan pesan dan memenuhi kebutuhan dunia industri.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> Graphic Design</li>
-                  <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> Video Editing & Audio</li>
-                  <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> 2D & 3D Animation</li>
-                  <li><i class="bi bi-check2-circle text-red-500 mr-2 text-lg"></i> Photography & Broadcasting</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Graphic Design</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Video Editing & Audio</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> 2D & 3D Animation</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Photography & Broadcasting</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center text-red-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="bi bi-palette"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'dkv') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-red-50 text-red-600 text-sm font-bold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -351,37 +365,37 @@
         {{-- TAB 2: MP (Manajemen Perkantoran) --}}
         <div id="tab-mp" class="tab-pane">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-purple-100 rounded-full blur-3xl opacity-60 group-hover:bg-purple-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-purple-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(168,85,247,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="fa-regular fa-building"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-purple-600 to-fuchsia-400 mb-4">Manajemen Perkantoran</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-purple-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Manajemen Perkantoran</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   Manajemen Perkantoran mempersiapkan siswa menjadi tenaga profesional yang mampu mengelola administrasi, dokumen, informasi, komunikasi, dan berbagai aktivitas perkantoran. Pembelajaran
                   menggabungkan keterampilan administrasi dengan pemanfaatan teknologi digital.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Perkantoran</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Keuangan Dasar</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Administrasi Digital</li>
-                  <li><i class="bi bi-check2-circle text-purple-500 mr-2 text-lg"></i> Komunikasi Bisnis</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Administrasi Perkantoran</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Administrasi Keuangan Dasar</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Administrasi Digital</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Komunikasi Bisnis</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-purple-50 to-purple-100 rounded-full flex items-center justify-center text-purple-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-briefcase"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'mp') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-purple-50 text-purple-600 text-sm font-bold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -392,37 +406,37 @@
         {{-- TAB 3: RPL --}}
         <div id="tab-rpl" class="tab-pane">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-blue-100 rounded-full blur-3xl opacity-60 group-hover:bg-blue-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="fa-solid fa-code"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-cyan-400 mb-4">Rekayasa Perangkat Lunak</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-blue-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Rekayasa Perangkat Lunak</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   RPL membekali siswa dengan kemampuan untuk merancang, membuat, mengembangkan, dan mengelola perangkat lunak. Siswa belajar melalui berbagai projek sehingga tidak hanya memahami teori
                   pemrograman, tetapi juga terbiasa menciptakan solusi digital.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Database System</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Web</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> Pemrograman Mobile</li>
-                  <li><i class="bi bi-check2-circle text-blue-500 mr-2 text-lg"></i> UI/UX Dasar</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Database System</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Pemrograman Web</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Pemrograman Mobile</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> UI/UX Dasar</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center text-primary text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-laptop-code"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'rpl') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-50 text-blue-600 text-sm font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -433,37 +447,37 @@
         {{-- TAB 4: TKJ --}}
         <div id="tab-tkj" class="tab-pane">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(234,179,8,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-yellow-100 rounded-full blur-3xl opacity-60 group-hover:bg-yellow-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-yellow-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(234,179,8,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="fa-solid fa-wifi"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-yellow-500 to-orange-400 mb-4">Teknik Komputer & Jaringan</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-yellow-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Teknik Komputer & Jaringan</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   TKJ membekali siswa dengan kemampuan dalam komputer, jaringan, server, dan teknologi infrastruktur digital. Siswa belajar bagaimana membangun, mengelola, mengamankan, dan memecahkan
                   masalah pada sistem komputer dan jaringan.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Perakitan & Perawatan Komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Jaringan Komputer</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cybersecurity</li>
-                  <li><i class="bi bi-check2-circle text-yellow-500 mr-2 text-lg"></i> Cloud & Teknologi Jaringan Modern</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Perakitan & Perawatan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Jaringan Komputer</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Cybersecurity</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Cloud & Teknologi Jaringan Modern</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-yellow-50 to-yellow-100 rounded-full flex items-center justify-center text-yellow-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-network-wired"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'tkj') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow-50 text-yellow-600 text-sm font-bold rounded-full hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -474,37 +488,37 @@
         {{-- TAB 5: TKR (Teknik Kendaraan Ringan) --}}
         <div id="tab-tkr" class="tab-pane">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-emerald-100 rounded-full blur-3xl opacity-60 group-hover:bg-emerald-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-emerald-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-primary opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="fa-solid fa-car-on"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-emerald-600 to-teal-400 mb-4">Teknik Kendaraan Ringan</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-emerald-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Teknik Kendaraan Ringan</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   Program keahlian Teknik Kendaraan Ringan (TKR) mempersiapkan siswa untuk memahami teknologi kendaraan ringan, khususnya mobil, melalui pembelajaran teori dan praktik. Siswa dilatih
                   melakukan perawatan, pemeriksaan, diagnosis, hingga perbaikan kendaraan dengan mengutamakan ketelitian dan standar keselamatan kerja.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Dasar-Dasar Teknik Otomotif</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Mesin Kendaraan Ringan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Diagnosis & Perbaikan Kendaraan</li>
-                  <li><i class="bi bi-check2-circle text-emerald-500 mr-2 text-lg"></i> Teknologi Kendaraan Listrik</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Dasar-Dasar Teknik Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Mesin Kendaraan Ringan</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Diagnosis & Perbaikan Kendaraan</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Teknologi Kendaraan Listrik</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-emerald-50 to-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-car"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'tkr') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-50 text-emerald-600 text-sm font-bold rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -515,37 +529,37 @@
         {{-- TAB 6: TSM (Teknik Sepeda Motor) --}}
         <div id="tab-tsm" class="tab-pane">
           <div
-            class="bg-white rounded-4xl p-8 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.2)] transition-all duration-500 relative overflow-hidden group">
-            <div class="absolute -top-10 -right-10 w-48 h-48 bg-orange-100 rounded-full blur-3xl opacity-60 group-hover:bg-orange-200 transition-colors duration-500"></div>
-            <div class="absolute bottom-4 right-8 text-9xl text-orange-500 opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
+            class="bg-white rounded-4xl p-6 md:p-12 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.2)] transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute -top-10 -right-10 w-32 md:w-48 h-32 md:h-48 bg-sky-100 rounded-full blur-3xl opacity-60 group-hover:bg-sky-200 transition-colors duration-500"></div>
+            <div class="absolute bottom-4 right-4 md:right-8 text-7xl md:text-9xl text-pr opacity-5 group-hover:opacity-10 transition-opacity duration-500 rotate-12 pointer-events-none">
               <i class="bi bi-wrench-adjustable"></i>
             </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+            <div class="relative z-10 flex flex-col md:flex-row gap-6 md:gap-8 items-center">
               {{-- Area Teks --}}
               <div class="md:w-2/3">
-                <h3 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-orange-600 to-amber-400 mb-4">Teknik Sepeda Motor</h3>
-                <div class="h-1 w-16 bg-gray-200 rounded-full mb-6 group-hover:w-24 group-hover:bg-orange-500 transition-all duration-500"></div>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-linear-to-br from-primary to-sky-500 mb-3 md:mb-4">Teknik Sepeda Motor</h3>
+                <div class="h-1 w-12 md:w-16 bg-gray-200 rounded-full mb-4 md:mb-6 group-hover:w-20 group-hover:bg-primary transition-all duration-500"></div>
+                <p class="text-[13px] md:text-sm lg:text-base text-gray-600 mb-6 leading-relaxed">
                   Teknik Sepeda Motor membekali siswa dengan keterampilan dalam perawatan, perbaikan, diagnosis, dan teknologi kendaraan roda dua. Pembelajaran menggabungkan teori dan praktik agar siswa
                   terbiasa bekerja secara teliti, disiplin, dan sesuai standar dunia industri.
                 </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-medium">
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Dasar-Dasar Otomotif</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Mesin & Pembakaran</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Sistem Kelistrikan Sepeda Motor</li>
-                  <li><i class="bi bi-check2-circle text-orange-500 mr-2 text-lg"></i> Teknologi Sepeda Motor Injeksi</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 text-gray-600 text-[13px] md:text-sm font-medium">
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Dasar-Dasar Otomotif</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Sistem Mesin & Pembakaran</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Sistem Kelistrikan Sepeda Motor</li>
+                  <li><i class="bi bi-check2-circle text-primary mr-2 text-base"></i> Teknologi Sepeda Motor Injeksi</li>
                 </ul>
               </div>
 
               {{-- Area Ikon & Tombol --}}
-              <div class="md:w-1/3 flex flex-col items-center justify-center gap-6">
+              <div class="md:w-1/3 flex flex-col items-center justify-center gap-4 md:gap-6">
                 <div
-                  class="w-40 h-40 bg-linear-to-br from-orange-50 to-orange-100 rounded-full flex items-center justify-center text-orange-500 text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  class="w-24 h-24 md:w-40 md:h-40 bg-linear-to-br from-sky-50 to-sky-100 rounded-full flex items-center justify-center text-primary text-4xl md:text-6xl shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <i class="fa-solid fa-motorcycle"></i>
                 </div>
                 <a href="{{ route('jurusan.show', 'tsm') }}"
-                  class="inline-flex items-center gap-2 px-6 py-2.5 bg-orange-50 text-orange-600 text-sm font-bold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 shadow-sm">
+                  class="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 bg-sky-50 text-primary text-[13px] md:text-sm font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                   Selengkapnya <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -563,36 +577,37 @@
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         <div class="lg:col-span-8 order-2 lg:order-1" data-aos="fade-right">
-          <div class="mb-8">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-xs font-bold tracking-wider uppercase mb-3">
+          <div class="mb-6 md:mb-8">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-primary text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3">
               Events & Activities
             </span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-header mb-4">Agenda Sekolah</h2>
-            <p class="text-gray-500 text-lg">Jadwal kegiatan akademik dan non-akademik dalam waktu dekat.</p>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-header mb-2 md:mb-4">Agenda Sekolah</h2>
+            <p class="text-gray-500 text-sm md:text-lg">Jadwal kegiatan akademik dan non-akademik dalam waktu dekat.</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
             @forelse ($agenda as $item)
               @php $tanggalAgenda = \Carbon\Carbon::parse($item->tanggal); @endphp
               <div onclick="openAgendaModal(this)" data-judul="{{ $item->judul }}" data-tanggal="{{ $tanggalAgenda->translatedFormat('d F Y') }}" data-tempat="{{ $item->tempat }}"
                 data-deskripsi="{{ $item->deskripsi ?? 'Tidak ada deskripsi tambahan untuk agenda ini.' }}"
-                class="group bg-white rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex items-center gap-4 cursor-pointer h-full relative overflow-hidden">
+                class="group bg-white rounded-2xl p-3 md:p-4 border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300 flex items-center gap-3 md:gap-4 cursor-pointer h-full relative overflow-hidden">
 
-                <div class="relative shrink-0 w-16 h-16 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div
+                  class="relative shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   @if ($tanggalAgenda->isToday())
                     <span class="absolute -top-1.5 -left-1.5 flex h-4 w-4">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
                     </span>
                   @endif
-                  <span class="text-xl font-black leading-none">{{ $tanggalAgenda->translatedFormat('d') }}</span>
-                  <span class="text-[10px] font-bold uppercase mt-1">{{ $tanggalAgenda->translatedFormat('F') }}</span>
+                  <span class="text-lg md:text-xl font-black leading-none">{{ $tanggalAgenda->translatedFormat('d') }}</span>
+                  <span class="text-[9px] md:text-[10px] font-bold uppercase mt-1">{{ $tanggalAgenda->translatedFormat('F') }}</span>
                 </div>
                 <div class="flex-1 min-w-0">
-                  <h4 class="text-base font-bold text-header group-hover:text-gray-700 transition-colors mb-1 line-clamp-2 leading-snug">
+                  <h4 class="text-sm md:text-base font-bold text-header group-hover:text-gray-700 transition-colors mb-1 line-clamp-2 leading-snug">
                     {{ $item->judul }}
                   </h4>
-                  <p class="text-gray-500 text-xs flex items-center gap-2 line-clamp-1">
-                    <i class="bi bi-geo-fill text-sm text-rose-400"></i>
+                  <p class="text-gray-500 text-[11px] md:text-xs flex items-center gap-1 md:gap-2 line-clamp-1">
+                    <i class="bi bi-geo-fill text-xs md:text-sm text-rose-400"></i>
                     {{ $item->tempat }}
                   </p>
                 </div>
@@ -601,11 +616,11 @@
                 </div>
               </div>
             @empty
-              <div class="col-span-1 md:col-span-2 bg-gray-50 rounded-2xl p-8 text-center border border-dashed border-gray-300">
-                <div class="w-12 h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+              <div class="col-span-1 md:col-span-2 bg-gray-50 rounded-2xl p-6 md:p-8 text-center border border-dashed border-gray-300">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-lg md:text-xl">
                   <i class="fa-solid fa-calendar"></i>
                 </div>
-                <h4 class="text-base font-bold text-gray-700">Belum Ada Agenda</h4>
+                <h4 class="text-sm md:text-base font-bold text-gray-700">Belum Ada Agenda</h4>
               </div>
             @endforelse
           </div>
@@ -621,22 +636,22 @@
 
               <div class="p-6">
                 <div class="flex items-center gap-4 mb-4">
-                  <div class="shrink-0 w-14 h-14 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center">
-                    <i class="fa-solid fa-calendar text-xl"></i>
+                  <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl bg-blue-50 text-primary flex flex-col items-center justify-center">
+                    <i class="fa-solid fa-calendar text-lg md:text-xl"></i>
                   </div>
                   <div class="min-w-0">
-                    <h3 id="agendaModalJudul" class="text-lg font-black text-header leading-snug"></h3>
-                    <p id="agendaModalTanggal" class="text-gray-500 text-sm font-semibold"></p>
+                    <h3 id="agendaModalJudul" class="text-base md:text-lg font-black text-header leading-snug"></h3>
+                    <p id="agendaModalTanggal" class="text-gray-500 text-[13px] md:text-sm font-semibold"></p>
                   </div>
                 </div>
 
-                <p class="text-gray-500 text-sm flex items-center gap-2 mb-4">
+                <p class="text-gray-500 text-[13px] md:text-sm flex items-center gap-2 mb-4">
                   <i class="bi bi-geo-fill text-rose-400"></i>
                   <span id="agendaModalTempat"></span>
                 </p>
 
                 <div class="border-t border-gray-100 pt-4">
-                  <p id="agendaModalDeskripsi" class="text-gray-600 text-sm leading-relaxed"></p>
+                  <p id="agendaModalDeskripsi" class="text-gray-600 text-[13px] md:text-sm leading-relaxed"></p>
                 </div>
               </div>
 
@@ -645,8 +660,8 @@
 
           {{-- Button More --}}
           @if ($agenda->count() >= 6)
-            <div class="mt-8">
-              <a href="#" class="inline-flex items-center text-sm font-bold text-primary hover:text-blue-800 transition-colors group">
+            <div class="mt-6 md:mt-8">
+              <a href="#" class="inline-flex items-center text-[13px] md:text-sm font-bold text-primary hover:text-blue-800 transition-colors group">
                 Lihat Seluruh Agenda
                 <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
               </a>
@@ -669,8 +684,8 @@
 
             <div class="absolute bottom-8 left-6 right-6 text-white">
               <div class="w-10 h-1 bg-blue-500 rounded-full mb-3"></div>
-              <h3 class="text-2xl font-bold leading-tight mb-2">Jangan Lewatkan Momen Seru!</h3>
-              <p class="text-sm text-white opacity-70">Ikuti terus update kegiatan terbaru sekolah kami setiap minggunya.</p>
+              <h3 class="text-xl md:text-2xl font-bold leading-tight mb-2">Jangan Lewatkan Momen Seru!</h3>
+              <p class="text-[13px] md:text-sm text-white opacity-70">Ikuti terus update kegiatan terbaru sekolah kami setiap minggunya.</p>
             </div>
           </div>
 
@@ -696,55 +711,55 @@
   <section id="news" class="py-16 lg:py-24 bg-white overflow-hidden">
 
     {{-- Header Section (Konsisten dengan desain sebelumnya) --}}
-    <div class="container mx-auto px-4 text-center mb-16" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-header mb-2">Kabar Terbaru</h2>
-      <div class="h-1.5 w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
-      <p class="text-gray-500 max-w-2xl mx-auto">Update terkini seputar prestasi, kegiatan, dan informasi sekolah.</p>
+    <div class="container mx-auto px-4 text-center mb-10 md:mb-16" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-2xl md:text-4xl font-extrabold text-header mb-2">Kabar Terbaru</h2>
+      <div class="h-1.5 w-16 md:w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
+      <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">Update terkini seputar prestasi, kegiatan, dan informasi sekolah.</p>
     </div>
 
     {{-- News Grid --}}
     <div class="container mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
         @forelse ($berita as $item)
           <article class="group h-full flex flex-col bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 overflow-hidden">
-            <div class="relative h-56 overflow-hidden">
-              <span class="absolute top-4 left-4 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+            <div class="relative h-48 md:h-56 overflow-hidden">
+              <span class="absolute top-3 md:top-4 left-3 md:left-4 z-10 bg-primary text-white text-[10px] md:text-xs font-bold px-2.5 md:px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                 {{ $item->kategori->nama ?? 'Tidak ada kategori' }}
               </span>
               <img src="{{ Storage::url('berita/' . $item->gambar) }}" alt="{{ $item->slug }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             </div>
-            <div class="p-6 flex flex-col flex-1">
-              <div class="flex items-center gap-4 text-xs text-gray-500 mb-3 font-medium">
+            <div class="p-5 md:p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-3 md:gap-4 text-[11px] md:text-xs text-gray-500 mb-2 md:mb-3 font-medium">
                 <div class="flex items-center gap-1"><i class="fa-regular fa-calendar text-blue-400"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
                 <div class="flex items-center gap-1"><i class="fa-regular fa-user text-blue-400"></i> {{ $item->author->name }}</div>
               </div>
-              <h3 class="text-xl font-bold text-header mb-3 line-clamp-2 transition-colors">
+              <h3 class="text-lg md:text-xl font-bold text-header mb-2 md:mb-3 line-clamp-2 transition-colors">
                 <a href="{{ route('detail-berita', $item->slug) }}">{{ $item->judul }}</a>
               </h3>
-              <p class="text-gray-600 text-sm line-clamp-3 mb-6 flex-1">
+              <p class="text-gray-600 text-[13px] md:text-sm line-clamp-3 mb-4 md:mb-6 flex-1">
                 {{ Str::limit(strip_tags($item->konten), 100) }}
               </p>
-              <a href="{{ route('detail-berita', $item->slug) }}" class="inline-flex items-center text-sm font-bold text-primary hover:text-accent transition-colors group/link w-max">
+              <a href="{{ route('detail-berita', $item->slug) }}" class="inline-flex items-center text-[13px] md:text-sm font-bold text-primary hover:text-accent transition-colors group/link w-max">
                 Baca Selengkapnya
-                <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover/link:translate-x-2"></i>
+                <i class="fa-solid fa-arrow-right ml-1 md:ml-2 transition-transform duration-300 group-hover/link:translate-x-2"></i>
               </a>
             </div>
           </article>
         @empty
-          <div class="col-span-1 md:col-span-2 xl:col-span-4 bg-gray-50 rounded-2xl p-8 text-center border border-dashed border-gray-300">
-            <div class="w-12 h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+          <div class="col-span-1 md:col-span-2 xl:col-span-4 bg-gray-50 rounded-2xl p-6 md:p-8 text-center border border-dashed border-gray-300">
+            <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-200 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-3 text-lg md:text-xl">
               <i class="fa-regular fa-newspaper"></i>
             </div>
-            <h4 class="text-base font-bold text-gray-700">Belum Ada Berita</h4>
+            <h4 class="text-sm md:text-base font-bold text-gray-700">Belum Ada Berita</h4>
           </div>
         @endforelse
       </div>
       {{-- Bottom Button --}}
-      <div class="mt-16 text-center">
+      <div class="mt-10 md:mt-16 text-center">
         <a href="{{ route('berita') }}"
-          class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1">
+          class="inline-flex items-center justify-center px-6 md:px-8 py-2.5 md:py-3.5 text-[13px] md:text-base font-semibold text-white bg-primary rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1">
           Lihat Semua Berita
-          <i class="fa-solid fa-arrow-right ml-2"></i>
+          <i class="fa-solid fa-arrow-right ml-1.5 md:ml-2 text-[11px] md:text-sm"></i>
         </a>
       </div>
     </div>
@@ -756,62 +771,62 @@
     <div class="container mx-auto px-4 relative z-10">
 
       {{-- Header --}}
-      <div class="container mx-auto px-4 text-center mb-16" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-header mb-2">Alumni Berbicara</h2>
-        <div class="h-1.5 w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
-        <p class="text-gray-500 max-w-2xl mx-auto">Kisah inspiratif jejak langkah para alumni SMK Senopati.</p>
+      <div class="container mx-auto px-4 text-center mb-10 md:mb-16" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-2xl md:text-4xl font-extrabold text-header mb-2">Alumni Berbicara</h2>
+        <div class="h-1.5 w-16 md:w-20 bg-linear-to-r from-primary to-cyan-400 mx-auto rounded-full mb-4"></div>
+        <p class="text-sm md:text-base text-gray-500 max-w-2xl mx-auto">Kisah inspiratif jejak langkah para alumni SMK Senopati.</p>
       </div>
 
       {{-- Swiper Container --}}
       <div class="swiper testimoni-swiper max-w-5xl mx-auto" data-aos="zoom-in" data-aos-delay="200">
-        <div class="swiper-wrapper mb-12">
+        <div class="swiper-wrapper mb-8 md:mb-12">
 
           @forelse ($testimoni as $item)
             <div class="swiper-slide">
               <div class="relative w-full rounded-4xl overflow-hidden group shadow-xl bg-slate-900 flex flex-col md:block md:h-105">
 
-                {{-- BG IMAGE — mobile: block biasa di atas; desktop: absolute full bg --}}
-                <div class="relative h-56 sm:h-64 md:absolute md:inset-0 md:h-full w-full shrink-0">
+                {{-- BG IMAGE --}}
+                <div class="relative h-48 sm:h-64 md:absolute md:inset-0 md:h-full w-full shrink-0">
                   <img src="{{ Storage::url('testimoni/' . $item->gambar) }}" class="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110" alt="BG">
                   <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent md:bg-linear-to-r md:via-slate-900/80 md:to-slate-900/40"></div>
                 </div>
 
-                {{-- CONTENT WRAPPER — mobile: flow normal; desktop: absolute overlay --}}
-                <div class="relative md:absolute md:inset-0 px-6 pb-6 md:p-12 flex flex-col justify-between z-10 -mt-14 sm:-mt-16 md:mt-0">
+                {{-- CONTENT WRAPPER --}}
+                <div class="relative md:absolute md:inset-0 px-5 pb-6 md:p-12 flex flex-col justify-between z-10 -mt-12 sm:-mt-16 md:mt-0">
 
-                  <div class="flex flex-col-reverse md:flex-row items-center md:items-start md:h-full gap-6 md:gap-8">
+                  <div class="flex flex-col-reverse md:flex-row items-center md:items-start md:h-full gap-5 md:gap-8">
 
                     {{-- Avatar Side --}}
                     <div class="w-full md:w-2/5 flex justify-center md:justify-end order-1 md:order-2 relative mt-2 md:mt-0">
                       <div class="relative">
-                        <div class="absolute -inset-4 md:-inset-5 rounded-full border-t-2 border-r-2 border-cyan-400 animate-[spin_8s_linear_infinite]"></div>
-                        <div class="absolute -inset-2.5 md:-inset-3 rounded-full border-b-2 border-l-2 border-blue-500 opacity-60 animate-[spin_10s_linear_infinite_reverse]"></div>
+                        <div class="absolute -inset-3 md:-inset-5 rounded-full border-t-2 border-r-2 border-cyan-400 animate-[spin_8s_linear_infinite]"></div>
+                        <div class="absolute -inset-2 md:-inset-3 rounded-full border-b-2 border-l-2 border-blue-500 opacity-60 animate-[spin_10s_linear_infinite_reverse]"></div>
 
-                        <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-44 md:h-44 rounded-full border-4 border-white shadow-[0_0_30px_rgba(34,211,238,0.2)] overflow-hidden relative z-10 bg-slate-800">
+                        <div class="w-20 h-20 sm:w-28 sm:h-28 md:w-44 md:h-44 rounded-full border-4 border-white shadow-[0_0_30px_rgba(34,211,238,0.2)] overflow-hidden relative z-10 bg-slate-800">
                           <img src="{{ Storage::url('testimoni/' . $item->gambar) }}" class="w-full h-full object-cover" alt="{{ $item->nama }}">
                         </div>
 
                         <div
-                          class="absolute -bottom-3 md:-bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-4 md:px-5 py-1.5 md:py-2 rounded-xl font-bold text-xs md:text-sm shadow-xl whitespace-nowrap z-20 border border-slate-700/50">
+                          class="absolute -bottom-2 md:-bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-3 md:px-5 py-1 md:py-2 rounded-xl font-bold text-[10px] md:text-sm shadow-xl whitespace-nowrap z-20 border border-slate-700/50">
                           {{ $item->nama }}
                         </div>
                       </div>
                     </div>
 
                     {{-- Text Side --}}
-                    <div class="w-full md:w-3/5 text-center md:text-left text-white relative order-2 md:order-1 pt-6 md:pt-8">
-                      <span class="hidden sm:block absolute -top-2 left-0 md:-top-6 md:-left-4 text-6xl md:text-8xl font-serif text-white/20 leading-none">&ldquo;</span>
+                    <div class="w-full md:w-3/5 text-center md:text-left text-white relative order-2 md:order-1 pt-4 md:pt-8">
+                      <span class="hidden sm:block absolute -top-2 left-0 md:-top-6 md:-left-4 text-4xl md:text-8xl font-serif text-white/20 leading-none">&ldquo;</span>
 
                       @php
                         $teksBersih = strip_tags($item->testimoni);
                         $panjangKarakter = strlen($teksBersih);
 
                         if ($panjangKarakter < 100) {
-                            $ukuranFont = 'text-lg sm:text-xl md:text-3xl leading-relaxed';
+                            $ukuranFont = 'text-base sm:text-xl md:text-3xl leading-relaxed';
                         } elseif ($panjangKarakter <= 250) {
-                            $ukuranFont = 'text-base sm:text-lg md:text-2xl leading-relaxed';
+                            $ukuranFont = 'text-sm sm:text-lg md:text-2xl leading-relaxed';
                         } else {
-                            $ukuranFont = 'text-sm sm:text-base md:text-lg leading-normal';
+                            $ukuranFont = 'text-[13px] sm:text-base md:text-lg leading-normal';
                         }
                       @endphp
 
@@ -823,10 +838,10 @@
                   </div>
 
                   {{-- Bottom Bar: Identity & Role --}}
-                  <div class="mt-6 md:mt-auto flex flex-col items-center md:flex-row md:items-end md:justify-between w-full relative z-20 gap-2 md:gap-0">
-                    <div class="flex items-center gap-3">
-                      <h4 class="text-base sm:text-lg md:text-2xl font-bold text-white tracking-wide">{{ $item->nama }}</h4>
-                      <span class="px-3 py-1 rounded-full bg-blue-100/90 text-blue-900 text-xs font-bold tracking-wider shadow-sm">
+                  <div class="mt-5 md:mt-auto flex flex-col items-center md:flex-row md:items-end md:justify-between w-full relative z-20 gap-2 md:gap-0">
+                    <div class="flex items-center gap-2 md:gap-3">
+                      <h4 class="text-[15px] sm:text-lg md:text-2xl font-bold text-white tracking-wide">{{ $item->nama }}</h4>
+                      <span class="px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-blue-100/90 text-blue-900 text-[9px] md:text-xs font-bold tracking-wider shadow-sm">
                         {{ $item->jabatan }}
                       </span>
                     </div>
@@ -837,17 +852,17 @@
               </div>
             </div>
           @empty
-            {{-- Empty State — tetap sama, sudah responsif karena tidak pakai absolute --}}
+            {{-- Empty State --}}
             <div
-              class="w-full h-auto md:h-105 flex flex-col items-center justify-center bg-linear-to-b from-gray-50 to-white rounded-4xl border-2 border-dashed border-gray-200 p-8 md:p-12 text-center relative overflow-hidden">
-              <i class="fa-solid fa-quote-right absolute top-10 right-10 text-[10rem] text-gray-100/50 rotate-12 z-0"></i>
-              <div class="relative w-24 h-24 flex items-center justify-center rounded-full bg-blue-50 mb-6 border border-blue-100 z-10">
+              class="w-full h-auto md:h-105 flex flex-col items-center justify-center bg-linear-to-b from-gray-50 to-white rounded-4xl border-2 border-dashed border-gray-200 p-6 md:p-12 text-center relative overflow-hidden">
+              <i class="fa-solid fa-quote-right absolute top-10 right-10 text-[8rem] md:text-[10rem] text-gray-100/50 rotate-12 z-0"></i>
+              <div class="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-full bg-blue-50 mb-5 md:mb-6 border border-blue-100 z-10">
                 <div class="absolute inset-0 bg-blue-200 rounded-full blur-xl opacity-40"></div>
-                <i class="fa-solid fa-comments text-4xl text-primary relative z-10"></i>
+                <i class="fa-solid fa-comments text-3xl md:text-4xl text-primary relative z-10"></i>
               </div>
               <div class="relative z-10">
-                <h4 class="text-xl md:text-2xl font-black text-gray-800 mb-3">Belum Ada Testimoni</h4>
-                <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto leading-relaxed">
+                <h4 class="text-lg md:text-2xl font-black text-gray-800 mb-2 md:mb-3">Belum Ada Testimoni</h4>
+                <p class="text-gray-500 text-[13px] md:text-base max-w-md mx-auto leading-relaxed">
                   Kisah inspiratif, ulasan, dan pengalaman dari alumni maupun mitra SMK Senopati belum tersedia saat ini. Nantikan pembaruan dari kami!
                 </p>
               </div>
@@ -856,14 +871,14 @@
         </div>
 
         {{-- Navigasi --}}
-        <div class="flex justify-center gap-3 mt-4">
+        <div class="flex justify-center gap-2 md:gap-3 mt-4">
           <button
-            class="swiper-prev-custom w-10 h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
-            <i class="fa-solid fa-chevron-left text-sm font-bold"></i>
+            class="swiper-prev-custom w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
+            <i class="fa-solid fa-chevron-left text-xs md:text-sm font-bold"></i>
           </button>
           <button
-            class="swiper-next-custom w-10 h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
-            <i class="fa-solid fa-chevron-right text-sm font-bold"></i>
+            class="swiper-next-custom w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white border border-gray-200 text-gray-500 shadow-md hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center">
+            <i class="fa-solid fa-chevron-right text-xs md:text-sm font-bold"></i>
           </button>
         </div>
 
