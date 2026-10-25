@@ -100,9 +100,9 @@
             </div>
           </div>
 
-          {{-- KANAN: FORMULIR PESAN --}}
+          {{-- KANAN: Tampilan Peta Lokasi --}}
           <div class="lg:w-2/3" data-aos="fade-left">
-            <div class="rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-100 hover:grayscale transition-all duration-700" data-aos="zoom-in">
+            <div class="rounded-3xl overflow-hidden shadow-sm border border-gray-100 h-100 grayscale hover:grayscale-0 transition-all duration-700" data-aos="zoom-in">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.6261564661295!2d112.7625807!3d-7.395718899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e5bb37214749%3A0x3eb190ed23bd402b!2sSMK%20SENOPATI!5e0!3m2!1sid!2sid!4v1776143443492!5m2!1sid!2sid"
                 class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>

@@ -37,13 +37,12 @@
               ['title' => 'Agenda Kegiatan', 'url' => route('agenda')],
               ['title' => 'Berita', 'url' => route('berita')],
               ['title' => 'Galeri', 'url' => route('galeri')],
-              ['title' => 'Bursa Kerja (BKK)', 'url' => 'https://bkksmksenopati.blogspot.com/', 'target' => '_blank'],
-              ['title' => 'Hubungi Kami', 'url' => route('kontak')],
+              ['title' => 'Kontak', 'url' => route('kontak')],
           ],
       ],
       [
-          'title' => 'Virtual Tour',
-          'url' => 'https://virtualsekolah.id/tour/viewer/index.php?code=c9f0f895fb98ab9159f51fd0297e236d',
+          'title' => 'Bursa Kerja (BKK)',
+          'url' => 'https://bkksmksenopati.blogspot.com/',
           'children' => [],
           'target' => '_blank', // Opsi tambahan untuk link eksternal
       ],

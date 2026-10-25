@@ -80,53 +80,51 @@
 
             <div class="space-y-10">
 
+              {{-- Langkah 1: Hubungi / Datang --}}
               <div class="relative flex items-start gap-6 group" data-aos="fade-up">
                 <div
                   class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-orange-500 border-2 border-gray-50 shadow-[0_0_10px_2px_rgba(249,115,22,0.7),0_0_20px_6px_rgba(249,115,22,0.35)] flex items-center justify-center text-white text-xs font-black group-hover:scale-110 group-hover:shadow-[0_0_14px_3px_rgba(249,115,22,0.9),0_0_28px_10px_rgba(249,115,22,0.5)] transition-all duration-300">
                   1</div>
                 <div class="pt-0.5">
-                  <h3 class="text-lg font-black text-slate-900 mb-1">Pendaftaran Online</h3>
-                  <p class="text-gray-500 leading-relaxed">Calon peserta didik mengisi formulir pendaftaran secara online melalui website resmi sekolah dan mengunggah berkas yang dibutuhkan.</p>
+                  <h3 class="text-lg font-black text-slate-900 mb-1">Datang Langsung / Hubungi Panitia</h3>
+                  <p class="text-gray-500 leading-relaxed">Calon peserta didik atau orang tua/wali dapat datang langsung ke sekretariat pendaftaran SMK Senopati atau menghubungi admin melalui WhatsApp
+                    untuk informasi awal.</p>
                 </div>
               </div>
 
+              {{-- Langkah 2: Formulir --}}
               <div class="relative flex items-start gap-6 group" data-aos="fade-up">
                 <div
                   class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-orange-500 border-2 border-gray-50 shadow-[0_0_10px_2px_rgba(249,115,22,0.7),0_0_20px_6px_rgba(249,115,22,0.35)] flex items-center justify-center text-white text-xs font-black group-hover:scale-110 group-hover:shadow-[0_0_14px_3px_rgba(249,115,22,0.9),0_0_28px_10px_rgba(249,115,22,0.5)] transition-all duration-300">
                   2</div>
                 <div class="pt-0.5">
-                  <h3 class="text-lg font-black text-slate-900 mb-1">Verifikasi Berkas</h3>
-                  <p class="text-gray-500 leading-relaxed">Panitia memeriksa kelengkapan dan keabsahan dokumen yang telah diunggah oleh calon peserta didik.</p>
+                  <h3 class="text-lg font-black text-slate-900 mb-1">Pengisian Formulir & Penyerahan Berkas</h3>
+                  <p class="text-gray-500 leading-relaxed">Mengambil dan mengisi formulir pendaftaran secara langsung, serta menyerahkan kelengkapan dokumen atau berkas persyaratan yang dibutuhkan
+                    panitia.</p>
                 </div>
               </div>
 
+              {{-- Langkah 3: Verifikasi --}}
               <div class="relative flex items-start gap-6 group" data-aos="fade-up">
                 <div
                   class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-orange-500 border-2 border-gray-50 shadow-[0_0_10px_2px_rgba(249,115,22,0.7),0_0_20px_6px_rgba(249,115,22,0.35)] flex items-center justify-center text-white text-xs font-black group-hover:scale-110 group-hover:shadow-[0_0_14px_3px_rgba(249,115,22,0.9),0_0_28px_10px_rgba(249,115,22,0.5)] transition-all duration-300">
                   3</div>
                 <div class="pt-0.5">
-                  <h3 class="text-lg font-black text-slate-900 mb-1">Tes Seleksi</h3>
-                  <p class="text-gray-500 leading-relaxed">Peserta yang berkasnya dinyatakan lengkap mengikuti tes seleksi sesuai jadwal yang telah ditentukan sekolah.</p>
+                  <h3 class="text-lg font-black text-slate-900 mb-1">Verifikasi Tanpa Tes</h3>
+                  <p class="text-gray-500 leading-relaxed">Panitia akan melakukan pengecekan keabsahan dan kelengkapan dokumen. Tidak ada tes seleksi akademik, penerimaan dilakukan selama kuota masih
+                    tersedia.</p>
                 </div>
               </div>
 
+              {{-- Langkah 4: Administrasi --}}
               <div class="relative flex items-start gap-6 group" data-aos="fade-up">
                 <div
                   class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-orange-500 border-2 border-gray-50 shadow-[0_0_10px_2px_rgba(249,115,22,0.7),0_0_20px_6px_rgba(249,115,22,0.35)] flex items-center justify-center text-white text-xs font-black group-hover:scale-110 group-hover:shadow-[0_0_14px_3px_rgba(249,115,22,0.9),0_0_28px_10px_rgba(249,115,22,0.5)] transition-all duration-300">
                   4</div>
                 <div class="pt-0.5">
-                  <h3 class="text-lg font-black text-slate-900 mb-1">Pengumuman Kelulusan</h3>
-                  <p class="text-gray-500 leading-relaxed">Hasil seleksi diumumkan melalui website sekolah dan dapat dicek langsung menggunakan nomor pendaftaran.</p>
-                </div>
-              </div>
-
-              <div class="relative flex items-start gap-6 group" data-aos="fade-up">
-                <div
-                  class="relative z-10 shrink-0 w-8 h-8 rounded-full bg-orange-500 border-2 border-gray-50 shadow-[0_0_10px_2px_rgba(249,115,22,0.7),0_0_20px_6px_rgba(249,115,22,0.35)] flex items-center justify-center text-white text-xs font-black group-hover:scale-110 group-hover:shadow-[0_0_14px_3px_rgba(249,115,22,0.9),0_0_28px_10px_rgba(249,115,22,0.5)] transition-all duration-300">
-                  5</div>
-                <div class="pt-0.5">
-                  <h3 class="text-lg font-black text-slate-900 mb-1">Daftar Ulang</h3>
-                  <p class="text-gray-500 leading-relaxed">Peserta yang dinyatakan lulus melakukan daftar ulang sesuai jadwal untuk resmi menjadi siswa SMK Senopati.</p>
+                  <h3 class="text-lg font-black text-slate-900 mb-1">Penyelesaian Administrasi</h3>
+                  <p class="text-gray-500 leading-relaxed">Setelah berkas dinyatakan lengkap, calon siswa menyelesaikan administrasi daftar ulang dan resmi terdaftar sebagai peserta didik baru di SMK
+                    Senopati.</p>
                 </div>
               </div>
 

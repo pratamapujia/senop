@@ -13,7 +13,6 @@ class LandingPageController extends Controller
     public function index()
     {
         $agenda = Agenda::where('tanggal', '>=', now()->toDateString())
-            ->where('tanggal', '<=', now()->endOfMonth()->toDateString()) // Batasi hanya sampai akhir bulan ini
             ->orderBy('tanggal', 'asc')
             ->take(6)
             ->get();

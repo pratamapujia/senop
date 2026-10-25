@@ -199,10 +199,6 @@
 
             {{-- Badge "Pesan Pimpinan" --}}
             <div class="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-6 md:mb-8">
-              <div class="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-primary"></span>
-              </div>
               <span class="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest">Pesan Pimpinan</span>
             </div>
 

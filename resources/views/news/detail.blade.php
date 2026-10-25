@@ -79,7 +79,7 @@
         </span>
         <span class="flex items-center gap-2">
           <i class="bi bi-person-circle text-cyan-400"></i>
-          {{ $berita->author->name }}
+          Jurnalist
         </span>
         <span class="flex items-center gap-2">
           <i class="bi bi-tag-fill text-cyan-400"></i>

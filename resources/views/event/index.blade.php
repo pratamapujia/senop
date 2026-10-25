@@ -127,8 +127,8 @@
       </div>
 
       {{-- PAGINATION --}}
-      <div class="mt-16 flex justify-center relative z-20">
-        {{ $agenda->links('pagination::tailwind') }}
+      <div class="mt-12">
+        {{ $agenda->links('layouts.pagination') }}
       </div>
 
     </div>

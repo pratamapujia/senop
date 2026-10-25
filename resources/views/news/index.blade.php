@@ -60,8 +60,6 @@
             {{-- LOOPING DATA --}}
             @forelse($berita as $item)
               {{-- Card Berita --}}
-              {{-- @for ($i = 0; $i < 18; $i++) --}}
-              {{-- Contoh Loop Dummy --}}
               <article
                 class="bg-white rounded-4xl border border-gray-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col overflow-hidden group h-full"
                 data-aos="fade-up">
@@ -81,7 +79,7 @@
                 <div class="p-5 flex flex-col flex-1">
                   <div class="flex items-center gap-3 text-[11px] text-gray-500 mb-3 font-medium">
                     <div class="flex items-center gap-1"><i class="bi bi-calendar3 text-accent"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
-                    <div class="flex items-center gap-1"><i class="bi bi-person text-accent"></i> {{ $item->author->name }}</div>
+                    <div class="flex items-center gap-1"><i class="bi bi-person text-accent"></i> Jurnalist</div>
                   </div>
 
                   <h3 class="text-lg font-bold text-header mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">

@@ -152,7 +152,6 @@
                         <th>Kategori</th>
                         <th>Status</th>
                         <th>Tanggal</th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -170,11 +169,6 @@
                             @endif
                           </td>
                           <td>{{ $item->created_at->format('d M Y') }}</td>
-                          <td>
-                            <a href="{{ route('dm-berita.edit', $item->id) }}" class="btn btn-sm btn-icon">
-                              <i class="fas fa-pen-to-square"></i>
-                            </a>
-                          </td>
                         </tr>
                       @endforeach
                     </tbody>

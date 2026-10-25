@@ -126,7 +126,7 @@ class AgendaController extends Controller
 
     public function agendaLanding()
     {
-        $agenda = Agenda::orderBy('tanggal', 'asc')->paginate(6);
+        $agenda = Agenda::orderBy('tanggal', 'desc')->paginate(6);
         return view('event.index', compact('agenda'));
     }
 }
