@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Detail Berita</title>
+@section('title', 'Detail Berita - ' . $berita->judul)
+@section('meta_description', strip_tags($berita->konten))
+
+@section('main')
   <style>
     /* Mengamankan gambar & iframe (video) dari Quill */
     .article-body img,
@@ -32,9 +34,7 @@
       text-align: justify;
     }
   </style>
-@endsection
 
-@section('main')
   {{-- HERO SECTION (Custom Title) --}}
   <section class="relative -mt-32 pt-48 pb-32 lg:pt-60 lg:pb-40 bg-[#0f172a] overflow-hidden">
 

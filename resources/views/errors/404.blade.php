@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Halaman Tidak Ditemukan - SMK Senopati</title>
-@endsection
+@section('title', '404 Halaman Tidak Ditemukan')
 
 @section('main')
   @include('errors.template', [

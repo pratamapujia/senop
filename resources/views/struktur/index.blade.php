@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Struktur Organisasi</title>
-@endsection
+@section('title', 'Struktur Organisasi SMK Senopati')
 
 @section('css')
   <style>

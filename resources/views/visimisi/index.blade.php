@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Visi dan Misi</title>
-@endsection
+@section('title', 'Visi & Misi SMK Senopati')
 
 @section('main')
   {{-- HERO SECTION --}}

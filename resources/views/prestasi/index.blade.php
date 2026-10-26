@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Prestasi</title>
-@endsection
+@section('title', 'Prestasi SMK Senopati')
+@section('meta_description', 'Lihat prestasi siswa SMK Senopati Sedati, baik akademik maupun non-akademik. Temukan informasi terbaru tentang pencapaian dan penghargaan yang diraih oleh siswa kami di
+  berbagai bidang.')
 
 @section('main')
   {{-- HERO SECTION --}}

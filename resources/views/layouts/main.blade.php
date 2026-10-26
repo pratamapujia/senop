@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="@yield('meta_description', 'SMK Senopati Sedati adalah sekolah menengah kejuruan yang berfokus pada pendidikan vokasi dan pengembangan keterampilan praktis untuk mempersiapkan siswa menghadapi dunia kerja. Dengan kurikulum yang relevan dan fasilitas modern, SMK Senopati Sedati berkomitmen untuk mencetak lulusan yang kompeten, kreatif, dan siap bersaing di era globalisasi.')">
+    <title>@yield('title', 'SMK Senopati Sedati')</title>
 
     {{-- Icon --}}
     {{-- 1. Favicon Standar (Untuk Browser Modern seperti Chrome, Firefox, Edge) --}}
@@ -20,7 +23,7 @@
     {{-- 4. Fallback Legacy (Untuk Browser Sangat Tua / IE) --}}
     <link rel="shortcut icon" href="{{ asset('assets/senop/favicon/favicon.ico') }}">
 
-    @yield('title')
+    {{-- @yield('title') --}}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

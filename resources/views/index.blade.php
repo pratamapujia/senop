@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>SMK Senopati</title>
-@endsection
-
 @section('main')
   <section id="hero" class="relative -mt-32 pt-48 pb-20 lg:pt-60 lg:pb-28 bg-gray-50 overflow-hidden">
 

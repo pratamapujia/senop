@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Sedang Pemeliharaan - SMK Senopati</title>
-@endsection
+@section('title', '503 Pemeliharaan Situs')
 
 @section('main')
   @include('errors.template', [

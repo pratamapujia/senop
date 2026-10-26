@@ -1,8 +1,7 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Berita</title>
-@endsection
+@section('title', 'Berita')
+@section('meta_description', 'Temukan informasi terkini, prestasi siswa, dan artikel edukatif seputar kegiatan di SMK Senopati.')
 
 @section('main')
   {{-- HERO SECTION --}}

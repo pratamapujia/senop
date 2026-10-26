@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Galeri</title>
-@endsection
+@section('title', 'Galeri SMK Senopati')
 
 @section('main')
   {{-- ================= HERO SECTION (TIDAK DIUBAH) ================= --}}

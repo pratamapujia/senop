@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>Jurusan {{ $jurusan->kode_jurusan }} - SMK Senopati</title>
+@section('title', $jurusan->nama_jurusan . ' - SMK Senopati')
+
+@section('main')
   <style>
     .foto-praktek-swiper .swiper-pagination {
       bottom: 16px;
@@ -22,9 +23,7 @@
       border-radius: 4px;
     }
   </style>
-@endsection
 
-@section('main')
   {{-- HERO SECTION DENGAN ELEMEN ADMINISTRASI --}}
   <section class="relative -mt-32 pt-48 pb-20 lg:pt-60 lg:pb-28 bg-[#0f172a] overflow-hidden">
     <div class="absolute inset-0 bg-linear-to-br from-slate-800 via-slate-900 to-emerald-900"></div>

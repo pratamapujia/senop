@@ -26,9 +26,6 @@
 
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons/bootstrap-icons.min.css') }}">
-
-    {{-- Senop css --}}
-    <link rel="stylesheet" href="{{ asset('assets/senop/admin-senop.css') }}">
   </head>
 
   <body class="bg-background font-sans text-header">

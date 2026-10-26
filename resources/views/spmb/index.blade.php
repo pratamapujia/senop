@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
-@section('title')
-  <title>SPMB</title>
-@endsection
+@section('title', 'SPMB SMK Senopati')
 
 @section('main')
   {{-- HERO SECTION --}}
