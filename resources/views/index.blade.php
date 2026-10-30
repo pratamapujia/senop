@@ -723,7 +723,7 @@
             <div class="p-5 md:p-6 flex flex-col flex-1">
               <div class="flex items-center gap-3 md:gap-4 text-[11px] md:text-xs text-gray-500 mb-2 md:mb-3 font-medium">
                 <div class="flex items-center gap-1"><i class="fa-regular fa-calendar text-blue-400"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
-                <div class="flex items-center gap-1"><i class="fa-regular fa-user text-blue-400"></i> {{ $item->author->name }}</div>
+                <div class="flex items-center gap-1"><i class="fa-regular fa-user text-blue-400"></i> Jurnalist</div>
               </div>
               <h3 class="text-lg md:text-xl font-bold text-header mb-2 md:mb-3 line-clamp-2 transition-colors">
                 <a href="{{ route('detail-berita', $item->slug) }}">{{ $item->judul }}</a>
