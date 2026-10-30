@@ -653,7 +653,7 @@
           {{-- Button More --}}
           @if ($agenda->count() >= 6)
             <div class="mt-6 md:mt-8">
-              <a href="#" class="inline-flex items-center text-[13px] md:text-sm font-bold text-primary hover:text-blue-800 transition-colors group">
+              <a href="{{ route('agenda') }}" class="inline-flex items-center text-[13px] md:text-sm font-bold text-primary hover:text-blue-800 transition-colors group">
                 Lihat Seluruh Agenda
                 <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-2"></i>
               </a>
